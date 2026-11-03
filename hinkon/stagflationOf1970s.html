@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：1970年代の2度にわたる石油危機（オイルショック）とスタグフレーション――ケインズ主義の終焉と新自由主義台頭の契機</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #9a3412 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.22) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(234, 88, 12, 0.35);
+      color: #fed7aa;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #c2410c;
+      color: #ffffff;
+      border-color: #fb923c;
+      box-shadow: 0 0 12px rgba(234, 88, 12, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* Mechanism Analyzer Tabs */
+    .mech-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .mech-btn {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .mech-btn:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .mech-btn.active {
+      border-color: var(--accent);
+      background: #fffbeb;
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
+    }
+
+    .mech-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.35rem;
+      background: #fde68a;
+      color: #b45309;
+    }
+
+    .mech-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .mech-desc-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">マクロ経済史・制度転換の分水嶺</span>
+      </div>
+      <h1>1970年代の2度にわたる石油危機とスタグフレーション：<br>ケインズ主義福祉国家の終焉と新自由主義レジーム台頭の歴史的起源</h1>
+      <p class="lead">
+        <strong>1970年代の2度にわたる石油危機（オイルショック）</strong>は、景気後退（Stagnation）と物価高騰（Inflation）が同時に襲いかかる<strong>スタグフレーション（Stagflation）</strong>を世界中に引き起こし、戦後の高度成長とケインズ型福祉国家を解体して「新自由主義」へと舵を切らせる最大の歴史的転換点となりました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Overview of the 2 Crises -->
+    <section>
+      <h2>⚡ 1. 第1次・第2次石油危機の発生原因と激変の構図</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        わずか数年の間に原油価格が1バレル約3ドルから40ドル近くへと十数倍に暴騰。安価で豊富な石油を燃料・原料として前提に築かれていた先進資本主義国の産業基盤は根底から揺さぶられました。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="grid-2">
+        <!-- 第1次 -->
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>🔥 第1次石油危機（1973年〜1974年）</span>
+          </div>
+          <p class="factor-desc">
+            <strong>【発生原因】</strong>1973年10月の第4次中東戦争を機に、OPEC（石油輸出国機構）およびOAPEC（アラブ石油輸出国機構）が原油価格の70%引き上げと親イスラエル国への供給削減・禁輸措置を発動。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-3" class="cite-tag">[3]</a><br>
+            <strong>【価格暴騰】</strong>アラビアンライト公示価格が1バレル2.59〜3.01ドルから、1974年1月には<strong>11.65ドルへと約4倍に急騰</strong>。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-7" class="cite-tag">[7]</a><br>
+            <strong>【日本の激震】</strong>1974年度の実質経済成長率が<strong>戦後初のマイナス成長（マイナス1.2%）</strong>を記録。卸売物価が約31%、消費者物価が約24%上昇する「狂乱物価」となり、トイレットペーパー買い占めなどの社会パニックが発生した。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-6" class="cite-tag">[6]</a><a href="#ref-9" class="cite-tag">[9]</a>
+          </p>
+        </div>
+
+        <!-- 第2次 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>⚡ 第2次石油危機（1978年〜1980年）</span>
+          </div>
+          <p class="factor-desc">
+            <strong>【発生原因】</strong>1978年末からのイラン革命（パーレビ王朝崩壊・イスラム共和国樹立）と、続く1980年のイラン・イラク戦争により、中東からの原油供給が再び大幅に激減。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-7" class="cite-tag">[7]</a><br>
+            <strong>【価格再暴騰】</strong>1バレル約13ドル近傍から<strong>30ドル台後半〜40ドル近傍へと約3倍に急騰</strong>。<br>
+            <strong>【日米の分岐】</strong>日本企業は第1次の教訓を生かして省エネルギー化・減量経営・加工組立型（小型車・エレクトロニクス）へのシフトを進めてマイナス成長を回避。一方、米国ではインフレが13%を超え、1979年に就任したポール・ボルカーFRB議長が政策金利を20%超へ引き上げる「ボルカー・ショック」を断行した。<a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Historical Timeline Simulator -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：危機と経済パラダイム転換のシミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、原油価格の暴騰、物価上昇率、経済成長率、そして経済思想がケインズ主義から新自由主義へと激変していく過程を確認できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 石油危機とスタグフレーション展開シミュレーター</div>
+            <div class="sim-subtitle">高度成長の終焉、狂乱物価、ボルカー・ショック、そして新自由主義の台頭へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn active" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1973〜74年</span>
+            第1次石油危機と「狂乱物価」
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1974〜77年</span>
+            賃金・物価スパイラルと政策の手詰まり
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜1978〜80年</span>
+            第2次石油危機と省エネ構造転換
+          </button>
+          <button class="phase-btn" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜1979年〜1980年代</span>
+            ボルカー・ショックと新自由主義台頭
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">原油価格（アラビアンライト／バレル）</div>
+            <div class="metric-value" id="m-oil" style="color: #fb923c;">約11.65ドル（約4倍急騰）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-oil" style="width: 30%; background-color: #ea580c;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">日本のインフレ率（消費者物価上昇率）</div>
+            <div class="metric-value" id="m-inf" style="color: #f43f5e;">約24.3%（狂乱物価）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-inf" style="width: 95%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">実質経済成長率（実質GNP／GDP）</div>
+            <div class="metric-value" id="m-gdp" style="color: #38bdf8;">マイナス1.2%（戦後初マイナス）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-gdp" style="width: 15%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 1：1973〜74年 ― 第1次石油危機と「狂乱物価」】</strong><br>
+          第4次中東戦争を契機にOPECが原油価格を4倍へ引き上げ。原油依存度の高い日本経済は未曾有のコストプッシュ・インフレに見舞われ、消費者物価は24%超、卸売物価は31%超という「狂乱物価」へ突入。実質経済成長率は戦後初めてマイナスに沈み、戦後約20年間続いた高度経済成長は唐突に終焉を告げました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[1]</a><a href="#ref-9" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[9]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 3 Mechanisms of Stagflation -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ解剖：なぜ「不況下の物価高（スタグフレーション）」が起きたのか？</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        通常の景気循環では「不況期には需要が冷え込み物価は下がる」はずでした。なぜ同時に不況と物価高が固定化したのか、その3大メカニズムを検証します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+      </p>
+
+      <div class="mech-tabs">
+        <div class="mech-btn active" id="mbtn-1" onclick="selectMech(1)">
+          <span class="mech-badge">要因①</span>
+          <div class="mech-title">📉 負の供給ショック</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">コストプッシュの激発</div>
+        </div>
+        <div class="mech-btn" id="mbtn-2" onclick="selectMech(2)">
+          <span class="mech-badge">要因②</span>
+          <div class="mech-title">💸 国富流出と需要収縮</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">実質購買力の蒸発</div>
+        </div>
+        <div class="mech-btn" id="mbtn-3" onclick="selectMech(3)">
+          <span class="mech-badge">要因③</span>
+          <div class="mech-title">🔄 賃金・物価スパイラル</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">春闘32.9%賃上げの余波</div>
+        </div>
+        <div class="mech-btn" id="mbtn-4" onclick="selectMech(4)">
+          <span class="mech-badge">要因④</span>
+          <div class="mech-title">❌ ケインズ主義の挫折</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">総需要管理の手詰まり</div>
+        </div>
+      </div>
+
+      <div class="mech-desc-box" id="mech-detail">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Transition to Neoliberalism -->
+    <section>
+      <h2>🏛️ 4. 本書（『現代貧困の解体新書』）が読み解く意味：新自由主義レジームへの転換</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        1970年代のスタグフレーションは、単なる一時的なエネルギーショックにとどまらず、第二次世界大戦後の政治経済システム（SSA：社会的蓄積構造）を根底から転換させる決定打となりました。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>📉 フィリップス曲線の崩壊</span>
+          </div>
+          <p class="factor-desc">
+            「失業率とインフレ率はトレードオフである」というケインズ経済学の前提が破綻。政府が財政・金融出動で雇用を守ろうとすればインフレが激化し、引き締めれば失業が増大するという政策的袋小路に直面しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🦅 ボルカー・ショックの衝撃</span>
+          </div>
+          <p class="factor-desc">
+            1979年、米FRB議長ポール・ボルカーはインフレ退治のため金利を20%超へ引き上げ。製造業の倒産や途上国債務危機を顧みず「通貨の信認」を最優先したこの荒療治が、金融資本主導のグローバル秩序の幕開けとなりました。<a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>✂️ 「小さな政府」と福祉削減</span>
+          </div>
+          <p class="factor-desc">
+            英サッチャー、米レーガン、そして日本の中曽根行革（土光臨調）へ。「福祉国家の過剰な公的支出と強い労働組合こそがスタグフレーションの元凶だ」という言説が支配的となり、民営化・規制緩和・労働市場の柔軟化（新自由主義）が全面展開されました。<a href="#ref-1" class="cite-tag">[1]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">⚠️ なぜスタグフレーションが現代の「生活苦・格差」に直結しているのか？</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          1970年代のスタグフレーションを理由に断行された「労働組合の弱体化」「福祉予算の抑制」「人件費のコストカット（非正規化）」「金融市場の規制緩和」こそが、本書第1巻が解明する「労働分配率の長期低下」と「富の金融化・トリクルアップ」を生み出した大元の制度設計図です。真面目に働いても報われない現代の分配不全は、この1970年代の危機に対する新自由主義的処方箋の直接の帰結なのです。
+        </p>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">比較項目</th>
+              <th style="width: 38%;">戦後ケインズ主義レジーム（〜1970年代初頭）</th>
+              <th style="width: 37%;">新自由主義レジーム（1980年代〜現在）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>国家の最優先目標</strong></td>
+              <td><strong>完全雇用の維持</strong>、所得再分配、社会保障の充実。</td>
+              <td><strong>物価の安定（インフレ抑制）</strong>、小さな政府、財政健全化。</td>
+            </tr>
+            <tr>
+              <td><strong>労使関係・賃金決定</strong></td>
+              <td>強い労働組合、ベースアップ、生産性向上に見合った賃上げ。</td>
+              <td>労働市場の柔軟化、非正規雇用の拡大、人件費の「変動費化」。</td>
+            </tr>
+            <tr>
+              <td><strong>金融・資本市場</strong></td>
+              <td>厳しい資本移動規制、金利上限規制（レギュレーションQ等）。</td>
+              <td>金融自由化、OTCデリバティブ膨張、株主至上主義（ROE最大化）。</td>
+            </tr>
+            <tr>
+              <td><strong>分配構造の帰結</strong></td>
+              <td>「一億総中流」意識の形成、所得格差の縮小。</td>
+              <td>労働分配率の低下、富の集中、ワーキングプアの定着。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公的白書、日銀史料、エネルギー便覧、経済研究機関レポートの一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www5.cao.go.jp/keizai3/sekaikeizaiwp/wp-we80/wp-we80-00200.html" target="_blank" rel="noopener noreferrer" class="ref-link">内閣府『世界経済白書（昭和55年版）』第2章「石油危機とスタグフレーションの克服」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.invesco.com/jp/ja/insights/global-view/global-view-2022-aug-10.html" target="_blank" rel="noopener noreferrer" class="ref-link">インベスコ・アセット・マネジメント「1970年代のインフレショックとボルカー・ショックの教訓」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.toyota.co.jp/jpn/company/history/75years/text/entering_the_automotive_business/chapter2/section4/item1.html" target="_blank" rel="noopener noreferrer" class="ref-link">トヨタ自動車75年史「第1次石油危機の衝撃と生産・販売の減量経営」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.eneos.co.jp/binran/document/part01/chapter02/section06.html" target="_blank" rel="noopener noreferrer" class="ref-link">ENEOSエネルギー便覧「第1部第2章第6節：2度にわたる石油危機と原油価格の推移」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.youtube.com/watch?v=NPO5yK4Vzgo&t=156" target="_blank" rel="noopener noreferrer" class="ref-link">映像史料：1973年オイルショックとトイレットペーパー騒動（YouTubeアーカイブ）</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.youtube.com/watch?v=yQ7q3FEKG1g&t=7" target="_blank" rel="noopener noreferrer" class="ref-link">映像史料：狂乱物価下の市民生活と節電運動（YouTubeアーカイブ）</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「オイルショック（石油危機）」</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://www.jcer.or.jp/j-column/column-saito/2026051.html" target="_blank" rel="noopener noreferrer" class="ref-link">日本経済研究センター「1970年代の賃金物価スパイラルと経済整合性原則の定着」</a>
+        </li>
+        <li class="ref-item" id="ref-9">
+          <span class="ref-num">[9]</span>
+          <a href="https://www.boj.or.jp/about/outline/history/hyakunen/data/hyaku6_6_2_1.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">日本銀行百年史「第6巻第6章：第1次石油危機下における金融引締めと物価安定化」</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 1970年代の2度にわたる石油危機とスタグフレーション</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: Interactive Timeline Simulator Logic
+       ========================================================== */
+    const phases = [
+      {
+        oilText: "約11.65ドル（約4倍急騰）",
+        oilWidth: "30%",
+        oilColor: "#ea580c",
+        infText: "約24.3%（狂乱物価）",
+        infWidth: "95%",
+        infColor: "#f43f5e",
+        gdpText: "マイナス1.2%（戦後初マイナス）",
+        gdpWidth: "15%",
+        gdpColor: "#38bdf8",
+        desc: "<strong>【Phase 1：1973〜74年 ― 第1次石油危機と「狂乱物価」】</strong><br>第4次中東戦争を契機にOPECが原油価格を4倍へ引き上げ。原油依存度の高い日本経済は未曾有のコストプッシュ・インフレに見舞われ、消費者物価は24%超、卸売物価は31%超という「狂乱物価」へ突入。実質経済成長率は戦後初めてマイナスに沈み、戦後約20年間続いた高度経済成長は唐突に終焉を告げました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-9' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[9]</a>"
+      },
+      {
+        oilText: "約11〜13ドル（高止まり）",
+        oilWidth: "35%",
+        oilColor: "#ea580c",
+        infText: "約10〜15%（持続的インフレ）",
+        infWidth: "60%",
+        infColor: "#f59e0b",
+        gdpText: "約3〜4%（低成長への移行）",
+        gdpWidth: "40%",
+        gdpColor: "#38bdf8",
+        desc: "<strong>【Phase 2：1974〜77年 ― 賃金・物価スパイラルと政策の手詰まり】</strong><br>1974年の春闘では物価高に対抗して32.9%という驚異的な賃上げが獲得されました。しかし、これが製品価格へ再転嫁される「賃金・物価スパイラル」を招き、インフレが長期化。従来のケインズ主義的な総需要管理政策（公共事業や利下げ）はインフレをさらに悪化させるため打つ手を失い、政策的ジレンマが世界を覆いました。<a href='#ref-8' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[8]</a>"
+      },
+      {
+        oilText: "約30〜40ドル近傍（3倍再急騰）",
+        oilWidth: "90%",
+        oilColor: "#dc2626",
+        infText: "約7〜8%（第1次より抑制）",
+        infWidth: "40%",
+        infColor: "#f59e0b",
+        gdpText: "約4〜5%（安定成長維持）",
+        gdpWidth: "50%",
+        gdpColor: "#10b981",
+        desc: "<strong>【Phase 3：1978〜80年 ― 第2次石油危機と省エネ構造転換】</strong><br>イラン革命を機に原油価格は再急騰。しかし日本経済は「省エネ設備投資」「減量経営（人件費抑制）」「低燃費小型車やエレクトロニクスへの産業シフト」に成功し、欧米諸国が軒並み深刻なスタグフレーションに沈む中で、比較的軽微な打撃で切り抜ける『奇跡の優等生』と称賛されました。<a href='#ref-3' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[3]</a>"
+      },
+      {
+        oilText: "乱高下から1986年急落（逆オイルショック）",
+        oilWidth: "50%",
+        oilColor: "#ca8a04",
+        infText: "急低下（ディスインフレ定着）",
+        infWidth: "20%",
+        infColor: "#10b981",
+        gdpText: "金融主導のバブル経済へ",
+        gdpWidth: "70%",
+        gdpColor: "#38bdf8",
+        desc: "<strong>【Phase 4：1979年〜1980年代 ― ボルカー・ショックと新自由主義の台頭】</strong><br>米FRBのボルカー議長は金利を20%超へ引き上げ、失業急増を代償にインフレを力づくで鎮圧。この成功を背景に「インフレ抑制最優先」「小さな政府」「労働規制緩和」を掲げるサッチャー・レーガン・中曽根の『新自由主義レジーム』が世界を席巻し、現代の格差社会へと繋がるレールが敷かれました。<a href='#ref-2' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[2]</a>"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-oil').textContent = p.oilText;
+      const bOil = document.getElementById('b-oil');
+      bOil.style.width = p.oilWidth;
+      bOil.style.backgroundColor = p.oilColor;
+
+      document.getElementById('m-inf').textContent = p.infText;
+      const bInf = document.getElementById('b-inf');
+      bInf.style.width = p.infWidth;
+      bInf.style.backgroundColor = p.infColor;
+
+      document.getElementById('m-gdp').textContent = p.gdpText;
+      const bGdp = document.getElementById('b-gdp');
+      bGdp.style.width = p.gdpWidth;
+      bGdp.style.backgroundColor = p.gdpColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+
+    /* ==========================================================
+       Feature 2: Mechanism Breakdown Logic
+       ========================================================== */
+    const mechData = {
+      1: {
+        badge: "供給ショック",
+        title: "① 負の供給ショック（コストプッシュ・インフレ）の激発",
+        desc: `
+          原油は単なる暖房やガソリンの燃料にとどまらず、プラスチック、化学肥料、電力、輸送用燃料など現代工業社会のあらゆる生産基盤の原料です。<br><br>
+          原油価格が4倍・10倍に跳ね上がったことで、企業の製造・輸送コストが一斉に跳ね上がり、需要の強弱とは無関係に最終製品価格へ転嫁せざるを得なくなりました。マクロ経済学的には、<strong>総供給（AS）曲線が左上方へ急激にシフトした状態</strong>であり、これが「生産の減少（不況）」と「物価の上昇」を同時に引き起こす直接の引き金となりました。
+        `
+      },
+      2: {
+        badge: "需要収縮",
+        title: "② 巨額の国富流出（交易条件悪化）と実質所得の蒸発",
+        desc: `
+          日本のようなエネルギー自給率が極めて低い輸入国では、原油高騰は「産油国への莫大な所得移転（国富の流出）」を意味しました。<br><br>
+          国内の家計や企業は、同じ量のガソリンや電力を買うためにより多くのお金を支払わなければならず、手元に残る実質購買力が大幅に削り取られました。その結果、日常消費の買い控えや企業の新規設備投資の中止が相次ぎ、経済全体が深刻な「有効需要の蒸発（スタグネーション）」へと沈んでいったのです。
+        `
+      },
+      3: {
+        badge: "悪循環",
+        title: "③ 賃金と物価のスパイラル（Wage-Price Spiral）",
+        desc: `
+          日用品や食料品が20〜30%も値上がりする中で、労働者の生活を防衛するため、1974年の春闘では労働組合が歴史的な「32.9%の大幅賃上げ」を勝ち取りました。<br><br>
+          しかし、労働生産性の向上を伴わない人件費の急増は、企業にとってさらなる製造原価の押し上げ要因となり、企業は賃上げ分を製品価格に再転嫁せざるを得ませんでした。「物価上昇 → 賃上げ → さらなる物価上昇」という悪循環が定着し、インフレ心理が社会全体に固定化されました。
+        `
+      },
+      4: {
+        badge: "理論の挫折",
+        title: "④ ケインズ主義的総需要管理政策の完全な手詰まり",
+        desc: `
+          戦後の資本主義を支えていたケインズ経済学は、「不況のときは財政出動と利下げで需要を刺激すれば完全雇用を回復できる」と説いていました。<br><br>
+          しかしスタグフレーション下で財政出動や金融緩和を行えば、原油高で過熱するインフレの火に油を注ぐことになり、逆に金融を引き締めれば不況と失業がさらに悪化するという「完全な政策的ジレンマ（手詰まり）」に直面しました。この政策的挫折が、「政府の介入は有害である」と主張するハイエクやフリードマンら新自由主義者の発言力を決定的に強めることになったのです。
+        `
+      }
+    };
+
+    function selectMech(idx) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById('mbtn-' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+      const data = mechData[idx];
+      const detailBox = document.getElementById('mech-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: #fde68a; color: #b45309; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Mechanism 1
+    selectMech(1);
+  </script>
+</body>
+</html>
