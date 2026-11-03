@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：第二次臨時行政調査会（土光臨調）――「増税なき財政再建」と日本型新自由主義の始動</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(59, 130, 246, 0.35);
+      color: #bfdbfe;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #1e3a8a;
+      color: #ffffff;
+      border-color: #60a5fa;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* 3 Pillars Package Analyzer */
+    .package-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pkg-btn {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.15rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .pkg-btn:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .pkg-btn.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+    }
+
+    .pkg-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.35rem;
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .pkg-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .pkg-desc-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">行政改革・新自由主義の第1段階</span>
+      </div>
+      <h1>第二次臨時行政調査会（土光臨調）：<br>「増税なき財政再建」を掲げた三公社民営化と日本型新自由主義の始動</h1>
+      <p class="lead">
+        <strong>第二次臨時行政調査会（だいにじりんじぎょうせいちょうさかい）</strong>は、1981年に発足した政府の諮問機関です。会長を務めた土光敏夫（元経団連会長）の名から<strong>「土光臨調」</strong>と呼ばれ、英サッチャー・米レーガンに呼応して「増税なき財政再建」「小さな政府」路線を敷き、日本における新自由主義改革の突破口を開きました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a><a href="#ref-3" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[3]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Overview & Background -->
+    <section>
+      <h2>📋 1. 土光臨調の発足背景と「増税なき財政再建」のカラクリ</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        1970年代の2度の石油危機を乗り切るため日本政府が大量発行した赤字国債により、財政赤字は危機的水準へと膨張していました。1979年の一般消費税導入の挫折を受け、鈴木善幸内閣と中曽根康弘行政管理庁長官が「歳出削減による財政再建」を掲げて設置したのが第二次臨調です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>① 発足とリーダーシップ</span>
+          </div>
+          <p class="factor-desc">
+            1981年3月発足。総理府に設置され、石川島播磨重工・東芝を再建した土光敏夫（経団連名誉会長）が就任。「メザシの土光」という質素倹約のイメージがメディアを通じて国民的人気を獲得しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>② 「増税なき財政再建」の合言葉</span>
+          </div>
+          <p class="factor-desc">
+            国民に増税（負担）を求める前に、まず行政機構の無駄を徹底して削ぎ落とすという方針。国の予算概算要求に一律マイナスを強いる「ゼロ・シーリング／マイナス・シーリング」が定着しました。<a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>③ 5次にわたる答申と行革審</span>
+          </div>
+          <p class="factor-desc">
+            1983年の解散までに計5次の答申を提出。三公社民営化や規制緩和を明記。解散後は「臨時行政改革推進審議会（行革審）」へと引き継がれ、中曽根内閣のもとで実行に移されました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Historical Timeline Simulator -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：土光臨調から小泉改革へ至る「行革40年」シミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、土光臨調の始動から三公社民営化、バブル崩壊後の橋本行革、そして小泉構造改革へと至る「新自由主義の制度展開」の歴史を確認できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 日本の新自由主義行政改革・変遷シミュレーター</div>
+            <div class="sim-subtitle">土光臨調のゼロシーリングから、国鉄分割民営化、派遣解禁、郵政民営化へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn active" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1981〜83年</span>
+            土光臨調の発足と5次答申
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1985〜87年</span>
+            三公社民営化と労働者派遣法
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜1990年代後半</span>
+            橋本行革と財政構造改革
+          </button>
+          <button class="phase-btn" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜2000年代〜</span>
+            小泉構造改革と新自由主義の全面化
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">公的インフラ・企業の民営化度</div>
+            <div class="metric-value" id="m-priv" style="color: #38bdf8;">着手（国鉄・電電・専売の分割方針）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-priv" style="width: 25%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">社会保障の「受益者負担（公助縮小）」度</div>
+            <div class="metric-value" id="m-ben" style="color: #f59e0b;">導入（老人保健法・自己負担化）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-ben" style="width: 30%; background-color: #f59e0b;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">労働運動の対抗力・交渉力</div>
+            <div class="metric-value" id="m-lab" style="color: #f43f5e;">衰退の始まり（総評・国労解体の標的）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-lab" style="width: 70%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 1：1981〜83年 ― 土光臨調の発足と5次答申】</strong><br>
+          鈴木善幸内閣のもとで土光敏夫を会長として発足。歳出削減を至上命題とし、一律予算抑制（ゼロ・シーリング）を導入。第3次基本答申（1982年）で国鉄・電電・専売の「三公社民営化」を提言し、老人医療無料化の見直しなど社会保障の効率化を打ち出しました。これが日本における新自由主義の公式な幕開けとなりました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[1]</a><a href="#ref-4" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[4]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 3 Pillars Package Breakdown -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ分析②：土光臨調が打ち出した「3大改革パッケージ」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        土光臨調が提示した施策は、単なる行政手続きの見直しにとどまらず、公的セクター、社会保障、そして労働市場のルールを根底から作り変えました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="package-tabs">
+        <div class="pkg-btn active" id="pbtn-1" onclick="selectPackage(1)">
+          <span class="pkg-badge">改革の柱①</span>
+          <div class="pkg-title">🚆 三公社の民営化</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">国鉄・電電・専売の市場開放</div>
+        </div>
+        <div class="pkg-btn" id="pbtn-2" onclick="selectPackage(2)">
+          <span class="pkg-badge">改革の柱②</span>
+          <div class="pkg-title">🏥 社会保障の見直し</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">老人医療有料化と受益者負担</div>
+        </div>
+        <div class="pkg-btn" id="pbtn-3" onclick="selectPackage(3)">
+          <span class="pkg-badge">改革の柱③</span>
+          <div class="pkg-title">✂️ ゼロ・シーリングと規制緩和</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">公的投資圧縮と民間活力優先</div>
+        </div>
+      </div>
+
+      <div class="pkg-desc-box" id="pkg-detail">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Structural Consequences for Modern Poverty -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「現代の生活苦への伏線」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        土光臨調が切り拓いた「日本型新自由主義」は、当時としては財政赤字の抑制という大義名分を持ちながらも、現代の格差社会とワーキングプアを生み出す決定的な布石となりました。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>💥 労働組合運動の弱体化</span>
+          </div>
+          <p class="factor-desc">
+            国鉄分割民営化の真の狙いの一つは、戦闘的な官公労（国労等）の解体でした。これにより春闘の牽引役が失われ、のちの1985年労働者派遣法制定や、1990年代以降の人件費コストカットに対する労働側の防波堤が崩壊しました。<a href="#ref-1" class="cite-tag">[1]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🛡️ 「公助」の切り捨てと家族依存</span>
+          </div>
+          <p class="factor-desc">
+            「受益者負担」の導入により、社会保障の費用を国ではなく個人・世帯へと押し戻しました。これにより公的セーフティネットの拡充がストップし、家族（専業主婦）と企業福祉への過度な依存が固定化されました。<a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🏗️ 「民営化・市場化」の不可逆化</span>
+          </div>
+          <p class="factor-desc">
+            本来は公共財であるべき交通・通信・医療・福祉などのコモンズを「市場競争」へと開放。ハーヴェイが論じた「収奪による蓄積」の先駆けとなり、地方路線の切り捨てや公共料金の実質負担増を招きました。<a href="#ref-1" class="cite-tag">[1]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">📌 第1段階（1980年代）の総括：小泉改革へと続く新自由主義のレール</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          本書第1章で検証するように、日本の制度解体は2000年代の小泉改革である日突然起きたのではありません。1980年代の土光臨調によって「増税なき財政再建（公助削減）」「民営化と規制緩和」「労働市場の柔軟化」という基本OSがインストールされたからこそ、その後の非正規雇用の爆発的拡大と中間層の下方融解が可能になったのです。
+        </p>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">改革領域</th>
+              <th style="width: 38%;">土光臨調の施策・スローガン</th>
+              <th style="width: 37%;">現代社会に残された長期的影響</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>三公社民営化</strong></td>
+              <td>国鉄（JR）、電電公社（NTT）、専売公社（JT）の民営化。<a href="#ref-1" class="cite-tag">[1]</a></td>
+              <td>公共サービスの採算至上主義化、地方の過疎化、労働組合の交渉力喪失。</td>
+            </tr>
+            <tr>
+              <td><strong>社会保障</strong></td>
+              <td>老人医療無料化の廃止（老人保健法）、医療費本人1割負担導入。<a href="#ref-4" class="cite-tag">[4]</a></td>
+              <td>国民負担率の上昇、受診控えの常態化、自己責任型福祉への変質。</td>
+            </tr>
+            <tr>
+              <td><strong>労働法制</strong></td>
+              <td>規制緩和方針の一環としての1985年労働者派遣法制定。</td>
+              <td>派遣対象業務の段階的拡大を経て、現代の非正規比率4割社会へ直結。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公的記録、社会保障史料、百科事典の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%87%A8%E6%99%82%E8%A1%8C%E6%94%BF%E8%AA%BF%E6%9F%BF%E4%BC%9A" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「第二次臨時行政調査会（土光臨調の概要と答申経緯）」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.weblio.jp/content/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%87%A8%E6%99%82%E8%A1%8C%E6%94%BF%E8%AA%BF%E6%9F%BF%E4%BC%9A" target="_blank" rel="noopener noreferrer" class="ref-link">Weblio辞書「第二次臨時行政調査会（行政改革と三公社民営化）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://tanemura.la.coocan.jp/re3_index/9RW/ri_rinji_gyousei_chosakai.html" target="_blank" rel="noopener noreferrer" class="ref-link">行政改革の軌跡「臨時行政調査会の答申体系と財政再建構想」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.ipss.go.jp/publication/j/shiryou/no.13/data/kaidai/02.html" target="_blank" rel="noopener noreferrer" class="ref-link">国立社会保障・人口問題研究所「第2次臨調と社会保障構造改革の始動」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://kotobank.jp/word/%E5%9C%9F%E5%85%89%E8%87%A8%E8%AA%BF-679175" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「土光臨調（日本大百科全書ニッポニカ）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E8%87%A8%E6%99%82%E8%A1%8C%E6%94%BF%E6%94%B9%E9%9D%A9%E6%8E%A8%E9%80%B2%E5%AF%A9%E8%AD%B0%E4%BC%9A" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「臨時行政改革推進審議会（行革審の後継機能）」</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 第二次臨時行政調査会（土光臨調）の特徴と現代への影響</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: Historical Timeline Simulator Logic
+       ========================================================== */
+    const phases = [
+      {
+        privText: "着手（国鉄・電電・専売の分割方針）",
+        privWidth: "25%",
+        privColor: "#38bdf8",
+        benText: "導入（老人保健法・自己負担化）",
+        benWidth: "30%",
+        benColor: "#f59e0b",
+        labText: "衰退の始まり（総評・国労解体の標的）",
+        labWidth: "70%",
+        labColor: "#f43f5e",
+        desc: "<strong>【Phase 1：1981〜83年 ― 土光臨調の発足と5次答申】</strong><br>鈴木善幸内閣のもとで土光敏夫を会長として発足。歳出削減を至上命題とし、一律予算抑制（ゼロ・シーリング）を導入。第3次基本答申（1982年）で国鉄・電電・専売の「三公社民営化」を提言し、老人医療無料化の見直しなど社会保障の効率化を打ち出しました。これが日本における新自由主義の公式な幕開けとなりました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-4' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[4]</a>"
+      },
+      {
+        privText: "断行（NTT・JT・JRの相次ぐ民営化）",
+        privWidth: "60%",
+        privColor: "#38bdf8",
+        benText: "拡大（健保本人1割負担・年金改革）",
+        benWidth: "50%",
+        benColor: "#f59e0b",
+        labText: "総評解散・連合結成（労働運動の右傾化）",
+        labWidth: "45%",
+        labColor: "#f43f5e",
+        desc: "<strong>【Phase 2：1985〜87年 ― 三公社民営化と労働市場の柔軟化着手】</strong><br>中曽根康弘首相の強い政治主導により、1985年に電電公社がNTTへ、専売公社がJTへ民営化。1987年には最大の難関とされた国鉄がJR各社へ分割民営化されました。同時に1985年には労働者派遣法が制定され、従来禁止されていた労働者供給事業が解禁。国労など強硬派組合の壊滅を通じて、1989年の連合結成（総評解散）へと至る労働運動の歴史的変容が決定的となりました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a>"
+      },
+      {
+        privText: "加速（省庁再編・特殊法人見直し）",
+        privWidth: "75%",
+        privColor: "#10b981",
+        benText: "制度化（介護保険導入・財革法）",
+        benWidth: "70%",
+        benColor: "#f59e0b",
+        labText: "非正規雇用の本格拡大（就職氷河期）",
+        labWidth: "30%",
+        labColor: "#f43f5e",
+        desc: "<strong>【Phase 3：1990年代後半 ― 橋本行革と財政構造改革】</strong><br>バブル崩壊後の不良債権問題と景気後退の中で、橋本龍太郎内閣が「6大改革」を推進。中央省庁再編（1府12省庁）や財政構造改革法の制定、金融ビッグバン（金融自由化）が断行されました。1999年には労働者派遣法が原則自由化され、就職氷河期の若者たちが非正規雇用へ大量に流出する土壌が完成しました。"
+      },
+      {
+        privText: "極大化（郵政民営化・市場化テスト）",
+        privWidth: "95%",
+        privColor: "#10b981",
+        benText: "徹底（社会保障費年2200億円一律削減）",
+        benWidth: "90%",
+        benColor: "#f43f5e",
+        labText: "交渉力喪失（非正規比率4割・格差固定化）",
+        labWidth: "20%",
+        labColor: "#e11d48",
+        desc: "<strong>【Phase 4：2000年代〜 ― 小泉構造改革と新自由主義の全面化】</strong><br>小泉純一郎内閣のもとで「官から民へ」「地方へ」をスローガンに、道路公団民営化、郵政民営化、三位一体の改革、社会保障費の年2,200億円一律削減が断行されました。2004年には製造業への派遣が解禁され、土光臨調から始まった「小さな政府・市場化」路線が完成形に到達。その結果として、深刻なワーキングプアと貧困の世代間連鎖が定着しました。"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-priv').textContent = p.privText;
+      const bPriv = document.getElementById('b-priv');
+      bPriv.style.width = p.privWidth;
+      bPriv.style.backgroundColor = p.privColor;
+
+      document.getElementById('m-ben').textContent = p.benText;
+      const bBen = document.getElementById('b-ben');
+      bBen.style.width = p.benWidth;
+      bBen.style.backgroundColor = p.benColor;
+
+      document.getElementById('m-lab').textContent = p.labText;
+      const bLab = document.getElementById('b-lab');
+      bLab.style.width = p.labWidth;
+      bLab.style.backgroundColor = p.labColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+
+    /* ==========================================================
+       Feature 2: 3 Pillars Package Logic
+       ========================================================== */
+    const pkgData = {
+      1: {
+        badge: "公的インフラ市場化",
+        title: "① 三公社（国鉄・電電・専売）の分割・民営化",
+        desc: `
+          <strong>【当時の名分と施策】</strong><br>
+          国鉄の累積赤字解消、電信電話の通信自由化と国際競争力強化、たばこ専売制度の解体を掲げ、1985年に電電公社（NTT）と専売公社（JT）、1987年に国鉄（JR7社）が民営化されました。<br><br>
+          <strong>【深層の政治目的と長期的爪痕】</strong><br>
+          最大の狙いの一つは、官公労の牙城であった国鉄労働組合（国労）の解体でした。中曽根首相自身が後に「国鉄民営化で総評をつぶし、社会党の壊滅を狙った」と回顧した通り、戦後日本の賃上げをリードしてきた強力な労働組合運動が実質的に解体されました。この対抗勢力の消滅が、1990年代以降の急進的な労働市場規制緩和と実質賃金の低下に直結しました。<a href='#ref-1' class='cite-tag'>[1]</a>
+        `
+      },
+      2: {
+        badge: "受益者負担の導入",
+        title: "② 社会保障費の抑制と「受益者負担」の定着",
+        desc: `
+          <strong>【当時の名分と施策】</strong><br>
+          膨張する高齢者医療費を抑制するため、1973年に美濃部亮吉東京都政などで始まった「70歳以上の老人医療費無料化」を廃止（1982年老人保健法）。患者負担を復活させ、1984年には健康保険法改正で被保険者本人の1割自己負担を導入しました。<a href='#ref-4' class='cite-tag'>[4]</a><br><br>
+          <strong>【深層の政治目的と長期的爪痕】</strong><br>
+          公的医療・年金を「国家が保障する市民の権利」から、「受けた恩恵に応じて本人が支払うべき受益者負担」へと哲学を根本からすり替えました。この路線がその後の医療費窓口3割負担や介護保険の自己負担増へと引き継がれ、低所得層の受診控えや口腔崩壊という現代の健康格差を生み出す契機となりました。
+        `
+      },
+      3: {
+        badge: "小さな政府",
+        title: "③ ゼロ・シーリングと公的投資の圧縮",
+        desc: `
+          <strong>【当時の名分と施策】</strong><br>
+          「増税なき財政再建」の合言葉のもと、各省庁の予算概算要求基準に「ゼロ・シーリング（前年同額）」、さらには「マイナス・シーリング」を課し、公共事業費や教育・福祉予算の伸びを徹底して抑え込みました。<a href='#ref-3' class='cite-tag'>[3]</a><br><br>
+          <strong>【深層の政治目的と長期的爪痕】</strong><br>
+          公的支出を切り詰めた結果、公的保育所や公営住宅、大学への公財政支出の拡充がストップ。「公助」を縮小した分を、専業主婦の無償ケア（家族福祉）と、企業の終身雇用（企業内生活給）へと肩代わりさせました。この「公助の不在」が、バブル崩壊後に企業と家族が壊れた際に救済のない「制度的真空」をもたらす原因となったのです。
+        `
+      }
+    };
+
+    function selectPackage(idx) {
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById('pbtn-' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+      const data = pkgData[idx];
+      const detailBox = document.getElementById('pkg-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: #dbeafe; color: #1e40af; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Package 1
+    selectPackage(1);
+  </script>
+</body>
+</html>
