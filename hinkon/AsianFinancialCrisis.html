@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：アジア通貨危機（1997年）の構造と波及――日本経済「失われた30年」と雇用非正規化の転換点</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #881337 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(225, 29, 72, 0.24) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(225, 29, 72, 0.35);
+      color: #fecdd3;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #be123c;
+      color: #ffffff;
+      border-color: #fb7185;
+      box-shadow: 0 0 12px rgba(225, 29, 72, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* Mechanism Analyzer Tabs */
+    .mech-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .mech-btn {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .mech-btn:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .mech-btn.active {
+      border-color: var(--rose);
+      background: #fff1f2;
+      box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.25);
+    }
+
+    .mech-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.35rem;
+      background: #ffe4e6;
+      color: #be123c;
+    }
+
+    .mech-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .mech-desc-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--rose);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">国際金融危機・日本デフレ突入の契機</span>
+      </div>
+      <h1>アジア通貨危機（1997年）：<br>ホットマネーの暴走、IMF管理の過酷、そして日本経済「失われた30年」への転落点</h1>
+      <p class="lead">
+        <strong>1997年アジア通貨危機</strong>は、タイ・バーツの暴落を口火として東アジア・東南アジア諸国で連鎖的に発生した深刻な金融危機です。ヘッジファンドの空売りと急激な資本逃避（キャピタル・フライト）によりアジア経済は未曾有の破綻に直面し、日本国内でも山一證券破綻や名目GDPピークアウト（デフレ突入）、さらには<strong>「人件費コストカットと雇用非正規化」</strong>を決定づける歴史的分水嶺となりました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-4" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[4]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Crisis Overview & Mechanism -->
+    <section>
+      <h2>⚡ 1. アジア通貨危機の発端と危機の伝播構図</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        1990年代前半、「東アジアの奇跡」と称賛され急成長を遂げていた新興国市場（タイ、インドネシア、韓国等）に、なぜ突如として壊滅的な金融破綻が襲いかかったのか。その発端と背景を整理します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>① 発端：タイ・バーツのペッグ放棄</span>
+          </div>
+          <p class="factor-desc">
+            ヘッジファンド（ジョージ・ソロス等）によるバーツの巨額空売りに直面。タイ中銀は防戦買い支えで外貨準備を使い果たし、1997年7月2日にドルペッグ制（米ドル連動）を放棄。バーツは半値近くまで暴落しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>② 構造的病巣：過剰投機とドル高</span>
+          </div>
+          <p class="factor-desc">
+            固定相場の安心感に甘え、民間企業や銀行が「短期・低利の米ドル資金」を無防備に借り入れ、国内の不動産・株式バブルに投資。1995年以降の米ドル高で輸出競争力が低下し、バブル崩壊と経常赤字が直撃しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>③ 破滅的連鎖：アジアから世界へ</span>
+          </div>
+          <p class="factor-desc">
+            資本逃避はタイからフィリピン、マレーシア、インドネシア、そして韓国へ伝播（コンテイジョン）。1998年にはロシア金融危機と米大手ヘッジファンドLTCM破綻へと飛び火し、世界金融危機へと発展しました。<a href="#ref-5" class="cite-tag">[5]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Historical Timeline Simulator -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：危機の連鎖拡大と世界波及シミュレーター（1997〜99年）</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、タイ・バーツ急落から韓国IMF危機、日本国内の金融崩壊、そして世界的な金融市場動揺へと連鎖した危機のプロセスを追体験できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 アジア通貨危機・時系列連鎖シミュレーター</div>
+            <div class="sim-subtitle">バーツ急落、ルピア壊滅、韓国IMFショック、拓銀・山一破綻、そして新宮澤構想へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn active" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1997年7月〜</span>
+            タイ・バーツ急落とペッグ放棄
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1997年8〜10月</span>
+            東南アジア波及とインドネシアの崩壊
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜1997年11月〜</span>
+            韓国IMF危機と日本の金融機関連続破綻
+          </button>
+          <button class="phase-btn" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜1998年〜1999年</span>
+            世界金融危機と新宮澤構想・CMI
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">被災国通貨の下落率（対ドル）</div>
+            <div class="metric-value" id="m-cur" style="color: #f43f5e;">約50%急落（タイ・バーツ）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-cur" style="width: 50%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">短期資本逃避（キャピタル・フライト）</div>
+            <div class="metric-value" id="m-cap" style="color: #fb923c;">猛烈（外貨準備枯渇・返済不能）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-cap" style="width: 75%; background-color: #ea580c;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">実体経済・失業・社会不安への打撃</div>
+            <div class="metric-value" id="m-imp" style="color: #38bdf8;">高（建設・金融の破綻連鎖）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-imp" style="width: 60%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 1：1997年7月〜 ― タイ・バーツ急落とペッグ放棄】</strong><br>
+          米ドル高に伴う輸出不振と不動産バブルの破綻に目をつけたヘッジファンドがバーツを猛烈に空売り。タイ中央銀行は外貨準備を使い果たして防戦を断念し、7月2日に固定相場制を放棄。バーツは対ドルで暴落し、米ドル建て債務を抱えていたタイの金融機関や財閥企業が次々と債務不履行に陥りました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[1]</a><a href="#ref-3" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[3]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 4 Key Structural Mechanisms -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ解剖：通貨危機の深層病理と各国の明暗</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        なぜこれほど急激に危機が燃え広がったのか。通貨危機の構造的病理と、IMFの過酷な介入、そして各国の選択を解剖します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a><a href="#ref-8" class="cite-tag">[8]</a>
+      </p>
+
+      <div class="mech-tabs">
+        <div class="mech-btn active" id="mbtn-1" onclick="selectMech(1)">
+          <span class="mech-badge">病理①</span>
+          <div class="mech-title">🏦 二重のミスマッチ</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">通貨と期間の致命的乖離</div>
+        </div>
+        <div class="mech-btn" id="mbtn-2" onclick="selectMech(2)">
+          <span class="mech-badge">病理②</span>
+          <div class="mech-title">📉 IMF緊縮の猛毒</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">超高金利による倒産連鎖</div>
+        </div>
+        <div class="mech-btn" id="mbtn-3" onclick="selectMech(3)">
+          <span class="mech-badge">対照③</span>
+          <div class="mech-title">🛡️ マレーシアの独自路線</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">IMF拒否と資本規制</div>
+        </div>
+        <div class="mech-btn" id="mbtn-4" onclick="selectMech(4)">
+          <span class="mech-badge">激震④</span>
+          <div class="mech-title">🇯🇵 日本の1997年金融危機</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">山一破綻とデフレ突入</div>
+        </div>
+      </div>
+
+      <div class="mech-desc-box" id="mech-detail">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Structural Connection to Modern Poverty -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「1997年の暗転」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        アジア通貨危機は、単なる海の向こうの出来事ではありません。この年こそが、戦後日本経済が成長を止め、雇用が非正規化へとなし崩しに解体されていった「決定的暗転の年」でした。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>📉 名目GDPと実質賃金のピーク</span>
+          </div>
+          <p class="factor-desc">
+            日本の名目GDPおよび実質賃金指数は、まさに<strong>1997年にピークを記録</strong>。これ以降、消費増税（3%→5%）とアジア通貨危機によるデフレ圧力、不良債権処理が重なり、約30年におよぶ長期停滞へ突入しました。
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>✂️ 人件費「固定費から変動費」へ</span>
+          </div>
+          <p class="factor-desc">
+            1997年の金融危機で都市銀行や証券会社すら倒産する現実を突きつけられた日本企業は、強烈なリスク回避行動へと走り、人件費削減を断行。日経連『新時代の「日本的経営」』方針が全面的に加速されました。
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>📜 労働者派遣法の全面解禁へ</span>
+          </div>
+          <p class="factor-desc">
+            企業のコスト削減圧力に屈する形で、1999年には労働者派遣法が改正され、対象業務が原則自由化。就職氷河期世代の若者たちが非正規雇用へと大量に追いやられ、中間層の下方融解が固定化しました。
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">📌 5段階因果連鎖における「1997年」の決定的一撃</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          本書第1章 1.2で提示した「5段階の因果連鎖モデル」において、マクロのグローバル金融化（段階①）が、企業のコーポレートガバナンスと投資行動を変容させ（段階②）、労働市場の二極化と労働分配率低下（段階③）を爆発的に加速させた歴史的転換点こそが、この1997年のアジア通貨危機でした。金融市場の暴走がもたらした危機のコストが、労働者の給与カットと非正規化によって支払われたのです。
+        </p>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">国・地域</th>
+              <th style="width: 25%;">危機時の主な打撃</th>
+              <th style="width: 25%;">採用した対応策</th>
+              <th style="width: 30%;">長期的影響・教訓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>タイ</strong></td>
+              <td>バーツ暴落、不動産・金融破綻、失業増大。<a href="#ref-1" class="cite-tag">[1]</a></td>
+              <td>IMF支援受入れ、緊縮財政、不良債権整理。</td>
+              <td>外資への安価な資産売却、国内産業の空洞化。</td>
+            </tr>
+            <tr>
+              <td><strong>韓国</strong></td>
+              <td>ウォン暴落、財閥連鎖倒産、「国家破綻」の危機。<a href="#ref-7" class="cite-tag">[7]</a></td>
+              <td>IMF管理受入れ、国民の金集め運動、財閥解体。</td>
+              <td>労働市場の柔軟化により非正規雇用が急増、超格差社会へ。</td>
+            </tr>
+            <tr>
+              <td><strong>インドネシア</strong></td>
+              <td>ルピア暴落（約85%減）、ハイパーインフレ。<a href="#ref-8" class="cite-tag">[8]</a></td>
+              <td>IMF支援受入れ、食料暴動と政治混乱。</td>
+              <td>32年続いたスハルト独裁政権が崩壊、民主化へ移行。</td>
+            </tr>
+            <tr>
+              <td><strong>マレーシア</strong></td>
+              <td>リンギット急落、株価暴落。<a href="#ref-8" class="cite-tag">[8]</a></td>
+              <td><strong>IMF支援を拒否</strong>、資本流出規制、ドル固定。</td>
+              <td>他国よりも早期に主権的経済回復を達成、IMF批判の根拠に。</td>
+            </tr>
+            <tr>
+              <td><strong>日本</strong></td>
+              <td>山一・拓銀破綻、信用収縮、アジア向け債権焦げ付き。<a href="#ref-5" class="cite-tag">[5]</a></td>
+              <td>公的資金注入、新宮澤構想（アジア支援）。<a href="#ref-9" class="cite-tag">[9]</a></td>
+              <td><strong>名目GDPピークアウト、デフレ定着、派遣原則自由化へ。</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公的機関資料、中央銀行解説、国際経済レポートの一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://money-bu-jpx.com/news/article070245/" target="_blank" rel="noopener noreferrer" class="ref-link">東証マネ部！「アジア通貨危機とは？原因と世界への影響をわかりやすく解説」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.youtube.com/watch?v=X0ZZPgb6CqI&t=539" target="_blank" rel="noopener noreferrer" class="ref-link">映像解説：タイ・バーツ急落とアジア金融危機の全貌（YouTubeアーカイブ）</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.youtube.com/watch?v=d4BFyyAqvH4&t=157" target="_blank" rel="noopener noreferrer" class="ref-link">映像解説：ヘッジファンドの空売りとドルペッグ制崩壊の真相（YouTubeアーカイブ）</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.boj.or.jp/about/education/oshiete/glossary/market/m05.htm" target="_blank" rel="noopener noreferrer" class="ref-link">日本銀行：教えて！にちぎん「アジア通貨危機とは何ですか？」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%B8%E3%82%A2%E9%80%9A%E8%B2%A8%E5%8D%B1%E6%A9%9F" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「アジア通貨危機（経緯・波及・各国の対応）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.iima.or.jp/abc/a/2.html" target="_blank" rel="noopener noreferrer" class="ref-link">国際通貨研究所「アジア通貨危機の教訓と地域金融協力（チェンマイ・イニシアティブ）」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://www.youtube.com/watch?v=IQ39xbO1j8Y&t=347" target="_blank" rel="noopener noreferrer" class="ref-link">映像解説：韓国IMF危機とインドネシア・スハルト政権崩壊（YouTubeアーカイブ）</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://www.y-history.net/appendix/wh1703-064.html" target="_blank" rel="noopener noreferrer" class="ref-link">世界史の窓「アジア通貨危機とIMF構造調整プログラム」</a>
+        </li>
+        <li class="ref-item" id="ref-9">
+          <span class="ref-num">[9]</span>
+          <a href="https://www.mofa.go.jp/mofaj/gaiko/oda/shiryo/hakusyo/04_hakusho/ODA2004/html/column/cl01014.htm" target="_blank" rel="noopener noreferrer" class="ref-link">外務省ODA白書「アジア通貨危機への日本の対応と新宮澤構想」</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ アジア通貨危機（1997年）の構造と波及</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: Historical Timeline Simulator Logic
+       ========================================================== */
+    const phases = [
+      {
+        curText: "約50%急落（タイ・バーツ）",
+        curWidth: "50%",
+        curColor: "#f43f5e",
+        capText: "猛烈（外貨準備枯渇・返済不能）",
+        capWidth: "75%",
+        capColor: "#ea580c",
+        impText: "高（建設・金融の破綻連鎖）",
+        impWidth: "60%",
+        impColor: "#38bdf8",
+        desc: "<strong>【Phase 1：1997年7月〜 ― タイ・バーツ急落とペッグ放棄】</strong><br>米ドル高に伴う輸出不振と不動産バブルの破綻に目をつけたヘッジファンドがバーツを猛烈に空売り。タイ中央銀行は外貨準備を使い果たして防戦を断念し、7月2日に固定相場制を放棄。バーツは対ドルで暴落し、米ドル建て債務を抱えていたタイの金融機関や財閥企業が次々と債務不履行に陥りました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-3' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[3]</a>"
+      },
+      {
+        curText: "約85%壊滅的暴落（インドネシア・ルピア）",
+        curWidth: "85%",
+        curColor: "#e11d48",
+        capText: "パニック的逃避（全東南アジアへ伝播）",
+        capWidth: "90%",
+        capColor: "#e11d48",
+        impText: "極大（食料暴動・スハルト政権崩壊）",
+        impWidth: "95%",
+        impColor: "#e11d48",
+        desc: "<strong>【Phase 2：1997年8〜10月 ― 東南アジア波及とインドネシアの崩壊】</strong><br>タイからフィリピン、マレーシア、インドネシアへ危機が連鎖。特に外貨建て短期債務を抱えていたインドネシアではルピアが約85%も大暴落。IMFの過酷な緊縮要求が引き金となって食料・生活必需品価格が暴騰し、各地で暴動が発生。32年間にわたり君臨したスハルト独裁政権が崩壊に追い込まれました。<a href='#ref-7' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[7]</a><a href='#ref-8' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[8]</a>"
+      },
+      {
+        curText: "約50%急落（韓国ウォン暴落）",
+        curWidth: "55%",
+        curColor: "#f43f5e",
+        capText: "国家破綻寸前（外貨枯渇・IMF支援）",
+        capWidth: "95%",
+        capColor: "#e11d48",
+        impText: "激震（日本：拓銀・山一破綻・デフレ突入）",
+        impWidth: "90%",
+        impColor: "#f43f5e",
+        desc: "<strong>【Phase 3：1997年11月〜 ― 韓国IMF危機と日本の金融機関連続破綻】</strong><br>財閥の過剰債務を抱える韓国に危機が飛び火し、ウォンが暴落。12月にIMFの救済管理下に入り、財閥解体と大量解雇が強行されました。時を同じくして日本でも11月に三洋証券、北海道拓殖銀行、山一證券が相次いで経営破綻。日本の名目GDPはこの1997年をピークに長期下落局面（失われた30年）へと突入しました。<a href='#ref-4' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[4]</a><a href='#ref-5' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[5]</a>"
+      },
+      {
+        curText: "下げ止まり・安定化へ",
+        curWidth: "30%",
+        curColor: "#10b981",
+        capText: "資本規制と国際支援で沈静化",
+        capWidth: "35%",
+        capColor: "#10b981",
+        impText: "教訓化（新宮澤構想とチェンマイ合意）",
+        impWidth: "40%",
+        impColor: "#10b981",
+        desc: "<strong>【Phase 4：1998〜1999年 ― 世界金融危機と新宮澤構想・CMI】</strong><br>危機は1998年8月のロシア財政危機・デフォルト、米大手ヘッジファンドLTCMの破綻へと波及し、米FRBが緊急利下げを断行。マレーシアはIMFを拒絶して独自の資本規制を敷き早期回復を達成。日本は総額300億ドルの「新宮澤構想」でアジアを支え、これが2000年の地域通貨スワップ協定「チェンマイ・イニシアティブ（CMI）」へと結実しました。<a href='#ref-6' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[6]</a><a href='#ref-9' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[9]</a>"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-cur').textContent = p.curText;
+      const bCur = document.getElementById('b-cur');
+      bCur.style.width = p.curWidth;
+      bCur.style.backgroundColor = p.curColor;
+
+      document.getElementById('m-cap').textContent = p.capText;
+      const bCap = document.getElementById('b-cap');
+      bCap.style.width = p.capWidth;
+      bCap.style.backgroundColor = p.capColor;
+
+      document.getElementById('m-imp').textContent = p.impText;
+      const bImp = document.getElementById('b-imp');
+      bImp.style.width = p.impWidth;
+      bImp.style.backgroundColor = p.impColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+
+    /* ==========================================================
+       Feature 2: Mechanism Breakdown Logic
+       ========================================================== */
+    const mechData = {
+      1: {
+        badge: "構造的病理",
+        title: "① 「二重のミスマッチ」と過剰短期資本の流入",
+        desc: `
+          東南アジア諸国は、自国通貨を米ドルに事実上ペッグ（固定）していたため、内外の投資家は為替リスクを過小評価していました。<br><br>
+          タイや韓国の金融機関・企業は、金利の低い<strong>「短期の米ドル（外貨）」</strong>で巨額の資金を借り入れ、国内の<strong>「長期の自国通貨建て」</strong>の不動産開発や設備投資に注ぎ込みました。この「通貨のミスマッチ（ドル借り・自国通貨運用）」と「期間のミスマッチ（短期借入・長期固定）」こそが危機の火薬庫であり、一度資本流出が始まると、自国通貨急落によってドル建て債務が雪だるま式に膨張し、一瞬で返済不能に陥ったのです。<a href='#ref-1' class='cite-tag'>[1]</a><a href='#ref-4' class='cite-tag'>[4]</a>
+        `
+      },
+      2: {
+        badge: "政策の失敗",
+        title: "② IMF構造調整プログラム（SAP）の過酷な緊縮と副作用",
+        desc: `
+          危機に陥ったタイ、インドネシア、韓国に対し、国際通貨基金（IMF）は緊急支援の融資と引き換えに、<strong>「超高金利・財政緊縮・金融機関の強制閉鎖・市場開放」</strong>というワンパターンの新自由主義的処方箋を強要しました。<a href='#ref-8' class='cite-tag'>[8]</a><a href='#ref-5' class='cite-tag'>[5]</a><br><br>
+          しかし、通貨急落を止めようとした30〜80%という殺人的高金利は、優良企業までもバタバタと連鎖倒産させ、経済を壊滅的恐慌へと突き落としました。スティグリッツ元世界銀行チーフエコノミストらも後に「IMFの処方箋は患者の病状を致命的に悪化させた」と激しく批判しています。
+        `
+      },
+      3: {
+        badge: "主権的回復",
+        title: "③ マレーシア（マハティール首相）のIMF拒絶と資本規制",
+        desc: `
+          他国がIMF門下に下り痛烈な痛みを味わう中、マレーシアのマハティール首相は<strong>「IMFの言いなりになれば主権を奪われ国が滅びる」</strong>としてIMF支援を毅然と拒否しました。<a href='#ref-8' class='cite-tag'>[8]</a><br><br>
+          独自に短期投機資金の流出を遮断する「資本規制（キャピタル・コントロール）」を断行し、リンギット相場を1ドル＝3.8リンギットに固定。西側メディアからは「市場原理への背信」と非難されましたが、結果としてマレーシアは国内産業を外国資本による安価な買収から守り、IMF管理国よりも迅速かつ社会的犠牲を最小限に抑えて自律的回復を成し遂げました。
+        `
+      },
+      4: {
+        badge: "日本への衝撃",
+        title: "④ 日本の1997年金融危機と「雇用解体」への不可逆な舵切り",
+        desc: `
+          1997年秋、日本経済は山一證券、北海道拓殖銀行という巨大金融機関の破綻（金融システム危機）に直面しました。消費増税（3%→5%）とアジア通貨危機による輸出停滞が重なり、物価と賃金が同時に下落する「デフレ・スパイラル」へ突入。<br><br>
+          この破綻パニックを機に、日本の企業経営陣は「人件費は聖域ではなく、いつでも切れる変動費にしなければ企業が潰れる」という強烈なコストカット思想へと転換。1999年の労働者派遣法原則自由化を後押しし、現代のワーキングプア社会を生み出す決定打となったのです。
+        `
+      }
+    };
+
+    function selectMech(idx) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById('mbtn-' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+      const data = mechData[idx];
+      const detailBox = document.getElementById('mech-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: #ffe4e6; color: #be123c; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Mechanism 1
+    selectMech(1);
+  </script>
+</body>
+</html>
