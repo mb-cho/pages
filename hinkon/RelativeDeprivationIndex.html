@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：先進国における相対的剥奪指標（Relative Deprivation Index）――所得の限界と生活実態の多次元測定</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #065f46 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(16, 185, 129, 0.35);
+      color: #a7f3d0;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald {
+      border-top-color: var(--emerald);
+    }
+
+    .flow-step.step-warn {
+      border-top-color: var(--accent);
+    }
+
+    .flow-step.step-purple {
+      border-top-color: var(--purple);
+    }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num {
+      background: var(--emerald-light);
+      color: var(--emerald);
+    }
+
+    .step-warn .step-num {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .step-purple .step-num {
+      background: var(--purple-light);
+      color: var(--purple);
+    }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald {
+      border-left-color: var(--emerald);
+    }
+
+    .factor-card.card-amber {
+      border-left-color: var(--accent);
+    }
+
+    .factor-card.card-purple {
+      border-left-color: var(--purple);
+    }
+
+    .factor-card.card-rose {
+      border-left-color: var(--rose);
+    }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    /* Interactive Checklist */
+    .checklist-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .check-item {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .check-item.checked {
+      background: rgba(225, 29, 72, 0.22);
+      border-color: #fb7185;
+      box-shadow: 0 0 10px rgba(225, 29, 72, 0.3);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 0.2rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      accent-color: #f43f5e;
+      cursor: pointer;
+    }
+
+    .check-label {
+      font-size: 0.86rem;
+      line-height: 1.45;
+      color: #f1f5f9;
+    }
+
+    .check-label strong {
+      display: block;
+      color: #ffffff;
+      font-size: 0.92rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Preset Buttons */
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preset-label {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.4rem;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .preset-btn.active {
+      background: #0d9488;
+      border-color: #5eead4;
+      color: #ffffff;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* 4-Quadrant Matrix Interactive Box */
+    .matrix-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .matrix-card {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .matrix-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .matrix-card.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .matrix-card.q-consistent.active {
+      border-color: var(--rose);
+      background: #fff1f2;
+      box-shadow: 0 0 0 2px var(--rose);
+    }
+
+    .matrix-card.q-vulnerable.active {
+      border-color: var(--accent);
+      background: #fffbeb;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .matrix-card.q-asset.active {
+      border-color: var(--purple);
+      background: #faf5ff;
+      box-shadow: 0 0 0 2px var(--purple);
+    }
+
+    .matrix-card.q-secure.active {
+      border-color: var(--emerald);
+      background: #ecfdf5;
+      box-shadow: 0 0 0 2px var(--emerald);
+    }
+
+    .matrix-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .matrix-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+    }
+
+    .tag-rose { background: #ffe4e6; color: #be123c; }
+    .tag-amber { background: #fef3c7; color: #b45309; }
+    .tag-purple { background: #ede9fe; color: #6d28d9; }
+    .tag-emerald { background: #d1fae5; color: #047857; }
+
+    .matrix-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .matrix-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .matrix-detail-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-purple {
+      background: #faf5ff;
+      border-color: #ddd6fe;
+      border-left-color: var(--purple);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title {
+      color: #065f46;
+    }
+
+    .callout-purple .callout-title {
+      color: #5b21b6;
+    }
+
+    .callout-rose .callout-title {
+      color: #9f1239;
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #f8fafc;
+    }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+      .matrix-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+        <a href="RelativeDeprivationIndex.html" class="nav-link active" style="background: var(--primary); color: #fff;">① 相対的剥奪指標</a>
+        <a href="PublicOpinionSurveyOnNationalLife.html" class="nav-link">② 国民生活世論調査</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">多次元的剥奪アプローチ・社会政策論</span>
+      </div>
+      <h1>先進国における相対的剥奪指標（Relative Deprivation Index）：<br>所得の多寡を超えて「人間らしい暮らし」の欠乏を直接測定する手法</h1>
+      <p class="lead">
+        <strong>相対的剥奪指標（そうたいてきはくだつしひょう）</strong>とは、単に「所得（お金）」だけで貧困を測るのではなく、<strong>「その社会の標準的な人々が享受している衣食住や社会的活動・生活必需品を、経済的な理由で持てていない・行えていない状態」</strong>を客観的・直接的に測定する指標です。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a><a href="#ref-3" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[3]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Definition and Townsend's Paradigm Shift -->
+    <section>
+      <h2>💡 1. 相対的剥奪指標とは何か――所得指標との決定的違い</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        近代の貧困研究は長年、最低限のカロリー摂取や生存を基準とする「絶対的貧困（ラウントリー型）」や、所得の中央値の半分未満を測る「相対的所得貧困率」に依存してきました。しかし、成熟した現代社会において、人々の生活苦や社会的排除の深刻さを正確に把握するには、生活実態を直接捉える「剥奪アプローチ」が不可欠です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>① タウンゼンドの先駆的定義</span>
+          </div>
+          <p class="factor-desc">
+            英国の社会学者<strong>ピーター・タウンゼンド（Peter Townsend, 1979）</strong>が体系化。その社会で慣習・推奨されている食事、住環境、娯楽、社会参加を維持できない状態を「剥奪」と呼び、複数の項目欠如を直接カウントして測定します。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>② 「直接測定」vs「間接測定」</span>
+          </div>
+          <p class="factor-desc">
+            所得（相対的貧困率）は「資金フローが中央値の半分未満か」という<strong>間接的な測定</strong>に過ぎません。これに対し、剥奪指標は「実際に家電があるか、急な出費を払えるか、肉や魚を食べられているか」を測る<strong>直接的・多次元的測定</strong>です。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>③ 「選好」と「経済的欠如」の峻別</span>
+          </div>
+          <p class="factor-desc">
+            単に「テレビや車を持っていない」のではなく、<strong>「欲しいが必要な資金がないため所有・実行できない（cannot afford）」</strong>状態のみを剥奪として厳密にカウントします（個人の嗜好・ミニマリズムとの混同を排除）。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-1" class="cite-tag">[1]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-emerald" style="margin-top: 1.5rem;">
+        <div class="callout-title">📌 なぜ「所得」だけでは現代の貧困を捉えきれないのか？</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          一見同じ「月収20万円」の世帯であっても、持ち家で預貯金があり親からの支援を受けられる世帯と、高額な家賃や奨学金返済、多額の医療・介護費用を抱える世帯では、実際の生活水準は雲泥の差となります。また、現物給付（公営住宅や給食支援）の有無、地域物価の差も所得統計には現れません。<strong>所得はあくまで「資源の投入（インプット）」であり、剥奪指標は「現実に達成された生活様式（アウトカム）」を測る指標</strong>なのです。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive 4-Quadrant Matrix -->
+    <section>
+      <h2>🧭 2. インタラクティブ分析：所得と剥奪の「4象限マトリクス」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        タウンゼンドやジョナサン・ブラッドショーらの社会政策研究では、「所得（貧困線の上/下）」と「生活剥奪（剥奪あり/なし）」をクロスさせることで、世帯の真の実態を4つに分類します。カードをクリックして各層の特徴・政策課題を比較してください。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="matrix-container">
+        <!-- Q1 -->
+        <div class="matrix-card q-consistent active" id="card-q1" onclick="selectQuadrant(1)">
+          <div class="matrix-header">
+            <span class="matrix-tag tag-rose">第Ⅰ象限（重度困窮）</span>
+            <span style="font-size: 1.2rem;">🚨</span>
+          </div>
+          <div class="matrix-title">真の貧困（Consistent Poverty）</div>
+          <div class="matrix-sub">【低所得 × 剥奪あり】フローもストックも枯渇し、生活必需品を直接喪失している層。</div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="matrix-card q-vulnerable" id="card-q2" onclick="selectQuadrant(2)">
+          <div class="matrix-header">
+            <span class="matrix-tag tag-amber">第Ⅱ象限（潜在的困窮）</span>
+            <span style="font-size: 1.2rem;">⚠️</span>
+          </div>
+          <div class="matrix-title">隠れた困窮層（Vulnerable Poor）</div>
+          <div class="matrix-sub">【所得基準以上 × 剥奪あり】統計上は「非貧困」だが、重い固定費・債務で生活が崩壊。</div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="matrix-card q-asset" id="card-q3" onclick="selectQuadrant(3)">
+          <div class="matrix-header">
+            <span class="matrix-tag tag-purple">第Ⅲ象限（資産・過渡層）</span>
+            <span style="font-size: 1.2rem;">🛡️</span>
+          </div>
+          <div class="matrix-title">資産保有・一時的低所得層</div>
+          <div class="matrix-sub">【低所得 × 剥奪なし】貯蓄の取り崩しや持ち家、親の支援で標準的消費を維持。</div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="matrix-card q-secure" id="card-q4" onclick="selectQuadrant(4)">
+          <div class="matrix-header">
+            <span class="matrix-tag tag-emerald">第Ⅳ象限（安定自立）</span>
+            <span style="font-size: 1.2rem;">✅</span>
+          </div>
+          <div class="matrix-title">安定層（Non-Deprived）</div>
+          <div class="matrix-sub">【所得十分 × 剥奪なし】経済的余裕があり、社会的慣習・必需品を十分に享受。</div>
+        </div>
+      </div>
+
+      <div class="matrix-detail-box" id="matrix-detail">
+        <!-- Dynamic Content injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 3: EU & International Standards -->
+    <section>
+      <h2>🇪🇺 3. 先進国（EU・ユニセフ等）の主な測定基準と歴史的展開</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        欧州連合（EU）や国連機関は、単なる経済成長率や所得格差の監視を超え、社会的一体性（Social Cohesion）と社会的包摂（Social Inclusion）の到達度を測るため、共通の剥奪指標を政策目標に組み込んできました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="flow-grid">
+        <div class="flow-step step-purple">
+          <span class="step-num">STEP 1：理論の萌芽</span>
+          <div class="flow-title">タウンゼンドの60項目指標</div>
+          <p class="flow-desc">
+            1979年、英国全土調査で食事・衣類・燃料・娯楽など60項目の欠如を調査。「剥奪スコア」が急増する臨界点（所得貧困線）の存在を実証した。<a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+        <div class="flow-step step-warn">
+          <span class="step-num">STEP 2：欧州共通化</span>
+          <div class="flow-title">EU 物質的剥奪（9項目）</div>
+          <p class="flow-desc">
+            EU-SILC統計で9項目の共通基準を策定。3項目以上欠如を「物質的剥奪」、4項目以上欠如を「深刻な物質的剥奪（SMD）」と公式定義。<a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+        <div class="flow-step">
+          <span class="step-num">STEP 3：次世代への拡張</span>
+          <div class="flow-title">ユニセフ子どもの剥奪</div>
+          <p class="flow-desc">
+            子どもの発達・学習に必要な14項目を策定。栄養、本、部活動、友人の招待など、子どもの健全な社会化の剥奪を国際比較。<a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+        </div>
+        <div class="flow-step step-emerald">
+          <span class="step-num">STEP 4：EU2030改定</span>
+          <div class="flow-title">物質的・社会的剥奪（13項目）</div>
+          <p class="flow-desc">
+            2021年以降、ネット環境や「友人との月1回の飲食」「自分のための少額支出」など社会的関係性の剥奪を含む13項目（5項目以上で深刻）へ進化。
+          </p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">測定アプローチ</th>
+              <th style="width: 26%;">相対的所得貧困率<br><span style="font-size: 0.78rem; font-weight: 500;">（OECD・厚生労働省など）</span></th>
+              <th style="width: 27%;">物質的・社会的剥奪指標<br><span style="font-size: 0.78rem; font-weight: 500;">（EU Eurostat・阿部彩研究など）</span></th>
+              <th style="width: 27%;">多次元貧困指数（MPI）<br><span style="font-size: 0.78rem; font-weight: 500;">（UNDP・オックスフォード大学）</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>測定の対象</strong></td>
+              <td>世帯の<strong>「等価可処分所得」</strong>（貨幣フロー）。中央値の50%未満を判定。<a href="#ref-5" class="cite-tag">[5]</a></td>
+              <td>生活必需品、暖房、食事、社会的余暇の<strong>「実際の保有・実行状況」</strong>。<a href="#ref-2" class="cite-tag">[2]</a></td>
+              <td>保健（栄養・死亡率）、教育（就学年数）、生活水準（水・衛生・電気）の3領域10指標。</td>
+            </tr>
+            <tr>
+              <td><strong>長所（メリット）</strong></td>
+              <td>既存の税務・家計調査データから容易に算出可能。マクロの所得格差を国際比較しやすい。</td>
+              <td><strong>「実際に何が欠けて困窮しているか」が明確</strong>。生活実感・健康悪化との相関が極めて高い。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a></td>
+              <td>途上国における複合的貧困を網羅的に把握でき、SDGsターゲットの進捗管理に適する。</td>
+            </tr>
+            <tr>
+              <td><strong>短所（限界）</strong></td>
+              <td>資産（貯蓄・持ち家）や借金、医療費等の特別支出が反映されず、生活実態と乖離しやすい。<a href="#ref-7" class="cite-tag">[7]</a></td>
+              <td>社会の慣習・技術進歩によって「必需品」の定義を定期的に改定する必要がある。</td>
+              <td>主に対途上国向けに設計されており、先進国の高度な社会的排除の捕捉には調整が必要。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive EU 9-Item Checklist Simulator -->
+    <section>
+      <h2>🛠️ 4. インタラクティブ診断：EU公式「物質的剥奪（9項目）」シミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        欧州委員会（Eurostat）で採用されている「9項目の物質的剥奪基準」を体験できるシミュレーターです。経済的な理由で「支払えない・維持できない・持てない」項目をチェックし、判定と国際比較ベンチマークを確認してください。<a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 物質的剥奪チェッカー（Eurostat基準 9 Items）</div>
+            <div class="sim-subtitle">※個人の趣味・好みの不保有ではなく、「金銭的理由で買えない・行えない」場合のみチェック</div>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="preset-row">
+          <span class="preset-label">プリセット例：</span>
+          <button class="preset-btn" onclick="applyPreset('clean')">① 剥奪なし世帯</button>
+          <button class="preset-btn" onclick="applyPreset('eu-avg')">② EU平均的リスク層（1〜2項目）</button>
+          <button class="preset-btn" onclick="applyPreset('japan-hidden')">③ 日本の「見えにくい貧困」典型（3項目）</button>
+          <button class="preset-btn" onclick="applyPreset('severe')">④ 深刻な物質的剥奪世帯（5項目）</button>
+        </div>
+
+        <!-- 9 Items -->
+        <div class="checklist-container">
+          <label class="check-item" id="item-0">
+            <input type="checkbox" onchange="toggleItem(0)">
+            <div class="check-label">
+              <strong>1. 家賃・光熱費・借入金の滞納</strong>
+              過去12ヶ月間に住宅ローン/家賃や光熱費の支払いが滞ったことがある
+            </div>
+          </label>
+
+          <label class="check-item" id="item-1">
+            <input type="checkbox" onchange="toggleItem(1)">
+            <div class="check-label">
+              <strong>2. 住宅の十分な暖房ができない</strong>
+              冬季に住居を十分に暖かく保つための光熱費を賄えない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-2">
+            <input type="checkbox" onchange="toggleItem(2)">
+            <div class="check-label">
+              <strong>3. 2日に1回のタンパク質食事欠落</strong>
+              肉・魚・同等の植物性タンパク質を含む食事を2日に1回とれない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-3">
+            <input type="checkbox" onchange="toggleItem(3)">
+            <div class="check-label">
+              <strong>4. 1週間の年次休暇（旅行）不可</strong>
+              年1回、自宅を離れて1週間の休暇・旅行を過ごす余裕がない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-4">
+            <input type="checkbox" onchange="toggleItem(4)">
+            <div class="check-label">
+              <strong>5. 予期せぬ突発的支出に対応不可</strong>
+              急な家電故障や医療費など、一定額の一時的出費を自力で払えない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-5">
+            <input type="checkbox" onchange="toggleItem(5)">
+            <div class="check-label">
+              <strong>6. 自家用車を持てない</strong>
+              経済的理由により自家用車（軽自動車含む）を所有できない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-6">
+            <input type="checkbox" onchange="toggleItem(6)">
+            <div class="check-label">
+              <strong>7. 洗濯機を持てない</strong>
+              経済的理由により自宅に洗濯機を購入・設置できない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-7">
+            <input type="checkbox" onchange="toggleItem(7)">
+            <div class="check-label">
+              <strong>8. カラーテレビを持てない</strong>
+              経済的理由によりテレビ等の基本情報端末を所有できない
+            </div>
+          </label>
+
+          <label class="check-item" id="item-8">
+            <input type="checkbox" onchange="toggleItem(8)">
+            <div class="check-label">
+              <strong>9. 電話（固定・携帯）を持てない</strong>
+              経済的理由により連絡手段としての電話・スマホを維持できない
+            </div>
+          </label>
+        </div>
+
+        <!-- Metrics Display -->
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">剥奪項目数（全9項目中）</div>
+            <div class="metric-value" id="m-count" style="color: #38bdf8;">0 / 9 項目</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-count" style="width: 0%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">EU公式分類判定</div>
+            <div class="metric-value" id="m-status" style="color: #10b981;">非剥奪世帯</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-status" style="width: 15%; background-color: #10b981;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">生活・健康へのリスク強度</div>
+            <div class="metric-value" id="m-risk" style="color: #a7f3d0;">低（日常維持可能）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-risk" style="width: 10%; background-color: #10b981;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Explanation Box -->
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【診断結果：剥奪なし（0項目）】</strong><br>
+          生活必需品や基本的な社会的活動が満たされており、EU基準において物質的剥奪は認められません。ただし、所得格差や労働時間の長さ、心理的ストレスなど金銭・物資以外の社会的リスクについては別途注視が必要です。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Japan's Reality and Invisible Poverty -->
+    <section>
+      <h2>🇯🇵 5. 日本における状況と「見えにくい貧困」の解剖</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        日本はこれまで、国の公的統計において「剥奪指標」を公式調査として定期測定してきませんでした。その結果、「見えにくい貧困」が放置され、支援の遅れを招いてきた背景があります。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-7" class="cite-tag">[7]</a><a href="#ref-8" class="cite-tag">[8]</a>
+      </p>
+
+      <div class="grid-2" style="margin-bottom: 1.5rem;">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>📉 公式統計の欠如と阿部彩氏らの実証研究</span>
+          </div>
+          <p class="factor-desc">
+            政府の『国民生活基礎調査』は所得のみを把握し、生活財の欠損を調査してきませんでした。この間隙を埋めるため、<strong>阿部彩教授（東京都立大学）ら</strong>が自治体や民間財団と連携して剥奪指標の開発を牽引。日本でも子どものいる世帯やひとり親世帯において、深刻な剥奪が広がっている実態を可視化しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-9" class="cite-tag">[9]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🎭 「世間体」と適応的選好による不可視化</span>
+          </div>
+          <p class="factor-desc">
+            日本では「身なり」や「スマートフォン」を無理して整え、人前で貧困を隠そうとする同調圧力が強く働きます。その代償として、<strong>「見えない家庭内でのエアコン不使用（熱中症）」「食事の回数・質の切り詰め」「歯科・医療の受診控え」</strong>という形で生命と健康が削られる特異な貧困形態を生んでいます。<a href="#ref-7" class="cite-tag">[7]</a><a href="#ref-10" class="cite-tag">[10]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">⚠️ 剥奪が直撃する「健康格差」と受診控えの実態</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          日本福祉大学や東京医科歯科大学などの社会疫学調査（JAGESプロジェクト等）によれば、剥奪指標が高い層ほど<strong>「うつ病罹患率が2〜3倍」「歯が20本未満になるリスクが顕著に増加」「糖尿病や心疾患の重症化」</strong>が確認されています。窓口負担3割や日々の薬代が払えず、手遅れになって救急搬送されるケースの背景には、所得統計には現れない「予期せぬ支出に対応できない」「医療費の剥奪」が横たわっています。<a href="#ref-10" class="cite-tag">[10]</a>
+        </p>
+      </div>
+
+      <div class="grid-3" style="margin-top: 1.25rem;">
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>ひとり親家庭の剥奪</span>
+          </div>
+          <p class="factor-desc">
+            母子家庭の約半数が相対的貧困線以下。子どもの体験格差（修学旅行の小遣い、体験活動、部活動費用）の剥奪が顕著。<a href="#ref-6" class="cite-tag">[6]</a><a href="#ref-9" class="cite-tag">[9]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>単身高齢者のエネルギー貧困</span>
+          </div>
+          <p class="factor-desc">
+            断熱性の極端に低い木造住宅で暖房を我慢し、ヒートショックや室内熱中症で搬送される高齢者が急増。<a href="#ref-7" class="cite-tag">[7]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>若年非正規層の社会的孤立</span>
+          </div>
+          <p class="factor-desc">
+            冠婚葬祭や友人との交友費用を捻出できず、社会関係資本（人間関係のセーフティネット）から締め出される。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している主要な学術論文、国際機関レポート、社会政策研究資料の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www.ipss.go.jp/syoushika/bunken/data/pdf/sh19040303.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">阿部彩 (2012)「相対的剥奪の測定と貧困研究の展開」国立社会保障・人口問題研究所</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.hinkonstat.net/%E8%B2%A7%E5%9B%B0%E6%8C%87%E6%A8%99-%E7%B5%B1%E8%A8%88-%E3%81%AE%E7%A8%AE%E9%A1%9E/3-%E5%89%A5%E5%A5%AA%E3%82%A2%E3%83%97%E3%83%AD%E3%83%BC%E3%83%81/" target="_blank" rel="noopener noreferrer" class="ref-link">貧困統計ホームページ：貧困指標・統計の種類「3. 剥奪アプローチ」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://mhlw-grants.niph.go.jp/system/files/2012/121011/201201013A/201201013A0014.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働科学研究成果データベース「生活困窮者支援と剥奪指標の活用に関する研究報告」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="http://mirai21canal.com/PDF/Pstructure/twoindex/dep-ex-1.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">タウンゼンド（1979）『英国における貧困（Poverty in the UK）』と剥奪指標の体系</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.jica.go.jp/jica-ri/IFIC_and_JBICI-Studies/jica-ri/publication/archives/jica/field/pdf/200803_aid02_03.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">JICA研究所：貧困の直接測定・多次元的剥奪アプローチの理論的整理</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.unicef.or.jp/osirase/back2013/1312_06.html" target="_blank" rel="noopener noreferrer" class="ref-link">日本ユニセフ協会：ユニセフ・イノチェンティ研究所『Report Card 11 先進国における子どもの貧困と剥奪指標』</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://www.yoridori.jp/earth-note/relative-poverty/" target="_blank" rel="noopener noreferrer" class="ref-link">よりどりメディア：「見えにくい日本の相対的貧困と生活実感のズレ」</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://www.youtube.com/watch?v=TO_IUOHU6Rs" target="_blank" rel="noopener noreferrer" class="ref-link">YouTube解説：阿部彩教授が語る「所得では見えない日本の貧困と剥奪」</a>
+        </li>
+        <li class="ref-item" id="ref-9">
+          <span class="ref-num">[9]</span>
+          <a href="https://www.fukushihoken.metro.tokyo.lg.jp/" target="_blank" rel="noopener noreferrer" class="ref-link">東京都福祉保健局「東京都子ども・子育て世帯実態調査における生活困難・剥奪指標の測定」</a>
+        </li>
+        <li class="ref-item" id="ref-10">
+          <span class="ref-num">[10]</span>
+          <a href="https://www.m3.com/clinical/news/802514" target="_blank" rel="noopener noreferrer" class="ref-link">m3.com 臨床ニュース：日本における社会的剥奪と健康格差・受診控えの相関実態</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 先進国における相対的剥奪指標（Relative Deprivation Index）</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: 4-Quadrant Matrix Interactive Logic
+       ========================================================== */
+    const quadrantData = {
+      1: {
+        title: "第Ⅰ象限：真の貧困（Consistent Poverty）――【低所得 × 剥奪あり】",
+        badge: "最優先支援対象",
+        badgeColor: "#be123c",
+        desc: "<strong>【実態とメカニズム】</strong><br>可処分所得が相対的貧困線（中央値の50%）を下回り、かつ生活必需品や暖房、適切な食事の欠如など複数の剥奪を抱えている、最も深刻な困窮層です。過去の蓄え（預貯金）も底をつき、親族等の援助網もなく、日々の衣食住の維持そのものが危機に瀕しています。<br><br><strong>【主な世帯像】</strong><br>ひとり親世帯（母子世帯）、無年金・低年金の単身高齢者、長期療養や障害を抱える非正規労働者。<br><br><strong>【政策的対応】</strong><br>生活保護や給付型奨学金、緊急住宅手当などの直接的所得保障に加え、食料現物支援や医療アクセス保障など多層的なセーフティネットの即時投入が不可欠です。"
+      },
+      2: {
+        title: "第Ⅱ象限：隠れた困窮・脆弱層（Vulnerable Poor）――【所得基準以上 × 剥奪あり】",
+        badge: "制度の死角・見落とされやすい層",
+        badgeColor: "#b45309",
+        desc: "<strong>【実態とメカニズム】</strong><br>額面の所得は貧困線を上回っているため、従来の所得統計や行政の公的支援からは「非貧困」として弾かれてしまう層です。しかし、重い住宅ローン、奨学金・消費者金融の債務返済、親の介護費用や子どもの高額な学費、慢性疾患の医療費などによって『手取り（真の可処分所得）』が蒸発し、食費を削ったりエアコンを止めるなどの深刻な剥奪に直面しています。<br><br><strong>【主な世帯像】</strong><br>非正規共働きの子育て世帯、過重債務を抱える世帯、家族に難病患者を抱える中間層。<br><br><strong>【政策的対応】</strong><br>所得制限による公的給付の打ち切りを見直し、医療・介護・教育の現物無償化、債務整理や住宅手当など『固定費負担の軽減』が必要です。"
+      },
+      3: {
+        title: "第Ⅲ象限：資産保有・過渡的低所得層（Asset-protected）――【低所得 × 剥奪なし】",
+        badge: "ストック防衛層・一時的変動",
+        badgeColor: "#6d28d9",
+        desc: "<strong>【実態とメカニズム】</strong><br>年金受給額や年間所得自体は貧困線を下回っているものの、過去に築いた預貯金を取り崩したり、持ち家に居住して住宅コストがかからないため、日常生活において具体的な剥奪を感じていない層です。また、一時的な休職・起業準備中の若年層などもここに含まれます。<br><br><strong>【主な世帯像】</strong><br>持ち家を保有する持ち家型高齢者世帯、実家暮らしの求職者。<br><br><strong>【統計上の留意点】</strong><br>所得統計だけを見るとこの層も『貧困者』としてカウントされるため、一部の議論で『高齢者の貧困率は数字ほど深刻ではない』という主張の論拠にされることがあります。しかし、医療費や介護費用が増大すれば一気に第Ⅰ象限（真の貧困）へ転落する脆弱性を併せ持っています。"
+      },
+      4: {
+        title: "第Ⅳ象限：安定層（Non-Deprived）――【所得十分 × 剥奪なし】",
+        badge: "自立・安定生活層",
+        badgeColor: "#047857",
+        desc: "<strong>【実態とメカニズム】</strong><br>所得水準が中央値以上で安定しており、生活必需品、文化的活動、年1回の休暇、突発的な支出への備えなどが十全に満たされている層です。<br><br><strong>【社会政策的課題】</strong><br>この層が人口の多数派を占める場合、第Ⅰ象限や第Ⅱ象限の生活苦が『自己責任』や『努力不足』として矮小化されやすく、社会的排除の構造を見えにくくする認知の壁（分断）を生み出す原因となります。"
+      }
+    };
+
+    function selectQuadrant(q) {
+      for (let i = 1; i <= 4; i++) {
+        const card = document.getElementById('card-q' + i);
+        if (card) {
+          card.classList.toggle('active', i === q);
+        }
+      }
+      const data = quadrantData[q];
+      const detailBox = document.getElementById('matrix-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: ${data.badgeColor}; color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Quadrant 1
+    selectQuadrant(1);
+
+    /* ==========================================================
+       Feature 2: EU 9-Item Checklist Simulator Logic
+       ========================================================== */
+    const items = [false, false, false, false, false, false, false, false, false];
+
+    function toggleItem(idx) {
+      const checkbox = document.querySelector(`#item-${idx} input[type="checkbox"]`);
+      items[idx] = checkbox.checked;
+      updateChecklistUI();
+    }
+
+    function applyPreset(preset) {
+      const btns = document.querySelectorAll('.preset-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      if (preset === 'clean') {
+        for (let i = 0; i < 9; i++) items[i] = false;
+        btns[0].classList.add('active');
+      } else if (preset === 'eu-avg') {
+        for (let i = 0; i < 9; i++) items[i] = false;
+        items[3] = true; // 休暇
+        items[4] = true; // 急な出費
+        btns[1].classList.add('active');
+      } else if (preset === 'japan-hidden') {
+        for (let i = 0; i < 9; i++) items[i] = false;
+        items[1] = true; // 暖房
+        items[2] = true; // タンパク質食事
+        items[4] = true; // 急な出費
+        btns[2].classList.add('active');
+      } else if (preset === 'severe') {
+        for (let i = 0; i < 9; i++) items[i] = false;
+        items[0] = true; // 家賃滞納
+        items[1] = true; // 暖房
+        items[2] = true; // タンパク質
+        items[3] = true; // 休暇
+        items[4] = true; // 急な出費
+        btns[3].classList.add('active');
+      }
+
+      // Sync checkboxes
+      for (let i = 0; i < 9; i++) {
+        const checkbox = document.querySelector(`#item-${i} input[type="checkbox"]`);
+        if (checkbox) checkbox.checked = items[i];
+      }
+      updateChecklistUI();
+    }
+
+    function updateChecklistUI() {
+      // Highlight cards
+      for (let i = 0; i < 9; i++) {
+        const label = document.getElementById(`item-${i}`);
+        if (label) {
+          label.classList.toggle('checked', items[i]);
+        }
+      }
+
+      const count = items.filter(Boolean).length;
+      const countEl = document.getElementById('m-count');
+      const bCount = document.getElementById('b-count');
+      countEl.textContent = `${count} / 9 項目`;
+      bCount.style.width = `${(count / 9) * 100}%`;
+
+      const statusEl = document.getElementById('m-status');
+      const bStatus = document.getElementById('b-status');
+      const riskEl = document.getElementById('m-risk');
+      const bRisk = document.getElementById('b-risk');
+      const descEl = document.getElementById('sim-desc');
+
+      if (count === 0) {
+        statusEl.textContent = "非剥奪世帯";
+        statusEl.style.color = "#10b981";
+        bStatus.style.width = "15%";
+        bStatus.style.backgroundColor = "#10b981";
+
+        riskEl.textContent = "低（日常維持可能）";
+        riskEl.style.color = "#a7f3d0";
+        bRisk.style.width = "10%";
+        bRisk.style.backgroundColor = "#10b981";
+
+        descEl.innerHTML = `<strong>【診断結果：剥奪なし（0項目）】</strong><br>
+        生活必需品や基本的な社会的活動が満たされており、EU基準において物質的剥奪は認められません。ただし、所得格差や労働時間の長さ、心理的ストレスなど金銭・物資以外の社会的リスクについては別途注視が必要です。`;
+      } else if (count >= 1 && count <= 2) {
+        statusEl.textContent = "軽度脆弱層（潜在リスク）";
+        statusEl.style.color = "#38bdf8";
+        bStatus.style.width = "35%";
+        bStatus.style.backgroundColor = "#38bdf8";
+
+        riskEl.textContent = "注意（予備力不足）";
+        riskEl.style.color = "#bae6fd";
+        bRisk.style.width = "35%";
+        bRisk.style.backgroundColor = "#38bdf8";
+
+        descEl.innerHTML = `<strong>【診断結果：軽度リスク層（${count}項目剥奪）】</strong><br>
+        EUの公式基準（3項目以上）には達していませんが、予期せぬ支出への対応や余暇機会が制限されており、突然の失業・病気・物価高騰によって容易に本格的困窮へと転落するリスクを抱えています。EU全体でも人口の約10〜15%がこの準剥奪水準に位置しています。`;
+      } else if (count === 3) {
+        statusEl.textContent = "物質的剥奪（Material Deprivation）";
+        statusEl.style.color = "#f59e0b";
+        bStatus.style.width = "65%";
+        bStatus.style.backgroundColor = "#f59e0b";
+
+        riskEl.textContent = "高（基本的消費の断念）";
+        riskEl.style.color = "#fde68a";
+        bRisk.style.width = "70%";
+        bRisk.style.backgroundColor = "#f59e0b";
+
+        descEl.innerHTML = `<strong>【診断結果：EU公式「物質的剥奪（3項目）」認定】</strong><br>
+        欧州委員会（Eurostat）の公式定義において、正式に<strong>「物質的剥奪世帯」</strong>に分類されます。暖房や食事など生活の根幹に関わる領域を切り詰めており、社会的孤立や慢性疾患のリスクが大幅に跳ね上がります。EU平均では約6%、ギリシャやルーマニア等の南欧・東欧諸国では10%台後半に達します。`;
+      } else {
+        statusEl.textContent = "深刻な物質的剥奪（Severe MD）";
+        statusEl.style.color = "#f43f5e";
+        bStatus.style.width = "100%";
+        bStatus.style.backgroundColor = "#f43f5e";
+
+        riskEl.textContent = "極めて深刻（命と尊厳の危機）";
+        riskEl.style.color = "#fecdd3";
+        bRisk.style.width = "100%";
+        bRisk.style.backgroundColor = "#f43f5e";
+
+        descEl.innerHTML = `<strong>【診断結果：深刻な物質的剥奪（Severe Material Deprivation: ${count}項目）】</strong><br>
+        EUの最重要警戒基準である<strong>「深刻な物質的剥奪（4項目以上欠如）」</strong>に該当します。住居の光熱費滞納、低栄養、社会関係の断絶が常態化しており、もはや個人のやり繰りで解決できる限界を超えています。速やかな公的扶助、緊急支援、生活インフラの保障が求められる緊急介入状態です。`;
+      }
+    }
+  </script>
+</body>
+</html>

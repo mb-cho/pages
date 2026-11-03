@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：内閣府『国民生活に関する世論調査』とは――「一億総中流神話」の変容と現代の生活不安</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(20, 184, 166, 0.35);
+      color: #ccfbf1;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+    .factor-card.card-teal { border-left-color: var(--teal); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #0d9488;
+      color: #ffffff;
+      border-color: #5eead4;
+      box-shadow: 0 0 12px rgba(20, 184, 166, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* Live Survey Dashboard (Feature 2) */
+    .dashboard-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .dash-grid { grid-template-columns: 1fr; }
+    }
+
+    .poll-bar-item {
+      margin-bottom: 1rem;
+    }
+
+    .poll-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .poll-bar-bg {
+      height: 12px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .poll-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: var(--primary);
+      transition: width 0.5s ease;
+    }
+
+    .poll-bar-fill.fill-warn { background: var(--accent); }
+    .poll-bar-fill.fill-rose { background: var(--rose); }
+    .poll-bar-fill.fill-teal { background: var(--teal); }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+        <a href="RelativeDeprivationIndex.html" class="nav-link">① 相対的剥奪指標</a>
+        <a href="PublicOpinionSurveyOnNationalLife.html" class="nav-link active" style="background: var(--primary); color: #fff;">② 国民生活世論調査</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">国家基本世論統計・社会意識の系譜</span>
+      </div>
+      <h1>内閣府『国民生活に関する世論調査』とは：<br>「一億総中流意識」の形成・変容と現代の生活不安を映し出す鏡</h1>
+      <p class="lead">
+        <strong>内閣府『国民生活に関する世論調査』</strong>とは、国民の暮らしに関する意識や要望を多角的に把握し、国の行政運営や施策立案の基礎資料とするために、1958年から毎年度実施されている国の基幹的な世論調査です。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Overview & Methodology -->
+    <section>
+      <h2>📋 1. 調査の概要・沿革と測定手法の変遷</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        半世紀以上にわたり継続的に実施されている本調査は、戦後日本の生活水準の向上、高度経済成長における「中流意識」の確立、そしてバブル崩壊後の生活不安の増大を時系列で追跡できる最も信頼性の高い社会意識データです。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>① 実施主体と半世紀の歴史</span>
+          </div>
+          <p class="factor-desc">
+            内閣府大臣官房政府広報室が担当。1958年（昭和33年）から原則毎年度実施（試行調査は1948年〜）。歴代政権の基本政策策定の羅針盤として機能してきました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-teal">
+          <div class="factor-title">
+            <span>② 対象と抽出・調査方法</span>
+          </div>
+          <p class="factor-desc">
+            全国18歳以上の日本国籍保有者を住民基本台帳から無作為抽出。かつては調査員による個別面接法でしたが、近年はプライバシー保護等のため<strong>「郵送法」</strong>が採用されています。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>③ 5つの基幹調査領域</span>
+          </div>
+          <p class="factor-desc">
+            ①生活水準の変化実感、②生活満足度、③生活程度の自己認識（中流意識）、④今後の見通しや生き方（心の豊かさ重視度）、⑤政府に対する政策要望。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-emerald" style="margin-top: 1.5rem;">
+        <div class="callout-title">💡 個別面接法から郵送法への変更と時系列比較の注意点</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          2010年代後半以降、オートロックマンションの普及や面会拒否の増加を背景に、調査手法が従来の「調査員面接聴取法」から「郵送法」へと移行しました。面接調査に比べて郵送調査は「他人への見栄（社会的望ましさバイアス）」が減り、本音の不満や不安が回答されやすくなる傾向があるため、長期推移の比較においては手法変更による効果も考慮する必要があります。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-4" class="cite-tag">[4]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: History of "All-Middle-Class" Consciousness -->
+    <section>
+      <h2>🏛️ 2. 「一億総中流神話」の誕生と解体の歴史</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        世論調査の質問項目「世間一般からみて、あなたのご家庭の生活の程度はどれくらいだと思いますか」に対する回答は、日本の社会構造と階層意識の変遷を象徴しています。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="flow-grid">
+        <div class="flow-step">
+          <span class="step-num">1960年代</span>
+          <div class="flow-title">所得倍増と「中」の急増</div>
+          <p class="flow-desc">
+            高度経済成長に伴い、白黒テレビ・洗濯機・冷蔵庫（三種の神器）が普及。「下」と答える人が激減し、「中」の回答が7割を突破。
+          </p>
+        </div>
+        <div class="flow-step step-emerald">
+          <span class="step-num">1970〜80年代</span>
+          <div class="flow-title">「一億総中流」の完成（9割）</div>
+          <p class="flow-desc">
+            上中・中中・中下を合わせた「中流」回答率が約90%に達する。年功序列・終身雇用を背景に「国民の誰もが中流」という強固な社会的合意が成立。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+        <div class="flow-step step-warn">
+          <span class="step-num">1990〜2000年代</span>
+          <div class="flow-title">バブル崩壊と「下」への下方融解</div>
+          <p class="flow-desc">
+            「中の中」が減少し「中の下」が急増。非正規雇用の拡大と就職氷河期世代の出現により、客観的格差と主観的安心感の乖離が始まる。
+          </p>
+        </div>
+        <div class="flow-step step-rose">
+          <span class="step-num">2020年代〜現在</span>
+          <div class="flow-title">インフレと生活防衛の常態化</div>
+          <p class="flow-desc">
+            物価高騰と実質賃金の長期低迷により、「生活が低下している」との回答が激増。「中流」の枠組み自体が名目化し生活苦が顕在化。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-7" class="cite-tag">[7]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Historical Simulator -->
+    <section>
+      <h2>🕰️ 3. インタラクティブ図解①：時代別・生活意識と中流意識の変遷シミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、戦後日本の経済環境、国民の生活実感、中流意識の内訳、および政府への最優先要望の推移を体験できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 時代別『国民生活意識』時系列シミュレーター</div>
+            <div class="sim-subtitle">高度成長期からバブル絶頂、失われた30年、そして現代の物価高騰期へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1960〜70年代</span>
+            高度経済成長と「中流意識」の誕生
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1980年代</span>
+            一億総中流の絶頂期（中流意識90%）
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜1990〜2000年代</span>
+            バブル崩壊と「中の下」への転落
+          </button>
+          <button class="phase-btn active" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜2020年代（最新）</span>
+            物価高騰と「生活低下実感」の急増
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">生活程度「中流」意識率（上中・中中・中下）</div>
+            <div class="metric-value" id="m-middle" style="color: #38bdf8;">約90%（名目的高止まり）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-middle" style="width: 90%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">前年に比べた「生活向上」実感率</div>
+            <div class="metric-value" id="m-improve" style="color: #f43f5e;">5.4%（歴史的低水準）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-improve" style="width: 5.4%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">国民が政府に求める政策 最多要望</div>
+            <div class="metric-value" id="m-demand" style="color: #f59e0b;">物価対策（72.5%）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-demand" style="width: 72.5%; background-color: #f59e0b;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 4：2020年代最新 ― 物価高騰下での実質賃金低下と「生活防衛」の直撃】</strong><br>
+          生活程度を「中」と答える割合自体は依然として約9割と高い数値を維持しているものの、その内訳は「中の中」から「中の下（ギリギリの中流）」へと重心が大きく沈下しています。前年に比べて生活水準が「低下した」と答える人が31.6%にのぼる一方、「向上した」はわずか5.4%にとどまり、実質賃金のマイナスが国民生活を直接圧迫。政府に対する要望では「物価対策」が72.5%で圧倒的首位となり、食費や光熱費の負担増に対する悲鳴が鮮明に現れています。<a href="#ref-5" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[5]</a><a href="#ref-7" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[7]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Live Data Dashboard -->
+    <section>
+      <h2>📊 4. インタラクティブ図解②：最新調査（速報データ）国民の切実な要望＆生活実感</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        内閣府が公表した直近の調査結果（有効回収2,719人）から、国民が直面する生活実感と政策要望の最新数値を可視化しました。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-7" class="cite-tag">[7]</a>
+      </p>
+
+      <div class="dashboard-panel">
+        <div class="dash-grid">
+          <!-- Col 1: Government Policy Demands -->
+          <div>
+            <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary-dark); font-size: 1.05rem;">
+              🎯 政府に力を入れてほしい政策課題（複数回答）
+            </h3>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>① 物価対策（4年連続最多）</span>
+                <span style="color: var(--rose); font-weight: 800;">72.5%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill fill-rose" style="width: 72.5%;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>② 医療・年金等の社会保障の整備</span>
+                <span style="color: var(--primary); font-weight: 800;">61.9%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill" style="width: 61.9%;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>③ 景気対策</span>
+                <span style="color: var(--accent); font-weight: 800;">57.0%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill fill-warn" style="width: 57.0%;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>④ 高齢社会対策・介護環境</span>
+                <span style="color: var(--text-muted); font-weight: 800;">47.8%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill" style="width: 47.8%; background: #64748b;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>⑤ 少子化・子育て・教育支援</span>
+                <span style="color: var(--teal); font-weight: 800;">38.4%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill fill-teal" style="width: 38.4%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 2: Living Condition Perceptions -->
+          <div>
+            <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary-dark); font-size: 1.05rem;">
+              📉 昨年の今頃と比べた「生活水準」の変化実感
+            </h3>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>同じようなもの（現状維持・停滞）</span>
+                <span style="font-weight: 800;">62.6%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill" style="width: 62.6%; background: #0284c7;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>低下している（生活の悪化）</span>
+                <span style="color: var(--rose); font-weight: 800;">31.6%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill fill-rose" style="width: 31.6%;"></div>
+              </div>
+            </div>
+
+            <div class="poll-bar-item">
+              <div class="poll-bar-header">
+                <span>向上している（暮らしの好転）</span>
+                <span style="color: var(--emerald); font-weight: 800;">5.4%</span>
+              </div>
+              <div class="poll-bar-bg">
+                <div class="poll-bar-fill" style="width: 5.4%; background: #10b981;"></div>
+              </div>
+            </div>
+
+            <div class="callout callout-rose" style="margin-top: 1.25rem; padding: 1rem;">
+              <div class="callout-title" style="font-size: 0.95rem;">🍞 食生活への満足度（3人に1人以上が不満）</div>
+              <p style="font-size: 0.88rem; margin: 0; color: var(--text-main);">
+                食生活に「満足・まあ満足」は64.1%である一方、<strong>「不満・やや不満」が35.3%</strong>に達しています。生鮮食品や生活必需品の値上げが、日々の食卓を直接侵食している実態が浮き彫りとなっています。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-7" class="cite-tag">[7]</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Structural Insights for the Book -->
+    <section>
+      <h2>🔍 5. 本書（『現代貧困の解体新書』）が読み解く「統計の罠」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        なぜこれほど生活が苦しいにもかかわらず、日本人は「中流」と答え続けるのか。世論調査データの裏側に潜む社会心理と制度的欠陥を解剖します。
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🎭 「世間体」と適応的選好（Adaptive Preferences）</span>
+          </div>
+          <p class="factor-desc">
+            「下」と回答することは自らの人生の失敗を認めるような心理的屈辱（スティグマ）を伴います。そのため、貯蓄を削り衣服を取り繕ってでも「中（特に中の下）」に自己を位置づけようとする防衛的心理が働きます。これが貧困の実態を統計の表層で見えにくくしてきました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>⚖️ 主観的調査と客観的データ（剥奪指標）の交差</span>
+          </div>
+          <p class="factor-desc">
+            世論調査という「主観的意識」の測定だけでは政策立案を誤ります。実質賃金の低下、労働分配率の低下、そして暖房や食事を欠損する「物質的剥奪指標」という客観データを組み合わせて初めて、現代日本の真の困窮構造が浮き彫りになります。<a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">比較項目</th>
+              <th style="width: 37%;">内閣府『国民生活に関する世論調査』<br><span style="font-size: 0.78rem; font-weight: 500;">（主観的意識・政策要望統計）</span></th>
+              <th style="width: 38%;">厚労省『国民生活基礎調査』・剥奪指標<br><span style="font-size: 0.78rem; font-weight: 500;">（客観的所得・実態測定統計）</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>測定の対象</strong></td>
+              <td>暮らしの<strong>「満足度・生活実感・政策要望」</strong>（主観）。</td>
+              <td>世帯の<strong>「等価可処分所得・貧困線・必需品欠損」</strong>（客観）。</td>
+            </tr>
+            <tr>
+              <td><strong>「中流」の捉え方</strong></td>
+              <td>「自分は世間一般と比べてどのあたりか」という自己申告（約9割が中）。</td>
+              <td>所得中央値の50%未満を「相対的貧困」（約15.4%、子育て約11.5%）。</td>
+            </tr>
+            <tr>
+              <td><strong>貧困分析での活用</strong></td>
+              <td>国民がどの政策（物価・年金）に切迫感を抱いているかの<strong>世論動向の把握</strong>。<a href="#ref-1" class="cite-tag">[1]</a></td>
+              <td>生活困窮の実数、再分配機能の不全、格差拡大の<strong>実証的因果解明</strong>。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している内閣府公式資料、報道データ、学術解説の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://survey.gov-online.go.jp/202412/r06/r06-life/gairyaku.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">内閣府大臣官房政府広報室「国民生活に関する世論調査（概要PDF）」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://kotobank.jp/word/%E5%9B%BD%E6%B0%91%E7%94%9F%E6%B4%BB%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E4%B8%96%E8%AB%96%E8%AA%BF%E6%9F%BB-1833970" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「国民生活に関する世論調査（日本大百科全書ニッポニカ）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://survey.gov-online.go.jp/about/" target="_blank" rel="noopener noreferrer" class="ref-link">政府広報オンライン「内閣府世論調査の概要と調査手法の変遷」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://survey.gov-online.go.jp/r05/r05-life/" target="_blank" rel="noopener noreferrer" class="ref-link">内閣府世論調査アーカイブ「令和5年度 国民生活に関する世論調査」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://news.yahoo.co.jp/articles/0fcadfea3e1f690d0553a0eef9da3dd8b80cac82" target="_blank" rel="noopener noreferrer" class="ref-link">Yahoo!ニュース「国民生活世論調査：物価対策求める声が最多・生活低下の実態」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://survey.gov-online.go.jp/living/202509/r07/r07-life/" target="_blank" rel="noopener noreferrer" class="ref-link">内閣府「国民生活に関する世論調査：時系列推移と生活意識分析」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://www.nikkei.com/article/DGXZQOUA295TQ0Z21C26A0000000/" target="_blank" rel="noopener noreferrer" class="ref-link">日本経済新聞「政府への要望、物価対策が7割超で最多継続――内閣府世論調査」</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://news.tv-asahi.co.jp/news_politics/articles/000544105.html" target="_blank" rel="noopener noreferrer" class="ref-link">テレビ朝日ニュース「政府に求める政策、物価対策が突出して最多」</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 内閣府『国民生活に関する世論調査』とは</p>
+    </footer>
+  </div>
+
+  <script>
+    const phases = [
+      {
+        middleText: "約70%（中流化の初期）",
+        middleWidth: "70%",
+        middleColor: "#38bdf8",
+        improveText: "約25〜35%（高度成長の高揚感）",
+        improveWidth: "30%",
+        improveColor: "#10b981",
+        demandText: "住宅対策・公害対策・社会資本",
+        demandWidth: "45%",
+        demandColor: "#38bdf8",
+        desc: "<strong>【Phase 1：1960〜70年代 ― 高度経済成長と「中流意識」の誕生】</strong><br>池田勇人内閣の所得倍増計画が進み、三種の神器や新・三種の神器（3C：カラーテレビ、クーラー、自動車）が一般家庭へ急速に普及しました。戦後復興期の絶対的貧困から抜け出し、「自分は世間一般の中流である」と自認する国民が急増。生活が「向上している」という実感も20〜30%台を記録し、政府への要望は過密・公害対策や住宅環境の整備が上位を占めました。"
+      },
+      {
+        middleText: "約90%（一億総中流の完成）",
+        middleWidth: "90%",
+        middleColor: "#10b981",
+        improveText: "約20〜25%（生活安定と物質的充足）",
+        improveWidth: "22%",
+        improveColor: "#10b981",
+        demandText: "高齢社会・年金医療・税制改革",
+        demandWidth: "55%",
+        demandColor: "#10b981",
+        desc: "<strong>【Phase 2：1980年代 ― 「一億総中流」意識の絶頂と安定成長】</strong><br>二度の石油危機を乗り越え、世界第2位の経済大国となった日本で「中（上中・中中・中下）」と答える割合が約90%に達しました。終身雇用と年功序列賃金が機能し、「真面目に働けば誰もが中流になれる」という強固な社会的信頼が存在しました。生活の関心も物質的充足から「心の豊かさや余暇活動」へとシフトし始めました。"
+      },
+      {
+        middleText: "約85〜90%（「中の下」への重心移動）",
+        middleWidth: "85%",
+        middleColor: "#f59e0b",
+        improveText: "約10〜15%（停滞感の拡大）",
+        improveWidth: "12%",
+        improveColor: "#f59e0b",
+        demandText: "景気対策・雇用安定・少子化対策",
+        demandWidth: "65%",
+        demandColor: "#f59e0b",
+        desc: "<strong>【Phase 3：1990〜2000年代 ― バブル崩壊と「失われた30年」の突入】</strong><br>バブル崩壊と不良債権危機、日経連『新時代の「日本的経営」』（1995年）による非正規雇用の拡大を経て、生活向上の実感は急落。「中」と答える人の割合自体は世間体から高水準を保ちながらも、中身は「中の中」から「中の下」へと沈下しました。政府への要望では「景気対策」と「雇用の安定」が最優先課題へと急浮上しました。"
+      },
+      {
+        middleText: "約90%（名目的高止まり）",
+        middleWidth: "90%",
+        middleColor: "#38bdf8",
+        improveText: "5.4%（歴史的低水準）",
+        improveWidth: "5.4%",
+        improveColor: "#f43f5e",
+        demandText: "物価対策（72.5%で4年連続最多）",
+        demandWidth: "72.5%",
+        demandColor: "#f43f5e",
+        desc: "<strong>【Phase 4：2020年代最新 ― 物価高騰下での実質賃金低下と「生活防衛」の直撃】</strong><br>生活程度を「中」と答える割合自体は依然として約9割と高い数値を維持しているものの、その内訳は「中の中」から「中の下（ギリギリの中流）」へと重心が大きく沈下しています。前年に比べて生活水準が「低下した」と答える人が31.6%にのぼる一方、「向上した」はわずか5.4%にとどまり、実質賃金のマイナスが国民生活を直接圧迫。政府に対する要望では「物価対策」が72.5%で圧倒的首位となり、食費や光熱費の負担増に対する悲鳴が鮮明に現れています。<a href='#ref-5' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[5]</a><a href='#ref-7' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[7]</a>"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-middle').textContent = p.middleText;
+      const bMiddle = document.getElementById('b-middle');
+      bMiddle.style.width = p.middleWidth;
+      bMiddle.style.backgroundColor = p.middleColor;
+
+      document.getElementById('m-improve').textContent = p.improveText;
+      const bImprove = document.getElementById('b-improve');
+      bImprove.style.width = p.improveWidth;
+      bImprove.style.backgroundColor = p.improveColor;
+
+      document.getElementById('m-demand').textContent = p.demandText;
+      const bDemand = document.getElementById('b-demand');
+      bDemand.style.width = p.demandWidth;
+      bDemand.style.backgroundColor = p.demandColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>『現代貧困の解体新書』Web補論・用語解説ポータル</title>
+  <meta name="description" content="Kindle電子書籍『現代貧困の解体新書――見えない搾取の構造と処方箋』（著：mb_cho）公式Web補論・用語解説ポータル。相対的剥奪指標、国民生活世論調査、社会的排除、金融化、労働分配率などの詳細解説。">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --primary-dark: #0f172a;
+      --primary-subtle: #eff6ff;
+      --accent: #b45309;
+      --accent-light: #fef3c7;
+      --accent-border: #f59e0b;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --border-focus: #3b82f6;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 0.75rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Hero Header */
+    header.hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #065f46 100%);
+      color: #ffffff;
+      padding: 3.5rem 0 3rem 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid var(--accent-border);
+    }
+
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(254, 240, 138, 0.3);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: #a7f3d0;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-notice {
+      background: rgba(15, 23, 42, 0.65);
+      border-left: 4px solid var(--accent-border);
+      padding: 1.15rem 1.35rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.925rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+      max-width: 880px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-notice strong {
+      color: #fde68a;
+    }
+
+    /* Controls Bar */
+    .controls-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .controls-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .controls-grid {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 480px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.7rem 1rem 0.7rem 2.5rem;
+      border: 2px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover {
+      background: #f1f5f9;
+      color: var(--text-main);
+      border-color: #cbd5e1;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Content Area */
+    main {
+      padding: 2.5rem 0 4rem 0;
+    }
+
+    .chapter-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .chapter-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    .chapter-tag {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.65rem;
+      border-radius: 0.35rem;
+      letter-spacing: 0.05em;
+    }
+
+    .chapter-tag.tag-emerald { background: var(--emerald); }
+    .chapter-tag.tag-teal { background: var(--teal); }
+    .chapter-tag.tag-purple { background: var(--purple); }
+
+    .chapter-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+    }
+
+    .term-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .term-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #93c5fd;
+    }
+
+    .term-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      background: var(--primary-subtle);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .category-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .interactive-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #065f46;
+      background: #d1fae5;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .term-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+
+    .term-title a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .term-title a:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    .term-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .term-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.6rem 0.9rem;
+      border-radius: 0.5rem;
+      transition: all 0.15s;
+    }
+
+    .term-link-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .term-link-btn.featured {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #1e40af;
+    }
+
+    .term-link-btn.featured:hover {
+      background: #1e3a8a;
+      color: #ffffff;
+      border-color: #1e3a8a;
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #ffffff;
+      border-radius: var(--radius);
+      border: 1px dashed var(--border);
+      color: var(--text-muted);
+    }
+
+    /* Book Info Box */
+    .book-info-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .book-info-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .book-info-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 2.5rem 0;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>📘 Amazon Kindle 電子書籍 公式補論サイト</span>
+      </div>
+      <h1 class="hero-title">『現代貧困の解体新書』<br>Web補論・用語解説ポータル</h1>
+      <p class="hero-subtitle">見えない搾取の構造と処方箋 ｜ 著者：mb_cho</p>
+      <div class="hero-notice">
+        <strong>【読者の皆様へ】</strong><br>
+        本書『現代貧困の解体新書』各章末からリンクされている公式Web補論集です。電子書籍（Kindle端末等）の読書体験を阻害しないよう、詳細な統計データ、公的白書・国際機関レポート、理論的背景、および<strong>ブラウザ上で動かせるインタラクティブ図解・シミュレーター</strong>をWeb上に集約・公開しています。<br>
+        ※Kindle Paperwhite等のE-Ink端末をお使いの方は、スマートフォンやPCのブラウザから本ポータルをご参照ください。
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Controls Bar -->
+  <div class="controls-wrapper">
+    <div class="container">
+      <div class="controls-grid">
+        <div class="search-box">
+          <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="用語・指標・キーワードで検索（例: 剥奪、世論調査、排除、分配率、OTC）...">
+        </div>
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">すべて (7)</button>
+          <button class="filter-btn" data-filter="第1章">第1章：生活実感と因果</button>
+          <button class="filter-btn" data-filter="第2章">第2章：貧困指標と国際比較</button>
+          <button class="filter-btn" data-filter="第3章">第3章：実体経済の金融化</button>
+          <button class="filter-btn" data-filter="第4章">第4章：労働市場と分配率</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <div id="noResults" class="no-results">
+      <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem;">該当する補論・用語解説が見つかりませんでした</p>
+      <p>検索キーワードを変更するか、フィルターを「すべて」に戻してください。</p>
+    </div>
+
+    <!-- 第1章 セクション -->
+    <section class="chapter-section" data-chapter="第1章">
+      <div class="chapter-header">
+        <span class="chapter-tag">第1章</span>
+        <h2 class="chapter-title">序論：現代における「生活苦」の発生と因果連鎖</h2>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Card: 国民生活世論調査 -->
+        <article class="term-card" data-chapter="第1章" data-keywords="国民生活に関する世論調査 こくみんせいかつにかんするよろんちょうさ 内閣府 一億総中流 物価対策 生活低下 中流意識 政府要望">
+          <div class="term-meta">
+            <span class="section-badge">1.1 一億総中流の解体</span>
+            <span class="category-badge">国家世論統計</span>
+            <span class="interactive-badge">📊 時系列シミュレーター対応</span>
+          </div>
+          <h3 class="term-title"><a href="PublicOpinionSurveyOnNationalLife.html">内閣府『国民生活に関する世論調査』とは</a></h3>
+          <p class="term-desc">1958年から続く国の基幹世論統計。「国民の9割が中流意識」を抱いた高度成長期から、近年の物価高騰・実質賃金低下による「生活低下実感（31.6%）」「物価対策要望（72.5%）」に至る意識の変遷と統計の罠を解剖。</p>
+          <a href="PublicOpinionSurveyOnNationalLife.html" class="term-link-btn featured"><span>詳細解説・時系列シミュレーターを開く</span><span>→</span></a>
+        </article>
+
+        <!-- Card: 貧困の悪循環と社会的損失 -->
+        <article class="term-card" data-chapter="第1章" data-keywords="貧困の悪循環 世代間連鎖 せだいかんれんさ マーガー 日本財団推計 生産性低下 社会的損失 43兆円 子どもの貧困">
+          <div class="term-meta">
+            <span class="section-badge">1.2 貧困概念の多面性</span>
+            <span class="category-badge">マクロ社会的損失</span>
+          </div>
+          <h3 class="term-title">国全体の生産性低下と社会的損失をもたらす循環プロセス</h3>
+          <p class="term-desc">親世代の困窮が子どもの教育・健康格差を生み、成人後の不安定就労を通じて国全体の税収減と社会保障費増大を招くマクロ循環構造（日本財団推計：1学年あたり約43兆円の生涯所得損失）を解説。</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: auto;">
+            ※第1巻 本文第1章 1.2（3）および第2巻 詳細編と完全連動
+          </div>
+        </article>
+
+        <!-- Card: 欧州委員会の社会的排除 -->
+        <article class="term-card" data-chapter="第1章" data-keywords="欧州委員会 社会的排除 しゃかいてきはいじょ social exclusion EU 社会的包摂 ソーシャルインクルージョン プロセス 多次元性">
+          <div class="term-meta">
+            <span class="section-badge">1.2 貧困概念の多面性</span>
+            <span class="category-badge">EU社会政策</span>
+          </div>
+          <h3 class="term-title">欧州委員会における「社会的排除」の定義と展開</h3>
+          <p class="term-desc">貧困が「お金がない状態（静態）」を表すのに対し、個人が社会生活・経済活動・意思決定から周縁化されていく「動的な過程（プロセス）」として捉えるEU政策の中核概念。対語としての「社会的包摂」を整理。</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: auto;">
+            ※第1巻 本文第1章 1.2（3）および第2章 補論資料
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 第2章 セクション -->
+    <section class="chapter-section" data-chapter="第2章">
+      <div class="chapter-header">
+        <span class="chapter-tag tag-emerald">第2章</span>
+        <h2 class="chapter-title">貧困を捉える多角的指標と主要4カ国の基準比較</h2>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Card: 相対的剥奪指標 -->
+        <article class="term-card" data-chapter="第2章" data-keywords="相対的剥奪指標 そうたいてきはくだつしひょう relative deprivation index ピーター・タウンゼンド EU物質的剥奪 Eurostat 阿部彩 見えにくい貧困 4象限">
+          <div class="term-meta">
+            <span class="section-badge">2.4 多次元的アプローチ</span>
+            <span class="category-badge">生活水準測定</span>
+            <span class="interactive-badge">🛠️ 9項目チェッカー＆4象限分析対応</span>
+          </div>
+          <h3 class="term-title"><a href="RelativeDeprivationIndex.html">先進国における相対的剥奪指標（Relative Deprivation Index）</a></h3>
+          <p class="term-desc">所得（金銭フロー）の間接測定にとどまらず、社会の標準的な生活必需品・暖房・食事・社会的余暇の欠乏を直接測定するタウンゼンド以来の多次元アプローチ。EU公式9項目診断と所得×剥奪の4象限マトリクスを搭載。</p>
+          <a href="RelativeDeprivationIndex.html" class="term-link-btn featured"><span>詳細解説・9項目診断シミュレーターを開く</span><span>→</span></a>
+        </article>
+
+        <!-- Card: 現代の社会政策論における社会的排除 -->
+        <article class="term-card" data-chapter="第2章" data-keywords="社会的排除 しゃかいてきはいじょ ルネ・ルノワール ルーム レヴィタス 福祉国家 セーフティネット 権利の剥奪 社会政策">
+          <div class="term-meta">
+            <span class="section-badge">2.4 多次元的アプローチ</span>
+            <span class="category-badge">理論体系</span>
+          </div>
+          <h3 class="term-title">現代の社会政策論における「社会的排除」の定義</h3>
+          <p class="term-desc">フランスのルネ・ルノワールによる概念提起から、英国・EUでの理論的展開（レヴィタスのM/R/Dモデル等）に至る系譜。関係性の貧困、市民権の不全、多次元的剥奪を架橋する社会政策理論の到達点。</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: auto;">
+            ※第1巻 第2章 2.4および第2巻 貧困の社会的影響編と連動
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 第3章 セクション -->
+    <section class="chapter-section" data-chapter="第3章">
+      <div class="chapter-header">
+        <span class="chapter-tag tag-teal">第3章</span>
+        <h2 class="chapter-title">新自由主義経済学に潜む罠と実体経済の「金融化」</h2>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Card: 金融デリバティブとOTC -->
+        <article class="term-card" data-chapter="第3章" data-keywords="金融デリバティブ 店頭デリバティブ OTC derivatives BIS統計 想定元本 金融化 金融工学 リスク移転 規制緩和">
+          <div class="term-meta">
+            <span class="section-badge">3.2 金融デリバティブの膨張</span>
+            <span class="category-badge">マクロ金融構造</span>
+          </div>
+          <h3 class="term-title">金融デリバティブ（派生商品）と店頭取引（OTC）の仕組み</h3>
+          <p class="term-desc">実体経済GDPの数倍〜十数倍に達する巨大な店頭デリバティブ（OTC）市場の構造。1990年代以降の規制緩和（商品先物近代化法CFMA等）が生んだ金融肥大化と、実体経済から資本を吸い上げるメカニズムを解説。</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: auto;">
+            ※第1巻 第3章 3.2「OTCデリバティブ市場の膨張とBIS統計」対応
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 第4章 セクション -->
+    <section class="chapter-section" data-chapter="第4章">
+      <div class="chapter-header">
+        <span class="chapter-tag tag-purple">第4章</span>
+        <h2 class="chapter-title">労働市場の二重構造と「労働分配率」低下のメカニズム</h2>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Card: 労働分配率 -->
+        <article class="term-card" data-chapter="第4章" data-keywords="労働分配率 ろうどうぶんぱいりつ labor share デカップリング 実質賃金 労働生産性 企業の内部留保 株主還元 正規非正規">
+          <div class="term-meta">
+            <span class="section-badge">4.1 労働分配率の推移</span>
+            <span class="category-badge">分配構造分析</span>
+          </div>
+          <h3 class="term-title">「労働分配率」の定義・計測手法と生産性・賃金のデカップリング</h3>
+          <p class="term-desc">国民所得・企業付加価値に占める人件費比率の推移。1990年代後半以降、労働生産性が向上しても賃金へ還元されず、企業の内部留保や配当へ偏重配分される構造的因果を統計データから徹底解剖。</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: auto;">
+            ※第1巻 第4章 4.1〜4.2「労働分配率の低下と二重構造」対応
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 書籍情報・シリーズ案内 -->
+    <div class="book-info-card">
+      <div class="book-info-header">
+        <span style="font-size: 1.5rem;">📖</span>
+        <div class="book-info-title">『現代貧困の解体新書――見えない搾取の構造と処方箋』全3巻構想</div>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.7; margin-bottom: 1rem;">
+        本シリーズは、「なぜ、真面目に働いても暮らしが苦しいのか？」という素朴で残酷な問いを出発点に、現代社会を覆う貧困生成システムを解体・検証する総合研究プロジェクトです。
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; font-size: 0.88rem;">
+        <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+          <strong style="color: var(--primary);">第1巻 構造編（本書）</strong><br>
+          実体経済を喰い潰す「金融化」と労働分配率低下のメカニズム。マクロ経済からミクロ家計に至る5段階因果連鎖を解明。
+        </div>
+        <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+          <strong style="color: var(--emerald);">第2巻 生活・社会的影響編</strong><br>
+          「社会的排除」と多次元的剥奪。子どもの貧困、ひとり親家庭、見えにくい貧困と健康格差、世代間連鎖の実態に肉薄。
+        </div>
+        <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+          <strong style="color: var(--accent);">第3巻 思想・処方箋編</strong><br>
+          新自由主義SSAの制度的限界の総括。事前分配（Pre-distribution）の強化と新しい社会保障・協同型経済モデルを提示。
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <p style="font-weight: 700; color: #ffffff; margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論ポータル
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+      <div>
+        <p><a href="indexHinkon.html">ポータルTOP</a> ｜ <a href="RelativeDeprivationIndex.html">① 相対的剥奪指標</a> ｜ <a href="PublicOpinionSurveyOnNationalLife.html">② 国民生活世論調査</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript: リアルタイム検索 & カテゴリフィルター -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.term-card');
+      const sections = document.querySelectorAll('.chapter-section');
+      const noResults = document.getElementById('noResults');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function updateDisplay() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const cardChapter = card.getAttribute('data-chapter');
+          const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+          const cardText = card.innerText.toLowerCase();
+
+          const matchesFilter = (currentFilter === 'all') || (cardChapter === currentFilter);
+          const matchesQuery = (!currentQuery) || 
+                               (cardKeywords.includes(currentQuery)) || 
+                               (cardText.includes(currentQuery));
+
+          if (matchesFilter && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // 章セクションの表示制御（表示カードが0件の章はセクションごと非表示）
+        sections.forEach(sec => {
+          const secCards = sec.querySelectorAll('.term-card');
+          const hasVisible = Array.from(secCards).some(c => c.style.display !== 'none');
+          sec.style.display = hasVisible ? 'block' : 'none';
+        });
+
+        // 検索結果0件の表示制御
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+
+      // 検索入力イベント
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value.trim().toLowerCase();
+        updateDisplay();
+      });
+
+      // フィルターボタンイベント
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter');
+          updateDisplay();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
