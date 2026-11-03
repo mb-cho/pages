@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：日本型雇用・家族モデル（戦後日本型循環モデル）の特徴と限界</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #059669 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(16, 185, 129, 0.35);
+      color: #a7f3d0;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+    .factor-card.card-teal { border-left-color: var(--teal); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #059669;
+      color: #ffffff;
+      border-color: #6ee7b7;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* 3 Pillars Comparison Interactive Tool */
+    .pillars-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pillar-btn {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.15rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .pillar-btn:hover {
+      border-color: #93c5fd;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .pillar-btn.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .pillar-btn.active.p-family {
+      border-color: var(--accent);
+      background: #fffbeb;
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .pillar-btn.active.p-edu {
+      border-color: var(--teal);
+      background: #f0fdfa;
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+
+    .pillar-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.4rem;
+    }
+
+    .pillar-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .pillar-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pillar-detail-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">雇用システム・福祉社会レジーム論</span>
+      </div>
+      <h1>日本型雇用・家族モデル（戦後日本型循環モデル）：<br>「企業・家族・教育」の相互依存エコシステムとその歴史的限界</h1>
+      <p class="lead">
+        <strong>日本型雇用・家族モデル</strong>（「戦後日本型循環モデル」や「日本型近代家族」）とは、高度経済成長期からバブル期にかけて確立された、<strong>「企業（仕事）」「家族（家庭）」「教育」</strong>が一体となって支え合っていた日本の社会・経済の基本構造のことです。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a><a href="#ref-3" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[3]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Overview & 3 Pillars -->
+    <section>
+      <h2>💡 1. 日本型雇用・家族モデルの本質と「3つの柱」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        このモデルの最大の特徴は、本来なら国家が公的福祉として担うべき「生活保障」や「ケア（育児・介護）」を、<strong>企業の長期雇用（企業福祉）</strong>と<strong>専業主婦の家庭内労働（家族福祉）</strong>によって肩代わり（代替）させていた点にあります。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>① 長期安定雇用と年功賃金（企業）</span>
+          </div>
+          <p class="factor-desc">
+            男性正社員に対する「終身雇用」と「年功序列型賃金」。賃金は個人の職務価値ではなく、結婚・住宅購入・教育費増大といったライフステージに合わせて上昇する<strong>「生活給（家族給）」</strong>として支給されました。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>② 強固な性別役割分業（家族）</span>
+          </div>
+          <p class="factor-desc">
+            「夫は外で働き（企業戦士）、妻は専業主婦として家事・育児・介護を一手に引き受ける」体制。配偶者控除や第3号被保険者制度、家族手当などの税・社会保険制度がこの標準世帯を優遇しました。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-7" class="cite-tag">[7]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-teal">
+          <div class="factor-title">
+            <span>③ 新卒一括採用と教育の循環（教育）</span>
+          </div>
+          <p class="factor-desc">
+            家庭が高額な教育費を注ぎ込んで育てた子どもを、学校・大学から企業へ<strong>「新卒一括採用」</strong>で直接接続。企業は自社特有の長期OJTで人材を白地から育成し、生涯労働力として囲い込みました。<a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-emerald" style="margin-top: 1.5rem;">
+        <div class="callout-title">📌 社会学が指摘する「戦後日本型循環モデル」とは？</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          教育社会学者の本田由紀氏らが指摘した通り、戦後日本社会は「仕事（企業から家族への生活給供給）」「家族（次世代の育成と無償ケア）」「教育（企業への忠誠心と基礎学力を持つ労働者の選抜・供給）」が三位一体となって資源をぐるぐる回し合う<strong>「閉じた循環エコシステム」</strong>を形成していました。高い経済成長と人口増が続いていた時代には、この私的相互扶助システムが奇跡的に機能し、公的福祉の支出を抑えながら「一億総中流」社会を演出できたのです。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Historical Ecosystem Simulator -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：循環エコシステムの変遷と崩壊シミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、戦後日本の高度経済成長からバブル崩壊、新自由主義改革を経て現在に至る「循環モデルの機能停止」の推移を確認できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 時代別「雇用・家族モデルの機能度」シミュレーター</div>
+            <div class="sim-subtitle">高度成長期の確立からバブル絶頂、そして現代の「制度的真空」へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1960〜70年代</span>
+            高度成長とモデルの確立期
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1980年代</span>
+            一億総中流とモデルの完成・絶頂期
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜1990〜2000年代</span>
+            バブル崩壊・非正規化と機能不全
+          </button>
+          <button class="phase-btn active" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜2020年代（現在）</span>
+            モデルの全面破綻と「制度的真空」
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">企業の生活保障力（終身雇用・年功給）</div>
+            <div class="metric-value" id="m-emp" style="color: #f43f5e;">崩壊（非正規化・フラット化）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-emp" style="width: 25%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">専業主婦による家族内ケア機能</div>
+            <div class="metric-value" id="m-fam" style="color: #f59e0b;">限界（共働き一般化・ケア危機）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-fam" style="width: 35%; background-color: #f59e0b;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">教育から正規雇用への接続度</div>
+            <div class="metric-value" id="m-edu" style="color: #f43f5e;">断絶（学費高騰・非正規への漏出）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-edu" style="width: 30%; background-color: #f43f5e;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 4：2020年代現在 ― モデルの全面破綻と「制度的真空」】</strong><br>
+          非正規雇用比率が約4割に達し、男性1人の収入で専業主婦と子どもを養う「家族賃金」は完全に破綻しました。共働きが標準世帯となったにもかかわらず、長時間労働慣行や税・社会保険制度（年収の壁）は依然として昭和の専業主婦モデルを引きずっています。さらに企業福祉・家族福祉が消滅したにもかかわらず、それに代わる公的福祉（住宅手当、高等教育無償化、手厚い児童手当）が不十分なまま放置された結果、中間層から滑り落ちた人々が直接「貧困・社会的孤立」に直面する構造が完成しました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[1]</a><a href="#ref-6" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[6]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive 3 Pillars Breakdown -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ分析②：三本柱の「過去の成功」vs「現代の破綻・格差生成」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        以下の3つの柱をクリックすると、高度成長期に機能していたメカニズムと、現代社会においてそれがどのように裏返り「貧困と格差の温床」へと変貌したかを比較検証できます。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-7" class="cite-tag">[7]</a>
+      </p>
+
+      <div class="pillars-container">
+        <div class="pillar-btn active" id="btn-p1" onclick="selectPillar(1)">
+          <span class="pillar-badge" style="background: #dbeafe; color: #1e40af;">第1の柱：企業</span>
+          <div class="pillar-name">💼 終身雇用と年功賃金</div>
+          <div class="pillar-sub">生活給体系から人件費カット・非正規化へ</div>
+        </div>
+
+        <div class="pillar-btn p-family" id="btn-p2" onclick="selectPillar(2)">
+          <span class="pillar-badge" style="background: #fef3c7; color: #b45309;">第2の柱：家族</span>
+          <div class="pillar-name">🏠 性別役割分業と家族福祉</div>
+          <div class="pillar-sub">無償ケアから共働き二重負担・ケア危機へ</div>
+        </div>
+
+        <div class="pillar-btn p-edu" id="btn-p3" onclick="selectPillar(3)">
+          <span class="pillar-badge" style="background: #ccfbf1; color: #0f766e;">第3の柱：教育</span>
+          <div class="pillar-name">🎓 新卒一括採用と教育投資</div>
+          <div class="pillar-sub">スムーズな就職から学費高騰・就職氷河期へ</div>
+        </div>
+      </div>
+
+      <div class="pillar-detail-box" id="pillar-detail">
+        <!-- Dynamically injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Why It Reached Its Limits -->
+    <section>
+      <h2>⚠️ 4. なぜ日本型雇用・家族モデルは限界を迎えたのか？</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        このモデルが機能不全に陥った背景には、人口構造の激変（少子高齢化）と、新自由主義的な規制緩和に伴う労働市場の構造変化という2重の圧力があります。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>📉 雇用の不安定化と低所得化</span>
+          </div>
+          <p class="factor-desc">
+            1995年の日経連報告『新時代の「日本的経営」』以降、企業は正社員を抑制し非正規雇用（パート・派遣）へ大幅シフト。男性稼ぎ主自身の賃金が伸び悩み、結婚や子育てを経済的に断念する若年層が急増しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>⏳ 共働き化と「制度の歪み」</span>
+          </div>
+          <p class="factor-desc">
+            欧米のような「共働き・共育て」への政策転換が遅れ、税制（配偶者控除）や社会保険（第3号被保険者、103万・130万の壁）が女性の就労抑制として機能。結果として「女性の非正規化」と「ワンオペ育児」が固定化しました。<a href="#ref-6" class="cite-tag">[6]</a><a href="#ref-7" class="cite-tag">[7]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🚼 超少子化と単身世帯の急増</span>
+          </div>
+          <p class="factor-desc">
+            家族形成が「安定した正規雇用」に依存していたため、雇用の崩壊がそのまま未婚化・晩婚化・出生率低下へと直結。今や全世帯の4割近くを単身世帯が占め、「家族による相互扶助」という前提そのものが消滅しました。<a href="#ref-6" class="cite-tag">[6]</a><a href="#ref-8" class="cite-tag">[8]</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">🚨 制度的真空（Institutional Void）：企業も家族も守ってくれない社会</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          ヨーロッパ諸国は「福祉国家（手厚い公的保育、住宅手当、高等教育無償化、積極的労働市場政策）」によって個人の生活を支え、アメリカは「徹底した労働市場の流動化と自己責任」で動いています。これに対し日本は、<strong>「企業福祉と家族福祉が掘り崩されたにもかかわらず、公的福祉の拡充を行わなかった」</strong>ため、どちらのセーフティネットにも救われない「制度的真空」が生まれました。これが真面目に働いても貧困から抜け出せない現代日本の生活苦の根源です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している主要な学術論文、労働研究レポート、厚生労働白書の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://ictj-report.joho.or.jp/1804/sp02.html" target="_blank" rel="noopener noreferrer" class="ref-link">情報労連リポート特集「日本型雇用・家族モデルの変容とこれからの社会構想」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.jstage.jst.go.jp/article/iken/27/1/27_31/_article/-char/ja/" target="_blank" rel="noopener noreferrer" class="ref-link">本田由紀 (2018)「戦後日本型循環モデルの崩壊と若年労働・教育」J-STAGE『医療と社会』</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.pef.or.jp/report/meeting_160929/" target="_blank" rel="noopener noreferrer" class="ref-link">公益財団法人パナソニック教育財団「家族モデルと日本型雇用の変容に関する研究報告」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://woomax.net/post-5181/" target="_blank" rel="noopener noreferrer" class="ref-link">ウーマックス解説「生活給としての年功賃金体系とジェンダー格差の歴史」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://brs-p.jp/media/2024/05/23.html" target="_blank" rel="noopener noreferrer" class="ref-link">ビジネスリサーチサービス「日本型雇用の三種の神器とその変遷」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.mhlw.go.jp/wp/hakusyo/kousei/01/1-2-3.html" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働省『厚生労働白書』第1部第2章第3節「家族と雇用の変化」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://www.d3b.jp/society/5395" target="_blank" rel="noopener noreferrer" class="ref-link">D3b社会分析「性別役割分業モデルの限界と超少子高齢化の相互関係」</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://repolab.lib.niigata-u.ac.jp/records/record-26569/" target="_blank" rel="noopener noreferrer" class="ref-link">新潟大学学術リポジトリ「日本型福祉社会論の構造的特質と破綻のメカニズム」</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 日本型雇用・家族モデル（戦後日本型循環モデル）の特徴と限界</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: Historical Timeline Simulator
+       ========================================================== */
+    const phases = [
+      {
+        empText: "極めて強固（終身雇用・年功給の確立）",
+        empWidth: "95%",
+        empColor: "#10b981",
+        famText: "専業主婦率上昇（無償ケアの確立）",
+        famWidth: "90%",
+        famColor: "#10b981",
+        eduText: "完全連動（金の卵・新卒一括採用）",
+        eduWidth: "95%",
+        eduColor: "#10b981",
+        desc: "<strong>【Phase 1：1960〜70年代 ― 高度経済成長とモデルの確立期】</strong><br>池田勇人内閣の所得倍増計画のもと、農村から都市部へ若年労働者が大量流入。企業は終身雇用と年功序列賃金を提示して労働者を囲い込みました。男性が外で稼ぎ（家族給）、女性が専業主婦として家庭を守る「近代家族像」が標準化。企業と家族の強固な補完関係により、政府の公的福祉支出を極小に抑えながら中間層が分厚く形成されました。"
+      },
+      {
+        empText: "頂点（一億総中流と手厚い企業福利）",
+        empWidth: "90%",
+        empColor: "#10b981",
+        famText: "安定維持（配偶者控除・3号年金の定着）",
+        famWidth: "85%",
+        famColor: "#10b981",
+        eduText: "高学歴化（大学進学率上昇と企業定着）",
+        eduWidth: "90%",
+        eduColor: "#10b981",
+        desc: "<strong>【Phase 2：1980年代 ― 一億総中流とモデルの完成・絶頂期】</strong><br>大平正芳内閣が提唱した「日本型福祉社会論」に象徴されるように、公的社会保障を抑制し『自助と家族の絆、企業の連帯』を称揚する路線が確立。男性正社員の給与は右肩上がりに上昇し、社宅や保養所、家族手当などの企業福利厚生が極大化。国民の約9割が自らを中流と認識する黄金期を迎えました。"
+      },
+      {
+        empText: "急速に低下（非正規雇用の解禁・拡大）",
+        empWidth: "55%",
+        empColor: "#f59e0b",
+        famText: "動揺（共働きの増加とM字カーブ）",
+        famWidth: "60%",
+        famColor: "#f59e0b",
+        eduText: "機能不全（就職氷河期と若年フリーター）",
+        eduWidth: "50%",
+        eduColor: "#f59e0b",
+        desc: "<strong>【Phase 3：1990〜2000年代 ― バブル崩壊・非正規化と機能不全】</strong><br>バブル崩壊と不良債権処理に伴い、日経連『新時代の「日本的経営」』（1995年）が発表され、正社員の絞り込みと非正規雇用の拡大が国是となりました。就職氷河期世代が非正規に追いやられ、男性正社員の「家族給」モデルが揺らぎ始めます。妻の家計補助パートが増加する一方、税制や社会保険の「年収の壁」が女性の自立を阻む矛盾が顕在化しました。"
+      },
+      {
+        empText: "崩壊（非正規化・フラット化）",
+        empWidth: "25%",
+        empColor: "#f43f5e",
+        famText: "限界（共働き一般化・ケア危機）",
+        famWidth: "35%",
+        famColor: "#f59e0b",
+        eduText: "断絶（学費高騰・非正規への漏出）",
+        eduWidth: "30%",
+        eduColor: "#f43f5e",
+        desc: "<strong>【Phase 4：2020年代現在 ― モデルの全面破綻と「制度的真空」】</strong><br>非正規雇用比率が約4割に達し、男性1人の収入で専業主婦と子どもを養う「家族賃金」は完全に破綻しました。共働きが標準世帯となったにもかかわらず、長時間労働慣行や税・社会保険制度（年収の壁）は依然として昭和の専業主婦モデルを引きずっています。さらに企業福祉・家族福祉が消滅したにもかかわらず、それに代わる公的福祉（住宅手当、高等教育無償化、手厚い児童手当）が不十分なまま放置された結果、中間層から滑り落ちた人々が直接「貧困・社会的孤立」に直面する構造が完成しました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-6' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[6]</a>"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-emp').textContent = p.empText;
+      const bEmp = document.getElementById('b-emp');
+      bEmp.style.width = p.empWidth;
+      bEmp.style.backgroundColor = p.empColor;
+
+      document.getElementById('m-fam').textContent = p.famText;
+      const bFam = document.getElementById('b-fam');
+      bFam.style.width = p.famWidth;
+      bFam.style.backgroundColor = p.famColor;
+
+      document.getElementById('m-edu').textContent = p.eduText;
+      const bEdu = document.getElementById('b-edu');
+      bEdu.style.width = p.eduWidth;
+      bEdu.style.backgroundColor = p.eduColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+
+    /* ==========================================================
+       Feature 2: 3 Pillars Interactive Comparison
+       ========================================================== */
+    const pillarData = {
+      1: {
+        title: "第1の柱【企業】：長期雇用と年功賃金（生活給）の変容",
+        badge: "企業内福祉の崩壊",
+        badgeColor: "#be123c",
+        desc: `
+          <div class="grid-2" style="margin-top: 0.5rem;">
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--emerald);">【過去の成功メカニズム】</strong><br>
+              ・終身雇用による身分保障と、定年まで右肩上がりに昇給する年功序列賃金。<br>
+              ・労働者は「結婚」「マイホーム取得」「子どもの大学進学」という人生の各ステージで必要となる資金を、企業から<strong>生活給（家族手当・退職金）</strong>として過不足なく受給。<br>
+              ・企業別組合も経営陣と協調し、ベースアップを通じて従業員の生活水準底上げを主導。
+            </div>
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--rose);">【現代の破綻と格差生成】</strong><br>
+              ・新自由主義的経営改革による成果主義導入と賃金カーブのフラット化。<br>
+              ・非正規雇用比率が4割超へ激増。非正規社員には賞与・退職金・手当がほとんど出ず、同一労働同一賃金原則も形骸化。<br>
+              ・企業は内部留保と配当金を積み増す一方、人件費を「固定費から変動費（調整弁）」へと切り下げ、労働者の生活丸抱えを放棄。
+            </div>
+          </div>
+        `
+      },
+      2: {
+        title: "第2の柱【家族】：性別役割分業と家族福祉の変容",
+        badge: "ケア労働の危機とジェンダー格差",
+        badgeColor: "#b45309",
+        desc: `
+          <div class="grid-2" style="margin-top: 0.5rem;">
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--emerald);">【過去の成功メカニズム】</strong><br>
+              ・「男性稼ぎ主（外で働き稼ぐ）」＋「専業主婦（家庭で無償ケア）」の役割分担。<br>
+              ・保育所や高齢者介護施設が極めて少なかった時代でも、妻の献身的な無償労働により、社会全体のケアコストを家庭内で吸収。<br>
+              ・税制上の配偶者控除や年金制度の第3号被保険者制度により、専業主婦世帯が手厚く保護された。
+            </div>
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--rose);">【現代の破綻と格差生成】</strong><br>
+              ・夫1人の稼ぎでは生活が成り立たず、共働き世帯が専業主婦世帯の2倍以上に逆転。<br>
+              ・しかし長時間労働慣行が温存されているため、家事・育児・介護の負担が女性に偏重（ワンオペ育児・介護離職）。<br>
+              ・未婚化・離婚増加により「ひとり親家庭」や「単身高齢者」が急増し、家族によるケア機能そのものが崩壊。
+            </div>
+          </div>
+        `
+      },
+      3: {
+        title: "第3の柱【教育】：新卒一括採用と企業内教育の変容",
+        badge: "教育格差と雇用の断絶",
+        badgeColor: "#0f766e",
+        desc: `
+          <div class="grid-2" style="margin-top: 0.5rem;">
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--emerald);">【過去の成功メカニズム】</strong><br>
+              ・新卒一括採用により、学卒者が失業期間を挟まずに即座に正規雇用へ移行。<br>
+              ・学校教育は専門知識よりも基礎学力や協調性を重視し、企業が手厚いOJT（職場内訓練）で終身技術を伝承。<br>
+              ・親が教育費を負担し、子どもが正規雇用に就いて次世代を育てるという「世代間再生産」が安定稼働。
+            </div>
+            <div style="background: #ffffff; padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);">
+              <strong style="color: var(--rose);">【現代の破綻と格差生成】</strong><br>
+              ・国公私立大学の学費が急騰し、大学生の約半数が有利子の奨学金（学生ローン）に依存。<br>
+              ・新卒一括採用のレールから一度外れると正規登用が極端に困難になる「若年トラップ」。<br>
+              ・企業は人材育成投資（OJT・研修費）を大幅に削減し、「即戦力」を求める一方で、若年層の技能蓄積の機会が喪失。
+            </div>
+          </div>
+        `
+      }
+    };
+
+    function selectPillar(idx) {
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById('btn-p' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+      const data = pillarData[idx];
+      const detailBox = document.getElementById('pillar-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: ${data.badgeColor}; color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Pillar 1
+    selectPillar(1);
+  </script>
+</body>
+</html>
