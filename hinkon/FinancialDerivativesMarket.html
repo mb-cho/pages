@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：金融デリバティブ市場と店頭取引（OTC）の仕組み――リスクヘッジの道具はいかにして実体経済を呑み込む投機市場へと変貌したのか？</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0369a1 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.2);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #38bdf8 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #38bdf8;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--primary-light);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+    }
+    .callout-amber .callout-title {
+      color: var(--accent-dark);
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+    }
+    .callout-rose .callout-title {
+      color: var(--crimson);
+    }
+
+    .callout-teal {
+      border-left-color: var(--teal);
+      background-color: #f0fdfa;
+    }
+    .callout-teal .callout-title {
+      color: #115e59;
+    }
+
+    /* Card Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .factor-meta {
+      font-size: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      font-weight: 600;
+    }
+
+    .card-blue { border-top: 4px solid var(--primary-light); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-teal { border-top: 4px solid var(--teal); }
+    .card-rose { border-top: 4px solid var(--rose); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+      background: #ffffff;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin: 2.25rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .control-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-label span.value-badge {
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    select.sim-select {
+      width: 100%;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.45rem;
+      font-size: 0.9rem;
+      background-color: #ffffff;
+      color: var(--text-main);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.35rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Simulation Results */
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      padding: 1.15rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 6px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .banner-desc {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* References */
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .ref-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.65rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--primary-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .ref-text {
+      color: var(--text-muted);
+    }
+
+    /* Citations in text */
+    .cite-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      text-decoration: none;
+      vertical-align: super;
+      margin: 0 0.15rem;
+      padding: 0.05rem 0.25rem;
+      background: #eff6ff;
+      border-radius: 0.25rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary-light);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .grid-3, .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .sim-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第3章：実体経済の「金融化」と格差構造</span>
+      </div>
+      <h1>金融デリバティブ市場と店頭取引（OTC）の仕組み：<br>リスクヘッジの道具はいかにして実体経済を呑み込む巨大投機と富の収奪装置へと変貌したのか？</h1>
+      <p class="lead">
+        <strong>金融デリバティブ（金融派生商品：Financial Derivatives）</strong>とは、株式、債券、金利、外国為替などの「原資産（もとになる金融商品）」から派生して作られた金融契約の総称です。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        本来は将来の価格変動リスクを回避（リスクヘッジ）するための「保険」として開発されましたが、1980年代以降の新自由主義的な規制緩和（金融ビッグバン、米国2000年商品先物現代化法CFMA等）によって、公的取引所を介さない<strong>「店頭デリバティブ（OTC：Over-The-Counter）」</strong>が天文学的規模（BIS統計で想定元本数百兆ドル＝世界名目GDPの数倍）へと大膨張しました。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-4" class="cite-tag-header">[4]</a><br>
+        本稿では、先物・オプション・スワップの基本構造から、OTC取引のブラックボックス性、高レバレッジが生むシステミック・リスク、そしてなぜこの金融肥大化が「企業の設備投資・人件費を削り、一般家計を貧困化させる巨大なポンプ」として機能するのかを徹底解剖します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⚙️</span><span>派生構造とレバレッジ効果</span></div>
+          <div class="h-item-desc">少額の証拠金で何十倍もの取引を動かすハイレバレッジ構造。ヘッジ（保険）と投機（ギャンブル）が紙一重で同居。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🌐</span><span style="color: #fde047;">OTC取引と影の銀行システム</span></div>
+          <div class="h-item-desc">取引所を介さない1対1の相対契約。世界GDP（約100兆ドル）を遥かに超える想定元本が不透明な網の目を形成。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⚠️</span><span>実体経済からの富の吸い上げ</span></div>
+          <div class="h-item-desc">金融資本の高利潤（株主至上主義・自社株買い）を支えるため、実物投資と労働分配率（給与）が犠牲になる構造。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: デリバティブの3大基本商品 -->
+    <section>
+      <h2>📋 1. デリバティブの基本概念と3大派生商品</h2>
+      <p>
+        デリバティブの本質は、原資産（Underlying Asset）の現物をその場で売り買いするのではなく、<strong>「将来の価格変化や金利変化によって生じるリスクや損益（キャッシュフロー）だけを切り出して取引すること」</strong>にあります。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a> 主要な取引形態は以下の3つに大別されます。
+      </p>
+
+      <div class="grid-3">
+        <!-- 先物取引 -->
+        <div class="factor-card card-blue">
+          <div class="factor-title"><span>①</span><span>先物・先渡し取引（Futures / Forwards）</span></div>
+          <p class="factor-desc">
+            将来の一定の期日（満期）に、あらかじめ現時点で取り決めた価格で原資産を売買することを約束する契約。期日には必ず契約を履行（または差金決済）する義務が生じます。
+          </p>
+          <div class="factor-meta">
+            <span>🛡️ ヘッジ例：</span>航空会社が半年後のジェット燃料価格を高騰リスクから守るため固定価格で購入契約。
+          </div>
+        </div>
+
+        <!-- オプション取引 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title"><span>②</span><span>オプション取引（Options）</span></div>
+          <p class="factor-desc">
+            将来の一定期間・期日に、あらかじめ決めた価格で「買う権利（コール・オプション）」または「売る権利（プット・オプション）」を売買する取引。権利の放棄が可能で、損失が限定される非対称性を持ちます。
+          </p>
+          <div class="factor-meta">
+            <span>🛡️ ヘッジ例：</span>株式を保有する投資家が暴落時の下落保険としてプット（売る権利）を購入。
+          </div>
+        </div>
+
+        <!-- スワップ取引 -->
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>③</span><span>スワップ取引（Swaps）</span></div>
+          <p class="factor-desc">
+            将来発生する2つのキャッシュフローを一定期間交換する取引。金利の「固定金利 ⇔ 変動金利」を交換する金利スワップ（IRS）や、為替スワップ、企業の債務不履行保険であるCDSなど多岐にわたります。
+          </p>
+          <div class="factor-meta">
+            <span>🛡️ ヘッジ例：</span>変動金利で借入中の企業が、将来の金利上昇による返済増を防ぐため固定金利受取と交換。
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-teal">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>デリバティブの3大特性：なぜこれほど爆発的に普及したのか？</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          1. <strong>価格の連動性（価格発見機能）</strong>：原資産の価格や相場つきによって価値が秒単位で決定される。<br>
+          2. <strong>レバレッジ効果（てこの原理）</strong>：少額の証拠金（マージン）を担保に預けるだけで、元手の5倍〜50倍もの巨大取引が可能。<br>
+          3. <strong>差金決済（ネット決済）</strong>：現物の原油タンクや巨額の国債を物理的に引き渡す必要がなく、売買の差額（損益）だけを現金で清算できるため、取引コストが極めて低い。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: 取引所取引 vs 店頭デリバティブ（OTC） -->
+    <section>
+      <h2>🏛️ 2. 取引形態の二極分化：「取引所取引」vs「店頭デリバティブ（OTC）」</h2>
+      <p>
+        デリバティブ市場を理解する上で最も重要なのが、<strong>「どこで誰と取引しているか」</strong>という市場形態の違いです。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-5" class="cite-tag">[5]</a> 取引所取引が厳格なルールと透明性を持つ「公設市場」であるのに対し、店頭取引（OTC：Over-The-Counter）は金融機関同士や大企業との「私的な1対1の相対（あいたい）取引」です。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">比較項目</th>
+              <th style="width: 40%;">取引所取引（上場デリバティブ）</th>
+              <th style="width: 40%;">店頭デリバティブ（OTC取引）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>主な取引場所</strong></td>
+              <td>大阪取引所（OSE）、シカゴ・マーカンタイル取引所（CME）など</td>
+              <td>金融機関と顧客・投資家間の電話・電子ネットワーク（相対）</td>
+            </tr>
+            <tr>
+              <td><strong>契約の標準化</strong></td>
+              <td><strong>標準化</strong>（満期日・取引単位・受渡条件が厳密に規格化）</td>
+              <td><strong>オーダーメイド</strong>（金額・満期・金利条件を当事者間で自由設定）</td>
+            </tr>
+            <tr>
+              <td><strong>価格の透明性</strong></td>
+              <td><strong>極めて高い</strong>（気配値や出来高がリアルタイムで公表）</td>
+              <td><strong>低い（不透明）</strong>（当事者間のみが把握するブラックボックス）</td>
+            </tr>
+            <tr>
+              <td><strong>相手方破綻リスク<br>（信用リスク）</strong></td>
+              <td><strong>極めて低い</strong>（清算機関CCPが間に入り債務引受・保証）</td>
+              <td><strong>高い（直接の相手方リスク）</strong>（相手の金融機関が倒産すると履行不能に）</td>
+            </tr>
+            <tr>
+              <td><strong>証拠金規制</strong></td>
+              <td>取引所が毎日値洗いし、追証を即時強制徴求</td>
+              <td>従来は個別交渉が中心（金融危機後に担保規制が強化）</td>
+            </tr>
+            <tr>
+              <td><strong>市場規模（残高比率）</strong></td>
+              <td>市場全体の約1割〜2割程度</td>
+              <td><strong>市場全体の約8割〜9割を占める超巨大市場</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>なぜ「OTCデリバティブ」が金融危機（システミック・リスク）の震源地となるのか？</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          OTC取引の最大のリスクは、<strong>「カウンターパーティ・リスク（取引相手の倒産リスク）」がクモの巣のように金融界全体に張り巡らされている点</strong>です。2008年のリーマン・ショックでは、米保険大手AIGが住宅ローン担保証券（MBS）に対して大量のクレジット・デフォルト・スワップ（CDS：破綻保険）をOTCで売り散らかしていました。住宅バブル崩壊でサブプライムローンが一斉に債務不履行を起こした瞬間、AIGは天文学的規模の保険金支払いを求められて即座に債務超過に陥り、AIGとOTC契約を結んでいた世界中の大手銀行が連鎖破綻の危機に直面しました。<a href="#ref-3" class="cite-tag">[3]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：金融デリバティブ＆OTCレバレッジ・シミュレーター</h2>
+      <p>
+        デリバティブの「少額の元手で巨大な取引を動かすレバレッジ効果」と、相場急変時に発生する「追証・債務超過リスク」、そしてOTC取引における「カウンターパーティ連鎖破綻の危険度」をブラウザ上でシミュレーションできます。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>デリバティブ取引損益 ＆ システミック・リスク診断</span>
+          </div>
+          <div class="sim-desc">
+            取引契約タイプを選択し、証拠金（自己資金）・レバレッジ・原資産の相場変動率を操作してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div style="margin-bottom: 1.25rem;">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); margin-right: 0.5rem;">典型シナリオ：</span>
+          <div class="preset-row" style="display: inline-flex;">
+            <button class="preset-btn active" onclick="applyPreset('hedge')">🟢 保守的ヘッジ運用</button>
+            <button class="preset-btn" onclick="applyPreset('speculate')">🟡 標準的先物トレード</button>
+            <button class="preset-btn" onclick="applyPreset('leveraged')">🔴 高レバレッジ破綻</button>
+            <button class="preset-btn" onclick="applyPreset('lehman')">💥 リーマン型OTCショック</button>
+          </div>
+        </div>
+
+        <div class="sim-controls">
+          <!-- 取引種別 -->
+          <div class="control-group">
+            <label class="control-label">
+              <span>取引契約の種類</span>
+            </label>
+            <select id="trade-type" class="sim-select" onchange="calcDerivatives()">
+              <option value="futures">① 先物取引・為替先渡し（リニアな損益変動）</option>
+              <option value="call_buy">② コール・オプション買い（上昇狙い・損失限定）</option>
+              <option value="put_buy">③ プット・オプション買い（下落保険・損失限定）</option>
+              <option value="otc_swap">④ 店頭デリバティブ（金利スワップ / CDS相対取引）</option>
+            </select>
+          </div>
+
+          <!-- 自己資金 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>自己資金（預託証拠金・元手）</span>
+              <span id="label-capital" class="value-badge">500 万円</span>
+            </div>
+            <input type="range" id="slider-capital" min="100" max="5000" step="50" value="500" oninput="calcDerivatives()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>100万円</span>
+              <span>2,500万円</span>
+              <span>5,000万円</span>
+            </div>
+          </div>
+
+          <!-- レバレッジ -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>レバレッジ倍率</span>
+              <span id="label-leverage" class="value-badge">10 倍</span>
+            </div>
+            <input type="range" id="slider-leverage" min="1" max="40" step="1" value="10" oninput="calcDerivatives()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>1倍（現物並み）</span>
+              <span>20倍</span>
+              <span>40倍（超ハイリスク）</span>
+            </div>
+          </div>
+
+          <!-- 原資産価格変動率 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>原資産の市場価格変動率</span>
+              <span id="label-change" class="value-badge">-5.0 %</span>
+            </div>
+            <input type="range" id="slider-change" min="-25" max="25" step="1" value="-5" oninput="calcDerivatives()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>-25%（暴落ショック）</span>
+              <span>0%（不変）</span>
+              <span>+25%（急騰バブル）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">取引想定元本（Notional）</div>
+            <div id="res-notional" class="result-value">5,000 万円</div>
+            <div class="result-sub">元手 × レバレッジ倍率</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">投資評価損益（P&amp;L）</div>
+            <div id="res-pnl" class="result-value">-250 万円</div>
+            <div id="res-pnl-sub" class="result-sub">自己資金比 -50.0%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">自己資金残高・追証状況</div>
+            <div id="res-equity" class="result-value">250 万円</div>
+            <div id="res-equity-sub" class="result-sub">証拠金維持率: 50%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">信用・システミック危機度</div>
+            <div id="res-risk" class="result-value" style="font-size: 1.25rem;">中リスク</div>
+            <div id="res-risk-sub" class="result-sub">カウンターパーティ波及度</div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🛡️</span>
+            <span>判定：管理可能な市場変動</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            証拠金維持率が保たれており、通常の価格ヘッジ・運用の範囲内です。急激なボラティリティの上昇に備えてストップロス（逆指値）を設定してください。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: BIS統計の正しい読み解き方と実体経済の金融化 -->
+    <section>
+      <h2>📈 4. BIS統計の深層：実体経済（GDP）を呑み込む「巨大なポンプ」</h2>
+      <p>
+        国際決済銀行（BIS）が公表するデリバティブ統計は、世界の金融がいかに実体経済から遊離して肥大化したかを如実に物語っています。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-4" class="cite-tag">[4]</a> 主流派経済学者は「想定元本は名目的な計算基準にすぎず、世界GDPと比較して危機を煽るのは誤りだ」と弁明しますが、この主張には致命的な盲点が存在します。
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>📐</span><span>想定元本（Notional Amount）とは何か？</span></div>
+          <p class="factor-desc">
+            利息や損益の計算の基準となる「契約上の元本金額」。世界全体のOTCデリバティブ想定元本残高は、<strong>約600兆ドル〜700兆ドル前後（約9万兆円〜10万兆円）</strong>で推移しており、世界全体の名目GDP（約105兆ドル）の約6倍に達します。
+          </p>
+          <div class="factor-meta">
+            <span>💡 意義：</span>実際にこの金額が動くわけではないが、相場急変時には「この天文学的元本に対して数％の変動が起きるだけで数兆ドルの証拠金不足・追証」が噴き出すトリガーとなる。
+          </div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>📊</span><span>グロス市場価値（Gross Market Value）</span></div>
+          <p class="factor-desc">
+            現時点の市場価格ですべてのデリバティブ契約を清算・再構築した場合にかかる費用の総額（純粋な含み損益の総和）。通常は想定元本の2〜3%程度（約15兆〜20兆ドル）で推移します。
+          </p>
+          <div class="factor-meta">
+            <span>💡 意義：</span>平時のリスク量を示すが、流動性が枯渇する危機時には市場価値が急拡大し、ヘッジファンドの連鎖破綻（LTCM、アルケゴス等）を引き起こす。
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>⚠️</span>
+          <span>本書の中心命題：金融デリバティブの膨張が、なぜ「私たちの給料袋」を直撃するのか？</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.7; margin-bottom: 0.75rem;">
+          デリバティブ市場の肥大化と一般庶民の生活苦は、決して別々の世界の話ではありません。1980年代以降、世界の資本主義は「モノを作って売る拡大再生産」から、金融市場での高速取引と資産運用によって利益を上げる<strong>「非金融企業の金融化（Financialization of Non-Financial Corporations）」</strong>へと劇的に転換しました。<a href="#ref-1" class="cite-tag">[1]</a>
+        </p>
+        <ol style="font-size: 0.88rem; line-height: 1.65; margin-left: 1.25rem; color: #334155;">
+          <li><strong>実物投資のクラウドアウト（押しのけ）</strong>：大企業は生み出した利益を、工場の新設や研究開発・賃上げではなく、自社株買いやデリバティブ・金融資産運用へと振り向けるようになった。</li>
+          <li><strong>株主価値至上主義（ROE・短期利益の強要）</strong>：グローバル投資家は企業に対し、デリバティブを活用した短期的な高ROEを要求。その達成の手段として「人件費の削減（非正規化・ベースアップ凍結）」が常態化した。</li>
+          <li><strong>労働分配率の長期低下</strong>：企業の経常利益や配当金が過去最高を更新し続ける一方で、付加価値から労働者に支払われる割合（労働分配率）は低下し続け、家庭の可処分所得が浸食された。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献 -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公的機関統計、金融監督当局レポート、専門解説の一覧です。実在確認済みの公式リポジトリに直接アクセスできます。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www.shiruporuto.jp/public/document/container/deriv/deriv101.html" target="_blank" rel="noopener noreferrer" class="ref-link">金融広報中央委員会（知るぽると）「やさしいデリバティブ：デリバティブとは？（派生商品の仕組みと役割）」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://kotobank.jp/word/%E9%87%91%E8%9E%8D%E6%B4%BE%E7%94%9F%E5%95%86%E5%93%81-4354" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「金融派生商品（ブリタニカ国際大百科事典／日本大百科全書）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.bis.org/statistics/derstats.htm" target="_blank" rel="noopener noreferrer" class="ref-link">国際決済銀行（BIS: Bank for International Settlements）「OTC Derivatives Statistics（店頭デリバティブ市場統計）」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.boj.or.jp/statistics/bis/deri/index.htm" target="_blank" rel="noopener noreferrer" class="ref-link">日本銀行「BIS関連統計：デリバティブ取引高および残高に関する統計（世界および日本市場の動向）」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.nomura.co.jp/terms/japan/te/A02182.html" target="_blank" rel="noopener noreferrer" class="ref-link">野村證券「証券用語解説集：店頭デリバティブ取引（相対取引・OTCデリバティブ）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.jsda.or.jp/shijyo/seido/jishukisei/words/0200.html" target="_blank" rel="noopener noreferrer" class="ref-link">日本証券業協会「特定店頭デリバティブ取引等の自主規制ルールと制度的枠組み」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">金融庁「店頭デリバティブ取引市場の多面的実態把握に向けた検証」金融研究・分析ノート、公的報告書。［清算集中義務とシステミック・リスク抑止策］</span>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <span class="ref-text">デヴィッド・ハーヴェイ『新自由主義――その歴史的展開と現在』渡辺治監訳、作品社、2007年。［金融化を通じた「収奪による蓄積」の理論枠組み］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcDerivatives() {
+      const tradeType = document.getElementById('trade-type').value;
+      const capital = parseFloat(document.getElementById('slider-capital').value); // 万円
+      const leverage = parseFloat(document.getElementById('slider-leverage').value); // 倍
+      const change = parseFloat(document.getElementById('slider-change').value); // %
+
+      // ラベル更新
+      document.getElementById('label-capital').innerText = capital.toLocaleString() + ' 万円';
+      document.getElementById('label-leverage').innerText = leverage + ' 倍';
+      document.getElementById('label-change').innerText = (change >= 0 ? '+' : '') + change.toFixed(1) + ' %';
+
+      // 想定元本
+      const notional = capital * leverage;
+      document.getElementById('res-notional').innerText = (notional >= 10000 
+        ? (notional / 10000).toFixed(2) + ' 億円' 
+        : notional.toLocaleString() + ' 万円');
+
+      // 損益計算
+      let pnl = 0;
+      let pnlDesc = '';
+
+      if (tradeType === 'futures') {
+        // 先物：原資産の変動率がそのままレバレッジ元本に作用
+        pnl = notional * (change / 100);
+      } else if (tradeType === 'call_buy') {
+        // コール買い：上昇時は利益、下落時はプレミアム（最大自己資金の30%をオプション料と仮定）の損失に限定
+        const premium = capital * 0.3;
+        if (change > 0) {
+          pnl = (notional * (change / 100)) - premium;
+        } else {
+          pnl = -premium;
+        }
+      } else if (tradeType === 'put_buy') {
+        // プット買い：下落時に利益、上昇時はプレミアム（最大自己資金の30%）の損失に限定
+        const premium = capital * 0.3;
+        if (change < 0) {
+          pnl = (notional * (Math.abs(change) / 100)) - premium;
+        } else {
+          pnl = -premium;
+        }
+      } else if (tradeType === 'otc_swap') {
+        // OTCスワップ/CDS：金利変動・信用変動に連動（変動がマイナスの場合は急激な評価損＋流動性プレミアム）
+        if (change < 0) {
+          // 下落・危機局面でスプレッド急拡大
+          pnl = notional * (change / 100) * 1.25;
+        } else {
+          pnl = notional * (change / 100) * 0.8;
+        }
+      }
+
+      const pnlElem = document.getElementById('res-pnl');
+      const pnlSubElem = document.getElementById('res-pnl-sub');
+      const pnlPercent = (pnl / capital) * 100;
+
+      if (pnl > 0) {
+        pnlElem.innerText = '+' + (pnl >= 10000 ? (pnl / 10000).toFixed(2) + ' 億円' : Math.round(pnl).toLocaleString() + ' 万円');
+        pnlElem.style.color = 'var(--emerald)';
+        pnlSubElem.innerText = '自己資金比 +' + pnlPercent.toFixed(1) + '% の利益';
+      } else if (pnl === 0) {
+        pnlElem.innerText = '±0 万円';
+        pnlElem.style.color = 'var(--text-main)';
+        pnlSubElem.innerText = '損益なし';
+      } else {
+        pnlElem.innerText = (pnl <= -10000 ? (pnl / 10000).toFixed(2) + ' 億円' : Math.round(pnl).toLocaleString() + ' 万円');
+        pnlElem.style.color = 'var(--rose)';
+        pnlSubElem.innerText = '自己資金比 ' + pnlPercent.toFixed(1) + '% の損失';
+      }
+
+      // 自己資本残高・証拠金維持率
+      const equity = capital + pnl;
+      const equityElem = document.getElementById('res-equity');
+      const equitySubElem = document.getElementById('res-equity-sub');
+      const marginRatio = (equity / capital) * 100;
+
+      if (equity <= 0) {
+        equityElem.innerText = '債務超過（破綻）';
+        equityElem.style.color = 'var(--crimson)';
+        equitySubElem.innerText = '不足額: ' + Math.abs(Math.round(equity)).toLocaleString() + ' 万円（借金）';
+      } else {
+        equityElem.innerText = (equity >= 10000 ? (equity / 10000).toFixed(2) + ' 億円' : Math.round(equity).toLocaleString() + ' 万円');
+        equityElem.style.color = marginRatio < 40 ? 'var(--accent)' : 'var(--primary-dark)';
+        equitySubElem.innerText = '維持率: ' + Math.max(0, marginRatio).toFixed(1) + '% ' + (marginRatio < 50 ? '（追証発生）' : '（正常）');
+      }
+
+      // リスク判定
+      const riskElem = document.getElementById('res-risk');
+      const riskSubElem = document.getElementById('res-risk-sub');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (equity <= 0) {
+        riskElem.innerText = '🚨 破綻・連鎖危機';
+        riskElem.style.color = 'var(--crimson)';
+        riskSubElem.innerText = 'カウンターパーティへ損害拡大';
+
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '💥 判定：自己資金全損 ＆ 債務超過・システミックショック！';
+        bannerDesc.innerText = `証拠金（${capital}万円）を完全に吹き飛ばし、${Math.abs(Math.round(equity)).toLocaleString()}万円の追証未払いでデフォルト（破綻）しました。${tradeType === 'otc_swap' ? '【OTC取引の警告】相対取引のため、相手方の金融機関やヘッジファンドがあなたの損失を丸被りし、金融システム全体に信用収縮が連鎖します（2008年リーマン型危機）。' : '取引所または証券会社から即座に強制決済され、担保資産が全額差し押さえられます。'}`;
+      } else if (marginRatio < 50) {
+        riskElem.innerText = '⚠️ 追証・高危険度';
+        riskElem.style.color = 'var(--accent-dark)';
+        riskSubElem.innerText = '即座のマージンコール発生';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '⚠️ 判定：追加証拠金（マージンコール）が発生！';
+        bannerDesc.innerText = `証拠金維持率が ${marginRatio.toFixed(1)}% まで急落しました。数時間以内に追加資金を投入できなければ強制ロスカットされ、莫大な損失が確定します。市場流動性が枯渇している場合、提示価格から大幅に滑って約定し破綻へ転落する恐れがあります。`;
+      } else if (leverage >= 20) {
+        riskElem.innerText = '⚡ 投機的過熱';
+        riskElem.style.color = 'var(--purple)';
+        riskSubElem.innerText = '急変動で即死するハイリスク';
+
+        banner.style.borderLeftColor = 'var(--purple)';
+        bannerTitle.style.color = 'var(--purple)';
+        bannerTitle.innerText = '⚡ 判定：極端なハイレバレッジ投機状態';
+        bannerDesc.innerText = `レバレッジ${leverage}倍は、わずか ${ (100 / leverage).toFixed(1) }% の市場逆行で元本が蒸発する極めて脆弱なポジションです。実体経済とは無関係なマネーゲームの領域に達しています。`;
+      } else {
+        riskElem.innerText = '🛡️ 安全・ヘッジ圏';
+        riskElem.style.color = 'var(--emerald)';
+        riskSubElem.innerText = 'カウンターパーティリスク低';
+
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🛡️ 判定：安定したリスク管理運用';
+        bannerDesc.innerText = `適正な証拠金維持率が確保されており、本来のリスクヘッジ（保険機能）または節度ある運用の範囲内です。取引相手（カウンターパーティ）への支払い能力も十分です。`;
+      }
+    }
+
+    function applyPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const tradeSelect = document.getElementById('trade-type');
+      const capitalSlider = document.getElementById('slider-capital');
+      const leverageSlider = document.getElementById('slider-leverage');
+      const changeSlider = document.getElementById('slider-change');
+
+      if (preset === 'hedge') {
+        tradeSelect.value = 'futures';
+        capitalSlider.value = 1000;
+        leverageSlider.value = 2;
+        changeSlider.value = -3;
+      } else if (preset === 'speculate') {
+        tradeSelect.value = 'futures';
+        capitalSlider.value = 500;
+        leverageSlider.value = 10;
+        changeSlider.value = -6;
+      } else if (preset === 'leveraged') {
+        tradeSelect.value = 'futures';
+        capitalSlider.value = 300;
+        leverageSlider.value = 25;
+        changeSlider.value = -8;
+      } else if (preset === 'lehman') {
+        tradeSelect.value = 'otc_swap';
+        capitalSlider.value = 1500;
+        leverageSlider.value = 30;
+        changeSlider.value = -15;
+      }
+      calcDerivatives();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcDerivatives();
+    });
+  </script>
+</body>
+</html>
