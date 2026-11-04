@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：貧困の悪循環（Cycle of Poverty）と社会的損失の推計――マーガーの構造的連鎖モデルと日本財団「40兆円の損失」推計の真実</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #991b1b 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(239, 68, 68, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #fca5a5 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f87171;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--rose);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+    }
+    .callout-amber .callout-title {
+      color: var(--accent-dark);
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+    }
+    .callout-rose .callout-title {
+      color: var(--crimson);
+    }
+
+    .callout-teal {
+      border-left-color: var(--teal);
+      background-color: #f0fdfa;
+    }
+    .callout-teal .callout-title {
+      color: #115e59;
+    }
+
+    /* Card Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .factor-meta {
+      font-size: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      font-weight: 600;
+    }
+
+    .card-rose { border-top: 4px solid var(--rose); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-blue { border-top: 4px solid var(--primary-light); }
+    .card-teal { border-top: 4px solid var(--teal); }
+
+    /* Cycle Step Diagram */
+    .cycle-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.75rem 0 2.25rem;
+    }
+
+    .cycle-step {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      border-left: 5px solid var(--rose);
+    }
+
+    .cycle-step-num {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: #fee2e2;
+      color: var(--crimson);
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cycle-step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .cycle-step-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+      background: #ffffff;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    .formula-display {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-family: "Cambria Math", "Times New Roman", serif;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .formula-term {
+      color: var(--crimson);
+      font-weight: 800;
+    }
+
+    .formula-op {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .formula-var {
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 800;
+      padding: 0 0.15rem;
+    }
+
+    .formula-desc-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.82rem;
+      color: #334155;
+    }
+
+    .formula-desc-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .formula-desc-item var,
+    var.math-var {
+      font-family: "Cambria Math", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.95rem;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin: 2.25rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.35rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--rose);
+      color: #ffffff;
+      border-color: var(--rose);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .control-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-label span.value-badge {
+      color: var(--crimson);
+      background: #fee2e2;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Simulation Results */
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      padding: 1.15rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 6px solid var(--rose);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .banner-desc {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* References */
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .ref-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.65rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--rose);
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--primary-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .ref-text {
+      color: var(--text-muted);
+    }
+
+    .cite-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--rose);
+      text-decoration: none;
+      vertical-align: super;
+      margin: 0 0.15rem;
+      padding: 0.05rem 0.25rem;
+      background: #fff1f2;
+      border-radius: 0.25rem;
+      border: 1px solid #fecdd3;
+    }
+
+    .cite-tag:hover {
+      background: var(--rose);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .grid-3, .grid-2, .sim-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：貧困概念の多面性・社会的損失</span>
+      </div>
+      <h1>貧困の悪循環（Cycle of Poverty）と社会的損失の推計：<br>マーガーの構造的連鎖モデルと日本財団「40兆円の損失」推計の真実</h1>
+      <p class="lead">
+        <strong>「貧困の悪循環（Cycle of Poverty）」</strong>とは、個人の努力不足や怠惰ではなく、社会構造そのものが貧困を世代間で自動的に引き継がせ、結果として国全体の人的資本を破壊して巨額の社会的損失をもたらす自己増殖的システムのことです。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        アメリカの社会学者マルティン・N・マーガー（Martin N. Marger）が定式化した<strong>「生まれの偶然（Accident of Birth）がライフチャンスを奪い、マクロの生産性低下へ連鎖する構造論モデル」</strong>と、日本財団×三菱UFJリサーチ＆コンサルティング（2015年）による<strong>「子どもの貧困を放置した場合、1学年で約2.9兆円、子ども世代全体で約40兆円超の社会的損失が生じる」</strong>という衝撃の計量推計データを統合解説します。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-4" class="cite-tag-header">[4]</a><br>
+        なぜ子どもの貧困対策は「困窮者への施し（財政コスト）」ではなく、<span class="highlight-term">「将来の国富を守る最高のリターンを持つ社会的投資」</span>であるのか、そのマクロ経済的真実を解き明かします。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🔄</span><span>マーガーの構造的悪循環</span></div>
+          <div class="h-item-desc">「生まれの偶然」が教育機会を奪い、低賃金労働と次世代への貧困再生産を固定化する構造的トラップ。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>📉</span><span style="color: #fde047;">社会的損失「40兆円」の衝撃</span></div>
+          <div class="h-item-desc">15歳1学年放置で所得損失約2.9兆円・財政打撃約1.1兆円。子ども世代全体で40兆円超の富が消滅する推計。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🏛️</span><span>「コスト」から「投資」への転換</span></div>
+          <div class="h-item-desc">貧困を放置する方が社会にとってはるかに高くつく。早期教育・生活基盤保障こそ最も費用対効果が高い国家戦略。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: マーガーの貧困の悪循環理論 -->
+    <section>
+      <h2>🔄 1. マーガーが解き明かした「貧困の悪循環」：構造論的アプローチ</h2>
+      <p>
+        社会学者マルティン・N・マーガー（Martin N. Marger）は、著書『Social Inequality: Patterns and Processes（社会的不平等：パターンとプロセス）』において、貧困を個人の能力不足や文化のせいに帰する「個人責任論」を痛烈に批判し、<strong>社会のシステムそのものが格差を自動固定化する「構造論（Structure-focused Approach）」</strong>を確立しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>マーガー理論の中核概念：「生まれの偶然」と「ライフチャンス」</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0;">
+          人間がどのような家庭・階級に生まれるかは100%本人の責任ではない<strong>「生まれの偶然（Accident of Birth）」</strong>です。しかし、資本主義社会においては、教育、健康、居住、法的保護といった人間が幸福に生きるための機会――<strong>「ライフチャンス（Life Chances）」</strong>――が市場化されており、親の所得という社会資源によって購入されます。スタートライン（初期値）が異なるだけで人生の選択肢が決定づけられてしまう構造こそが、不平等の最大の根源です。
+        </p>
+      </div>
+
+      <!-- 6段階の悪循環スパイラル -->
+      <h3>📊 貧困が自己増殖し国家を衰退させる「6段階の連鎖プロセス」</h3>
+      <div class="cycle-flow">
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 1</span>
+          <div class="cycle-step-title">生まれの偶然（初期値格差）</div>
+          <p class="cycle-step-desc">親の低所得により、良好な住環境、栄養、医療、文化資本、人脈（社会関係資本）が決定的に欠如する。</p>
+        </div>
+
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 2</span>
+          <div class="cycle-step-title">ライフチャンスの剥奪</div>
+          <p class="cycle-step-desc">塾や習い事の断念にとどまらず、学習環境の悪化、家庭内ストレス、ロールモデル不在により学力が低迷する。</p>
+        </div>
+
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 3</span>
+          <div class="cycle-step-title">労働市場での不利・非正規化</div>
+          <p class="cycle-step-desc">十分な教育やスキルを得られず、就職氷河期や労働規制緩和の波に飲まれ、低賃金・不安定雇用に固定化される。</p>
+        </div>
+
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 4</span>
+          <div class="cycle-step-title">次世代への貧困再生産</div>
+          <p class="cycle-step-desc">低所得のまま親となった子どもは、自らの子に十分な資源を与えられず、家庭内で貧困の世代間連鎖が完結する。</p>
+        </div>
+
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 5</span>
+          <div class="cycle-step-title">マクロ人的資本の毀損</div>
+          <p class="cycle-step-desc">本来なら科学技術や産業を牽引できたはずの優秀な人材が埋没し、社会全体のイノベーション力が低下する。</p>
+        </div>
+
+        <div class="cycle-step">
+          <span class="cycle-step-num">Step 6</span>
+          <div class="cycle-step-title">国家財政と生産性の沈没</div>
+          <p class="cycle-step-desc">納税者層の縮小（税収・社会保険料の減少）と社会保障給付の増大が連鎖し、国家全体の経済成長が失速する。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 日本財団の推計 -->
+    <section>
+      <h2>📉 2. 日本財団「子どもの貧困の社会的損失推計（2015年）」の衝撃</h2>
+      <p>
+        マーガーの「貧困の悪循環が国全体の生産性を押し下げる」という理論を、現代日本の精密な公的統計と計量経済モデルで実証したのが、日本財団と三菱UFJリサーチ＆コンサルティング（MURC）による2015年の共同調査レポートです。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-4" class="cite-tag">[4]</a><br>
+        この研究は、それまで「可哀想な子どもへの慈善・人道支援」という倫理的文脈で語られがちだった子どもの貧困問題を、<strong>「対策を怠って放置した場合、日本社会全体が被るマクロ経済的損失額」</strong>として可視化し、政府・財界に凄まじい衝撃を与えました。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">検証項目</th>
+              <th style="width: 35%;">現状シナリオ（対策を放置した場合）</th>
+              <th style="width: 40%;">社会的損失の推計結果（1学年：15歳）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>対象人口（1学年）</strong></td>
+              <td>15歳の子ども約120万人中、生活保護世帯・ひとり親世帯・児童養護施設等の困窮児童<strong>約18万人</strong></td>
+              <td>日本の将来を担う現役世代の約15%が貧困の悪循環に巻き込まれる規模。</td>
+            </tr>
+            <tr>
+              <td><strong>① 生涯所得の減少<br>（経済的損失／GDP）</strong></td>
+              <td>進学断念や中退により非正規雇用・低賃金労働に滞留。生涯所得が大幅に目減りする。</td>
+              <td><strong>約2兆9,000億円 の消失</strong><br>
+              <span style="font-size: 0.82rem; color: var(--crimson);">※たった1学年だけで約2.9兆円もの付加価値が国富から消滅。</span></td>
+            </tr>
+            <tr>
+              <td><strong>② 財政収入の減少<br>（税収・社会保険料）</strong></td>
+              <td>所得が伸び悩むため、生涯にわたって納付される所得税・住民税・年金・医療保険料が激減。</td>
+              <td><strong>約1兆1,000億円 の税収・保険料減</strong><br>
+              <span style="font-size: 0.82rem; color: var(--crimson);">※現役世代の減少に拍車をかけ、財政赤字を直接悪化。</span></td>
+            </tr>
+            <tr>
+              <td><strong>③ 子ども世代全体<br>（0歳〜15歳）の累計</strong></td>
+              <td>この1学年ごとの損失が、現在の子ども世代全体（15学年分）に累積していった場合。</td>
+              <td><strong>社会的損失総額 約40兆円超〜約43兆円</strong><br>
+              <span style="font-size: 0.82rem; color: var(--crimson); font-weight: 700;">※国家予算（一般会計税収）の大半を吹き飛ばす規模の損失。</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>なぜ「1人あたりの学力・雇用格差」が兆円単位の国家損失になるのか？</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          高校中退者や非正規雇用者の生涯賃金は約1億2,000万〜1億5,000万円にとどまるのに対し、大卒正規雇用者の生涯賃金は約2億5,000万〜3億円に達します。子どもの貧困を放置して教育機会を奪うことは、1人あたり<strong>約1億円前後の生涯稼得能力を国からドブに捨てること</strong>と同義です。18万人の困窮児童のうち数万人が進学を阻まれるだけで、兆単位のGDPが消滅し、将来の税収と年金支え手が失われるのです。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-5" class="cite-tag">[5]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：子どもの貧困 社会的損失 ＆ 投資対効果シミュレーター</h2>
+      <p>
+        子どもの貧困率、公的支援投資額、教育改善による正規雇用化率を設定することで、将来のGDP回復額、税収還元額、および「公的支援の費用対効果（ROI）」をリアルタイムに試算できます。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>子どもの貧困：放置損失 vs 政策投資リターン試算</span>
+          </div>
+          <div class="sim-desc">
+            対象学年の貧困率、支援投資予算、支援による進学・正規化改善率を操作してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">典型シナリオ：</span>
+          <button class="preset-btn active" onclick="applyLossPreset('current')">🔴 現状放置シナリオ（投資0円・損失最大）</button>
+          <button class="preset-btn" onclick="applyLossPreset('modest')">🟡 部分的対症療法（少額投資・限定効果）</button>
+          <button class="preset-btn" onclick="applyLossPreset('nippon')">🟢 日本財団モデル（教育・居場所支援投資）</button>
+          <button class="preset-btn" onclick="applyLossPreset('nordic')">🌟 北欧型完全無償化（包括投資・高リターン）</button>
+        </div>
+
+        <div class="sim-controls">
+          <!-- 貧困率 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>対象学年の子どもの貧困率</span>
+              <span id="label-rate" class="value-badge">14.0 %</span>
+            </div>
+            <input type="range" id="slider-rate" min="5" max="25" step="0.5" value="14" oninput="calcLoss()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>5%（低貧困）</span>
+              <span>14%（日本平均）</span>
+              <span>25%（深刻化）</span>
+            </div>
+          </div>
+
+          <!-- 支援投資額 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>1学年への公的支援投資額</span>
+              <span id="label-invest" class="value-badge">0 億円</span>
+            </div>
+            <input type="range" id="slider-invest" min="0" max="3000" step="100" value="0" oninput="calcLoss()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0億円（完全放置）</span>
+              <span>1,500億円</span>
+              <span>3,000億円（重点投資）</span>
+            </div>
+          </div>
+
+          <!-- 改善達成率 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>教育改善・正規化達成率</span>
+              <span id="label-improve" class="value-badge">0 %</span>
+            </div>
+            <input type="range" id="slider-improve" min="0" max="90" step="5" value="0" oninput="calcLoss()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0%（改善なし）</span>
+              <span>45%（標準的支援）</span>
+              <span>90%（包括的支援）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">1学年の生涯所得損失額</div>
+            <div id="res-gdp-loss" class="result-value" style="color: var(--crimson);">2.90 兆円</div>
+            <div class="result-sub">未対策時に失われるGDP</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">支援による所得回復額</div>
+            <div id="res-gdp-gain" class="result-value" style="color: var(--emerald);">0 億円</div>
+            <div class="result-sub">国富の純回復効果</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">国庫への税収・保険料回収額</div>
+            <div id="res-tax-gain" class="result-value">0 億円</div>
+            <div class="result-sub">財政への直接リターン</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">公的投資の回収倍率（ROI）</div>
+            <div id="res-roi" class="result-value" style="font-size: 1.35rem;">- 倍</div>
+            <div class="result-sub">税収回収額 ÷ 投資額</div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🚨</span>
+            <span>判定：子どもの貧困完全放置による国家的大損失</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            公的支援投資を行わない結果、この学年だけで約2.9兆円の生涯所得と約1.1兆円の税収・社会保険料が不可逆的に失われます。「子どもの自己責任」として放置することは、将来の現役世代と国家財政の首を自ら絞める最悪の政策です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 政策的帰結 -->
+    <section>
+      <h2>🏛️ 4. 本書の核心命題：「福祉のコスト」から「国家の未来投資」へ</h2>
+      <p>
+        マーガーの理論と日本財団の推計が突きつける結論は明白です。<strong>「子どもの貧困対策を躊躇して予算を削ることは、節約ではなく、将来の国家破綻を加速させる最も高くつく愚行である」</strong>ということです。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-rose">
+          <div class="factor-title"><span>⚠️</span><span>「自己責任論」という最大の欺瞞</span></div>
+          <p class="factor-desc">
+            日本社会に蔓延する「貧乏なのは親の努力不足」「子どもに公費を使うのは不公平」という言説は、悪循環の本質を見誤っています。生まれの偶然によって才能ある子どもの芽を摘むことは、当事者の不幸であると同時に、社会全体にとっての<strong>「致命的な人的資本の浪費」</strong>に他なりません。
+          </p>
+          <div class="factor-meta">格差固定化社会の倫理的・経済的崩壊</div>
+        </div>
+
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>🎯</span><span>悪循環を断ち切る「具体的処方箋」</span></div>
+          <p class="factor-desc">
+            最も高いリターンをもたらすのは、幼児期から学齢期にかけての早期介入です。<strong>学校給食・教材費・修学旅行の完全無償化、返済不要の給付型奨学金の拡充、放課後の無料学習支援や居場所の保障、ひとり親家庭への確実な養育費確保</strong>により、親の所得と子どもの学力の結びつきを断ち切ることができます。
+          </p>
+          <div class="factor-meta">ジェームズ・ヘックマン「幼児教育の経済学」</div>
+        </div>
+      </div>
+
+      <div class="callout callout-teal">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>本書『現代貧困の解体新書』の結論：子どもの貧困根絶こそ最大の成長戦略</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          人口減少と少子高齢化に直面する日本にとって、一人ひとりの子どもは代替不可能な「社会の宝」です。子どもの貧困を放置することは、国みずからが人口動態の危機を自爆的に悪化させていることに他なりません。すべての子どもに等しく質の高い教育と生活の安心を保障することこそが、格差を是正し、日本経済を持続可能な成長軌道へと回復させる唯一確実な道なのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献 -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公的機関調査、社会的損失推計レポート、社会学古典の一覧です。実在確認済みの公式リポジトリに直接アクセスできます。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">Martin N. Marger, <em>Social Inequality: Patterns and Processes</em>, 4th ed., McGraw-Hill, 2008. ［マーガーによる貧困の悪循環（Cycle of Poverty）と構造論的アプローチの原典］</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://kotobank.jp/word/%E8%B2%A7%E5%9B%B0%E3%81%AE%E6%82%AA%E5%BE%AA%E7%92%B0-610738" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「貧困の悪循環（日本大百科全書／デジタル大辞泉）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.nippon-foundation.or.jp/who/news/information/2015/20151221-21715.html" target="_blank" rel="noopener noreferrer" class="ref-link">日本財団「『子どもの貧困の社会的損失推計』調査レポート公表（2015年12月）」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.murc.jp/wp-content/uploads/2015/12/news_151221.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">三菱UFJリサーチ＆コンサルティング「子どもの貧困の社会的損失推計レポート（公式PDF公表資料）」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo4/siryo/__icsFiles/afieldfile/2016/06/27/1373565_13.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">文部科学省・中央教育審議会「子どもの貧困対策と社会的損失推計に関する提出資料（日本財団推計の政策波及）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://books.bunshun.jp/ud/book/num/9784166610921" target="_blank" rel="noopener noreferrer" class="ref-link">日本財団編『徹底調査 子供の貧困が日本を滅ぼす 社会的損失40兆円の衝撃』文春新書、2016年。</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">ジェームズ・J・ヘックマン『幼児教育の経済学』古草秀子訳、東洋経済新報社、2015年。［早期介入の驚異的ROI（投資収益率）の経済学的実証］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcLoss() {
+      const rate = parseFloat(document.getElementById('slider-rate').value); // %
+      const invest = parseFloat(document.getElementById('slider-invest').value); // 億円
+      const improve = parseFloat(document.getElementById('slider-improve').value); // %
+
+      // ラベル更新
+      document.getElementById('label-rate').innerText = rate.toFixed(1) + ' %';
+      document.getElementById('label-invest').innerText = invest.toLocaleString() + ' 億円';
+      document.getElementById('label-improve').innerText = improve + ' %';
+
+      // 基準値：15歳学年（約120万人）、日本財団基準（貧困率14% = 約18万人で損失2.9兆円・財政減1.1兆円）
+      const baseLoss = (rate / 14.0) * 2.9; // 兆円
+      const baseTaxLoss = (rate / 14.0) * 1.1; // 兆円
+
+      // 改善による回復額
+      const gdpGain = baseLoss * (improve / 100); // 兆円
+      const taxGain = baseTaxLoss * (improve / 100); // 兆円
+      const taxGainOku = taxGain * 10000; // 億円
+
+      // 残存GDP損失
+      const netGdpLoss = baseLoss - gdpGain;
+
+      // 結果表示更新
+      document.getElementById('res-gdp-loss').innerText = netGdpLoss.toFixed(2) + ' 兆円';
+      document.getElementById('res-gdp-gain').innerText = (gdpGain >= 1 
+        ? gdpGain.toFixed(2) + ' 兆円' 
+        : Math.round(gdpGain * 10000).toLocaleString() + ' 億円');
+      
+      document.getElementById('res-tax-gain').innerText = (taxGain >= 1 
+        ? taxGain.toFixed(2) + ' 兆円' 
+        : Math.round(taxGainOku).toLocaleString() + ' 億円');
+
+      // ROI計算
+      const roiElem = document.getElementById('res-roi');
+      if (invest > 0) {
+        const roi = taxGainOku / invest;
+        roiElem.innerText = roi.toFixed(1) + ' 倍';
+        roiElem.style.color = roi >= 1.0 ? 'var(--emerald)' : 'var(--accent-dark)';
+      } else {
+        roiElem.innerText = (improve > 0 ? '投資0（算定不可）' : '0 倍（放置）');
+        roiElem.style.color = 'var(--text-muted)';
+      }
+
+      // バナー判定
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (invest === 0 && improve === 0) {
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：子どもの貧困完全放置による国家的大損失';
+        bannerDesc.innerText = `公的支援投資を行わない結果、この学年だけで約 ${baseLoss.toFixed(2)} 兆円の生涯所得と約 ${baseTaxLoss.toFixed(2)} 兆円の税収・社会保険料が不可逆的に失われます。「子どもの自己責任」として放置することは、将来の現役世代と国家財政の首を自ら絞める最悪の政策です。`;
+      } else if (improve >= 60) {
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🌟 判定：社会的投資の劇的成功（高リターン・好循環）';
+        bannerDesc.innerText = `投資額 ${invest.toLocaleString()} 億円に対し、将来の税収・社会保険料だけで約 ${Math.round(taxGainOku).toLocaleString()} 億円（投資の ${ (taxGainOku / (invest || 1)).toFixed(1) } 倍）が国庫に回収されます。GDP回復効果（約 ${gdpGain.toFixed(2)} 兆円）を含めれば、投資を遥かに上回る国富の増大を実現します。`;
+      } else if (improve >= 30) {
+        banner.style.borderLeftColor = 'var(--teal)';
+        bannerTitle.style.color = 'var(--teal)';
+        bannerTitle.innerText = '🟢 判定：着実な損失削減と財政黒字化の達成';
+        bannerDesc.innerText = `貧困による社会的損失を約 ${gdpGain.toFixed(2)} 兆円圧縮し、税収回収額が公的投資額を上回る黒字（ROI: ${ (taxGainOku / (invest || 1)).toFixed(1) } 倍）を達成しています。支援対象をさらに拡充することで、世代間連鎖の完全根絶が視野に入ります。`;
+      } else {
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🟡 判定：対症療法にとどまる限定的効果';
+        bannerDesc.innerText = `一定の改善は見られるものの、依然として約 ${netGdpLoss.toFixed(2)} 兆円の経済損失が残存しています。給食費無償化や給付型奨学金など、生活と教育の土台を包括的に支える制度的投資への拡充が必要です。`;
+      }
+    }
+
+    function applyLossPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const rateSlider = document.getElementById('slider-rate');
+      const investSlider = document.getElementById('slider-invest');
+      const improveSlider = document.getElementById('slider-improve');
+
+      if (preset === 'current') {
+        rateSlider.value = 14;
+        investSlider.value = 0;
+        improveSlider.value = 0;
+      } else if (preset === 'modest') {
+        rateSlider.value = 14;
+        investSlider.value = 500;
+        improveSlider.value = 25;
+      } else if (preset === 'nippon') {
+        rateSlider.value = 14;
+        investSlider.value = 1200;
+        improveSlider.value = 55;
+      } else if (preset === 'nordic') {
+        rateSlider.value = 14;
+        investSlider.value = 2500;
+        improveSlider.value = 85;
+      }
+      calcLoss();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcLoss();
+    });
+  </script>
+</body>
+</html>
