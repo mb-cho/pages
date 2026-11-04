@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：デヴィッド・ハーヴェイ「収奪による蓄積（Accumulation by Dispossession）」――なぜ新自由主義は生産ではなく公共財の強奪と金融化によって富を吸い上げるのか？</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #312e81 50%, #881337 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(168, 85, 247, 0.2);
+      color: #e9d5ff;
+      border: 1px solid rgba(168, 85, 247, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #c084fc !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #c084fc;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--purple);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+    }
+    .callout-amber .callout-title {
+      color: var(--accent-dark);
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+    }
+    .callout-rose .callout-title {
+      color: var(--crimson);
+    }
+
+    .callout-purple {
+      border-left-color: var(--purple);
+      background-color: #faf5ff;
+    }
+    .callout-purple .callout-title {
+      color: #581c87;
+    }
+
+    .callout-teal {
+      border-left-color: var(--teal);
+      background-color: #f0fdfa;
+    }
+    .callout-teal .callout-title {
+      color: #115e59;
+    }
+
+    /* Card Grids */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .factor-meta {
+      font-size: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      font-weight: 600;
+    }
+
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-rose { border-top: 4px solid var(--rose); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-blue { border-top: 4px solid var(--primary-light); }
+    .card-teal { border-top: 4px solid var(--teal); }
+
+    /* Comparison Box */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.75rem 0 2.25rem;
+    }
+
+    .compare-box {
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .compare-box.traditional {
+      background-color: #f1f5f9;
+      border-left: 5px solid #64748b;
+    }
+
+    .compare-box.dispossession {
+      background-color: #fff1f2;
+      border-left: 5px solid var(--crimson);
+    }
+
+    .compare-box-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+      background: #ffffff;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin: 2.25rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.35rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--purple);
+      color: #ffffff;
+      border-color: var(--purple);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .control-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-label span.value-badge {
+      color: #581c87;
+      background: #f3e8ff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Simulation Results */
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      padding: 1.15rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 6px solid var(--purple);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .banner-desc {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* References */
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .ref-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.65rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--purple);
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--primary-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .ref-text {
+      color: var(--text-muted);
+    }
+
+    .cite-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--purple);
+      text-decoration: none;
+      vertical-align: super;
+      margin: 0 0.15rem;
+      padding: 0.05rem 0.25rem;
+      background: #faf5ff;
+      border-radius: 0.25rem;
+      border: 1px solid #e9d5ff;
+    }
+
+    .cite-tag:hover {
+      background: var(--purple);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .grid-4, .grid-2, .compare-container, .sim-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：新自由主義の分析視角と因果連鎖</span>
+      </div>
+      <h1>デヴィッド・ハーヴェイ「収奪による蓄積（Accumulation by Dispossession）」とは何か：<br>なぜ新自由主義は生産ではなく公共財の強奪と金融化によって富を吸い上げるのか？</h1>
+      <p class="lead">
+        地理学者・社会理論家の<strong>デヴィッド・ハーヴェイ（David Harvey）</strong>が提唱した<strong>「収奪による蓄積（Accumulation by Dispossession）」</strong>とは、新自由主義下の資本主義が、工場やオフィスで新たなモノやサービスを生み出す「拡大再生産」によってではなく、公共インフラ、自然環境、年金、共有地（コモンズ）といった既存の富を力づくで市場化・強奪することによって自己を増殖させるメカニズムのことです。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        カール・マルクスが『資本論』で論じた「本源的蓄積（資本主義初期の囲い込み・農民収奪）」は過去の一過性の歴史ではなく、現代の金融化と民営化を通じて今なお猛威を振るっています。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-4" class="cite-tag-header">[4]</a><br>
+        本稿では、なぜ先進国の資本が「生産」から「収奪」へと軸足を移したのか、4つの主要な収奪手法（民営化・金融化・危機の操作・国家の逆進的再分配）、そして現代日本で進む生活基盤の切り売りと貧困化の真実を徹底解読します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🏴‍☠️</span><span>生産から「奪取」への転換</span></div>
+          <div class="h-item-desc">過剰蓄積（利潤率低下）に直面した資本が、新たな価値創造ではなく既存の共有財産（コモンズ）の略奪へ走る病理。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🏛️</span><span style="color: #fde047;">収奪を推進する4大装置</span></div>
+          <div class="h-item-desc">①インフラ民営化、②金融化・借金搾取、③危機の操作（買い叩き）、④国家による逆進的再分配（減税と社会保障削減）。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🛡️</span><span>処方箋：コモンズの脱商品化</span></div>
+          <div class="h-item-desc">医療・水・住居・教育を利潤追求の市場から救い出し、社会の共通資本として民主的管理下に奪還する必然性。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 基本概念とマルクス本源的蓄積との関係 -->
+    <section>
+      <h2>📖 1. 「収奪による蓄積」の核心概念：終わらない本源的蓄積</h2>
+      <p>
+        カール・マルクスは『資本論』において、資本主義が成立する前提として、封建領主や大地主が農民から共有地（コモンズ）を力づくで奪い取り、土地から切り離された賃金労働者と初期資本を作り出した歴史的過程を<strong>「本源的蓄積（いわゆる本原的蓄積：Primitive Accumulation）」</strong>と呼びました。<a href="#ref-3" class="cite-tag">[3]</a><br>
+        これに対しデヴィッド・ハーヴェイは、この強奪のプロセスは資本主義の黎明期だけに起きた過去の遺物ではなく、<strong>「現代の資本主義（とりわけ1970年代以降の新自由主義）においても、形を変えて絶え間なく再生産されている中核メカニズムである」</strong>と看破し、これを「収奪による蓄積」と命名しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <!-- 比較対照ボックス -->
+      <div class="compare-container">
+        <div class="compare-box traditional">
+          <div class="compare-box-title" style="color: #475569;">
+            <span>🏭</span>
+            <span>従来の蓄積（拡大再生産）</span>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.5rem;">
+            企業が工場や設備に投資し、労働者を雇って新たな製品やサービスを生産する。
+          </p>
+          <ul style="font-size: 0.82rem; color: #475569; padding-left: 1.2rem; line-height: 1.6;">
+            <li>富の源泉：労働が生み出す付加価値（余剰価値）</li>
+            <li>結果：GDPの拡大、雇用の創出、一定の賃上げ還元</li>
+            <li>限界：市場飽和と過剰蓄積（利潤率の傾向的低下）</li>
+          </ul>
+        </div>
+
+        <div class="compare-box dispossession">
+          <div class="compare-box-title" style="color: var(--crimson);">
+            <span>⚡</span>
+            <span>新自由主義の蓄積（収奪による蓄積）</span>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.5rem;">
+            新たな価値を生産するのではなく、すでに社会に存在する共有財や生活資源を強奪する。
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--crimson); padding-left: 1.2rem; line-height: 1.6;">
+            <li>富の源泉：公共インフラ、自然資源、公的年金、市民の資産</li>
+            <li>結果：ゼロサム（あるいはマイナスサム）での富の富裕層移転</li>
+            <li>動機：過剰に余った資本の逃避先（利潤フロンティアの強制的開拓）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>なぜ資本は「収奪」に走るのか？――過剰蓄積危機と「空間的修正」</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          資本主義が成熟すると、工場を作ってもモノが売れず、投資先を失った巨額の資本が市場にだぶつく<strong>「過剰蓄積危機（Overaccumulation Crisis）」</strong>が発生します。この行き場を失った資本は、これまで利潤追求の聖域とされてきた「水道、医療、教育、年金、公営住宅」といった公共領域を民営化させて強引に食い荒らすか、あるいはデリバティブなどの金融投機へと雪崩れ込みます。ハーヴェイは、これを資本が自らの延命のために公共社会を喰い破る「空間的・制度的修正」であると喝破しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: 収奪の4大柱 -->
+    <section>
+      <h2>🏛️ 2. ハーヴェイが提示した「収奪の4大実践手法」</h2>
+      <p>
+        ハーヴェイは、新自由主義が社会全体の富を巨大資本へと再分配（逆流）させる具体的な手法として、以下の4つの柱を定義しています。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="grid-4">
+        <!-- 柱1: 民営化 -->
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>①</span><span>民営化と商品化</span></div>
+          <p class="factor-desc">
+            水道、電力、鉄道、公営住宅、医療、社会保障など、公的財産として守られてきたコモンズを私有化し、民間企業の利潤追求の場へと明け渡す。
+          </p>
+          <div class="factor-meta">公共インフラ・教育の市場化</div>
+        </div>
+
+        <!-- 柱2: 金融化 -->
+        <div class="factor-card card-rose">
+          <div class="factor-title"><span>②</span><span>金融化と債務搾取</span></div>
+          <p class="factor-desc">
+            デリバティブや証券化などの金融工学を用い、資産バブルを形成。住宅ローンやクレジット、奨学金債務を通じて一般家計の所得を恒常的に吸い上げる。
+          </p>
+          <div class="factor-meta">金利・手数料・バブルによる資産移転</div>
+        </div>
+
+        <!-- 柱3: 危機の操作 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title"><span>③</span><span>危機の管理と操作</span></div>
+          <p class="factor-desc">
+            金融危機や通貨危機、債務危機を利用（または誘発）し、IMF等の構造調整プログラムを通じて国家の優良資産や地場企業を外資が安値で買い叩く。
+          </p>
+          <div class="factor-meta">ショック・ドクトリンとハゲタカ買収</div>
+        </div>
+
+        <!-- 柱4: 国家の再分配 -->
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>④</span><span>国家による逆進再分配</span></div>
+          <p class="factor-desc">
+            国家権力を動員し、法人税・富裕層減税と消費税増税を断行。労働規制緩和（非正規化）や福祉予算削減を通じて富を下層から上層へ強制移転する。
+          </p>
+          <div class="factor-meta">税制と労働法制の資本家優遇改変</div>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>⚠️</span>
+          <span>日本における「収奪による蓄積」のリアルな軌跡</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.5rem;">
+          日本経済の過去30年間は、まさにこの「収奪による蓄積」の実験場でした。
+        </p>
+        <ul style="font-size: 0.85rem; line-height: 1.6; margin-left: 1.25rem; color: #334155;">
+          <li><strong>郵政民営化（約350兆円の公的貯蓄の開放）</strong>：簡易保険や郵便貯金という世界最大の公的資金プールが市場化され、外資系金融機関の運用益へと開放された。</li>
+          <li><strong>労働者派遣法の改悪（賃金のピンハネ構造）</strong>：労働者を直接雇用から間接雇用へ切り替え、中抜き業者（パソナ等）がマージンを収奪する構造を国が法制化。</li>
+          <li><strong>インフラのPFI・コンセッション推進</strong>：水道事業の民間委託（宮城県等）や公営空港の民営化など、命に関わる生命線の切り売り。</li>
+          <li><strong>公営住宅の縮小と住宅ローン化</strong>：低廉な住宅セーフティネットを破壊し、国民を高額な民間家賃や35年ローン地獄へと囲い込み。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：収奪による蓄積（ハーヴェイ・モデル）シミュレーター</h2>
+      <p>
+        新自由主義の4大収奪柱（インフラ民営化、金融化・債務搾取、危機の買い叩き、国家の逆進的再分配）の深度を調整することで、公共コモンズの消失規模、家計から巨大資本への富の逆流推計額、および社会の脆弱度をブラウザ上でシミュレーションできます。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>ハーヴェイ・モデル：新自由主義的収奪度 ＆ コモンズ侵食シミュレーター</span>
+          </div>
+          <div class="sim-desc">
+            4つの収奪スライダーを動かすか、典型的な歴史的政策プリセットを選択してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">典型政策シナリオ：</span>
+          <button class="preset-btn active" onclick="applyDispossessionPreset('welfare')">🛡️ 戦後福祉国家（コモンズ保護・低収奪）</button>
+          <button class="preset-btn" onclick="applyDispossessionPreset('koizumi')">🏢 小泉構造改革（郵政民営化・派遣自由化）</button>
+          <button class="preset-btn" onclick="applyDispossessionPreset('financial')">🌐 グローバル金融危機（デリバティブ略奪）</button>
+          <button class="preset-btn" onclick="applyDispossessionPreset('extreme')">🚨 極限的新自由主義（水道・医療・教育全民営化）</button>
+        </div>
+
+        <div class="sim-controls">
+          <!-- ① 民営化度 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>① 公共インフラ・公的サービスの民営化率</span>
+              <span id="label-privatize" class="value-badge">15 %</span>
+            </div>
+            <input type="range" id="slider-privatize" min="0" max="100" step="5" value="15" oninput="calcDispossession()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0%（完全公営）</span>
+              <span>50%（部分民営化）</span>
+              <span>100%（全インフラ商品化）</span>
+            </div>
+          </div>
+
+          <!-- ② 金融化度 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>② 金融化と家計債務搾取度</span>
+              <span id="label-finance" class="value-badge">1.5 倍</span>
+            </div>
+            <input type="range" id="slider-finance" min="1.0" max="8.0" step="0.5" value="1.5" oninput="calcDispossession()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>1.0倍（厳格規制）</span>
+              <span>4.0倍（カード・住宅ローン網）</span>
+              <span>8.0倍（超デリバティブ膨張）</span>
+            </div>
+          </div>
+
+          <!-- ③ 危機の操作 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>③ 危機時の資産買いたたき度（ショック・ドクトリン）</span>
+              <span id="label-crisis" class="value-badge">10 %</span>
+            </div>
+            <input type="range" id="slider-crisis" min="0" max="100" step="5" value="10" oninput="calcDispossession()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0%（危機耐性・保護）</span>
+              <span>50%（不良債権安値売却）</span>
+              <span>100%（ハゲタカ資本による買収）</span>
+            </div>
+          </div>
+
+          <!-- ④ 国家の逆進再分配 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>④ 国家による逆進的再分配（法人減税・非正規化）</span>
+              <span id="label-state" class="value-badge">10 %</span>
+            </div>
+            <input type="range" id="slider-state" min="0" max="100" step="5" value="10" oninput="calcDispossession()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0%（累進課税・労働者保護）</span>
+              <span>50%（消費増税・労働規制緩和）</span>
+              <span>100%（富裕層天国・人件費圧縮）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">共有コモンズ消失指数</div>
+            <div id="res-commons" class="result-value" style="color: var(--emerald);">12.5 %</div>
+            <div class="result-sub">公共領域の私有化率</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">年間富の逆流推計額</div>
+            <div id="res-transfer" class="result-value" style="color: var(--crimson);">3.2 兆円</div>
+            <div class="result-sub">家計から資本エリートへの移転</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">家計の生活防衛コスト増大率</div>
+            <div id="res-cost" class="result-value">+5.0 %</div>
+            <div class="result-sub">教育・医療・光熱の自己負担増</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">収奪度総合判定</div>
+            <div id="res-status" class="result-value" style="font-size: 1.25rem;">コモンズ保護型</div>
+            <div class="result-sub">資本蓄積の支配レジーム</div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🛡️</span>
+            <span>判定：戦後型・調整された福祉国家体制</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            公共インフラ、医療、教育が公的に手厚く管理されており、資本による収奪は抑制されています。富の蓄積は主に実体経済の生産的拡大再生産によって行われており、格差の急拡大は防がれています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代日本への処方箋 -->
+    <section>
+      <h2>🏛️ 4. 本書の核心的処方箋：収奪に抗する「コモンズの脱商品化」</h2>
+      <p>
+        ハーヴェイの理論が突きつける残酷な現実は、「個人の努力や節約では、構造的な収奪から決して逃れられない」ということです。資本が公的インフラや労働法制を改変して富を吸い上げている以上、対抗策もまた<strong>「社会的・制度的な抵抗」</strong>でなければなりません。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>🛡️</span><span>生命維持領域の「脱商品化（De-commodification）」</span></div>
+          <p class="factor-desc">
+            水、電力、住宅、医療、初等〜高等教育、介護といった人間の生存に不可欠な領域を「利潤獲得の道具（商品）」にすることを法的に禁止し、市場の論理から切り離す。これらはすべての市民に無償・低廉で保障されるべき不可侵のコモンズです。
+          </p>
+          <div class="factor-meta">宇沢弘文「社会的共通資本」との合流</div>
+        </div>
+
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>⚖️</span><span>金融資本の再規制と労働の再結合</span></div>
+          <p class="factor-desc">
+            デリバティブ取引へのトービン税（金融取引税）導入、自社株買いの制限、労働者派遣法の抜本的再改正による直接雇用原則の復活。国家権力を「資本家優遇の収奪装置」から「働く人々と社会を守る再分配の砦」へと奪還することです。
+          </p>
+          <div class="factor-meta">公共性の民主的再構築</div>
+        </div>
+      </div>
+
+      <div class="callout callout-purple">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>本書『現代貧困の解体新書』の結論：「持たざる者からの収奪」を止めよ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          私たちが貧しいのは、怠けているからでも、消費が下手だからでもありません。かつて社会全体で共有していた安全な水道、手頃な公営住宅、安心できる医療、無料の教育、そして安定した雇用の果実が、新自由主義という制度改変を通じて、一握りの巨大金融資本と株主エリートへと日々「収奪」されているからです。奪われたコモンズを取り戻すことこそが、貧困を解体し、真の豊かさを奪還する唯一の道です。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献 -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している政治経済学・社会理論の学術古典、公式解説の一覧です。実在確認済みの公式リポジトリに直接アクセスできます。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">デヴィッド・ハーヴェイ『新自由主義――その歴史的展開と現在』渡辺治監訳、作品社、2007年。［「収奪による蓄積」の4大手法と新自由主義の理論的定式化］</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <span class="ref-text">デヴィッド・ハーヴェイ『新しい帝国主義』本橋哲也訳、作品社、2005年。［過剰蓄積危機と「略奪による蓄積」の国際的展開］</span>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://kotobank.jp/word/%E6%9C%AC%E6%BA%90%E7%9A%84%E8%93%84%E7%A9%8D-135898" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「本源的蓄積（日本大百科全書／世界大百科事典）」［マルクス『資本論』第24章の概念解説］</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://kotobank.jp/word/%E3%83%87%E3%83%B4%E3%82%A3%E3%83%83%E3%83%89%E3%83%BB%E3%83%8F%E3%83%BC%E3%83%B4%E3%82%A7%E3%82%A4-1629858" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「デヴィッド・ハーヴェイ（知恵蔵）」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.jstage.jst.go.jp/article/hgeog/2015/0/2015_98/_pdf/-char/en" target="_blank" rel="noopener noreferrer" class="ref-link">J-STAGE人文地理学会「デヴィッド・ハーヴェイの空間的修正論と現代資本主義批判」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://kotobank.jp/word/%E6%96%B0%E8%87%AA%E7%94%B1%E4%B8%BB%E7%BE%A9-155005" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「新自由主義（日本大百科全書／ブリタニカ国際大百科事典）」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">宇沢弘文『社会的共通資本』岩波新書、2000年。［自然・社会インフラ・制度を市場化から守るコモンズ論の金字塔］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcDispossession() {
+      const privatize = parseFloat(document.getElementById('slider-privatize').value); // 0-100%
+      const finance = parseFloat(document.getElementById('slider-finance').value); // 1.0-8.0
+      const crisis = parseFloat(document.getElementById('slider-crisis').value); // 0-100%
+      const state = parseFloat(document.getElementById('slider-state').value); // 0-100%
+
+      // ラベル更新
+      document.getElementById('label-privatize').innerText = privatize + ' %';
+      document.getElementById('label-finance').innerText = finance.toFixed(1) + ' 倍';
+      document.getElementById('label-crisis').innerText = crisis + ' %';
+      document.getElementById('label-state').innerText = state + ' %';
+
+      // 複合指標計算
+      // 共有コモンズ消失指数（民営化と国家再分配に強く連動）
+      const commonsLoss = (privatize * 0.6) + (state * 0.4);
+
+      // 年間富の逆流推計額（基本値2兆円から金融化倍率と危機操作で膨張）
+      const baseTransfer = 2.0; // 兆円
+      const transferTotal = (baseTransfer * (finance / 1.5)) + (privatize * 0.25) + (crisis * 0.15) + (state * 0.2);
+
+      // 家計の生活防衛コスト増大率（民営化による水道・医療・教育自己負担増＋金融金利負担）
+      const costIncrease = (privatize * 0.35) + ((finance - 1.0) * 4.0) + (state * 0.2);
+
+      // 総合収奪スコア（0-100）
+      const totalScore = (commonsLoss * 0.35) + ((finance / 8.0) * 100 * 0.25) + (crisis * 0.2) + (state * 0.2);
+
+      // 結果表示更新
+      document.getElementById('res-commons').innerText = commonsLoss.toFixed(1) + ' %';
+      document.getElementById('res-transfer').innerText = transferTotal.toFixed(1) + ' 兆円';
+      document.getElementById('res-cost').innerText = '+' + costIncrease.toFixed(1) + ' %';
+
+      const commonsElem = document.getElementById('res-commons');
+      if (commonsLoss >= 50) {
+        commonsElem.style.color = 'var(--crimson)';
+      } else if (commonsLoss >= 25) {
+        commonsElem.style.color = 'var(--accent-dark)';
+      } else {
+        commonsElem.style.color = 'var(--emerald)';
+      }
+
+      // 判定ステータスとバナー
+      const statusElem = document.getElementById('res-status');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (totalScore >= 65) {
+        statusElem.innerText = '🚨 略奪的資本蓄積型';
+        statusElem.style.color = 'var(--crimson)';
+
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：完全な「収奪による蓄積」体制（極度的新自由主義）';
+        bannerDesc.innerText = `公共インフラのほぼ全てが民営化され、金融化と国家の逆進的再分配によって年間約 ${transferTotal.toFixed(1)} 兆円もの富が家計から巨大資本・富裕層へと吸い上げられています。生活必需サービスが商品化された結果、家計の生活防衛コストは +${costIncrease.toFixed(1)}% 膨張し、一般市民の自立的生存が構造的に不可能な略奪社会と化しています。`;
+      } else if (totalScore >= 40) {
+        statusElem.innerText = '⚡ 新自由主義収奪型';
+        statusElem.style.color = 'var(--purple)';
+
+        banner.style.borderLeftColor = 'var(--purple)';
+        bannerTitle.style.color = 'var(--purple)';
+        bannerTitle.innerText = '⚡ 判定：小泉改革〜アベノミクス型「構造改革」体制';
+        bannerDesc.innerText = `郵政や水道などのインフラ売却と非正規雇用拡大により、年間約 ${transferTotal.toFixed(1)} 兆円の富が恒常的に逆流しています。社会保障の縮小と生活必需コストの自己負担化が進み、ワーキングプア層が固定化されつつあります。`;
+      } else if (totalScore >= 20) {
+        statusElem.innerText = '🟡 漸進的市場化型';
+        statusElem.style.color = 'var(--accent-dark)';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🟡 判定：コモンズの部分的浸食と金融規制緩和の進行';
+        bannerDesc.innerText = `公共セクターの切り崩しが始まっており、家計への負担が徐々に重層化しています。早期に公的規制と再分配を強化しなければ、システミックな収奪スパイラルへと転落するリスクがあります。`;
+      } else {
+        statusElem.innerText = '🛡️ コモンズ保護型';
+        statusElem.style.color = 'var(--emerald)';
+
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🛡️ 判定：戦後型・調整された福祉国家体制（コモンズ重視）';
+        bannerDesc.innerText = '公共インフラ、医療、教育が公的に手厚く管理されており、資本による収奪は抑制されています。富の蓄積は主に実体経済の生産的拡大再生産によって行われており、格差の急拡大は防がれています。';
+      }
+    }
+
+    function applyDispossessionPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const privSlider = document.getElementById('slider-privatize');
+      const finSlider = document.getElementById('slider-finance');
+      const crisSlider = document.getElementById('slider-crisis');
+      const stateSlider = document.getElementById('slider-state');
+
+      if (preset === 'welfare') {
+        privSlider.value = 10;
+        finSlider.value = 1.2;
+        crisSlider.value = 5;
+        stateSlider.value = 10;
+      } else if (preset === 'koizumi') {
+        privSlider.value = 45;
+        finSlider.value = 3.5;
+        crisSlider.value = 40;
+        stateSlider.value = 55;
+      } else if (preset === 'financial') {
+        privSlider.value = 60;
+        finSlider.value = 6.5;
+        crisSlider.value = 75;
+        stateSlider.value = 65;
+      } else if (preset === 'extreme') {
+        privSlider.value = 90;
+        finSlider.value = 7.5;
+        crisSlider.value = 90;
+        stateSlider.value = 95;
+      }
+      calcDispossession();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcDispossession();
+    });
+  </script>
+</body>
+</html>
