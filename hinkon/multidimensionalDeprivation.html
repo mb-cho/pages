@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：多次元的剥奪（Multidimensional Deprivation）と多次元貧困指数（MPI）――なぜ「所得（お金）」だけでは本当の貧困を測れないのか？アマルティア・センのケイパビリティ論と国際基準の解剖</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0d9488 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(45, 212, 191, 0.2);
+      color: #99f6e4;
+      border: 1px solid rgba(45, 212, 191, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #2dd4bf !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #2dd4bf;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--teal);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+    }
+    .callout-amber .callout-title {
+      color: var(--accent-dark);
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+    }
+    .callout-rose .callout-title {
+      color: var(--crimson);
+    }
+
+    .callout-teal {
+      border-left-color: var(--teal);
+      background-color: #f0fdfa;
+    }
+    .callout-teal .callout-title {
+      color: #115e59;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: #ffffff;
+      border: 2px solid #5eead4;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    .formula-display {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #0f766e;
+      font-family: "Cambria Math", "Times New Roman", serif;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .formula-term {
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .formula-op {
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    .formula-var {
+      color: #0d9488;
+      font-style: italic;
+      font-weight: 800;
+      padding: 0 0.15rem;
+    }
+
+    .formula-desc-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #ccfbf1;
+      font-size: 0.82rem;
+      color: #334155;
+    }
+
+    .formula-desc-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .formula-desc-item var,
+    var.math-var {
+      font-family: "Cambria Math", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+      color: #0d9488;
+      font-size: 0.95rem;
+    }
+
+    /* Card Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      flex-grow: 1;
+    }
+
+    .factor-meta {
+      font-size: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      font-weight: 600;
+    }
+
+    .card-teal { border-top: 4px solid var(--teal); }
+    .card-blue { border-top: 4px solid var(--primary-light); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-rose { border-top: 4px solid var(--rose); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+      background: #ffffff;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin: 2.25rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.35rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--teal);
+      color: #ffffff;
+      border-color: var(--teal);
+    }
+
+    /* Checklist Groups for Simulator */
+    .sim-check-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.65rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1.75rem;
+    }
+
+    .check-category-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cat-weight-badge {
+      font-size: 0.72rem;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-weight: 700;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.85rem;
+      line-height: 1.45;
+      cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 0.2rem;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--teal);
+    }
+
+    .check-item-text {
+      color: var(--text-main);
+    }
+
+    .check-item-weight {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-left: 0.25rem;
+    }
+
+    /* Simulation Results */
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      padding: 1.15rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 6px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.3s ease;
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .banner-desc {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Dimension Progress Bars */
+    .dimension-bars {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dim-bar-row {
+      margin-bottom: 0.85rem;
+    }
+
+    .dim-bar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .dim-bar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      transition: width 0.3s ease, background-color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    /* References */
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .ref-item {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.88rem;
+      display: flex;
+      gap: 0.65rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--teal);
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .ref-text {
+      color: var(--text-muted);
+    }
+
+    .cite-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-decoration: none;
+      vertical-align: super;
+      margin: 0 0.15rem;
+      padding: 0.05rem 0.25rem;
+      background: #f0fdfa;
+      border-radius: 0.25rem;
+      border: 1px solid #ccfbf1;
+    }
+
+    .cite-tag:hover {
+      background: var(--teal);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .grid-3, .grid-2, .sim-check-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第2章：貧困指標と国際比較・ケイパビリティ論</span>
+      </div>
+      <h1>多次元的剥奪（Multidimensional Deprivation）と多次元貧困指数（MPI）：<br>なぜ「所得（お金）」だけでは本当の貧困を測れないのか？アマルティア・センのケイパビリティ論と国際基準の解剖</h1>
+      <p class="lead">
+        <strong>多次元的剥奪（Multidimensional Deprivation）</strong>とは、貧困を単なる「所得（金銭）の不足」としてではなく、人間が尊厳と自由を持って健康で文化的な生活を営むために必要な「健康、教育、安全な住居、基本インフラ、社会的参加」などの多面的機会が奪われている状態として捉える包括的貧困概念です。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        ノーベル経済学賞を受賞したアマルティア・センの<span class="highlight-term">「潜在能力（ケイパビリティ）アプローチ」</span>を出発点とし、国連開発計画（UNDP）とオックスフォード大学（OPHI）によって<strong>「多次元貧困指数（MPI：Multidimensional Poverty Index）」</strong>として国際標準化されました。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-3" class="cite-tag-header">[3]</a><br>
+        本稿では、なぜ「年収」や「1日何ドル」という金銭的物差しだけでは現代の貧困の残酷さを見落としてしまうのか、MPIの3次元10指標の計算構造、そして途上国から先進国（日本・欧米）における「見えない多次元剥奪（食料・医療控え・教育体験格差・社会的孤立）」への拡張と処方箋を徹底解明します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🎓</span><span>センの潜在能力アプローチ</span></div>
+          <div class="h-item-desc">所得はお金という「手段」にすぎない。真の貧困とは、人間らしい生き方を選択できる「実質的自由（機能・機会）」の剥奪。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🌐</span><span style="color: #fde047;">UNDP×OPHI「MPI」の数理</span></div>
+          <div class="h-item-desc">貧困者比率（H）× 深刻度（A）で算出。健康・教育・生活水準の3次元10指標で、金銭的基準では見えない過酷な複合欠乏を可視化。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🇯🇵</span><span>先進国・日本への射程</span></div>
+          <div class="h-item-desc">「所得は貧困線以上」だが医療控え・暖房我慢・体験格差に喘ぐ隠れた貧困層。社会的共通資本（現物保障）による再建が不可欠。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 金銭的指標の限界とセンの潜在能力アプローチ -->
+    <section>
+      <h2>⚖️ 1. なぜ「所得（お金）」だけでは本当の貧困を測れないのか？</h2>
+      <p>
+        世界銀行の「1日2.15ドル未満（絶対的貧困ライン）」や、OECD諸国が用いる「等価可処分所得の中央値の50%未満（相対的貧困ライン）」といった<strong>金銭的指標（Monetary Poverty Indicators）</strong>は、マクロの全体像を把握する上で不可欠なツールです。しかし、この金銭的尺度には、貧困の生々しい実態を覆い隠してしまう決定的な盲点が存在します。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <div class="callout callout-teal">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>アマルティア・センが提示した「思考実験」：同じ月収12万円の2人</span>
+        </div>
+        <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0;">
+          <strong>Aさん</strong>：健康体で、家賃2万円の公営住宅に暮らし、近所に無料の公共図書館や公園があり、頼り合える親族や近隣コミュニティが存在する。<br>
+          <strong>Bさん</strong>：重い慢性疾患を抱えて月3万円の医療費がかかり、断熱性のない民間木造アパートに家賃6万円を払い、周囲に頼れる人間がおらず、過去に教育機会を奪われて孤立している。<br><br>
+          金銭的物差し（所得）で測れば、AさんもBさんも全く同じ「月収12万円」であり、統計上は同列に扱われます。しかし、<strong>「人間らしい生活を主体的に選択できる実質的な自由（ケイパビリティ）」</strong>を見れば、Bさんが直面している困窮の凄惨さはAさんとは比較になりません。所得はあくまで「より良く生きるための道具（手段）」にすぎず、教育、健康、居住、社会関係といった「人間としての生の質そのもの」が奪われている状態を見なければ、貧困の本質には決して到達できないのです。
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>①</span><span>個人の異質性（変換能力）</span></div>
+          <p class="factor-desc">
+            疾患、障害、年齢、性別などにより、同じ1万円の現金を「健康や栄養」という生活機能へ変換できる効率が大きく異なります。
+          </p>
+          <div class="factor-meta">障害・難病世帯の追加的必要経費</div>
+        </div>
+
+        <div class="factor-card card-blue">
+          <div class="factor-title"><span>②</span><span>環境の差異（インフラ依存）</span></div>
+          <p class="factor-desc">
+            極寒地域の暖房費、公共交通のない地方での車両維持費、家賃相場の地域格差など、生活基盤の環境により現金の購買力が激変します。
+          </p>
+          <div class="factor-meta">寒冷地・都市部・豪雪地帯の生活格差</div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>③</span><span>公的サービス（現物給付）</span></div>
+          <p class="factor-desc">
+            医療、教育、保育、住宅が無償・低廉で公的に保障されている社会と、全てを自己責任で私的購入せざるを得ない社会では、可処分所得の意味が根本から異なります。
+          </p>
+          <div class="factor-meta">社会的共通資本・現物福祉の充実度</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 国連多次元貧困指数（MPI）の3次元・10指標 -->
+    <section>
+      <h2>🌐 2. 国連「多次元貧困指数（MPI）」の構造とアルキア＝フォスター法</h2>
+      <p>
+        アマルティア・センの潜在能力アプローチを、世界的な政策統計・実証分析の数理モデルとして結実させたのが、国連開発計画（UNDP）とオックスフォード大学のオックスフォード貧困・人間開発イニシアティブ（OPHI：サビナ・アルキアら）が共同開発した<strong>「多次元貧困指数（MPI：Multidimensional Poverty Index）」</strong>です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">次元（ウェイト各1/3）</th>
+              <th style="width: 25%;">具体的指標</th>
+              <th style="width: 12%;">指標ウェイト</th>
+              <th style="width: 45%;">剥奪（貧困状態）と判定される国際基準</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"><strong>① 健康・保健<br>（Health：1/3）</strong></td>
+              <td>1. 栄養状態（Nutrition）</td>
+              <td><strong>1/6（16.7%）</strong></td>
+              <td>世帯内に栄養不良（BMIや低体重基準）の大人または子どもがいる。</td>
+            </tr>
+            <tr>
+              <td>2. 乳幼児死亡率（Child Mortality）</td>
+              <td><strong>1/6（16.7%）</strong></td>
+              <td>過去5年間に世帯内で子どもの死亡が発生した。</td>
+            </tr>
+            <tr>
+              <td rowspan="2"><strong>② 教育<br>（Education：1/3）</strong></td>
+              <td>3. 修学期間（Years of Schooling）</td>
+              <td><strong>1/6（16.7%）</strong></td>
+              <td>世帯員全員が最低限（6年間等）の学校教育を修了していない。</td>
+            </tr>
+            <tr>
+              <td>4. 就学状況（School Attendance）</td>
+              <td><strong>1/6（16.7%）</strong></td>
+              <td>学齢期の子どもが正規の学校に通学していない。</td>
+            </tr>
+            <tr>
+              <td rowspan="6"><strong>③ 生活水準<br>（Living Standards：1/3）</strong></td>
+              <td>5. 調理用燃料（Cooking Fuel）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>薪、炭、家畜の糞など有害な固形燃料を屋内で使用している。</td>
+            </tr>
+            <tr>
+              <td>6. 衛生設備（Sanitation）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>適切な水洗トイレがない、または他世帯と共同利用している。</td>
+            </tr>
+            <tr>
+              <td>7. 安全な飲料水（Drinking Water）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>清潔な安全水源がない、または水汲みに往復30分以上かかる。</td>
+            </tr>
+            <tr>
+              <td>8. 電力アクセス（Electricity）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>家庭に送電・電気が通っていない。</td>
+            </tr>
+            <tr>
+              <td>9. 住居の質（Housing）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>床・壁・屋根の少なくとも1つが土や藁など粗悪な建材である。</td>
+            </tr>
+            <tr>
+              <td>10. 基本資産（Assets）</td>
+              <td><strong>1/18（5.6%）</strong></td>
+              <td>ラジオ、テレビ、電話、自転車、冷蔵庫等の基本生活財を保有していない。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>📐</span>
+          <span>アルキア＝フォスター法（Alkire-Foster Method）の算出メカニズム</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.75rem;">
+          MPIの最大の画期性は、「単にいくつの項目が欠如しているか」を数えるだけでなく、<strong>「どれだけ多くの人が剥奪状態にあるか（広がり：<var class="math-var">H</var>）」</strong>と<strong>「その人々が平均していくつの項目で同時に苦しんでいるか（深刻度・強度：<var class="math-var">A</var>）」</strong>の積として算出される点にあります。<a href="#ref-3" class="cite-tag">[3]</a>
+        </p>
+
+        <!-- 数式ボックス -->
+        <div class="formula-box">
+          <span class="formula-title">国連多次元貧困指数（MPI）の基本算定式</span>
+          <div class="formula-display">
+            <span class="formula-term">MPI</span>
+            <span class="formula-op">=</span>
+            <span class="formula-var">H</span>
+            <span class="formula-op">×</span>
+            <span class="formula-var">A</span>
+          </div>
+          <div class="formula-desc-row">
+            <span class="formula-desc-item"><var>H</var>：多次元貧困率（Headcount Ratio）</span>
+            <span class="formula-desc-item"><var>A</var>：剥奪の平均深刻度（Intensity of Poverty）</span>
+          </div>
+        </div>
+
+        <ul style="font-size: 0.85rem; line-height: 1.6; margin-left: 1.25rem; color: #334155; margin-top: 0.75rem;">
+          <li><strong>カットオフ（閾値 <var class="math-var">k</var>）</strong>：10指標の合計ウェイトのうち「33.3%（3分の1）以上」の剥奪を抱える人を「多次元貧困者」と認定。</li>
+          <li><strong>深刻な多次元貧困</strong>：剥奪スコアが「50%以上」に達する、生命や生存が直接脅かされている状態。</li>
+          <li><strong>貧困の脆弱層</strong>：剥奪スコアが「20%〜33.3%未満」にあり、些細なショックで即座に多次元貧困に転落する予備軍。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：国連MPI ＆ 多次元剥奪シミュレーター</h2>
+      <p>
+        以下のシミュレーターでは、国連MPIの3次元10指標に基づき、直面している剥奪項目をチェックすることで、リアルタイムに剥奪スコア（%）と多次元貧困判定を算出できます。先進国の貧困分析にも応用できる複合的欠乏の連動をご確認ください。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>多次元貧困判定 ＆ ケイパビリティ剥奪度診断</span>
+          </div>
+          <div class="sim-desc">
+            該当する剥奪項目にチェックを入れるか、シナリオプリセットを選択してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">シナリオ例：</span>
+          <button class="preset-btn active" onclick="applyMpiPreset('safe')">🟢 剥奪なし（健全・安心生活）</button>
+          <button class="preset-btn" onclick="applyMpiPreset('vulnerable')">🟡 貧困の脆弱層（生活水準の欠損）</button>
+          <button class="preset-btn" onclick="applyMpiPreset('poor')">🔴 多次元貧困認定（教育・健康・住居）</button>
+          <button class="preset-btn" onclick="applyMpiPreset('severe')">🚨 深刻な多次元貧困（極度・複合欠乏）</button>
+        </div>
+
+        <!-- チェックリストグリッド -->
+        <div class="sim-check-groups">
+          <!-- ① 健康・保健 -->
+          <div class="check-col">
+            <div class="check-category-title">
+              <span>🩺 ① 健康・保健</span>
+              <span class="cat-weight-badge">ウェイト 1/3 (33.3%)</span>
+            </div>
+            <label class="check-item">
+              <input type="checkbox" id="chk-nutrition" onchange="calcMpi()" data-weight="16.67">
+              <span class="check-item-text">
+                <strong>栄養不良・食の欠乏</strong>
+                <span class="check-item-weight">(+16.7%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">世帯員に栄養失調や食事制限・タンパク質欠乏がある</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-mortality" onchange="calcMpi()" data-weight="16.67">
+              <span class="check-item-text">
+                <strong>医療アクセス・健康悪化</strong>
+                <span class="check-item-weight">(+16.7%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">乳幼児死亡の発生、または重病なのに受診・治療を断念</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- ② 教育 -->
+          <div class="check-col">
+            <div class="check-category-title">
+              <span>🎓 ② 教育・機会</span>
+              <span class="cat-weight-badge">ウェイト 1/3 (33.3%)</span>
+            </div>
+            <label class="check-item">
+              <input type="checkbox" id="chk-schooling" onchange="calcMpi()" data-weight="16.67">
+              <span class="check-item-text">
+                <strong>修学期間の不足</strong>
+                <span class="check-item-weight">(+16.7%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">家族全員が初等・前期中等教育を修了していない</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-attendance" onchange="calcMpi()" data-weight="16.67">
+              <span class="check-item-text">
+                <strong>就学困難・教育格差</strong>
+                <span class="check-item-weight">(+16.7%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">学齢期の子どもが不就学、または学習環境が完全に欠如</span>
+              </span>
+            </label>
+          </div>
+
+          <!-- ③ 生活水準 -->
+          <div class="check-col">
+            <div class="check-category-title">
+              <span>🏠 ③ 生活水準</span>
+              <span class="cat-weight-badge">ウェイト 1/3 (33.3%)</span>
+            </div>
+            <label class="check-item">
+              <input type="checkbox" id="chk-fuel" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>光熱・燃料の制限</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">有害固形燃料を使用、または冷暖房を我慢・光熱費滞納</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-sanitation" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>衛生設備の欠如</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">適切な水洗トイレがない、共同便所、風呂なし</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-water" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>安全な飲料水の不足</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">水道設備がない、遠方への水汲みが必要</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-electricity" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>電力断絶・インフラ欠如</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">電気が通っていない、または電気料金滞納で送電停止</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-housing" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>劣悪な住居環境</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">粗悪建材、雨漏り、結露、過密居住、断熱皆無</span>
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="chk-assets" onchange="calcMpi()" data-weight="5.56">
+              <span class="check-item-text">
+                <strong>基本生活財の欠損</strong> <span class="check-item-weight">(+5.6%)</span><br>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">通信手段・冷蔵庫・洗濯機・緊急予備資金の欠如</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">総剥奪スコア（Deprivation Score）</div>
+            <div id="res-score" class="result-value">0.0 %</div>
+            <div class="result-sub">閾値: 33.3%以上で多次元貧困</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">多次元貧困判定</div>
+            <div id="res-status" class="result-value" style="font-size: 1.25rem;">非貧困</div>
+            <div id="res-status-sub" class="result-sub">基本的ケイパビリティ確保</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">欠損項目数</div>
+            <div id="res-count" class="result-value">0 / 10</div>
+            <div class="result-sub">剥奪認定された指標数</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">最大剥奪次元</div>
+            <div id="res-max-dim" class="result-value" style="font-size: 1.15rem;">なし</div>
+            <div class="result-sub">最も集中している欠乏領域</div>
+          </div>
+        </div>
+
+        <!-- 3次元別進捗バー -->
+        <div class="dimension-bars">
+          <div class="dim-bar-row">
+            <div class="dim-bar-header">
+              <span>🩺 健康・保健の剥奪シェア（最大 33.3%）</span>
+              <span id="label-health-bar">0.0% / 33.3%</span>
+            </div>
+            <div class="progress-track">
+              <div id="bar-health" class="progress-fill" style="width: 0%; background-color: var(--teal);"></div>
+            </div>
+          </div>
+          <div class="dim-bar-row">
+            <div class="dim-bar-header">
+              <span>🎓 教育・機会の剥奪シェア（最大 33.3%）</span>
+              <span id="label-edu-bar">0.0% / 33.3%</span>
+            </div>
+            <div class="progress-track">
+              <div id="bar-edu" class="progress-fill" style="width: 0%; background-color: var(--primary-light);"></div>
+            </div>
+          </div>
+          <div class="dim-bar-row">
+            <div class="dim-bar-header">
+              <span>🏠 生活水準の剥奪シェア（最大 33.3%）</span>
+              <span id="label-living-bar">0.0% / 33.3%</span>
+            </div>
+            <div class="progress-track">
+              <div id="bar-living" class="progress-fill" style="width: 0%; background-color: var(--accent);"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🛡️</span>
+            <span>判定：基本的ケイパビリティの確保状態</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            健康・教育・生活水準のすべての次元において剥奪は認められません。人間らしい尊厳を保ち、主体的に自己決定できる実質的自由が社会的に支えられている安定状態です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 先進国・日本における多次元的剥奪の衝撃と処方箋 -->
+    <section>
+      <h2>🇯🇵 4. 先進国・日本への応用：見えにくい貧困と「社会的共通資本」の再建</h2>
+      <p>
+        「電気や水洗トイレを測るMPIは、発展途上国の指標ではないか」という見方は、現代先進国の貧困の深層を見誤らせます。<a href="#ref-5" class="cite-tag">[5]</a> 阿部彩（東京都立大学教授）やピーター・タウンゼンドの研究が明らかにしたように、現代日本においても「所得が貧困線（相対的貧困ライン）を上回っているのに、多次元的剥奪に沈んでいる世帯」が数多く存在します。
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-rose">
+          <div class="factor-title"><span>⚠️</span><span>所得統計から零れ落ちる「隠れた多次元剥奪」</span></div>
+          <p class="factor-desc">
+            名目の年収が300万円あっても、重い奨学金返済、家族の介護・高額医療費、断熱不良住宅による過大な光熱費、ひとり親の長時間労働により、<strong>「病院に行けない」「冬に暖房をつけられない」「子どもに部活動や修学旅行を諦めさせる」</strong>という剥奪が多発しています。金銭のフローだけを見る従来の政策は、この生活機能の崩壊を捉えられません。
+          </p>
+          <div class="factor-meta">生活構造論・タイムプア（時間貧困）との複合</div>
+        </div>
+
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>🏛️</span><span>処方箋：現金給付の限界と「現物保障（社会的共通資本）」</span></div>
+          <p class="factor-desc">
+            多次元的剥奪を解決する真の処方箋は、数万円の現金給付（バラマキ）ではなく、<strong>「住まい（公営住宅）・医療・教育・給食・保育」という基本的ケイパビリティ領域を非市場化し、社会的に無償・現物保障すること</strong>です。生活の土台が社会的に支えられて初めて、人々は貧困の恐怖から解放され、尊厳を取り戻すことができます。
+          </p>
+          <div class="factor-meta">宇沢弘文「社会的共通資本」の現代的再生</div>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>本書『現代貧困の解体新書』の結論：ケイパビリティの再建なくして貧困の克服なし</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          新自由主義は、医療、教育、住宅、インフラといった生活の多次元的基盤を市場化・民営化し、「すべては自己責任と自己負担で購入せよ」と国民に強要してきました。その結果、賃金が低迷するなかで生活防衛のコストが膨張し、国民の潜在能力（ケイパビリティ）が根底から奪われたのです。貧困からの脱却とは、単に手取り額を増やすことにとどまらず、<strong>「どんな境遇に生まれても、健康に生き、学び、安心して住まい、社会とつながる権利」</strong>を公共の力で奪還することに他なりません。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献 -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している国際機関公式統計、数理モデル研究、学術古典の一覧です。実在確認済みの公式リポジトリに直接アクセスできます。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://hdr.undp.org/content/2023-global-multidimensional-poverty-index-mpi" target="_blank" rel="noopener noreferrer" class="ref-link">国連開発計画（UNDP: United Nations Development Programme）「Global Multidimensional Poverty Index (MPI) レポート」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://ophi.org.uk/multidimensional-poverty-index/" target="_blank" rel="noopener noreferrer" class="ref-link">オックスフォード貧困・人間開発イニシアティブ（OPHI: Oxford Poverty and Human Development Initiative）「Multidimensional Poverty Index (MPI) ガイドライン」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://ophi.org.uk/research/multidimensional-poverty/alkire-foster-method/" target="_blank" rel="noopener noreferrer" class="ref-link">OPHI「アルキア＝フォスター法（Alkire-Foster Method）の数理モデルと測定手法」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.worldbank.org/en/topic/poverty/overview" target="_blank" rel="noopener noreferrer" class="ref-link">世界銀行（World Bank）「Poverty and Shared Prosperity: 国際貧困ラインと多面的格差」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://kotobank.jp/word/%E3%82%A2%E3%83%9E%E3%83%AB%E3%83%86%E3%82%A3%E3%82%A2%E3%83%BB%E3%82%BB%E3%83%B3-847248" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「アマルティア・セン（知恵蔵／日本大百科全書／ブリタニカ国際大百科事典）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.unicef.or.jp/kodomo/sdgs/17goals/1-poverty/" target="_blank" rel="noopener noreferrer" class="ref-link">日本ユニセフ協会「SDGs目標1：あらゆる場所のあらゆる形態の貧困を終わらせる（子どもの多次元貧困）」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">アマルティア・セン（池本幸生ほか訳）『不平等の再検討――潜在能力と自由』岩波書店、1999年。［ケイパビリティアプローチの原典］</span>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <span class="ref-text">阿部彩『弱者の居場所がない社会――貧困・格差と社会的包摂』講談社現代新書、2011年。［日本における相対的剥奪指標の実証研究］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcMpi() {
+      // 10項目のチェック状態を取得
+      const healthItems = [
+        document.getElementById('chk-nutrition'),
+        document.getElementById('chk-mortality')
+      ];
+      const eduItems = [
+        document.getElementById('chk-schooling'),
+        document.getElementById('chk-attendance')
+      ];
+      const livingItems = [
+        document.getElementById('chk-fuel'),
+        document.getElementById('chk-sanitation'),
+        document.getElementById('chk-water'),
+        document.getElementById('chk-electricity'),
+        document.getElementById('chk-housing'),
+        document.getElementById('chk-assets')
+      ];
+
+      let healthWeight = 0;
+      let eduWeight = 0;
+      let livingWeight = 0;
+      let checkedCount = 0;
+
+      healthItems.forEach(item => {
+        if (item.checked) {
+          healthWeight += parseFloat(item.getAttribute('data-weight'));
+          checkedCount++;
+        }
+      });
+
+      eduItems.forEach(item => {
+        if (item.checked) {
+          eduWeight += parseFloat(item.getAttribute('data-weight'));
+          checkedCount++;
+        }
+      });
+
+      livingItems.forEach(item => {
+        if (item.checked) {
+          livingWeight += parseFloat(item.getAttribute('data-weight'));
+          checkedCount++;
+        }
+      });
+
+      const totalScore = Math.min(100, healthWeight + eduWeight + livingWeight);
+
+      // 結果表示更新
+      document.getElementById('res-score').innerText = totalScore.toFixed(1) + ' %';
+      document.getElementById('res-count').innerText = checkedCount + ' / 10';
+
+      // 3次元バー更新
+      document.getElementById('label-health-bar').innerText = healthWeight.toFixed(1) + '% / 33.3%';
+      document.getElementById('bar-health').style.width = ((healthWeight / 33.34) * 100) + '%';
+
+      document.getElementById('label-edu-bar').innerText = eduWeight.toFixed(1) + '% / 33.3%';
+      document.getElementById('bar-edu').style.width = ((eduWeight / 33.34) * 100) + '%';
+
+      document.getElementById('label-living-bar').innerText = livingWeight.toFixed(1) + '% / 33.3%';
+      document.getElementById('bar-living').style.width = ((livingWeight / 33.34) * 100) + '%';
+
+      // 最大剥奪次元
+      let maxDimText = 'なし';
+      const maxVal = Math.max(healthWeight, eduWeight, livingWeight);
+      if (maxVal > 0) {
+        const dims = [];
+        if (healthWeight === maxVal) dims.push('健康');
+        if (eduWeight === maxVal) dims.push('教育');
+        if (livingWeight === maxVal) dims.push('生活水準');
+        maxDimText = dims.join('・');
+      }
+      document.getElementById('res-max-dim').innerText = maxDimText;
+
+      // 判定ステータスとバナー
+      const statusElem = document.getElementById('res-status');
+      const statusSubElem = document.getElementById('res-status-sub');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (totalScore >= 50.0) {
+        statusElem.innerText = '🚨 深刻な多次元貧困';
+        statusElem.style.color = 'var(--crimson)';
+        statusSubElem.innerText = '剥奪スコア 50%以上の極度危機';
+
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：深刻な多次元貧困（Severe Multidimensional Poverty）';
+        bannerDesc.innerText = `剥奪スコアが ${totalScore.toFixed(1)}% に達しています。健康・教育・生活インフラの複数領域で人間としての基本的機能が破滅的に奪われており、生存そのものが脅かされています。単なる現金給付では救済できず、公的住宅の提供、緊急医療・栄養支援、教育機会の無償保障という包括的現物介入が不可欠です。`;
+      } else if (totalScore >= 33.3) {
+        statusElem.innerText = '🔴 多次元貧困認定';
+        statusElem.style.color = 'var(--rose)';
+        statusSubElem.innerText = '国連MPI基準（33.3%以上）該当';
+
+        banner.style.borderLeftColor = 'var(--rose)';
+        bannerTitle.style.color = 'var(--rose)';
+        bannerTitle.innerText = '🔴 判定：国連基準による「多次元貧困（Multidimensionally Poor）」';
+        bannerDesc.innerText = `剥奪スコアが国連MPIの公式閾値（33.3%）を超過（${totalScore.toFixed(1)}%）。所得統計上は貧困線を超えていたとしても、生活実態としては複合的剥奪に沈んでおり、センの言う「人間らしく生きる実質的自由（ケイパビリティ）」が大きく制限されています。`;
+      } else if (totalScore >= 20.0) {
+        statusElem.innerText = '🟡 貧困の脆弱層';
+        statusElem.style.color = 'var(--accent-dark)';
+        statusSubElem.innerText = '脆弱スコア（20%〜33.3%未満）';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🟡 判定：多次元貧困の脆弱層（Vulnerable to Poverty）';
+        bannerDesc.innerText = `剥奪スコアは ${totalScore.toFixed(1)}% です。現時点では多次元貧困の認定ライン（33.3%）未満ですが、病気、失業、物価高騰などの外生的ショックが1つ加わるだけで即座に多次元貧困へと転落する極めて危険な境界線上にあります。`;
+      } else if (totalScore > 0) {
+        statusElem.innerText = '🟢 軽度の剥奪';
+        statusElem.style.color = 'var(--teal)';
+        statusSubElem.innerText = '局所的な生活制限あり';
+
+        banner.style.borderLeftColor = 'var(--teal)';
+        bannerTitle.style.color = 'var(--teal)';
+        bannerTitle.innerText = '🟢 判定：軽度の生活項目剥奪';
+        bannerDesc.innerText = `一部の生活項目に欠損（剥奪スコア ${totalScore.toFixed(1)}%）が見られますが、健康や教育の基盤は一定程度保たれています。早めの生活相談やセーフティネットへのアクセスが推奨されます。`;
+      } else {
+        statusElem.innerText = '🛡️ 非貧困・安定';
+        statusElem.style.color = 'var(--emerald)';
+        statusSubElem.innerText = '基本的ケイパビリティ確保';
+
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🛡️ 判定：基本的ケイパビリティの確保状態';
+        bannerDesc.innerText = '健康・教育・生活水準のすべての次元において剥奪は認められません。人間らしい尊厳を保ち、主体的に自己決定できる実質的自由が社会的に支えられている安定状態です。';
+      }
+    }
+
+    function applyMpiPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const allChecks = [
+        'chk-nutrition', 'chk-mortality', 'chk-schooling', 'chk-attendance',
+        'chk-fuel', 'chk-sanitation', 'chk-water', 'chk-electricity', 'chk-housing', 'chk-assets'
+      ];
+
+      // 全てクリア
+      allChecks.forEach(id => {
+        document.getElementById(id).checked = false;
+      });
+
+      if (preset === 'safe') {
+        // 全てオフ
+      } else if (preset === 'vulnerable') {
+        // 生活水準の4項目欠如 (5.56 * 4 = 22.2%)
+        document.getElementById('chk-fuel').checked = true;
+        document.getElementById('chk-housing').checked = true;
+        document.getElementById('chk-assets').checked = true;
+        document.getElementById('chk-electricity').checked = true;
+      } else if (preset === 'poor') {
+        // 健康1項目(16.7%) + 教育1項目(16.7%) + 住居(5.6%) = 39.0%
+        document.getElementById('chk-nutrition').checked = true;
+        document.getElementById('chk-attendance').checked = true;
+        document.getElementById('chk-housing').checked = true;
+      } else if (preset === 'severe') {
+        // 健康2項目(33.3%) + 教育1項目(16.7%) + 生活水準3項目(16.7%) = 66.7%
+        document.getElementById('chk-nutrition').checked = true;
+        document.getElementById('chk-mortality').checked = true;
+        document.getElementById('chk-attendance').checked = true;
+        document.getElementById('chk-fuel').checked = true;
+        document.getElementById('chk-sanitation').checked = true;
+        document.getElementById('chk-water').checked = true;
+      }
+
+      calcMpi();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcMpi();
+    });
+  </script>
+</body>
+</html>
