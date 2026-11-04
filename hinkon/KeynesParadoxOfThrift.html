@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ケインズの「倹約のパラドックス（貯蓄のパラドックス）」――なぜ個人の賢明な節約が社会全体を貧困に突き落とすのか？合成の誤謬と有効需要の原理</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.2);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #38bdf8 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.9rem 1.1rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .h-item-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 2.25rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .factor-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .factor-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .card-teal::before { background: var(--teal); }
+    .card-purple::before { background: var(--purple); }
+    .card-rose::before { background: var(--rose); }
+    .card-amber::before { background: var(--accent); }
+    .card-emerald::before { background: var(--emerald); }
+    .card-blue::before { background: var(--primary-light); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .factor-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-teal {
+      background: #f0fdfa;
+      border-left-color: var(--teal);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border-left-color: var(--accent);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-left-color: var(--rose);
+    }
+
+    .callout-blue {
+      background: #eff6ff;
+      border-left-color: var(--primary-light);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .callout-teal .callout-title { color: #0f766e; }
+    .callout-amber .callout-title { color: #b45309; }
+    .callout-rose .callout-title { color: #be123c; }
+    .callout-blue .callout-title { color: #1d4ed8; }
+
+    /* Interactive Simulator Containers */
+    .sim-container {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sim-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Spiral Simulator Box */
+    .spiral-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .slider-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .slider-val {
+      font-weight: 800;
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 0.2rem 0.65rem;
+      border-radius: 0.375rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background .15s ease-in-out;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* Preset Group */
+    .preset-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.375rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Simulation Output Cards */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .metric-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .status-banner {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-left: 4px solid;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fbfcfe;
+    }
+
+    .highlight-col {
+      background-color: #fef2f2 !important;
+      font-weight: 600;
+    }
+
+    /* Citation Tags & Reference List */
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.05rem 0.35rem;
+      margin: 0 0.15rem;
+      border-radius: 0.25rem;
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border: 1px solid #cbd5e1;
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    .cite-tag:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .ref-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .ref-item {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      background: #ffffff;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: #1d4ed8;
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 1.25rem; }
+      header { padding: 1.5rem; }
+      h1 { font-size: 1.45rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Nav: Portal Link Only -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：マクロ経済循環・合成の誤謬</span>
+      </div>
+      <h1>ケインズの「倹約のパラドックス（貯蓄のパラドックス）」とは：<br>なぜ個人の賢明な節約が社会全体を貧困に突き落とすのか？合成の誤謬と有効需要の原理</h1>
+      <p class="lead">
+        ケインズの<strong>「倹約のパラドックス（貯蓄のパラドックス：Paradox of Thrift）」</strong>とは、個々の家計にとっては「将来に備えた賢明な節約」であっても、社会全体が同時にそれを実行すると総消費が激減し、企業の売上・給与カットを招いて、かえって国民全体の所得も貯蓄も減ってしまうというマクロ経済学の根本的矛盾のことです。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        「ある人の支出は、別の人の所得である」という経済の相互依存性を見落とし、部分にとって正しいことが全体でも正しいと錯覚する<span class="highlight-term">「合成の誤謬（Fallacy of Composition）」</span>の代表例です。本稿では、なぜ「個人の節約術」だけでは日本の貧困問題が決して解決しないのか、そのマクロ構造を徹底解明します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🔄</span><span>支出と所得の表裏一体性</span></div>
+          <div class="h-item-desc">「あなたの支出は誰かの所得」。全員が財布の紐を締めると、社会全体の売上と給料が蒸発して自滅する。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>📉</span><span style="color: #fde047;">合成の誤謬（ごうびゅう）</span></div>
+          <div class="h-item-desc">個人のミクロの美徳（節約）が、マクロ全体では総需要不足（デフレ・不況・雇用破壊）という災厄を招く。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🏛️</span><span>処方箋：積極財政と安心社会</span></div>
+          <div class="h-item-desc">民間が節約に走る不況期こそ、政府が財政出動で有効需要を支え、将来不安を払拭する社会保障の再建が不可欠。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 基本概念と悪循環のメカニズム -->
+    <section>
+      <h2>📋 1. 「倹約のパラドックス」の核心メカニズム：4段階の悪循環スパイラル</h2>
+      <p>
+        日常生活において「無駄遣いをやめて貯蓄を増やすこと」は誰もが賞賛する美徳です。しかし、資本主義経済においては、<strong>「すべての人が同時に買い物を控えて貯金に励むと、全員が貧しくなる」</strong>という恐ろしい逆転劇が発生します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+        ケインズはこのプロセスを以下の4段階の悪循環として定式化しました。
+      </p>
+
+      <div class="grid-4">
+        <!-- Step 1 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title"><span>①</span><span>消費の急減</span></div>
+          <p class="factor-desc">実質賃金の低下や将来不安（年金・医療・増税）から、各世帯が一斉に外食や買い物を控え、貯蓄へ回す。</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="factor-card card-rose">
+          <div class="factor-title"><span>②</span><span>売上の激減</span></div>
+          <p class="factor-desc">モノやサービスが売れなくなり、小売・飲食・製造など企業部門全体の売上高・収益が急速に悪化する。</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="factor-card card-purple">
+          <div class="factor-title"><span>③</span><span>賃下げ・解雇</span></div>
+          <p class="factor-desc">利益が出ない企業は、生き残りのため非正規化・残業削減・ボーナスカット・新規採用凍結を断行する。</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="factor-card card-teal">
+          <div class="factor-title"><span>④</span><span>貯蓄すら不能へ</span></div>
+          <p class="factor-desc">国民全体の所得が激減した結果、貯蓄に回す原資そのものが枯渇し、社会全体の貯蓄額も減少する。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>「合成の誤謬（Fallacy of Composition）」とは何か？</span>
+        </div>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">
+          「劇場で前の人が立ち上がるとよく見える（ミクロの正しさ）。しかし、観客全員が一斉に立ち上がると、誰も以前よりよく見えないどころか、全員が疲れるだけである（マクロの不条理）」。倹約のパラドックスはまさにこの合成の誤謬の典型です。<a href="#ref-3" class="cite-tag">[3]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: インタラクティブ図解① スパイラルシミュレーター -->
+    <section>
+      <h2>🕹️ 2. インタラクティブ図解①：「倹約のパラドックス」悪循環シミュレーター</h2>
+      <p>
+        国民全体が「将来が不安だから消費を切り詰めよう」と節約志向を高めたとき、マクロ経済全体（GDP・企業の売上・賃金・最終貯蓄額）がどのように縮小していくかをスライダーで体験してください。
+      </p>
+
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span>
+            <span>国民の節約志向とGDP・賃金・貯蓄の連動シミュレーション</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">※日本経済（個人消費約300兆円モデル）</span>
+        </div>
+
+        <!-- Presets -->
+        <div class="preset-group">
+          <button class="preset-btn active" onclick="applyPreset('normal')">① 通常期（消費と貯蓄のバランス）</button>
+          <button class="preset-btn" onclick="applyPreset('anxiety')">② 将来不安期（節約志向 +8%）</button>
+          <button class="preset-btn" onclick="applyPreset('deflation')">③ デフレ不況期（全員緊縮 +18%）</button>
+          <button class="preset-btn" onclick="applyPreset('recovery')">④ 積極財政＋賃上げ（好循環脱出）</button>
+        </div>
+
+        <div class="spiral-box">
+          <div class="slider-row">
+            <div class="slider-header">
+              <span>👛 国民全体の節約志向（消費削減・緊縮度）</span>
+              <span id="disp-saving-intent" class="slider-val">0%（標準）</span>
+            </div>
+            <input type="range" id="slider-saving" min="0" max="25" step="1" value="0" oninput="calcSpiral()">
+          </div>
+
+          <!-- Outputs -->
+          <div class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-title">個人消費の減少額</div>
+              <div id="m-consumption" class="metric-value" style="color: var(--primary);">0 兆円</div>
+              <div class="metric-sub">市場から消える需要</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">企業の売上・利益変化</div>
+              <div id="m-sales" class="metric-value" style="color: var(--teal);">標準維持</div>
+              <div class="metric-sub">企業業績への波及</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">雇用者報酬（給料総額）</div>
+              <div id="m-wages" class="metric-value" style="color: var(--text-main);">100%</div>
+              <div class="metric-sub">賃下げ・雇い止めの影響</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-title">社会全体の最終総貯蓄</div>
+              <div id="m-savings" class="metric-value" style="color: var(--emerald);">±0 兆円</div>
+              <div class="metric-sub" id="m-savings-sub">所得連動で結果的に減少</div>
+            </div>
+          </div>
+
+          <!-- Status Banner -->
+          <div id="spiral-banner" class="status-banner" style="border-left-color: var(--emerald);">
+            <strong id="spiral-title" style="color: var(--emerald);">🛡️ 判定：正常なマクロ経済循環</strong>
+            <p id="spiral-desc" style="font-size: 0.85rem; margin-top: 0.35rem; margin-bottom: 0;">
+              消費が適度に循環しており、ある人の支出が別の人の所得となって経済を支えています。企業も売上を確保し、賃上げと投資を行える安定状態です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 歴史的背景と有効需要の原理 -->
+    <section>
+      <h2>🏛️ 3. 歴史的背景：世界大恐慌と「有効需要の原理」の誕生</h2>
+      <p>
+        ケインズが1936年の主著『雇用・利子および貨幣の一般理論』でこのパラドックスを提示した背景には、1929年に始まった<strong>世界大恐慌</strong>の惨劇がありました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-blue">
+          <div class="factor-title">
+            <span>📜</span>
+            <span>古典派経済学のドグマ：「セーの法則」の破綻</span>
+          </div>
+          <div class="factor-desc">
+            従来の主流派（古典派）は「供給は自らの需要を創り出す（セーの法則）」と信じ、「節約して貯蓄すれば、その金は銀行を通じて企業が投資に回すから問題ない」と主張していました。しかし大恐慌では、企業も先行きの不況を恐れて投資を凍結。貯蓄された資金は銀行に滞留し、ただただ消費だけが消滅して未曾有の大失業が発生したのです。<a href="#ref-1" class="cite-tag">[1]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>💡</span>
+            <span>ケインズの革命的処方箋：「政府による有効需要の創出」</span>
+          </div>
+          <div class="factor-desc">
+            ケインズは「不況期には、民間家計や企業が合理的に節約・投資抑制に走るからこそ、<strong>政府が借金をしてでも公共投資や社会保障給付を行い、人為的に需要（仕事と買い物）を作り出さねばならない</strong>」と説きました。この思想が米国のニューディール政策や戦後福祉国家の礎となりました。<a href="#ref-1" class="cite-tag">[1]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代日本への適用と構造的病理 -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が暴く「節約ブーム」の欺瞞と日本の罠</h2>
+      <p>
+        本書第1巻において著者のmb_choが強調するのは、**「世に溢れる個人の節約術やポイ活、自己責任論では、日本の構造的貧困は1ミリも解決しない」**という残酷なマクロの現実です。
+      </p>
+
+      <!-- 構造比較マトリクス表 -->
+      <h3 style="margin-top: 1.5rem;">📊 ミクロの処世術（個人の視点） vs マクロの帰結（社会全体の現実）</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">ミクロの視点（個人・家庭）</th>
+              <th style="width: 35%;">マクロの視点（経済全体への帰結）</th>
+              <th style="width: 40%;">家計と貧困への最終的結末</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>「食費を月2万円に削って節約する」</strong></td>
+              <td>国内の飲食業・農業・食品加工業の売上が激減。内需の過半を占める個人消費が慢性蒸発。</td>
+              <td>飲食・小売りで働く従業員の時給が抑え込まれ、ボーナスが消滅。自らの首を絞める。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>「将来が不安だからNISA・投資に回す」</strong></td>
+              <td>国内消費に使われず、海外株式（米オルカン・S&P500等）へ国内資金が流出。円安が進行。</td>
+              <td>輸入物価が高騰して国内の生活費（食品・光熱費）がさらに跳ね上がり、手取り実質価値が目減り。</td>
+            </tr>
+            <tr>
+              <td><strong>「副業やダブルワークで自力で稼ぐ」</strong></td>
+              <td>安価な非正規労働力の供給が増加。企業側は正規雇用を増やす動機を完全に喪失。</td>
+              <td>労働者同士が買い叩き競争に巻き込まれ、時間貧困（タイムプア）と健康破壊が加速。</td>
+            </tr>
+            <tr>
+              <td><strong>「国も緊縮財政で無駄を削減すべきだ」</strong></td>
+              <td>政府支出の抑制により地方経済が直撃。社会保障費の削減で国民負担率（天引き）が増加。</td>
+              <td>セーフティネットが縮小し、将来不安がさらに増大してより一層の消費冷え込みを呼ぶ地獄。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-teal" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>本書の結論：個人への「節約の強要」から「社会的な安心の再建」へ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          日本人が消費を抑えてしまう根本的な原因は、物欲がないからでも怠惰だからでもありません。**「病気になったら終わり」「解雇されたら野垂れ死に」「年金だけでは暮らせない」という将来不安（セーフティネットの不在）**が、家計を死に物狂いの自衛的節約へと駆り立てているのです。したがって、貧困を脱する唯一の道は、個人に節約競争を強いることではなく、**「教育・医療・住宅を社会的に保障し、消費しても安心できる強固な社会的共通資本と賃上げを再建すること」**に他なりません。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照しているマクロ経済学古典、公的リポジトリ、専門解説の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">ジョン・メイナード・ケインズ（塩野谷祐一訳）『雇用・利子および貨幣の一般理論』東洋経済新報社、1983年（原著1936年）。［有効需要の原理と貯蓄のパラドックスの原典］</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://kotobank.jp/word/%E8%B2%AF%E8%93%84%E3%81%AE%E3%83%91%E3%83%A9%E3%83%89%E3%83%83%E3%82%AF%E3%82%B9-160100" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「貯蓄のパラドックス（ブリタニカ国際大百科事典／日本大百科全書）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://kotobank.jp/word/%E5%90%88%E6%88%90%E3%81%AE%E8%AA%A4%E8%AC%AC-65005" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「合成の誤謬（デジタル大辞泉／知恵蔵）」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.imes.boj.or.jp/" target="_blank" rel="noopener noreferrer" class="ref-link">日本銀行金融研究所（IMES）「マクロ経済学における有効需要理論と金融政策の歴史的展開」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <span class="ref-text">ポール・A・サミュエルソン、ウィリアム・D・ノードハウス『サムエルソン 経済学』都留重人訳、岩波書店。［45度線分析と貯蓄のパラドックスの図解体系化］</span>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <span class="ref-text">内閣府『年次経済財政報告（経済財政白書）』「家計の貯蓄動向と消費性向の長期変化」［公的統計白書］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcSpiral() {
+      const savingRate = parseFloat(document.getElementById('slider-saving').value);
+      document.getElementById('disp-saving-intent').innerText = '+' + savingRate + '%（消費抑制）';
+
+      // 日本の年間個人消費 約300兆円、GDP 約550兆円
+      const baseConsumption = 300;
+      const baseGDP = 550;
+      const baseWages = 280;
+
+      // 消費削減額
+      const dropConsumption = (baseConsumption * (savingRate / 100));
+      
+      // 乗数効果（約1.4倍の波及）
+      const dropGDP = dropConsumption * 1.4;
+      const dropWagesRatio = Math.max(70, 100 - (savingRate * 1.3));
+      
+      // 最終貯蓄の変化：所得減少により貯蓄額も目減り
+      // 当初の貯蓄増加意欲 dropConsumption に対し、所得低下による貯蓄減少分 dropGDP * 0.15
+      const netSavingsChange = dropConsumption - (dropGDP * 0.85);
+
+      document.getElementById('m-consumption').innerText = '-' + dropConsumption.toFixed(1) + ' 兆円';
+      
+      const salesElem = document.getElementById('m-sales');
+      if (savingRate === 0) {
+        salesElem.innerText = '標準維持';
+        salesElem.style.color = 'var(--teal)';
+      } else if (savingRate < 8) {
+        salesElem.innerText = '小幅減収 (-' + (savingRate * 0.9).toFixed(1) + '%)';
+        salesElem.style.color = 'var(--accent-dark)';
+      } else {
+        salesElem.innerText = '大幅減産・赤字 (-' + (savingRate * 1.4).toFixed(1) + '%)';
+        salesElem.style.color = 'var(--rose)';
+      }
+
+      document.getElementById('m-wages').innerText = dropWagesRatio.toFixed(1) + '%';
+      if (dropWagesRatio < 85) {
+        document.getElementById('m-wages').style.color = 'var(--rose)';
+      } else {
+        document.getElementById('m-wages').style.color = 'var(--text-main)';
+      }
+
+      const savingsElem = document.getElementById('m-savings');
+      const savingsSub = document.getElementById('m-savings-sub');
+      if (savingRate === 0) {
+        savingsElem.innerText = '±0 兆円';
+        savingsElem.style.color = 'var(--emerald)';
+        savingsSub.innerText = '消費と貯蓄の均衡';
+      } else if (netSavingsChange > 0) {
+        savingsElem.innerText = '+' + netSavingsChange.toFixed(1) + ' 兆円';
+        savingsElem.style.color = 'var(--accent)';
+        savingsSub.innerText = '見かけ上は増加も給料減が追随';
+      } else {
+        savingsElem.innerText = netSavingsChange.toFixed(1) + ' 兆円（減少！）';
+        savingsElem.style.color = 'var(--rose)';
+        savingsSub.innerText = '所得激減により貯蓄すら不能に';
+      }
+
+      // Banner update
+      const banner = document.getElementById('spiral-banner');
+      const title = document.getElementById('spiral-title');
+      const desc = document.getElementById('spiral-desc');
+
+      if (savingRate === 0) {
+        banner.style.borderLeftColor = 'var(--emerald)';
+        title.style.color = 'var(--emerald)';
+        title.innerText = '🛡️ 判定：正常なマクロ経済循環';
+        desc.innerText = '消費が適度に循環しており、ある人の支出が別の人の所得となって経済を支えています。企業も売上を確保し、賃上げと投資を行える安定状態です。';
+      } else if (savingRate < 10) {
+        banner.style.borderLeftColor = 'var(--accent)';
+        title.style.color = 'var(--accent-dark)';
+        title.innerText = '⚠️ 判定：節約志向の広がりと需要不足の兆候';
+        desc.innerText = `市場から年間約 ${dropConsumption.toFixed(1)} 兆円の需要が消失。飲食店や小売店で客単価が下がり始め、企業のボーナス原資が削られつつあります。`;
+      } else {
+        banner.style.borderLeftColor = 'var(--rose)';
+        title.style.color = 'var(--rose)';
+        title.innerText = '🚨 判定：完全な「倹約のパラドックス（デフレスパイラル）」突入！';
+        desc.innerText = `年間約 ${dropConsumption.toFixed(1)} 兆円もの消費が消失したため、企業の売上が崩壊。人件費カットと非正規化が進み、国民総所得が激減しました。「良かれと思って節約した全員が、かえって貯金すらできない貧困」に沈没しています。`;
+      }
+    }
+
+    function applyPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const slider = document.getElementById('slider-saving');
+      if (preset === 'normal') {
+        slider.value = 0;
+      } else if (preset === 'anxiety') {
+        slider.value = 8;
+      } else if (preset === 'deflation') {
+        slider.value = 18;
+      } else if (preset === 'recovery') {
+        slider.value = 2;
+      }
+      calcSpiral();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcSpiral();
+    });
+  </script>
+</body>
+</html>
