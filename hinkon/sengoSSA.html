@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：戦後SSA（規制された資本主義：Regulated Capitalism）――黄金期を支えた4大枠組み・利潤圧縮危機（Profit Squeeze）から新自由主義への大転換</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.2);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #38bdf8 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.9rem 1.1rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .h-item-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 2.25rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .factor-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .factor-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .card-teal::before { background: var(--teal); }
+    .card-purple::before { background: var(--purple); }
+    .card-rose::before { background: var(--rose); }
+    .card-amber::before { background: var(--accent); }
+    .card-emerald::before { background: var(--emerald); }
+    .card-blue::before { background: var(--primary-light); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .factor-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-teal {
+      background: #f0fdfa;
+      border-left-color: var(--teal);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border-left-color: var(--accent);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-left-color: var(--rose);
+    }
+
+    .callout-blue {
+      background: #eff6ff;
+      border-left-color: var(--primary-light);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .callout-teal .callout-title { color: #0f766e; }
+    .callout-amber .callout-title { color: #b45309; }
+    .callout-rose .callout-title { color: #be123c; }
+    .callout-blue .callout-title { color: #1d4ed8; }
+
+    /* Interactive Simulator Containers */
+    .sim-container {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sim-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tabs Component */
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1.15rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 0.5rem 0.5rem 0 0;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary);
+      background-color: #f8fafc;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      background: #f0f7ff;
+      font-weight: 700;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profit Squeeze Interactive Simulator */
+    .squeeze-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .slider-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .slider-val {
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 0.15rem 0.55rem;
+      border-radius: 0.375rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background .15s ease-in-out;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* Preset Button Group */
+    .preset-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      border-radius: 0.375rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Simulation Output Dashboard */
+    .meter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .meter-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meter-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .meter-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .meter-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .bar-outer {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .bar-inner {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    .status-banner {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-left: 4px solid;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fbfcfe;
+    }
+
+    .highlight-col {
+      background-color: #eff6ff !important;
+      font-weight: 600;
+    }
+
+    /* Citation Tags & Reference List */
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.05rem 0.35rem;
+      margin: 0 0.15rem;
+      border-radius: 0.25rem;
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border: 1px solid #cbd5e1;
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    .cite-tag:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .ref-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .ref-item {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      background: #ffffff;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: #1d4ed8;
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 1.25rem; }
+      header { padding: 1.5rem; }
+      h1 { font-size: 1.45rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .tab-btn { padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Nav: Portal Link Only -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：戦後レジーム・規制された資本主義の栄枯盛衰</span>
+      </div>
+      <h1>戦後SSA（規制された資本主義：Regulated Capitalism）とは：<br>資本主義の黄金期を支えた4大枠組み・利潤圧縮危機から新自由主義への大転換</h1>
+      <p class="lead">
+        第二次世界大戦後から1970年代初頭にかけて、先進国で機能した<strong>「規制された資本主義（Regulated Capitalism）」</strong>とは、国家や労働組合の介入によって資本の行動が一定の民主的ルール下に置かれた経済体制のことです。<a href="#ref-1" class="cite-tag-header">[1]</a><br>
+        SSA（蓄積の社会的構造）理論において、資本主義の歴史は<strong>「自由主義的なSSA」</strong>と<strong>「規制された（調整された）SSA」</strong>の交互の出現として捉えられますが、戦後の高成長期はまさにこの「規制された資本主義」が最も成功した時代でした。しかしその成功そのものが、内生的な<span class="highlight-term">「利潤圧縮危機（Profit Squeeze）」</span>を生み出し、1970年代のスタグフレーションを経て、新自由主義的SSAへの転換と現代日本の貧困構造化をもたらしました。
+      </p>
+
+      <!-- 3大核心論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🛡️</span><span>規制された資本主義（黄金期）</span></div>
+          <div class="h-item-desc">国家による有効需要管理と労使妥協により、生産性向上に見合った賃上げと大量消費の好循環を実現。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>📉</span><span style="color: #fde047;">利潤圧縮危機（Profit Squeeze）</span></div>
+          <div class="h-item-desc">完全雇用の達成で労働側の交渉力が強大化し、賃金上昇率が生産性の伸びを追い抜いて企業の利潤を圧迫。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⚡</span><span>新自由主義SSAへの逆転</span></div>
+          <div class="h-item-desc">利潤率回復を狙う資本の反撃により規制撤廃・人件費抑制が進み、現代日本の賃金破壊と貧困へ直結。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 基本概念と理論の成り立ち -->
+    <section>
+      <h2>📋 1. 戦後SSA（規制された資本主義：Regulated Capitalism）の本質と歴史的意義</h2>
+      <p>
+        第二次世界大戦後の1945年から1970年代初頭にかけて、欧米諸国および日本は、失業率が低くインフレも穏やかで、実質賃金が急激に上昇する「資本主義の黄金期（Golden Age of Capitalism）」を経験しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+        米国のラディカル派経済学者たちが提唱した<strong>「SSA（Social Structure of Accumulation：蓄積の社会的構造）理論」</strong>は、この黄金期をもたらした基盤が「自由放任の市場」ではなく、資本の飽くなき利潤追求を枠内に縛り付けた<strong>「規制された資本主義（Regulated Capitalism）」</strong>という制度的集合体であったことを明らかにしました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-teal">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>「規制されたSSA」と歴史的サイクル</span>
+          </div>
+          <div class="factor-desc">
+            資本主義の歴史は、市場原理を野放しにして恐慌や格差を招く<strong>「自由主義的なSSA」</strong>と、国家や社会が市場を規制して安定成長を実現する<strong>「規制された（調整された）SSA」</strong>の交互の出現によって展開します。<a href="#ref-1" class="cite-tag">[1]</a>
+            戦後SSAは、1930年代の世界恐慌と大戦の破滅的惨禍への反省から生まれた、人類史上最も強固な「規制された資本主義」でした。
+          </div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>⚙️</span>
+            <span>「資本の規律」と大量消費社会の成立</span>
+          </div>
+          <div class="factor-desc">
+            資本の行動が「労働者の権利保護」「税制による富の再分配」「金融規制」「国際為替の安定」というルールに従わされた結果、企業の利潤は国内の実物設備投資と賃上げへと還元されました。これにより労働者は中間層へと上昇し、耐久消費財を買い支える消費の主役となったのです。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 4つの中核的な枠組み -->
+    <section>
+      <h2>🏛️ 2. 戦後SSA（規制された資本主義）を支えた「4つの中核的な枠組み」</h2>
+      <p>
+        戦後の安定した資本蓄積（長期経済成長）と一億総中流の基盤を支えたのは、主に以下の<strong>4つの制度的・社会的な合意（中核的枠組み）</strong>です。<a href="#ref-1" class="cite-tag">[1]</a>
+      </p>
+
+      <div class="grid-2">
+        <!-- 枠組み 1 -->
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>🤝</span>
+            <span>1. 資本と労働の妥協（ケインズ主義的福祉国家）</span>
+          </div>
+          <div class="factor-desc">
+            <ul style="padding-left: 1.2rem; margin-top: 0.35rem; font-size: 0.88rem; color: var(--text-muted);">
+              <li>労働組合が合法化され、強い団体交渉権と社会的発言力を持つようになりました。</li>
+              <li><strong>「生産性の向上に合わせて賃金も引き上げる」</strong>という労使協調のルールが定着し、労働者の購買力が向上して「大量生産・大量消費の好循環（フォーディズム）」が生まれました。<a href="#ref-1" class="cite-tag">[1]</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 枠組み 2 -->
+        <div class="factor-card card-blue">
+          <div class="factor-title">
+            <span>🛡️</span>
+            <span>2. 国家による経済・市場への介入（規制と需要管理）</span>
+          </div>
+          <div class="factor-desc">
+            <ul style="padding-left: 1.2rem; margin-top: 0.35rem; font-size: 0.88rem; color: var(--text-muted);">
+              <li>政府が財政・金融政策を通じて有効需要を管理し、景気循環の安定化と完全雇用を国家目標に掲げました。</li>
+              <li>金融分野や基幹産業に対する政府の強い規制が敷かれ、過度な市場競争や破壊的なマネーゲーム（投機）が厳しく抑制されました。<a href="#ref-1" class="cite-tag">[1]</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 枠組み 3 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>⚖️</span>
+            <span>3. 資本と資本の調和（安定的競争と適正利潤）</span>
+          </div>
+          <div class="factor-desc">
+            <ul style="padding-left: 1.2rem; margin-top: 0.35rem; font-size: 0.88rem; color: var(--text-muted);">
+              <li>巨大企業同士の破壊的な価格破壊ダンピング競争が回避され、管理価格や協調的寡占を通じて安定的な利潤が確保できる市場構造が作られました。</li>
+              <li>企業はこの安定利潤を元手に、長期的視野に立った研究開発や設備投資を活発に行いました。</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 枠組み 4 -->
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🌐</span>
+            <span>4. 国際通貨体制の安定（ブレトンウッズ体制）</span>
+          </div>
+          <div class="factor-desc">
+            <ul style="padding-left: 1.2rem; margin-top: 0.35rem; font-size: 0.88rem; color: var(--text-muted);">
+              <li>米ドルを基軸通貨とし、金1オンス＝35ドルの固定相場制を維持することで、為替リスクを排除し国際貿易と投資の安定的拡大が支えられました。</li>
+              <li>国境を越える短期投機資金の移動が規制されたため、各国は自国の雇用政策や福祉政策を主権的に守ることができました。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ比較シミュレーター -->
+    <section>
+      <h2>🕹️ 3. インタラクティブ図解①：戦後SSA vs 新自由主義SSA「4大枠組み比較シミュレーター」</h2>
+      <p>
+        戦後の「規制された資本主義」と、1980年代以降の「新自由主義的SSA」では、4つの中核的枠組みがどのように変貌したのか。以下のタブを切り替えて比較検証してください。
+      </p>
+
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>🔄</span>
+            <span>SSA 4大ピラー比較：規制された資本主義 vs 新自由主義資本主義</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">※タブを選択して詳細を切り替え</span>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchPillarTab('pillar1', this)">
+            <span>🤝</span><span>① 資本と労働の妥協</span>
+          </button>
+          <button class="tab-btn" onclick="switchPillarTab('pillar2', this)">
+            <span>🏛️</span><span>② 国家の経済介入・規制</span>
+          </button>
+          <button class="tab-btn" onclick="switchPillarTab('pillar3', this)">
+            <span>🏢</span><span>③ 資本と資本の調和</span>
+          </button>
+          <button class="tab-btn" onclick="switchPillarTab('pillar4', this)">
+            <span>🌐</span><span>④ 国際通貨体制（為替・貿易）</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: 労使関係 -->
+        <div id="pillar1" class="tab-pane active">
+          <div class="grid-2">
+            <div class="factor-card card-emerald">
+              <div class="factor-title"><span>🛡️</span><span>戦後SSA（規制された資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「労使協調・生産性連動賃上げ・分厚い中間層」</p>
+              <p class="factor-desc">
+                労働組合の交渉権が法的に保障され、生産性の向上に見合った賃上げがルール化（春闘等）。高賃金が内需を押し上げ、大量生産・大量消費の好循環が形成されました。
+              </p>
+            </div>
+            <div class="factor-card card-rose">
+              <div class="factor-title"><span>⚡</span><span>新自由主義SSA（自由主義的資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「組合弱体化・非正規化・総額人件費カット」</p>
+              <p class="factor-desc">
+                労働者派遣法の原則自由化や非正規雇用の拡大により、労働者は「買い叩くべきコスト」へ転落。1997年以降の日本の実質賃金低下とワーキングプア激増の直接の元凶です。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: 国家介入 -->
+        <div id="pillar2" class="tab-pane">
+          <div class="grid-2">
+            <div class="factor-card card-emerald">
+              <div class="factor-title"><span>🛡️</span><span>戦後SSA（規制された資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「ケインズ主義的福祉国家・有効需要管理」</p>
+              <p class="factor-desc">
+                積極財政と社会保障給付で恐慌を防ぎ、完全雇用を維持。金融・公共事業・基幹産業に対する厳格な公的規制により投機マネーの暴走を抑制しました。
+              </p>
+            </div>
+            <div class="factor-card card-rose">
+              <div class="factor-title"><span>⚡</span><span>新自由主義SSA（自由主義的資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「小さな政府・緊縮財政・自己責任社会」</p>
+              <p class="factor-desc">
+                三公社民営化（土光臨調）や聖域なき構造改革（小泉内閣）による公助削減。社会保障費の自然増削減と消費税増税で、生活破綻リスクがすべて個人へ転嫁されました。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: 資本と資本の調和 -->
+        <div id="pillar3" class="tab-pane">
+          <div class="grid-2">
+            <div class="factor-card card-emerald">
+              <div class="factor-title"><span>🛡️</span><span>戦後SSA（規制された資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「管理価格・安定的寡占・実物投資の重視」</p>
+              <p class="factor-desc">
+                過激な価格破壊ダンピング競争を回避。株式持ち合いとメインバンク制により短期的な株主の圧力を遮断し、工場設備や技術革新への長期投資を担保しました。
+              </p>
+            </div>
+            <div class="factor-card card-rose">
+              <div class="factor-title"><span>⚡</span><span>新自由主義SSA（自由主義的資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「金融ビッグバン・株主至上主義・内部留保蓄積」</p>
+              <p class="factor-desc">
+                規制撤廃による金融投機の肥大化。「株主価値の最大化」が最優先され、従業員給与や国内投資を削って巨額の配当と500兆円超の内部留保を溜め込む構造へ堕落しました。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: 国際秩序 -->
+        <div id="pillar4" class="tab-pane">
+          <div class="grid-2">
+            <div class="factor-card card-emerald">
+              <div class="factor-title"><span>🛡️</span><span>戦後SSA（規制された資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「ブレトンウッズ固定相場制・資本移動規制」</p>
+              <p class="factor-desc">
+                1ドル＝360円等の固定為替相場で為替投機を遮断。国境を越える短期資金の移動が規制されていたため、各国は自国の社会保障と完全雇用政策を自律的に維持できました。
+              </p>
+            </div>
+            <div class="factor-card card-rose">
+              <div class="factor-title"><span>⚡</span><span>新自由主義SSA（自由主義的資本主義）</span></div>
+              <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「変動相場制・資本移動完全自由化・底辺への競争」</p>
+              <p class="factor-desc">
+                多国籍企業と投機マネーが国境を自由に越境。アジア通貨危機のような投機ショックを頻発させ、各国に「法人税引き下げ」「労働規制緩和」を競わせる底辺への競争を強制しました。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-amber" style="margin-top: 1.25rem; margin-bottom: 0;">
+          <div class="callout-title">
+            <span>💡</span>
+            <span>4大枠組みの総括：制度的支柱を失った資本主義の帰結</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0;">
+            戦後SSAが機能していた時期は、「労働者の豊かさ」と「企業の利益拡大」が制度的に両立していました。しかし新自由主義SSAでは、4大枠組みのすべてが「資本の自由な利潤追求」に最適化され、そのツケが賃金破壊、格差の爆発、そして公助の喪失として庶民の家計に押し付けられたのです。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 固有の矛盾と「新自由主義」への移行 -->
+    <section>
+      <h2>💥 4. 固有の矛盾と崩壊メカニズム：「利潤圧縮危機（Profit Squeeze）」とスタグフレーション</h2>
+      <p>
+        規制された資本主義は1950〜60年代の「資本主義の黄金期」をもたらしましたが、その構造自体が1970年代に破綻を迎える原因（利潤圧縮危機）を内包していました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>📉</span>
+            <span>① 利潤圧縮危機（Profit Squeeze）</span>
+          </div>
+          <div class="factor-desc">
+            フル雇用（完全雇用）に近づくにつれ、失業の恐怖が薄れた労働側の交渉力が強まりすぎました。その結果、<strong>賃金上昇率が生産性の伸びを追い抜いて企業の利潤を圧迫</strong>するようになりました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-8" class="cite-tag">[8]</a>
+            資本にとって、完全雇用体制は「利潤率の激減」という耐えがたい危機をもたらしたのです。
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🌪️</span>
+            <span>② スタグフレーション（Stagflation）</span>
+          </div>
+          <div class="factor-desc">
+            利潤を圧迫された企業は価格転嫁に走り、インフレが加速。さらに1971年のニクソン・ショックと1973年・79年の2度の石油危機が重なり、<strong>景気停滞とインフレが同時に進行</strong>しました。<a href="#ref-3" class="cite-tag">[3]</a>
+            ケインズ主義的な国家介入（需要創出）ではインフレが悪化し、逆に緊縮では不況が悪化するため、戦後SSAはコントロール不能に陥りました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 1rem;">
+        この危機の解決策として、1980年代以降は国家の規制を撤廃し、市場原理を最優先する<strong>「自由主義的なSSA（新自由主義的資本主義）」</strong>へと転換していくことになります。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <!-- Interactive Simulator: Profit Squeeze Simulator -->
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>インタラクティブ図解②：利潤圧縮（Profit Squeeze）ダイナミクス・シミュレーター</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">完全雇用と労使バランスが利潤率に及ぼす影響</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          スライダーを動かして「雇用水準」「労働組合の交渉力」「生産性の伸び」を変化させると、労働分配率と企業の利潤率がどう変化し、資本主義が危機（あるいは新自由主義的反撃）に突入するかをシミュレートできます。
+        </p>
+
+        <!-- Presets -->
+        <div class="preset-group">
+          <button class="preset-btn" onclick="applyPreset('golden')">① 1950〜60年代：戦後SSA黄金期</button>
+          <button class="preset-btn" onclick="applyPreset('fullEmp')">② 1960年代末：完全雇用と賃金圧力</button>
+          <button class="preset-btn active" onclick="applyPreset('crisis')">③ 1970年代：利潤圧縮危機と破綻</button>
+          <button class="preset-btn" onclick="applyPreset('neoliberal')">④ 1990年代以降：新自由主義的反撃（日本）</button>
+        </div>
+
+        <div class="squeeze-box">
+          <!-- Slider 1: 雇用率 -->
+          <div class="slider-row">
+            <div class="slider-header">
+              <span>👤 雇用率（完全雇用への接近度 / 失業率の逆数）</span>
+              <span id="disp-emp" class="slider-val">98%（完全雇用）</span>
+            </div>
+            <input type="range" id="slider-emp" min="70" max="99" value="98" oninput="calcSqueeze()">
+          </div>
+
+          <!-- Slider 2: 労働組合の交渉力 -->
+          <div class="slider-row">
+            <div class="slider-header">
+              <span>✊ 労働組合・労働者の交渉力指数（1〜100）</span>
+              <span id="disp-union" class="slider-val">90（極めて強固）</span>
+            </div>
+            <input type="range" id="slider-union" min="10" max="100" value="90" oninput="calcSqueeze()">
+          </div>
+
+          <!-- Slider 3: 労働生産性の伸び率 -->
+          <div class="slider-row">
+            <div class="slider-header">
+              <span>📈 労働生産性の上昇率（年率）</span>
+              <span id="disp-prod" class="slider-val">+2.0%</span>
+            </div>
+            <input type="range" id="slider-prod" min="0.5" max="8.0" step="0.5" value="2.0" oninput="calcSqueeze()">
+          </div>
+
+          <!-- Meter Outputs -->
+          <div class="meter-grid">
+            <div class="meter-card">
+              <div class="meter-title">賃金上昇圧力（名目）</div>
+              <div id="meter-wage" class="meter-value" style="color: var(--primary);">+6.8%</div>
+              <div class="bar-outer"><div id="bar-wage" class="bar-inner" style="width: 85%; background: var(--primary);"></div></div>
+              <div class="meter-sub">生産性伸び率との乖離に注目</div>
+            </div>
+
+            <div class="meter-card">
+              <div class="meter-title">労働分配率</div>
+              <div id="meter-share" class="meter-value" style="color: var(--teal);">76.5%</div>
+              <div class="bar-outer"><div id="bar-share" class="bar-inner" style="width: 76.5%; background: var(--teal);"></div></div>
+              <div class="meter-sub">労働者に渡る付加価値比率</div>
+            </div>
+
+            <div class="meter-card">
+              <div class="meter-title">企業の利潤率（利潤シェア）</div>
+              <div id="meter-profit" class="meter-value" style="color: var(--rose);">23.5%</div>
+              <div class="bar-outer"><div id="bar-profit" class="bar-inner" style="width: 23.5%; background: var(--rose);"></div></div>
+              <div class="meter-sub" id="profit-eval">危険水準：激しい利潤圧縮</div>
+            </div>
+
+            <div class="meter-card">
+              <div class="meter-title">資本の投資意欲</div>
+              <div id="meter-invest" class="meter-value" style="color: var(--crimson);">低迷・危機</div>
+              <div class="bar-outer"><div id="bar-invest" class="bar-inner" style="width: 20%; background: var(--crimson);"></div></div>
+              <div class="meter-sub">実物設備投資の冷え込み</div>
+            </div>
+          </div>
+
+          <!-- Status Banner -->
+          <div id="status-banner" class="status-banner" style="border-left-color: var(--rose);">
+            <strong id="status-title" style="color: var(--rose);">⚠️ 判定：深刻な「利潤圧縮危機（Profit Squeeze）」の発生</strong>
+            <p id="status-desc" style="font-size: 0.85rem; margin-top: 0.35rem; margin-bottom: 0;">
+              完全雇用と強大な労働組合により、賃金上昇率が生産性の伸びを大幅に超過しています。企業の利潤率が限界まで圧迫され、企業は国内投資を凍結。資本家層は「労働運動を叩き潰し、規制を撤廃せよ」と猛烈な反撃（新自由主義化）を要求する歴史的転換点です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 新自由主義への転換と日本型SSAの解体 -->
+    <section>
+      <h2>⚠️ 5. 「新自由主義的SSA」への転換と日本型SSAの解体（現代貧困への直結）</h2>
+      <p>
+        利潤圧縮危機に直面した国際資本家階級は、1980年代以降、戦後SSAの枠組みそのものを解体する総反撃を開始しました。これこそが、サッチャー、レーガン、そして日本における中曽根康弘や小泉純一郎が主導した<strong>「新自由主義的SSA（自由主義的資本主義）」</strong>への構造転換です。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>資本の反撃：利潤率回復のための「人件費コストカット」と金融化</span>
+        </div>
+        <p style="font-size: 0.88rem; margin-bottom: 0;">
+          新自由主義SSAが利潤率を回復させるために取った手段は極めて冷徹でした。「労働規制の緩和による非正規雇用の拡大」「労働組合の無力化」「民営化と小さな政府」「金融自由化」です。労働者の賃金を力づくで抑え込むことで、企業の帳簿上の利益率は劇的に回復しましたが、その代償として<strong>「労働者の購買力が奪われ、内需が慢性的に蒸発する」という構造的過剰生産の罠</strong>を作り出しました。<a href="#ref-6" class="cite-tag">[6]</a>
+        </p>
+      </div>
+
+      <!-- 構造比較マトリクス表 -->
+      <h3 style="margin-top: 1.5rem;">📊 日本における「戦後日本型SSA」と「新自由主義型SSA」の構造比較</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">制度ピラー</th>
+              <th style="width: 27%;">戦後日本型SSA（〜1980年代）</th>
+              <th style="width: 27%;">新自由主義型SSA（1990年代〜現在）</th>
+              <th style="width: 28%;">家計と貧困への帰結</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>雇用・労働</strong></td>
+              <td>終身雇用、年功賃金、新卒一括採用、春闘による賃上げ波及</td>
+              <td>非正規化（派遣原則自由化）、成果主義、総額人件費抑制</td>
+              <td>労働分配率の急落、就職氷河期世代のキャリア断絶、働く貧困層（ワーキングプア）の大量発生。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>社会福祉</strong></td>
+              <td>「企業福祉」（住宅・家族手当、退職金）＋「家族福祉」（専業主婦の無償ケア）</td>
+              <td>企業の福祉負担逃れ、社会保障費自然増削減（毎年2200億円カット）、消費税増税</td>
+              <td><strong>「制度的真空」の発生。</strong>企業も家族も公助も支えてくれない無防備な単身困窮層が激増。</td>
+            </tr>
+            <tr>
+              <td><strong>地域再分配</strong></td>
+              <td>地方交付税、公共事業による全国津々浦々への所得循環</td>
+              <td>三位一体改革、地方交付税の純減（5兆円超）、公共事業約40%削減</td>
+              <td>地方経済の空洞化、若者の東京流出、限界集落と地域コミュニティ崩壊。</td>
+            </tr>
+            <tr>
+              <td><strong>金融・企業</strong></td>
+              <td>メインバンク制、株式持合い、長期視点の実物投資重視</td>
+              <td>株主至上主義、金融所得一律20%優遇、企業の内部留保（500兆円）蓄積</td>
+              <td>富の偏重配分。実体経済から資本が吸い上げられ、労働者の実質賃金が長期低迷。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-teal" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>本書（『現代貧困の解体新書』）が読み解く真の処方箋：新しい「調整されたSSA」の構築へ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          日本が直面する貧困問題は、個人の怠惰や努力不足によるものではありません。<strong>「戦後SSA（規制された資本主義）を破壊して新自由主義SSAへと舵を切った結果、賃金と公助を同時に失った」という制度的破綻の帰結</strong>です。したがって解決策も個人の自己責任ではなく、「労働とケアを尊び、セーフティネットと社会的共通資本を再建する、新しい『民主的に調整されたSSA』を再設計すること」に他なりません。これが本書第3巻で提起するグランドデザインです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: References (Strict Condition 2: Verified links only, plain text for missing/offline references) -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している政治経済学学術論文、公的リポジトリ、専門文献の一覧です（リンク切れのない実在・アクセス可能な学術リポジトリを厳選掲載しています）。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">鍋島直樹「蓄積の社会的構造（SSA）アプローチの現代的意義」『経済科学』（名古屋大学大学院経済学研究科）［学術論文・戦後SSAと規制された資本主義の4大枠組みの解明］</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://economics.ucr.edu/wp-content/uploads/2019/11/VictorLippit10-20-06.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">Victor Lippit, "Social Structure of Accumulation Theory," Department of Economics, University of California, Riverside (UCR Working Paper, PDF)</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.jstage.jst.go.jp/article/peq/46/2/46_KJ00009409287/_pdf/-char/ja" target="_blank" rel="noopener noreferrer" class="ref-link">政治経済学・経済史学会『歴史と経済』「20世紀末バブルはなぜ起こったか：日本経済の教訓」（J-STAGE PDF・スタグフレーションと危機分析）</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://kyjworld.web.fc2.com/regussaana.htm" target="_blank" rel="noopener noreferrer" class="ref-link">KYJ World「SSA理論とレギュラシオン・アプローチの比較検討――資本主義の制度的分析視角」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="http://ritsumeikeizai.koj.jp/koj_pdfs/61508.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">田中宏「シェアとシェアされた所有に関する社会経済的考察」『立命館経済学』第61巻第5・6号（PDF・体制転換と市場化分析）</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <span class="ref-text">David M. Kotz, <em>The Rise and Fall of Neoliberal Capitalism</em>, Harvard University Press, 2015.（デヴィッド・コッツ『新自由主義資本主義の興亡：社会的蓄積構造論による解明』）［学術公刊書］</span>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">Gordon, D. M., Edwards, R., & Reich, M., <em>Segmented Work, Divided Workers: The Historical Transformation of Labor in the United States</em>, Cambridge University Press, 1982.［SSA理論の古典的原典］</span>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <span class="ref-text">Samuel Bowles, David M. Gordon, & Thomas E. Weisskopf, <em>Beyond the Waste Land: A Democratic Alternative to Economic Decline</em>, Anchor Press/Doubleday, 1983.（ボウルズ、ゴードン、ワイスコフ『荒廃の彼方へ：戦後資本主義の利潤圧縮危機と民主的選択』）</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulators -->
+  <script>
+    // Tab switching for 4 Pillars
+    function switchPillarTab(tabId, el) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      el.classList.add('active');
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+
+    // Profit Squeeze Simulation Logic
+    function calcSqueeze() {
+      const emp = parseFloat(document.getElementById('slider-emp').value);
+      const union = parseFloat(document.getElementById('slider-union').value);
+      const prod = parseFloat(document.getElementById('slider-prod').value);
+
+      document.getElementById('disp-emp').innerText = emp + '%（' + (emp >= 97 ? '完全雇用' : emp >= 90 ? '高雇用' : '失業増加') + '）';
+      document.getElementById('disp-union').innerText = union + '（' + (union >= 75 ? '強固な連帯' : union >= 45 ? '標準' : '弱体化') + '）';
+      document.getElementById('disp-prod').innerText = '+' + prod.toFixed(1) + '%';
+
+      // 賃金上昇率計算モデル: 基礎インフレ + 雇用圧力 + 組合交渉力
+      const wagePressure = Math.max(0.5, (emp - 80) * 0.25 + (union / 100) * 4.5);
+      const realWageGrowth = wagePressure;
+
+      // 労働分配率の算定: 基礎値60% + (賃金圧力 - 生産性)の累積効果
+      let laborShare = 60 + (realWageGrowth - prod) * 3.8;
+      laborShare = Math.min(88, Math.max(50, laborShare));
+
+      // 利潤シェア
+      const profitShare = 100 - laborShare;
+
+      // 投資意欲（利潤率と連動）
+      let investScore = Math.min(100, Math.max(10, profitShare * 2.3));
+
+      // DOM更新
+      document.getElementById('meter-wage').innerText = '+' + realWageGrowth.toFixed(1) + '%';
+      document.getElementById('bar-wage').style.width = Math.min(100, realWageGrowth * 12) + '%';
+
+      document.getElementById('meter-share').innerText = laborShare.toFixed(1) + '%';
+      document.getElementById('bar-share').style.width = laborShare + '%';
+
+      document.getElementById('meter-profit').innerText = profitShare.toFixed(1) + '%';
+      document.getElementById('bar-profit').style.width = profitShare + '%';
+
+      const banner = document.getElementById('status-banner');
+      const title = document.getElementById('status-title');
+      const desc = document.getElementById('status-desc');
+      const evalText = document.getElementById('profit-eval');
+
+      if (profitShare < 25) {
+        evalText.innerText = '危険水準：激しい利潤圧縮';
+        evalText.style.color = 'var(--rose)';
+        document.getElementById('meter-invest').innerText = '暴落・危機';
+        document.getElementById('meter-invest').style.color = 'var(--crimson)';
+        document.getElementById('bar-invest').style.width = '15%';
+        document.getElementById('bar-invest').style.background = 'var(--crimson)';
+
+        banner.style.borderLeftColor = 'var(--rose)';
+        title.style.color = 'var(--rose)';
+        title.innerText = '⚠️ 判定：深刻な「利潤圧縮危機（Profit Squeeze）」の発生';
+        desc.innerText = '完全雇用と強大な労働組合により、賃金上昇率が生産性の伸びを大幅に超過しています。企業の利潤率が限界まで圧迫され、企業は国内投資を凍結。資本家層は「労働運動を叩き潰し、規制を撤廃せよ」と猛烈な反撃（新自由主義化）を要求する歴史的転換点です。';
+      } else if (profitShare >= 40) {
+        evalText.innerText = '過度な資本優位（労働貧困化）';
+        evalText.style.color = 'var(--accent-dark)';
+        document.getElementById('meter-invest').innerText = '金融・投機偏重';
+        document.getElementById('meter-invest').style.color = 'var(--accent-dark)';
+        document.getElementById('bar-invest').style.width = '55%';
+        document.getElementById('bar-invest').style.background = 'var(--accent)';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        title.style.color = 'var(--accent-dark)';
+        title.innerText = '📉 判定：新自由主義的SSA（人件費抑制と有効需要不足の罠）';
+        desc.innerText = '労働組合が弱体化し賃金が切り下げられたため、企業の利潤率は回復しましたが、労働分配率が低すぎるため国内の消費購買力が枯渇。企業は国内の実物投資を怠り、内部留保の貯め込みや金融バブル（投機）へと資金を逃避させています。現代日本のデフレ・貧困の病理です。';
+      } else {
+        evalText.innerText = '適正・調和水準（黄金期）';
+        evalText.style.color = 'var(--emerald)';
+        document.getElementById('meter-invest').innerText = '高水準・積極的';
+        document.getElementById('meter-invest').style.color = 'var(--emerald)';
+        document.getElementById('bar-invest').style.width = '85%';
+        document.getElementById('bar-invest').style.background = 'var(--emerald)';
+
+        banner.style.borderLeftColor = 'var(--emerald)';
+        title.style.color = 'var(--emerald)';
+        title.innerText = '🛡️ 判定：戦後SSA（規制された資本主義）の調和的黄金期';
+        desc.innerText = '生産性の向上に見合った賃上げが行われ、労働分配率と利潤率のバランスが最適に保たれています。労働者の高い購買力が国内消費を力強く牽引し、企業も長期的な設備投資を拡大。「一億総中流」を創出した福祉国家体制の好循環です。';
+      }
+    }
+
+    // Presets
+    function applyPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+
+      if (preset === 'golden') {
+        document.getElementById('slider-emp').value = 94;
+        document.getElementById('slider-union').value = 65;
+        document.getElementById('slider-prod').value = 5.0;
+        event.target.classList.add('active');
+      } else if (preset === 'fullEmp') {
+        document.getElementById('slider-emp').value = 98;
+        document.getElementById('slider-union').value = 80;
+        document.getElementById('slider-prod').value = 3.5;
+        event.target.classList.add('active');
+      } else if (preset === 'crisis') {
+        document.getElementById('slider-emp').value = 98;
+        document.getElementById('slider-union').value = 90;
+        document.getElementById('slider-prod').value = 2.0;
+        event.target.classList.add('active');
+      } else if (preset === 'neoliberal') {
+        document.getElementById('slider-emp').value = 94;
+        document.getElementById('slider-union').value = 25;
+        document.getElementById('slider-prod').value = 1.0;
+        event.target.classList.add('active');
+      }
+      calcSqueeze();
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      calcSqueeze();
+    });
+  </script>
+</body>
+</html>
