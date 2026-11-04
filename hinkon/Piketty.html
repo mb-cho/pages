@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：トマ・ピケティ『21世紀の資本』と不等式「r > g」――資本収益率と経済成長率の乖離がもたらす格差拡大の病理</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Condition 1: nav-links contains ONLY portal-link) */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #312e81 50%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-sub {
+      background: rgba(245, 158, 11, 0.3);
+      color: #fef08a;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: #cbd5e1;
+    }
+
+    /* Section & Cards */
+    section {
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.65rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    /* Formula Banner */
+    .formula-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 100%);
+      color: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .formula-display {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: #fef08a;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      margin-bottom: 0.5rem;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .formula-caption {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.25rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-emerald { border-top: 4px solid var(--emerald); }
+    .card-rose { border-top: 4px solid var(--rose); }
+
+    .factor-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callout Box */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 4px solid var(--rose);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-purple {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      border-left: 4px solid var(--purple);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Simulator Controls */
+    .sim-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.4rem;
+      padding: 0.5rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: var(--primary-light);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .slider-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1.25rem;
+    }
+
+    .slider-item label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .slider-item input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+      background: #e2e8f0;
+      cursor: pointer;
+    }
+
+    .sim-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .metric-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 0.2rem;
+    }
+
+    /* Sub Tabs (Myth vs Reality) */
+    .sub-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+    }
+
+    .sub-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .sub-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Rating Rows */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.6rem 0;
+      font-size: 0.85rem;
+    }
+
+    .rating-label {
+      width: 140px;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rating-track {
+      flex: 1;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 0.75rem;
+    }
+
+    .rating-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .rating-score {
+      font-weight: 700;
+      width: 55px;
+      text-align: right;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .highlight-col {
+      background: #fefce8 !important;
+      font-weight: 600;
+    }
+
+    /* Citations and Reference Links */
+    .cite-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.25rem;
+      background: #e0e7ff;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.2rem;
+      border: 1px solid #c7d2fe;
+    }
+
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-num {
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-light);
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: nav-links contains ONLY portal-link) -->
+    <nav class="nav-box" aria-label="ナビゲーション">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：分配構造の理論的視座・不平等の法則</span>
+      </div>
+      <h1>トマ・ピケティ『21世紀の資本』と不等式「r > g」：<br>資本収益率と経済成長率の乖離がもたらす格差拡大の病理</h1>
+      <p class="lead">
+        フランスの経済学者トマ・ピケティが2013年（邦訳2014年）の世界的ベストセラー『21世紀の資本』で提示した不等式<strong>「r > g」</strong>は、300年以上にわたる欧米諸国の膨大な歴史統計データから、資本主義市場経済が本質的に内包する「富の集中メカニズム」を数学的に証明した画期的な業績です。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+        世俗的な「投資推奨本」としての誤読を正し、低成長（g≈0%）と株主偏重・労働分配率低下が同時進行する現代日本がいかにこの不等式の「最悪の罠」に嵌まっているかを徹底解剖します。
+      </p>
+    </header>
+
+    <!-- Section 1: 不等式「r > g」の基本概念 -->
+    <section>
+      <h2>📋 1. 不等式「r > g」の数学的定義と歴史的発見</h2>
+      <p>
+        ピケティは、税務統計をはじめとする過去300年以上の膨大な記録を検証し、平和時かつ通常の資本主義体制下では、常に以下の不等式が成立していることを実証しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="formula-banner">
+        <div class="formula-display">r &gt; g</div>
+        <div class="formula-caption">
+          <strong>r（資本収益率：年4〜5％） &gt; g（経済成長率：年1〜2％）</strong><br>
+          「過去の蓄積（ストック）が生み出すリターン」は、「現在の労働（フロー）が生み出す産出の伸び」を常に上回り続ける。
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>📈</span>
+            <span>r（Rate of return on capital：資本収益率）</span>
+          </div>
+          <div class="factor-desc">
+            株式配当、利子、賃貸不動産、企業の内部留保利益など、**保有する資本（ストック）から得られる年間平均リターン率**。歴史を通じて、好況・不況をならした長期平均で**概ね年4〜5％程度**で極めて安定して推移しています。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-5" class="cite-tag">[5]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🌱</span>
+            <span>g（Growth rate：経済成長率）</span>
+          </div>
+          <div class="factor-desc">
+            人口動態と技術進歩によって決まる**一国の所得・産出（フロー）全体の年間成長率**。産業革命以降の成熟先進国においては、長期平均で**年1〜2％程度**にとどまり、20世紀後半のような急成長は歴史的例外に過ぎません。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 1.5rem;">🔑 ピケティが突きつけた「3つの核心的結論」</h3>
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>⌛</span>
+            <span>① 世襲資本主義への逆戻り</span>
+          </div>
+          <div class="factor-desc">
+            「r > g」が継続すると、ゼロから真面目に働く労働所得よりも、親から受け継いだ資産の再投資スピードが圧倒的に勝るため、社会は19世紀の「持てる者と持たざる者」の世襲社会へ先祖返りします。<a href="#ref-1" class="cite-tag">[1]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>📉</span>
+            <span>② クズネッツ曲線の完全否定</span>
+          </div>
+          <div class="factor-desc">
+            「資本主義が成熟すれば格差は自然に縮小する」という従来の主流派経済学（クズネッツの逆U字仮説）を膨大なデータで粉砕。20世紀半ばの平等化は戦争と高累進税という人為的介入の産物でした。<a href="#ref-3" class="cite-tag">[3]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>③ グローバル累進資本税の提唱</span>
+          </div>
+          <div class="factor-desc">
+            資本逃避を防ぐ国際協調のもと、富裕層の純資産に課税する「世界的な累進資産税」を提案。資本の透明性を確保し、富の暴走を民主主義の管理下に取り戻すことを訴えました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: インタラクティブ図解① 資産格差シミュレーター -->
+    <section>
+      <h2>⚙️ 2. インタラクティブ図解①：ピケティ「r > g」資産格差拡大シミュレーター</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        資本収益率（r）と経済成長率・賃金伸び率（g）の値を動かすと、30年後に「元手を持つ資本家層」と「労働のみに依存する一般労働者層」の間でどれほど資産差が爆発するかをシミュレーションできます。
+      </p>
+
+      <div class="sim-box">
+        <!-- Presets -->
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.4rem;">
+          📊 典型的な歴史シナリオを選択：
+        </div>
+        <div class="preset-row">
+          <button class="preset-btn active" onclick="applyPreset(4.5, 1.5, this)">① ピケティ歴史平均 (r: 4.5% / g: 1.5%)</button>
+          <button class="preset-btn" onclick="applyPreset(4.0, 0.3, this)">② 現代日本・低成長の罠 (r: 4.0% / g: 0.3%)</button>
+          <button class="preset-btn" onclick="applyPreset(3.5, 5.0, this)">③ 戦後黄金期・一億総中流 (r: 3.5% / g: 5.0%)</button>
+        </div>
+
+        <!-- Sliders -->
+        <div class="slider-group">
+          <div class="slider-item">
+            <label>
+              <span>資本収益率（r）:</span>
+              <span id="rVal" style="color: var(--rose);">4.5%</span>
+            </label>
+            <input type="range" id="rSlider" min="1.0" max="8.0" step="0.1" value="4.5" oninput="updateSim()">
+            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">株式配当・不動産利回り・内部留保リターン</div>
+          </div>
+          <div class="slider-item">
+            <label>
+              <span>経済・賃金成長率（g）:</span>
+              <span id="gVal" style="color: var(--primary);">1.5%</span>
+            </label>
+            <input type="range" id="gSlider" min="-1.0" max="6.0" step="0.1" value="1.5" oninput="updateSim()">
+            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem;">GDP成長率・労働者の年次昇給ペース</div>
+          </div>
+        </div>
+
+        <!-- Simulation Results Display -->
+        <div class="sim-results">
+          <div class="metric-card">
+            <div class="metric-label">資本家層の30年後資産（初期1000万）</div>
+            <div class="metric-value" id="resCap" style="color: var(--rose);">約3,745万円</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);" id="resCapSub">元本の3.75倍に増殖</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">労働者層の30年後累積貯蓄（年収400万）</div>
+            <div class="metric-value" id="resWorker" style="color: var(--primary);">約1,500万円</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);" id="resWorkerSub">生活費を削った手元残高</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">両者の純資産格差倍率</div>
+            <div class="metric-value" id="resRatio" style="color: var(--accent-dark);">2.50 倍</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);" id="resRatioSub">世代を超えて固定化</div>
+          </div>
+        </div>
+
+        <!-- Real-time Dynamic Insight Box -->
+        <div id="simInsight" class="callout callout-amber" style="margin-top: 1.25rem;">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ分析② 世俗的誤読と日本経済の病理解剖 -->
+    <section>
+      <h2>⚠️ 3. インタラクティブ分析②：ピケティの「世俗的誤読」と日本経済の二重搾取</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        「r > gだから投資をすれば誰でも豊かになれる」という投資ブームの軽薄な言説は、ピケティの警告を180度ねじ曲げたものです。理論の正確な射程と、現代日本の病理を対比します。
+      </p>
+
+      <!-- Sub Tabs -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" onclick="switchSubTab('sub1', this)">🚫 「投資推奨本」という世俗的誤読の罠</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub2', this)">🇯🇵 現代日本の病理（g≈0%と二重の収奪）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub3', this)">⚖️ ピケティ自身の真の処方箋（再分配の再構築）</button>
+      </div>
+
+      <!-- Tab 1: 世俗的誤読 -->
+      <div id="sub1" class="tab-pane active">
+        <div class="grid-3">
+          <div class="factor-card card-rose">
+            <div class="factor-title">
+              <span>⚠️</span>
+              <span>「元手」なき労働者の限界</span>
+            </div>
+            <div class="factor-desc">
+              年4%のリターンも、元手が1億円あれば年400万円の不労所得ですが、生活防衛資金しかない労働者が月1〜2万円積立しても、日々の物価高や減給の痛みを相殺することは到底不可能です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+            </div>
+          </div>
+
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>📉</span>
+              <span>自己責任論へのすり替え</span>
+            </div>
+            <div class="factor-desc">
+              「貧しいのは投資をしなかった本人の自己責任」という言説は、政府が果たすべき社会保障や分配責任を放棄し、国民をリスクの高い金融市場へ追い立てる新自由主義の格好の口実となりました。
+            </div>
+          </div>
+
+          <div class="factor-card card-amber">
+            <div class="factor-title">
+              <span>🏛️</span>
+              <span>ピケティ自身の2015年論文補足</span>
+            </div>
+            <div class="factor-desc">
+              ピケティ自身が2015年の*American Economic Review*誌で強調したように、「r > g」は機械的決定論ではなく、累進税や労働組合の交渉力、戦争・制度ショックによって格差の帰結は大きく左右されます。<a href="#ref-7" class="cite-tag">[7]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: 現代日本の病理 -->
+      <div id="sub2" class="tab-pane">
+        <div class="callout callout-rose">
+          <div class="callout-title">
+            <span>🚨</span>
+            <span>「経済成長率 g ≈ 0%」の日本で起きた最悪の不条理</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;">
+            欧米の「r > g」は、gが2%成長するなかでrが5%成長するという構図でした。しかし、バブル崩壊後の日本は<strong>「経済成長率（g）がゼロ近傍・実質賃金マイナス」</strong>という世界でも異常な環境に叩き込まれました。
+          </p>
+          <ul style="font-size: 0.85rem; padding-left: 1.25rem; line-height: 1.6; color: #881337;">
+            <li><strong>企業の内部留保（500兆円超）と配当金急増：</strong> 成長率gがゼロであるにもかかわらず、企業は人件費（賃金）を削って利益率（r）を維持し、株主配当と内部留保を爆発的に蓄積。</li>
+            <li><strong>金融所得課税の一律20%分離優遇：</strong> 給与所得には最高55%の累進課税が課される一方で、数億円・数十億円の株式譲渡益や配当はわずか20%の定率課税（「1億円の壁」問題）。</li>
+            <li><strong>結果：</strong> 資産を持つ富裕層・企業部門へ富が吸い上げられ、労働所得のみに頼る一般家計は実質賃金低下とステルス増税で挟み撃ちにされる「二重の収奪」が完成しました。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 3: ピケティの真の処方箋 -->
+      <div id="sub3" class="tab-pane">
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          ピケティの『21世紀の資本』の結論部は、投資の勧めではなく、<strong>「資本主義を資本家から救うための制度改革」</strong>に費やされています。<a href="#ref-6" class="cite-tag">[6]</a>
+        </p>
+        <div class="grid-3">
+          <div class="factor-card card-emerald">
+            <div class="factor-title">
+              <span>🌐</span>
+              <span>グローバル累進資産税</span>
+            </div>
+            <div class="factor-desc">
+              オフショア（タックスヘイブン）への資産逃避を封じるため、多国間金融情報自動交換を推進し、純資産規模に応じた累進課税を導入する構想。
+            </div>
+          </div>
+
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>📈</span>
+              <span>高所得者への累進所得税再強化</span>
+            </div>
+            <div class="factor-desc">
+              1980年代以前のように、最高所得税率を70〜80％水準へ戻すことで、過度な経営者報酬を抑制し、企業の投資を現場労働者の賃金へと振り向けさせる提案。
+            </div>
+          </div>
+
+          <div class="factor-card card-amber">
+            <div class="factor-title">
+              <span>🏫</span>
+              <span>教育・社会的共通資本への公的投資</span>
+            </div>
+            <div class="factor-desc">
+              格差の世襲化を断ち切るため、高等教育の無償化、医療・福祉セーフティネットの充実により、すべての市民に公正な人的資本の機会を保障。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代貧困の解体新書からの視点 -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「ピケティ理論と日本型新自由主義の接合」</h2>
+      <p>
+        本書第1巻において著者のmb_choが強調するのは、日本における中間層の解体と貧困の拡大が、<strong>「新自由主義による労働規制緩和（第1章1.1節）と、ピケティの『r > g』の制度的加速が完全に連動した結果」</strong>であるという構造的事実です。
+      </p>
+
+      <!-- 時代区分・比較マトリクス表 -->
+      <h3 style="margin-top: 1.5rem;">📊 資本主義3モデルと「r と g」の関係性マトリクス</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">時代・モデル</th>
+              <th style="width: 25%;">「r と g」の関係</th>
+              <th style="width: 25%;">制度・税制・労働環境</th>
+              <th style="width: 30%;">格差と生活の実態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>19世紀〜20世紀初頭</strong><br>世襲資本主義<br>（ベル・エポック期）</td>
+              <td><strong>r（4〜5%） &gt;&gt; g（1%未満）</strong><br>低成長下で資産収益が圧倒</td>
+              <td>所得税ほぼ皆無、相続税極小、労働組合の非合法化・弾圧</td>
+              <td>小説『レ・ミゼラブル』やバルザックの世界。富の9割が上位10%に集中し、労働者は一生貧困から抜け出せない世襲社会。<a href="#ref-6" class="cite-tag">[6]</a></td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>20世紀半ば（1945〜70年代）</strong><br>戦後黄金期<br>（規制された資本主義）</td>
+              <td><strong>r（低減） &lt; g（高成長）</strong><br>成長率が資本収益を凌駕</td>
+              <td>最高所得税率70〜90%、手厚い社会保障、終身雇用・強い労働運動</td>
+              <td><strong>「一億総中流」の誕生。</strong>働く人々の実質賃金が右肩上がりに上昇し、富の再分配によって歴史上最も格差が縮小した奇跡の30年。</td>
+            </tr>
+            <tr>
+              <td><strong>21世紀・現代日本</strong><br>新自由主義的停滞<br>（失われた30年）</td>
+              <td><strong>r（4〜5%維持） &gt;&gt; g（0%前後）</strong><br>ゼロ成長下で資本のみ肥大化</td>
+              <td>金融所得一律20%優遇、最高税率45%へ引下げ、非正規4割・製造業派遣解禁</td>
+              <td><strong>「持てる者」への富の集中と「持たざる現役世代」の貧困化。</strong>実質賃金が低下し、社会保険料増税で手取りが削られる二重の収奪。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>因果の連鎖：なぜピケティ理論を知ることが貧困の脱出につながるのか</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          「真面目に働いているのに生活が苦しい」のは、個人の努力不足やスキルの問題ではありません。一国の経済成長（g）が停滞するなか、国家の政策が資本収益（r）の維持と企業・富裕層の税優遇を最優先し、労働分配率を抑え込み続けてきたという<strong>「マクロ制度の必然的帰結」</strong>なのです。<br>
+          ピケティの不等式が示す真の教訓は、「個人の投資で勝ち逃げせよ」ではなく、「富の集中を是正する再分配と、労働の正当な分配を取り戻す制度的変革を行わなければ、社会は崩壊する」という警告に他なりません。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References (Strict Condition 2: Verified links, plain text for offline citations) -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している経済解説記事、専門金融コラム、学術公刊書の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://toyokeizai.net/articles/-/903972?display=b" target="_blank" rel="noopener noreferrer" class="ref-link">東洋経済オンライン「ピケティの『21世紀の資本』が本当に言いたかったこと：格差是正の処方箋」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.capitalgroup.com/intermediaries/jp/ja/insights/column/series-2-2025.html" target="_blank" rel="noopener noreferrer" class="ref-link">キャピタル・グループ コラム「ピケティ『21世紀の資本』と不等式r>gの本質」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://nsadvisory.co.jp/column/others9" target="_blank" rel="noopener noreferrer" class="ref-link">ノーススターアドバイザリー「r>gとは？ピケティが暴いた資本主義の真実と資本収益率」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://recruit.early-cross.com/member/interview/dccolumn" target="_blank" rel="noopener noreferrer" class="ref-link">アーリークロス 経営コラム「ピケティの不等式r>gと企業経営における分配」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://note.com/nb_biztech/n/nb65338d61c38" target="_blank" rel="noopener noreferrer" class="ref-link">note ビズテック「r>gの数理と資本主義の分配構造をわかりやすく読み解く」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <span class="ref-text">トマ・ピケティ著、山形浩生・守岡桜・森本正史訳『21世紀の資本』（みすず書房、2014年）［国立国会図書館 請求記号：DA1-L157］</span>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">Thomas Piketty, "About Capital in the Twenty-First Century," <em>American Economic Review: Papers & Proceedings</em>, 105(5), 2015, pp. 48-53.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator & Sub Tabs -->
+  <script>
+    // Simulator Calculation
+    function updateSim() {
+      const r = parseFloat(document.getElementById('rSlider').value);
+      const g = parseFloat(document.getElementById('gSlider').value);
+
+      document.getElementById('rVal').innerText = r.toFixed(1) + '%';
+      document.getElementById('gVal').innerText = g.toFixed(1) + '%';
+
+      // Capitalist: 10,000,000 yen initial wealth compounded at r for 30 years
+      const capYears = 30;
+      let capWealth = 10000000 * Math.pow(1 + (r / 100), capYears);
+
+      // Worker: Annual starting salary 4,000,000 yen growing at g, saving 10% each year compounded at g/2 or safe rate
+      let workerTotalSavings = 0;
+      let curSalary = 4000000;
+      for (let y = 1; y <= capYears; y++) {
+        let annualSavings = curSalary * 0.10;
+        // Savings compounded with safe bank interest (around 0.5%)
+        workerTotalSavings = (workerTotalSavings + annualSavings) * 1.005;
+        curSalary = curSalary * (1 + (g / 100));
+      }
+
+      // Format in 万円
+      const capWan = Math.round(capWealth / 10000);
+      const workerWan = Math.round(workerTotalSavings / 10000);
+      const ratio = (capWealth / Math.max(workerTotalSavings, 1)).toFixed(2);
+
+      document.getElementById('resCap').innerText = '約 ' + capWan.toLocaleString() + ' 万円';
+      document.getElementById('resCapSub').innerText = '初期元本1000万の ' + (capWealth / 10000000).toFixed(2) + ' 倍に自己増殖';
+
+      document.getElementById('resWorker').innerText = '約 ' + workerWan.toLocaleString() + ' 万円';
+      document.getElementById('resWorkerSub').innerText = '30年間汗水流して貯蓄した生涯残高';
+
+      document.getElementById('resRatio').innerText = ratio + ' 倍';
+      document.getElementById('resRatioSub').innerText = (r > g ? '「r > g」により格差が不可逆化' : '「g > r」により格差が縮小傾向');
+
+      // Update Insight text
+      const insightEl = document.getElementById('simInsight');
+      if (r > g + 2.5) {
+        insightEl.className = 'callout callout-rose';
+        insightEl.innerHTML = `
+          <div class="callout-title">🚨 【超格差拡大ゾーン】資本の暴走と中間層の転落</div>
+          <p style="font-size: 0.88rem; margin-bottom: 0;">
+            資本収益率（${r.toFixed(1)}%）が成長率（${g.toFixed(1)}%）を大幅に凌駕しています。労働者が30年間必死に働いて貯めた全財産の【${ratio}倍】もの富を、資本家は寝ていても手に入れます。現代日本の「ゼロ成長下での株高・内部留保激増」がまさにこの極端な格差を生んでいます。
+          </p>
+        `;
+      } else if (r > g) {
+        insightEl.className = 'callout callout-amber';
+        insightEl.innerHTML = `
+          <div class="callout-title">⚠️ 【ピケティ標準ゾーン】歴史的平均による世襲格差の進行</div>
+          <p style="font-size: 0.88rem; margin-bottom: 0;">
+            資本収益率（${r.toFixed(1)}%）が経済成長率（${g.toFixed(1)}%）を上回っています。ピケティが過去300年のデータから示した標準的な状態で、代を重ねるごとに世襲資産家と労働者の格差が拡大し、累進資産税などの再分配を行わない限り格差は固定化されます。
+          </p>
+        `;
+      } else {
+        insightEl.className = 'callout callout-emerald';
+        insightEl.innerHTML = `
+          <div class="callout-title">🤝 【平等化ゾーン】一億総中流・戦後復興型</div>
+          <p style="font-size: 0.88rem; margin-bottom: 0;">
+            経済成長率（${g.toFixed(1)}%）が資本収益率（${r.toFixed(1)}%）を上回っています。戦後1950〜70年代の高度成長期のように、働く人々の賃金が急速に上昇し、既存の資産格差が相対的に縮小する歴史的例外期です。
+          </p>
+        `;
+      }
+    }
+
+    function applyPreset(r, g, btn) {
+      document.getElementById('rSlider').value = r;
+      document.getElementById('gSlider').value = g;
+      const btns = document.querySelectorAll('.preset-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      updateSim();
+    }
+
+    function switchSubTab(tabId, el) {
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => pane.classList.remove('active'));
+
+      const btns = document.querySelectorAll('.sub-tab-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // Initialize Default View
+    document.addEventListener('DOMContentLoaded', () => {
+      updateSim();
+    });
+  </script>
+</body>
+</html>
