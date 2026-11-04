@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：日経連『新時代の「日本的経営」』（1995年）――雇用ポートフォリオ論による正社員解体と非正規雇用の構造化</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.24) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(4px);
+      color: #fef08a;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-sub {
+      background: rgba(59, 130, 246, 0.35);
+      color: #bfdbfe;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 400;
+      max-width: 880px;
+    }
+
+    /* Sections */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.35rem;
+      margin-left: 0.2rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Flow Grid */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-step.step-emerald { border-top-color: var(--emerald); }
+    .flow-step.step-warn { border-top-color: var(--accent); }
+    .flow-step.step-purple { border-top-color: var(--purple); }
+    .flow-step.step-rose { border-top-color: var(--rose); }
+
+    .step-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 9999px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-emerald .step-num { background: var(--emerald-light); color: var(--emerald); }
+    .step-warn .step-num { background: var(--accent-light); color: var(--accent-dark); }
+    .step-purple .step-num { background: var(--purple-light); color: var(--purple); }
+    .step-rose .step-num { background: var(--rose-light); color: var(--crimson); }
+
+    .flow-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    .flow-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Factor Cards */
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .factor-card.card-emerald { border-left-color: var(--emerald); }
+    .factor-card.card-amber { border-left-color: var(--accent); }
+    .factor-card.card-purple { border-left-color: var(--purple); }
+    .factor-card.card-rose { border-left-color: var(--rose); }
+    .factor-card.card-teal { border-left-color: var(--teal); }
+
+    .factor-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.68;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fef08a;
+    }
+
+    .sim-subtitle {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phase-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .phase-btn.active {
+      background: #1e3a8a;
+      color: #ffffff;
+      border-color: #60a5fa;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.45);
+    }
+
+    .phase-year {
+      display: block;
+      font-size: 0.74rem;
+      color: #fde047;
+      margin-bottom: 0.15rem;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .bar-bg {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    .sim-desc-box {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 4px solid #fbbf24;
+      border-radius: 0.5rem;
+      padding: 1.15rem;
+      font-size: 0.93rem;
+      color: #f1f5f9;
+      line-height: 1.65;
+    }
+
+    /* Portfolio 3 Pillars Interactive Analyzer */
+    .portfolio-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .port-btn {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.15rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .port-btn:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+    }
+
+    .port-btn.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+    }
+
+    .port-btn.active.port-spec {
+      border-color: var(--accent);
+      background: #fffbeb;
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
+    }
+
+    .port-btn.active.port-flex {
+      border-color: var(--rose);
+      background: #fff1f2;
+      box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.25);
+    }
+
+    .port-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.35rem;
+    }
+
+    .badge-primary { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-rose { background: #ffe4e6; color: #be123c; }
+
+    .port-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .port-desc-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    /* Callouts */
+    .callout {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-color: var(--emerald);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      border-left-color: var(--rose);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-emerald .callout-title { color: #065f46; }
+    .callout-rose .callout-title { color: #9f1239; }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .ref-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      background: #dbeafe;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .ref-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .ref-text {
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.55rem; }
+      section { padding: 1.35rem; }
+      header { padding: 1.75rem 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box" aria-label="補論シリーズナビゲーション">
+      <div class="nav-title">📚 『現代貧困の解体新書』Web補論シリーズ</div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">雇用ポートフォリオ論・労働市場の二重構造化</span>
+      </div>
+      <h1>日経連『新時代の「日本的経営」』（1995年）：<br>雇用ポートフォリオ論による正社員解体と非正規雇用の構造化</h1>
+      <p class="lead">
+        1995年5月に当時の日本経営者団体連盟（日経連、現・経団連）が発表した報告書<strong>『新時代の「日本的経営」―挑戦すべき方向とその具体策』</strong>は、バブル崩壊後の長期不況と国際競争激化を理由に、従来の「終身雇用・年功序列」を見直し、労働者を3つのグループに階層化する<strong>「雇用ポートフォリオ」</strong>の導入を財界が公式に提唱した歴史的転換点となる文書です。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a><a href="#ref-3" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[3]</a>
+      </p>
+    </header>
+
+    <!-- Section 1: Overview and 3 Groups -->
+    <section>
+      <h2>📋 1. 報告書の提唱内容：雇用ポートフォリオ「3つのグループ」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        日経連は、すべての従業員を一律の「正社員」として抱え込む戦後型経営はコスト的に破綻したと宣言。企業の持続と人件費の徹底的な最適化を目指し、従業員を明確に差別化された3つのグループに再編する方針を打ち出しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>① 長期蓄積能力活用型</span>
+          </div>
+          <p class="factor-desc">
+            <strong>【基幹正社員グループ】</strong><br>
+            従来の終身雇用・長期キャリア形成の対象。企業のコアとなる経営幹部候補や中核技術者。ただし対象人数は厳選・少数化（コア化）され、狭き門となりました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>② 高度専門能力活用型</span>
+          </div>
+          <p class="factor-desc">
+            <strong>【専門職契約グループ】</strong><br>
+            研究開発、法務、財務、ITなど特定分野の専門能力を持つ即戦力。終身雇用を前提とせず、有期雇用契約や年俸制・成果主義で処遇し、外部労働市場からの流動的調達を想定。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>③ 雇用柔軟型グループ</span>
+          </div>
+          <p class="factor-desc">
+            <strong>【調整弁・非正規雇用】</strong><br>
+            パートタイマー、アルバイト、派遣労働者、契約社員など。景気変動や業務量の波に応じて「いつでも増減できる調整弁」。賞与・退職金・手当は原則支給せず、総額人件費の切り下げを担う層。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Historical Timeline Simulator -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：日経連ポートフォリオ導入から非正規4割社会への30年シミュレーター</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        時代ボタンを切り替えて、1995年の日経連報告から就職氷河期、派遣法の相次ぐ規制緩和を経て、現代の非正規比率約4割社会が完成していく歴史的プロセスを確認できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div>
+            <div class="sim-title">📊 雇用ポートフォリオの浸透と労働市場の変容シミュレーター</div>
+            <div class="sim-subtitle">正社員の絞り込み、派遣原則自由化、リーマン・ショック、そして格差の固定化へ</div>
+          </div>
+        </div>
+
+        <div class="phase-tabs">
+          <button class="phase-btn active" onclick="setPhase(0)">
+            <span class="phase-year">Phase 1｜1995年</span>
+            『新時代の「日本的経営」』発表
+          </button>
+          <button class="phase-btn" onclick="setPhase(1)">
+            <span class="phase-year">Phase 2｜1997〜2004年</span>
+            派遣法改正と就職氷河期の直撃
+          </button>
+          <button class="phase-btn" onclick="setPhase(2)">
+            <span class="phase-year">Phase 3｜2008年</span>
+            リーマン・ショックと「派遣切り」
+          </button>
+          <button class="phase-btn" onclick="setPhase(3)">
+            <span class="phase-year">Phase 4｜2020年代（現在）</span>
+            非正規4割（2100万人）と格差の固定化
+          </button>
+        </div>
+
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">雇用者に占める非正規雇用の割合</div>
+            <div class="metric-value" id="m-ratio" style="color: #38bdf8;">約20.9%（約1,000万人）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-ratio" style="width: 21%; background-color: #38bdf8;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">実質賃金指数の推移（1997年＝100）</div>
+            <div class="metric-value" id="m-wage" style="color: #10b981;">100近傍（ピーク直前）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-wage" style="width: 95%; background-color: #10b981;"></div>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">人件費の「固定費から変動費化」進行度</div>
+            <div class="metric-value" id="m-flex" style="color: #f59e0b;">構想段階（財界の方針確定）</div>
+            <div class="bar-bg">
+              <div class="bar-fill" id="b-flex" style="width: 30%; background-color: #f59e0b;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-desc-box" id="sim-desc">
+          <strong>【Phase 1：1995年 ― 『新時代の「日本的経営」』発表】</strong><br>
+          バブル崩壊後の深刻な不良債権処理と円高不況に直面した日経連が、従来の全員終身雇用を放棄。総額人件費の抑制と成果主義への移行を掲げ、「雇用柔軟型（非正規）」を恒常的な経営システムとして組み込む方針を明文化しました。当時の非正規雇用率は約20%でしたが、これがその後の非正規爆発の理論的支柱となりました。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a;">[2]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Portfolio 3 Pillars Breakdown -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ分析②：雇用ポートフォリオ3類型の実態と格差生成メカニズム</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        以下の3つのグループを切り替えて、日経連が描いた処遇設計と、それが現代社会においてどのような格差と分断を生み出したかを検証できます。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <div class="portfolio-tabs">
+        <div class="port-btn active" id="pbtn-1" onclick="selectPortfolio(1)">
+          <span class="port-badge badge-primary">第1グループ</span>
+          <div class="port-title">💼 長期蓄積能力活用型</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">正社員の少数精鋭（コア）化</div>
+        </div>
+        <div class="port-btn port-spec" id="pbtn-2" onclick="selectPortfolio(2)">
+          <span class="port-badge badge-amber">第2グループ</span>
+          <div class="port-title">🔬 高度専門能力活用型</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">専門契約職・成果主義年俸制</div>
+        </div>
+        <div class="port-btn port-flex" id="pbtn-3" onclick="selectPortfolio(3)">
+          <span class="port-badge badge-rose">第3グループ</span>
+          <div class="port-title">🔄 雇用柔軟型グループ</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted);">パート・派遣・人件費調整弁</div>
+        </div>
+      </div>
+
+      <div class="port-desc-box" id="port-detail">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 4: Structural Consequences for Modern Poverty -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「意図された搾取の設計図」</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+        なぜ『新時代の「日本的経営」』は、これほどまでに日本社会を疲弊させ、真面目に働いても貧しい人々を生み出す元凶となったのか。本書の構造分析からその病理を解明します。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>⚖️ 同一労働同一賃金の欠如</span>
+          </div>
+          <p class="factor-desc">
+            欧米のジョブ型雇用とは異なり、職務給の基準を作らないまま非正規雇用を拡大。結果として<strong>「正社員と同じ責任・仕事内容でありながら賃金は半額以下、賞与・退職金ゼロ」</strong>という理不尽な身分制格差が固定化しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🪜 正社員への「梯子」の切断</span>
+          </div>
+          <p class="factor-desc">
+            報告書は「柔軟なキャリア選択」を美名に掲げましたが、実際には新卒一括採用で正社員になれなかった就職氷河期世代が非正規に閉じ込められ、二度と正規へ這い上がれない「非正規の罠（キャリアの断絶）」を生みました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>📉 労働分配率の長期的抑制</span>
+          </div>
+          <p class="factor-desc">
+            人件費を「固定費」から「いつでも切れる変動費」へと変えたことで、企業は利益が出ても賃上げや国内設備投資に回さず、内部留保や配当金の積み増しを優先。労働分配率が長期低迷する元凶となりました。
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">📌 5段階因果連鎖における「中間メカニズム」の中核</div>
+        <p style="font-size: 0.92rem; color: var(--text-main);">
+          本書第1章で提示した「5段階因果連鎖モデル」において、段階②（企業の資本配分とガバナンスの変質：株主価値至上主義）が、段階③（労働市場の二重構造化と労働分配率低下）を引き起こすための<strong>具体的な実行マニュアル</strong>こそが、この日経連報告書でした。財界によるこの青写真に沿って政府が派遣法改悪を進めたことで、人件費が徹底的に買い叩かれ、家庭の可処分所得が細り、現代の貧困が構造化されたのです。
+        </p>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1.5rem;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 22%;">区分</th>
+              <th style="width: 26%;">長期蓄積能力活用型</th>
+              <th style="width: 26%;">高度専門能力活用型</th>
+              <th style="width: 26%;">雇用柔軟型</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>雇用形態</strong></td>
+              <td>期間の定めのない雇用（正社員）。</td>
+              <td>有期契約または専門正社員。</td>
+              <td>パート、アルバイト、派遣、契約。</td>
+            </tr>
+            <tr>
+              <td><strong>賃金決定原則</strong></td>
+              <td>職能給＋定期昇給（縮小された生活給）。</td>
+              <td>業績・成果給、年俸制。</td>
+              <td>時間給（市場実勢レート、賞与・退職金なし）。</td>
+            </tr>
+            <tr>
+              <td><strong>能力開発（育成）</strong></td>
+              <td>企業内OJT、ジョブローテーション。</td>
+              <td>自己啓発、外部労働市場での実績。</td>
+              <td>限定的なOJT（使い捨て型活用）。</td>
+            </tr>
+            <tr>
+              <td><strong>現代における現実</strong></td>
+              <td>過重労働、名ばかり管理職、残業代ゼロ化。</td>
+              <td>成果主義の悪用、使い捨て型スペシャリスト。</td>
+              <td><strong>ワーキングプアの温床、格差と貧困の世代間連鎖。</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している財界公刊資料、労働研究機関レポート、大学学術論文の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www.works-i.com/works/special/no191/30years-03.html" target="_blank" rel="noopener noreferrer" class="ref-link">リクルートワークス研究所 特集「平成の雇用30年を振り返る：新時代の『日本的経営』がもたらしたもの」</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://www.rengo-soken.or.jp/dio/dio295.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">連合総研『DIO』No.295「新時代の『日本的経営』から20年：雇用ポートフォリオ論の功罪と労働市場」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.jacd.jp/news/column/column-opinion/241112_post-331.html" target="_blank" rel="noopener noreferrer" class="ref-link">日本取締役協会 コラム・オピニオン「日本的経営の転換点とガバナンス改革の系譜」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://imidas.jp/special/t-03-015-26-07-g241/" target="_blank" rel="noopener noreferrer" class="ref-link">情報・知識イミダス「雇用ポートフォリオと非正規雇用の拡大メカニズム」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.rengo-soken.or.jp/dio/dio295-3.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">連合総研『DIO』No.295 論文「総額人件費管理と成果主義賃金がもたらした分配の歪み」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.gakushuin.ac.jp/univ/eco/gakkai/pdf_files/keizai_ronsyuu/contents/contents2023/6002/6002_tetsuka-koyama/contents/6002_tetsuka-koyama-main.htm" target="_blank" rel="noopener noreferrer" class="ref-link">学習院大学 経済論集「新時代の『日本的経営』の歴史的射程と現代的課題」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">日本経営者団体連盟（日経連）編『新時代の「日本的経営」―挑戦すべき方向とその具体策』（1995年5月、日経連出版部）［国立国会図書館 請求記号：DH22-E408］</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>『現代貧困の解体新書』第1巻 構造編 Web補論 ｜ 日経連『新時代の「日本的経営」』（1995年）と雇用ポートフォリオ</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Feature 1: Historical Timeline Simulator Logic
+       ========================================================== */
+    const phases = [
+      {
+        ratioText: "約20.9%（約1,000万人）",
+        ratioWidth: "21%",
+        ratioColor: "#38bdf8",
+        wageText: "100近傍（ピーク直前）",
+        wageWidth: "95%",
+        wageColor: "#10b981",
+        flexText: "構想段階（財界の方針確定）",
+        flexWidth: "30%",
+        flexColor: "#f59e0b",
+        desc: "<strong>【Phase 1：1995年 ― 『新時代の「日本的経営」』発表】</strong><br>バブル崩壊後の深刻な不良債権処理と円高不況に直面した日経連が、従来の全員終身雇用を放棄。総額人件費の抑制と成果主義への移行を掲げ、「雇用柔軟型（非正規）」を恒常的な経営システムとして組み込む方針を明文化しました。当時の非正規雇用率は約20%でしたが、これがその後の非正規爆発の理論的支柱となりました。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-2' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[2]</a>"
+      },
+      {
+        ratioText: "約25〜31%（急上昇）",
+        ratioWidth: "31%",
+        ratioColor: "#f59e0b",
+        wageText: "低下傾向へ突入（1997年ピークアウト）",
+        wageWidth: "85%",
+        wageColor: "#f59e0b",
+        flexText: "法制化（1999年派遣自由化・2004年製造業解禁）",
+        flexWidth: "65%",
+        flexColor: "#f43f5e",
+        desc: "<strong>【Phase 2：1997〜2004年 ― 派遣法改正と就職氷河期の直撃】</strong><br>1997年のアジア通貨危機・山一拓銀破綻によるデフレ突入と軌を一にして、財界の要望に沿う形で1999年に労働者派遣法が原則自由化され、2004年には製造業への派遣まで解禁。就職氷河期の若者たちが「雇用柔軟型」へと大量に送り込まれ、正社員雇用の門戸が極端に狭められました。<a href='#ref-4' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[4]</a>"
+      },
+      {
+        ratioText: "約34%（約1,700万人超）",
+        ratioWidth: "34%",
+        ratioColor: "#f43f5e",
+        wageText: "大幅減少（ボーナスカット・賃金抑制）",
+        wageWidth: "75%",
+        wageColor: "#f43f5e",
+        flexText: "猛威（雇い止め・年越し派遣村の出現）",
+        flexWidth: "85%",
+        flexColor: "#e11d48",
+        desc: "<strong>【Phase 3：2008年 ― リーマン・ショックと「派遣切り」の現実化】</strong><br>世界金融危機が直撃した際、日経連が描いた「業務量に応じた雇用調整」が牙を剥きました。自動車工場などで派遣社員や期間工が一斉に雇い止めされ、寮を追い出されて路頭に迷う「年越し派遣村」が日比谷公園に出現。「雇用柔軟型」の正体が、労働者の命と住居を削る無慈悲なコストカット弁であったことが露呈しました。<a href='#ref-2' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[2]</a>"
+      },
+      {
+        ratioText: "約37〜38%（約2,100万人超）",
+        ratioWidth: "38%",
+        ratioColor: "#e11d48",
+        wageText: "ピーク比10%以上減少・物価高で実質目減り",
+        wageWidth: "65%",
+        wageColor: "#e11d48",
+        flexText: "固定化（分厚い中間層の解体とワーキングプア）",
+        flexWidth: "100%",
+        flexColor: "#be123c",
+        desc: "<strong>【Phase 4：2020年代現在 ― 非正規4割と格差の固定化】</strong><br>働く人々の約4割、女性の過半数が非正規雇用となり、日経連が構想したポートフォリオが完全に定着。しかし正社員と非正規の間に超えられない身分格差が固定化し、若年層の低所得化から未婚化・超少子化が進行。日本経済全体の個人消費が長期蒸発する最大の構造的要因となっています。<a href='#ref-1' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[1]</a><a href='#ref-6' class='cite-tag' style='background: rgba(255,255,255,0.2); color: #fef08a;'>[6]</a>"
+      }
+    ];
+
+    function setPhase(idx) {
+      const btns = document.querySelectorAll('.phase-btn');
+      btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+      const p = phases[idx];
+
+      document.getElementById('m-ratio').textContent = p.ratioText;
+      const bRatio = document.getElementById('b-ratio');
+      bRatio.style.width = p.ratioWidth;
+      bRatio.style.backgroundColor = p.ratioColor;
+
+      document.getElementById('m-wage').textContent = p.wageText;
+      const bWage = document.getElementById('b-wage');
+      bWage.style.width = p.wageWidth;
+      bWage.style.backgroundColor = p.wageColor;
+
+      document.getElementById('m-flex').textContent = p.flexText;
+      const bFlex = document.getElementById('b-flex');
+      bFlex.style.width = p.flexWidth;
+      bFlex.style.backgroundColor = p.flexColor;
+
+      document.getElementById('sim-desc').innerHTML = p.desc;
+    }
+
+    /* ==========================================================
+       Feature 2: Portfolio 3 Pillars Analyzer Logic
+       ========================================================== */
+    const portData = {
+      1: {
+        badge: "基幹正社員グループ",
+        title: "① 長期蓄積能力活用型（正社員の少数精鋭・コア化）",
+        desc: `
+          <strong>【企業の処遇方針】</strong><br>
+          従来の終身雇用と年功賃金を維持し、長期勤続の中で能力を蓄積していく中核社員。経営幹部、研究者、基幹ライン管理者など。<br><br>
+          <strong>【現代社会における歪みと現実】</strong><br>
+          一見すると手厚く守られているように見えますが、企業はこのグループの採用枠を極限まで絞り込みました。その結果、残された正社員には「非正規を管理しながら過重なノルマと長時間労働に耐える」強烈なプレッシャーが集中。成果主義の導入によって年功賃金カーブも大幅にフラット化され、名ばかり管理職やサービス残業が蔓延する結果となりました。<a href='#ref-2' class='cite-tag'>[2]</a><a href='#ref-5' class='cite-tag'>[5]</a>
+        `
+      },
+      2: {
+        badge: "専門職契約グループ",
+        title: "② 高度専門能力活用型（専門契約職・成果主義年俸制）",
+        desc: `
+          <strong>【企業の処遇方針】</strong><br>
+          IT技術者、財務・法務スペシャリスト、デザイナーなど。終身雇用を前提とせず、市場価値に基づいた年俸制やプロジェクトごとの有期雇用契約で処遇。<br><br>
+          <strong>【現代社会における歪みと現実】</strong><br>
+          「能力に応じた高収入」という美名のもとに導入されましたが、日本では外部労働市場のインフラや公正な評価基準が未成熟だったため、一部のエリートを除いて「成果が出なければ即契約解除される不安定な有期雇用」として悪用されました。成果主義の名のもとで人件費総額を抑制するための口実に使われた側面が極めて強いのが実態です。<a href='#ref-3' class='cite-tag'>[3]</a>
+        `
+      },
+      3: {
+        badge: "人件費調整弁",
+        title: "③ 雇用柔軟型グループ（パート・派遣・人件費調整弁）",
+        desc: `
+          <strong>【企業の処遇方針】</strong><br>
+          定型的業務や現場業務を担当するパート、アルバイト、派遣社員、期間工。景気変動や業務量の波に応じて契約更新をコントロールできる「安全弁」。<br><br>
+          <strong>【現代社会における歪みと現実】</strong><br>
+          報告書は「多様で自由な働き方」と粉飾しましたが、現実は<strong>「賞与なし、退職金なし、昇給なし、社会保険負担回避」</strong>という徹底的なコストカットの受け皿でした。同一労働同一賃金原則がないため、正社員と同じ時間・同じ仕事をこなしても生涯賃金に1億円以上の格差が生じ、一度この層に入ると正規雇用へ抜け出せない「現代の身分制階層」として固定化されました。<a href='#ref-1' class='cite-tag'>[1]</a><a href='#ref-4' class='cite-tag'>[4]</a>
+        `
+      }
+    };
+
+    function selectPortfolio(idx) {
+      for (let i = 1; i <= 3; i++) {
+        const btn = document.getElementById('pbtn-' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+      const data = portData[idx];
+      const detailBox = document.getElementById('port-detail');
+      detailBox.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.15rem;">${data.title}</h3>
+          <span style="background: #e2e8f0; color: #1e293b; font-size: 0.78rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 9999px;">${data.badge}</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-main); line-height: 1.7;">
+          ${data.desc}
+        </div>
+      `;
+    }
+
+    // Initialize Portfolio 1
+    selectPortfolio(1);
+  </script>
+</body>
+</html>
