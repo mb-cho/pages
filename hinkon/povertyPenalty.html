@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：貧困ペナルティ（Poverty Penalty／Poverty Premium）――なぜ低所得層ほど生活コストが割高になるのか？ブーツ理論と先進国型生活構造の解剖</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0284c7 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.2);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 146, 60, 0.22);
+      color: #fed7aa;
+      border: 1px solid rgba(251, 146, 60, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.95rem;
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #38bdf8 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.25rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.6rem;
+      padding: 0.9rem 1.1rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .h-item-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 2.25rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.35rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .factor-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .factor-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+    }
+
+    .card-teal::before { background: var(--teal); }
+    .card-purple::before { background: var(--purple); }
+    .card-rose::before { background: var(--rose); }
+    .card-amber::before { background: var(--accent); }
+    .card-emerald::before { background: var(--emerald); }
+    .card-blue::before { background: var(--primary-light); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .factor-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-teal {
+      background: #f0fdfa;
+      border-left-color: var(--teal);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border-left-color: var(--accent);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border-left-color: var(--rose);
+    }
+
+    .callout-blue {
+      background: #eff6ff;
+      border-left-color: var(--primary-light);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .callout-teal .callout-title { color: #0f766e; }
+    .callout-amber .callout-title { color: #b45309; }
+    .callout-rose .callout-title { color: #be123c; }
+    .callout-blue .callout-title { color: #1d4ed8; }
+
+    /* Interactive Simulator Containers */
+    .sim-container {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sim-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Boots Theory Box */
+    .boots-box {
+      background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .slider-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .slider-val {
+      font-weight: 800;
+      color: var(--primary);
+      background: #eff6ff;
+      padding: 0.2rem 0.65rem;
+      border-radius: 0.375rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background .15s ease-in-out;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--primary);
+    }
+
+    .boots-compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .boot-card {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border: 2px solid;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .boot-rich {
+      border-color: #059669;
+    }
+
+    .boot-poor {
+      border-color: #e11d48;
+    }
+
+    .boot-header {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .boot-cost-big {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0.4rem 0;
+    }
+
+    .boot-detail {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* Calculator Checklist */
+    .calc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .calc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: #ffffff;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .calc-item:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .calc-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .calc-content {
+      flex: 1;
+    }
+
+    .calc-label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .calc-amount {
+      color: var(--rose);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .calc-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .total-box {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .total-title {
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    .total-amount {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fde047;
+      line-height: 1;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.75rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid #cbd5e1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fbfcfe;
+    }
+
+    .highlight-col {
+      background-color: #fef2f2 !important;
+      font-weight: 600;
+    }
+
+    /* Citation Tags & Reference List */
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.05rem 0.35rem;
+      margin: 0 0.15rem;
+      border-radius: 0.25rem;
+      background-color: #f1f5f9;
+      color: var(--primary);
+      border: 1px solid #cbd5e1;
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    .cite-tag:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .ref-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .ref-item {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      background: #ffffff;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      color: #1d4ed8;
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 1.25rem; }
+      header { padding: 1.5rem; }
+      h1 { font-size: 1.45rem; }
+      .grid-2, .boots-compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Nav: Portal Link Only -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：生活構造論・見えない不条理のコスト</span>
+      </div>
+      <h1>貧困ペナルティ（Poverty Penalty／Poverty Premium）とは：<br>なぜ低所得層ほど生活コストが割高になるのか？ブーツ理論と先進国型生活構造の解剖</h1>
+      <p class="lead">
+        <strong>「貧困ペナルティ（Poverty Penalty／Poverty Premium）」</strong>とは、所得の低い人が、所得の高い人よりも同じ財やサービスを得るために、より多くの費用（お金、時間、労力）を支払わなければならない不条理な経済現象のことです。<a href="#ref-1" class="cite-tag-header">[1]</a><br>
+        「貧困であること自体」が生活コストをさらに引き上げる罰（ペナルティ）として機能し、どれほど節約しても家計が底抜けに追い詰められる負のスパイラルを生み出します。本稿では、経営学者C・K・プラハラードの定式化や英国JRFの実態調査、そして有名な「ブーツ理論」を交えながら、現代日本に張り巡らされた<strong>「先進国型・貧困ペナルティ」</strong>の正体を徹底解明します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>👞</span><span>ブーツ理論の残酷な逆転</span></div>
+          <div class="h-item-desc">初期費用の不足で安物を買い替え続ける貧困層は、高品質品を一括購入する富裕層の2倍以上の生涯コストを支払う。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>💸</span><span style="color: #fde047;">先進国型5大ペナルティ</span></div>
+          <div class="h-item-desc">食料まとめ買い不可、断熱不良住宅の光熱費高騰、消費者金融・リボ払い高金利、都度決済手数料、受診控えのツケ。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⚖️</span><span>自己責任論の欺瞞と処方箋</span></div>
+          <div class="h-item-desc">問題は「個人の家計管理」ではなく手元流動性の欠如と信用の排除。解決には公的セーフティネットの再建が不可欠。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 基本概念と理論的起源 -->
+    <section>
+      <h2>📋 1. 貧困ペナルティ（Poverty Penalty）の概念と理論的起源</h2>
+      <p>
+        一般に市場経済では「たくさん買う人や信用のある人が優遇される」のが原則です。しかしこの原則の裏返しとして、<strong>「お金がない人ほど1単位あたりの購入単価が高くなり、金利や手数料を搾取される」</strong>という過酷な構造的トラップが生まれます。これが<strong>「貧困ペナルティ（Poverty Penalty）」</strong>または<strong>「貧困プレミアム（Poverty Premium）」</strong>と呼ばれる現象です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-2" class="cite-tag">[2]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-teal">
+          <div class="factor-title">
+            <span>🌍</span>
+            <span>BOP研究における原初的定義</span>
+          </div>
+          <div class="factor-desc">
+            経営学者C・K・プラハラード（2004年『ネクスト・マーケット』）らは、発展途上国のスラム等（BOP：底辺のピラミッド層）において、公的インフラや安全な銀行から排除された貧民が、悪質な仲介業者から富裕層の数十倍の価格で飲料水を買わされ、ヤミ金から法外な高金利を搾り取られている実態を「Poverty Penalty」として定式化しました。<a href="#ref-1" class="cite-tag">[1]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🏙️</span>
+            <span>先進国型「貧困プレミアム」への拡張</span>
+          </div>
+          <div class="factor-desc">
+            英国のジョセフ・ラウントリー財団（JRF）などの研究により、この問題は途上国特有のものではなく、日本や英国、米国などの先進国でも深刻に機能していることが実証されました。英国では低所得世帯がエネルギーや金融、保険の割高料金により、<strong>年間約491ポンド（約9万〜10万円）もの「余分なペナルティ」</strong>を強制されていると推計されています。<a href="#ref-2" class="cite-tag">[2]</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: ブーツ理論シミュレーター -->
+    <section>
+      <h2>👞 2. インタラクティブ図解①：「サミュエル・ヴァイムズのブーツ理論」シミュレーター</h2>
+      <p>
+        英国の作家テリー・プラチェットが小説『Men at Arms』の中で提唱した<strong>「サミュエル・ヴァイムズのブーツ理論（Boots Theory of Socioeconomic Unfairness）」</strong>は、貧困ペナルティの本質を最もわかりやすく突いた有名な経済寓話です。<a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>📖</span>
+          <span>ヴァイムズ警部のブーツ理論とは？</span>
+        </div>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">
+          「裕福な男は、10年間履き続けられる頑丈な本革ブーツを50ドルで一括購入できる。一方、貧しい男は手元に10ドルしかないため、毎年底が抜ける安物ブーツを10ドルで買い替えざるを得ない。<strong>10年後、貧しい男は100ドル（富裕層の2倍）を支払ったにもかかわらず、足はずっと濡れたままだ。</strong>良いブーツを買うためのまとまった資金がないこと自体が、より多くの出費を強制する。」
+        </p>
+      </div>
+
+      <!-- Simulator Box -->
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span>
+            <span>ブーツ理論：年数経過に伴う「累計支出額」逆転シミュレーター</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">※スライダーで年数を変更</span>
+        </div>
+
+        <div class="boots-box">
+          <div class="slider-row">
+            <div class="slider-header">
+              <span>経過年数（耐久年数の比較）</span>
+              <span id="disp-years" class="slider-val">10年目</span>
+            </div>
+            <input type="range" id="slider-years" min="1" max="15" value="10" oninput="calcBoots()">
+          </div>
+
+          <div class="boots-compare-grid">
+            <!-- 裕福な人のブーツ -->
+            <div class="boot-card boot-rich">
+              <div class="boot-header">
+                <span style="color: var(--emerald);">👑 富裕層：高品質ブーツ（50ドル）</span>
+                <span style="font-size: 0.75rem; background: #d1fae5; color: #065f46; padding: 0.15rem 0.4rem; border-radius: 4px;">耐久10年</span>
+              </div>
+              <div class="boot-detail">初期投資を一括で支払えるため、10年間買い替え不要。足は常に乾いて快適。</div>
+              <div id="cost-rich" class="boot-cost-big" style="color: var(--emerald);">$50</div>
+              <div id="unit-rich" style="font-size: 0.8rem; color: var(--text-muted);">年平均コスト：$5.0 / 年</div>
+              <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #059669; font-weight: 700;">状態：足は常に温かく健康的</div>
+            </div>
+
+            <!-- 貧困な人のブーツ -->
+            <div class="boot-card boot-poor">
+              <div class="boot-header">
+                <span style="color: var(--rose);">🏚️ 低所得層：安物ブーツ（10ドル）</span>
+                <span style="font-size: 0.75rem; background: #ffe4e6; color: #9f1239; padding: 0.15rem 0.4rem; border-radius: 4px;">耐久1年</span>
+              </div>
+              <div class="boot-detail">初期資金がないため安物を毎年買い替え。すぐに浸水し修理費も発生。</div>
+              <div id="cost-poor" class="boot-cost-big" style="color: var(--rose);">$100</div>
+              <div id="unit-poor" style="font-size: 0.8rem; color: var(--text-muted);">年平均コスト：$10.0 / 年</div>
+              <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #e11d48; font-weight: 700;">状態：足は常に濡れて凍傷・病気リスク</div>
+            </div>
+          </div>
+
+          <div id="boots-conclusion" style="margin-top: 1.25rem; padding: 0.85rem 1.1rem; background: #ffffff; border-radius: 0.5rem; border-left: 4px solid var(--rose); font-size: 0.9rem; line-height: 1.6;">
+            <strong>🚨 結果：</strong> 10年間で、貧しい人は富裕層の<strong>2.0倍の金額（50ドルの差額ペナルティ）</strong>を余分に支払わされています。「お金がないから安物を買う」という合理的行動が、かえって家計を貧困へ閉じ込める決定打となっているのです。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: 現代日本における5大領域 -->
+    <section>
+      <h2>🏢 3. 現代日本に蔓延する「先進国型・貧困ペナルティ」の5大領域</h2>
+      <p>
+        ブーツ理論の不条理は、現代日本の衣食住・金融・エネルギーのあらゆる生活インフラに組み込まれています。低所得世帯は日々の暮らしの中で、以下のような見えない「格差コスト」を強制徴収されています。
+      </p>
+
+      <div class="grid-2">
+        <!-- 領域1 -->
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🛒</span>
+            <span>1. まとめ買い不可と「フードデザート（食の砂漠）」</span>
+          </div>
+          <div class="factor-desc">
+            手元資金に余裕がないため、業務用スーパーの大容量パックをまとめ買いできず、割高な小容量パックを都度購入。さらに車を保有できず安売り店へ行けない郊外や、スーパーが撤退した「フードデザート（買い物難民地域）」では、駅前コンビニの定価購入に頼らざるを得ず食費単価が約20〜30%跳ね上がります。<a href="#ref-4" class="cite-tag">[4]</a>
+          </div>
+        </div>
+
+        <!-- 領域2 -->
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>⚡</span>
+            <span>2. 断熱不良住宅と「エネルギー貧困」</span>
+          </div>
+          <div class="factor-desc">
+            敷金・礼金を払えない低所得層は、築古で断熱性・気密性の極めて低い木造アパートに住まざるを得ません。夏は猛烈に暑く冬は極寒となるためエアコンがフル稼働し、古い家電の低効率も相まって、<strong>富裕層の高気密高断熱タワーマンションよりも電気代・ガス代が割高になる</strong>という逆転が生じます。
+          </div>
+        </div>
+
+        <!-- 領域3 -->
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>💳</span>
+            <span>3. 金融排除・リボ払い・「貧困ビジネス」</span>
+          </div>
+          <div class="factor-desc">
+            正規雇用のような社会的信用がないため、銀行の年利1%台の低利ローンから排除されます。急な出費には年利15〜18%の消費者金融やクレジットカードのリボ払いを強いられ、多額の利息を吸い取られます。通信滞納者の弱みにつけ込み月額料金を数倍で請求する「レンタルスマホ」や無低施設などの貧困ビジネスも跋扈しています。<a href="#ref-5" class="cite-tag">[5]</a>
+          </div>
+        </div>
+
+        <!-- 領域4 -->
+        <div class="factor-card card-blue">
+          <div class="factor-title">
+            <span>📄</span>
+            <span>4. 年一括割引の排除と都度決済手数料</span>
+          </div>
+          <div class="factor-desc">
+            電気・ガス・NHK受信料・各種保険料などは「年間一括払い」や「口座振替」で大幅な割引が設定されていますが、月々の資金繰りに追われる世帯はこれらを利用できず、割高な月払い＋コンビニ支払手数料（1回100〜200円）を毎回取られ続けます。時間外ATM利用手数料（220円/回）の頻繁な流出も累積します。
+          </div>
+        </div>
+      </div>
+
+      <!-- 領域5 Full width card -->
+      <div class="factor-card card-emerald" style="margin-top: 1.25rem;">
+        <div class="factor-title">
+          <span>🏥</span>
+          <span>5. タイムプア（時間貧困）と「受診控え」の深刻なツケ</span>
+        </div>
+        <div class="factor-desc">
+          非正規雇用をダブルワーク・トリプルワークする困窮世帯は、自炊や丁寧な買い出しをする「時間」すら奪われています（タイムプア）。その結果、安価で手軽な高カロリー・高糖質の加工食品に頼り、生活習慣病のリスクが増大。さらに、医療費の窓口自己負担や休職による減収を恐れて虫歯や体調不良を放置する「受診控え」を行い、最終的に重症化して就労不能に陥るという破滅的なツケを払わされます。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive Calculator -->
+    <section>
+      <h2>🧮 4. インタラクティブ診断②：「貧困ペナルティ年間損失額カルキュレーター」</h2>
+      <p>
+        以下のチェック項目から、ご自身の世帯や身近な状況に当てはまるものにチェックを入れてください。知らず知らずのうちに家計から搾り取られている「貧困ペナルティの年間推計額」をリアルタイムで算出します。
+      </p>
+
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>家計を底抜けに追い詰める「見えないペナルティ」診断</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">※項目をクリックして合算</span>
+        </div>
+
+        <div class="calc-list">
+          <!-- Item 1 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-food" checked onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>🛒 食料品・日用品の都度買い・割高パック購入</span>
+                <span class="calc-amount">+年 72,000円</span>
+              </div>
+              <div class="calc-desc">まとめ買いができず、小容量パックやコンビニエンスストアでの定価購入（月約6,000円の割高差額）。</div>
+            </div>
+          </label>
+
+          <!-- Item 2 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-energy" checked onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>⚡ 断熱不良住宅・旧式家電によるエネルギー超過費用</span>
+                <span class="calc-amount">+年 48,000円</span>
+              </div>
+              <div class="calc-desc">断熱性ゼロのアパートでエアコン効率が極端に悪く、冬・夏の光熱費が過剰に跳ね上がる（月約4,000円）。</div>
+            </div>
+          </label>
+
+          <!-- Item 3 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-finance" checked onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>💳 クレジットカードのリボ払い・消費者金融の金利（年利15〜18%）</span>
+                <span class="calc-amount">+年 60,000円</span>
+              </div>
+              <div class="calc-desc">急な資金不足で低利融資が受けられず、残高30〜40万円に対して発生する多額の金利手数料。</div>
+            </div>
+          </label>
+
+          <!-- Item 4 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-atm" checked onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>📄 ATM時間外手数料・コンビニ納付手数料・割高月払い</span>
+                <span class="calc-amount">+年 24,000円</span>
+              </div>
+              <div class="calc-desc">年間一括割引が使えない割高料金、都度納付手数料、残高不足による時間外ATM引き出し（月約2,000円）。</div>
+            </div>
+          </label>
+
+          <!-- Item 5 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-health" onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>🏥 受診控えによる病状悪化・自費市販薬依存のツケ</span>
+                <span class="calc-amount">+年 36,000円</span>
+              </div>
+              <div class="calc-desc">医療費を節約するために病院へ行かず割高な市販薬で誤魔化し、結果的に虫歯等の重症化で多額の治療費が発生。</div>
+            </div>
+          </label>
+
+          <!-- Item 6 -->
+          <label class="calc-item">
+            <input type="checkbox" id="chk-comm" onchange="calcPenalty()">
+            <div class="calc-content">
+              <div class="calc-label">
+                <span>📱 信用ブラックによる割高通信費・レンタルスマホ利用</span>
+                <span class="calc-amount">+年 40,000円</span>
+              </div>
+              <div class="calc-desc">格安SIMの契約審査に通らず、割高なプリペイドプランや保証金付きサービスを強いられるペナルティ。</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Total Box -->
+        <div class="total-box">
+          <div>
+            <div class="total-title">選択された「貧困ペナルティ」の年間損失合計</div>
+            <div style="font-size: 0.85rem; color: #cbd5e1; margin-top: 0.25rem;">
+              低所得であること自体を理由に、富裕層よりも余分に奪われているコスト
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div id="total-penalty-disp" class="total-amount">204,000 円 / 年</div>
+            <div id="monthly-penalty-disp" style="font-size: 0.9rem; color: #fde047; margin-top: 0.25rem;">（月あたり 約 17,000 円）</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 本書からの視点と処方箋 -->
+    <section>
+      <h2>⚠️ 5. 本書（『現代貧困の解体新書』）が読み解く根本的原因と処方箋</h2>
+      <p>
+        世間ではしばしば、困窮者の生活苦に対して「家計簿をつけて節約しろ」「コンビニを使うな」「自己管理が甘い」といったミクロの自己責任論が浴びせられます。しかし、ここまでの分析が示す通り、貧困ペナルティは<strong>「個人の怠惰」ではなく「市場と制度の構造的欠陥」</strong>です。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">根本原因</th>
+              <th style="width: 40%;">構造的メカニズム</th>
+              <th style="width: 40%;">真の処方箋（本書が提言する解決策）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. 手元流動性の欠如</strong></td>
+              <td>「まとまった初期投資資金（溜め）」がないため、長期的にお得な選択肢（一括購入・高断熱住宅・高品質品）を選べない。</td>
+              <td><strong>初期費用補助・無利子公的貸付制度：</strong> 敷金・礼金や省エネ家電への買い替えに対する公的助成、子育て世帯への一時給付。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>2. 制度的信用の排除</strong></td>
+              <td>非正規雇用や低所得を理由に、銀行の低利融資や正規の住宅市場、格安インフラから構造的に締め出される。</td>
+              <td><strong>公的保証人制度・ソーシャルバンク：</strong> 居住支援法人の強化、生活再建のための低利・無利子マイクロファイナンスの整備。</td>
+            </tr>
+            <tr>
+              <td><strong>3. リスクの弱者転嫁</strong></td>
+              <td>事業者が未払いリスクを回収するため、低所得者向けサービスに法外な金利や手数料（貧困ビジネス）を設定して合法的に搾取する。</td>
+              <td><strong>高金利・貧困ビジネスの厳格規制：</strong> リボ払い手数料規制、エネルギー弱者への公的料金割引（ライフライン保障）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-teal" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>結語：貧困ペナルティの破壊こそが「中間層復活」の第一歩</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          生活が苦しい人々に「もっと節約しろ」と迫ることは、底が抜けたバケツに必死で水を注げと命じるようなものです。まず行うべきは、**「貧しい人がより割高なコストを支払わされる制度的不条理（バケツの穴）」を塞ぐこと**です。住まいの断熱、公的信用の供与、地域インフラの再構築によって貧困ペナルティを解消することこそが、本書が目指す「安心と尊厳ある社会」の確固たる土台となります。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 6: References -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している経済学・社会政策の専門文献および公的資料の一覧です（実在・アクセス可能な公式機関を厳選掲載しています）。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">C. K. Prahalad, <em>The Fortune at the Bottom of the Pyramid: Eradicating Poverty Through Profits</em>, Wharton School Publishing, 2004.（C・K・プラハラード『ネクスト・マーケット：世界40億人の「底辺」市場を切り拓く』［BOP層における貧困ペナルティの原初的定式化］）</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://fairbydesign.com/" target="_blank" rel="noopener noreferrer" class="ref-link">Fair By Design (UK), "Ending the Poverty Premium"（英国における貧困プレミアム撲滅キャンペーン・公式レポート）</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <span class="ref-text">Terry Pratchett, <em>Men at Arms</em>, Victor Gollancz, 1993.（テリー・プラチェットによるサミュエル・ヴァイムズ警部の「ブーツ理論」原典）</span>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <span class="ref-text">農林水産省「食料品アクセス問題（買い物難民・フードデザート問題）の現状と対策」［公的政策資料］</span>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.fsa.go.jp/policy/kashikin/" target="_blank" rel="noopener noreferrer" class="ref-link">金融庁「貸金業法関連情報・多重債務問題への対応」（公的資料リンク）</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.jrf.org.uk/" target="_blank" rel="noopener noreferrer" class="ref-link">Joseph Rowntree Foundation (JRF), "Poverty Premium Research & Analysis"（英国ジョセフ・ラウントリー財団・公式リポジトリ）</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">湯浅誠『反貧困――「すべり台社会」からの脱出』岩波新書、2008年。［溜めのない社会と貧困ビジネスの告発］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulators -->
+  <script>
+    // Boots Theory Simulator Logic
+    function calcBoots() {
+      const years = parseInt(document.getElementById('slider-years').value);
+      document.getElementById('disp-years').innerText = years + '年目';
+
+      // 富裕層：50ドルブーツ（10年耐久。10年超えたら買い替え）
+      const richRebuys = Math.floor((years - 1) / 10) + 1;
+      const richCost = richRebuys * 50;
+
+      // 貧困層：10ドルブーツ（毎年買い替え）
+      const poorCost = years * 10;
+
+      document.getElementById('cost-rich').innerText = '$' + richCost;
+      document.getElementById('unit-rich').innerText = '年平均コスト：$' + (richCost / years).toFixed(1) + ' / 年';
+
+      document.getElementById('cost-poor').innerText = '$' + poorCost;
+      document.getElementById('unit-poor').innerText = '年平均コスト：$' + (poorCost / years).toFixed(1) + ' / 年';
+
+      const diff = poorCost - richCost;
+      const ratio = (poorCost / richCost).toFixed(1);
+      const conclusion = document.getElementById('boots-conclusion');
+
+      if (years === 1) {
+        conclusion.innerHTML = '<strong>⏳ 1年目：</strong> 初期投資では富裕層が50ドル、貧困層が10ドルで、一見貧困層の方が40ドル安く済んでいるように見えます。しかし、ここから悪夢の逆転劇が始まります。';
+      } else if (years < 5) {
+        conclusion.innerHTML = `<strong>🔄 ${years}年目：</strong> 貧困層は累計$${poorCost}、富裕層は$${richCost}。富裕層の初期投資額に急速に迫っています（貧困層のブーツはすでに${years}回底が抜けています）。`;
+      } else if (years === 5) {
+        conclusion.innerHTML = '<strong>⚖️ 5年目：</strong> 累計支出が両者とも<strong>$50で同額</strong>に並びました！ 貧困層は安物を買い続けただけなのに、富裕層の最高級ブーツと同額を消費してしまいました。';
+      } else {
+        conclusion.innerHTML = `<strong>🚨 結果（${years}年目）：</strong> 貧困層の累計支出は$${poorCost}に達し、富裕層（$${richCost}）の<strong>${ratio}倍（差額 $${diff}のペナルティ）</strong>を余分に支払わされています。「お金がないから安物を買う」という合理的行動が、かえって家計を貧困へ閉じ込める決定打となっているのです。`;
+      }
+    }
+
+    // Poverty Penalty Calculator Logic
+    function calcPenalty() {
+      const items = [
+        { id: 'chk-food', amount: 72000 },
+        { id: 'chk-energy', amount: 48000 },
+        { id: 'chk-finance', amount: 60000 },
+        { id: 'chk-atm', amount: 24000 },
+        { id: 'chk-health', amount: 36000 },
+        { id: 'chk-comm', amount: 40000 }
+      ];
+
+      let total = 0;
+      items.forEach(item => {
+        const el = document.getElementById(item.id);
+        if (el && el.checked) {
+          total += item.amount;
+        }
+      });
+
+      const formattedTotal = total.toLocaleString() + ' 円 / 年';
+      const monthly = Math.round(total / 12).toLocaleString();
+
+      document.getElementById('total-penalty-disp').innerText = formattedTotal;
+      document.getElementById('monthly-penalty-disp').innerText = `（月あたり 約 ${monthly} 円）`;
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+      calcBoots();
+      calcPenalty();
+    });
+  </script>
+</body>
+</html>
