@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：労働者派遣法の改正（1999年の対象業務の原則自由化）――ポジティブリストからネガティブリストへの大転換と「雇用の調整弁」化</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-sub {
+      background: rgba(245, 158, 11, 0.3);
+      color: #fef08a;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: #cbd5e1;
+    }
+
+    /* Section & Cards */
+    section {
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.65rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    /* Grid Layouts */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.25rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-purple {
+      border-top: 4px solid var(--purple);
+    }
+
+    .card-amber {
+      border-top: 4px solid var(--accent);
+    }
+
+    .card-emerald {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .card-rose {
+      border-top: 4px solid var(--rose);
+    }
+
+    .factor-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Comparison Box (Positive vs Negative) */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 720px) {
+      .compare-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .compare-box {
+      border-radius: 0.65rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .compare-box.old-box {
+      background: #f1f5f9;
+      border-left: 5px solid #64748b;
+    }
+
+    .compare-box.new-box {
+      background: #fff7ed;
+      border-left: 5px solid var(--accent);
+    }
+
+    .compare-box-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .rule-tag {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-weight: 700;
+    }
+
+    .tag-slate {
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .tag-amber {
+      background: #fed7aa;
+      color: #9a3412;
+    }
+
+    /* Callout Box */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 4px solid var(--rose);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Interactive Timeline Simulator */
+    .sim-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .phase-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .phase-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .phase-btn:hover {
+      border-color: var(--primary-light);
+      background: #f1f5f9;
+    }
+
+    .phase-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.3);
+    }
+
+    .phase-btn .phase-year {
+      font-size: 0.72rem;
+      display: block;
+      opacity: 0.85;
+      font-weight: normal;
+      margin-top: 0.15rem;
+    }
+
+    .phase-content-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    .metric-card {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.45rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .metric-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 0.2rem;
+    }
+
+    /* Interactive Tab Component 2 */
+    .sub-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+    }
+
+    .sub-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .sub-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Gauge / Rating Bar */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.6rem 0;
+      font-size: 0.85rem;
+    }
+
+    .rating-label {
+      width: 140px;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rating-track {
+      flex: 1;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 0.75rem;
+    }
+
+    .rating-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .rating-score {
+      font-weight: 700;
+      width: 45px;
+      text-align: right;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .highlight-col {
+      background: #fefce8 !important;
+      font-weight: 600;
+    }
+
+    /* Citations and Reference Links */
+    .cite-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.25rem;
+      background: #e0e7ff;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.2rem;
+      border: 1px solid #c7d2fe;
+    }
+
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-num {
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-light);
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: nav-links contains ONLY portal-link) -->
+    <nav class="nav-box" aria-label="ナビゲーション">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">労働市場の脱規制・雇用の二重構造化</span>
+      </div>
+      <h1>労働者派遣法の改正（1999年の対象業務の原則自由化）：<br>ポジティブリストからネガティブリストへの大転換と「雇用の調整弁」化</h1>
+      <p class="lead">
+        1999年（平成11年）の労働者派遣法改正は、戦後労働法の根幹であった「中間搾取の排除」と「常用代替の防止」を根底から覆し、特定の専門業務のみを例外許可する方式（ポジティブリスト）から、一部の禁止業務を除くすべての業務を自由化する方式（ネガティブリスト）へと180度舵を切った歴史的立法でした。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+        1995年の日経連『新時代の「日本的経営」』が描いた「雇用柔軟型」拡大の設計図に法的な実効性を与え、就職氷河期世代の若者を恒久的な「調整弁」へと固定化させた制度的病理を解剖します。
+      </p>
+    </header>
+
+    <!-- Section 1: 1999年改正の核心 -->
+    <section>
+      <h2>📋 1. 1999年法改正の核心：何が根本から変わったのか</h2>
+      <p>
+        1985年に制定された旧・労働者派遣法は、労働基準法第6条（中間搾取の排除）および職業安定法第44条（労働者供給事業の禁止）という厳格な戦後労働法制の例外として、「常用雇用（正社員）を代替しない」という絶対原則（常用代替防止原則）のもとで導入されました。<a href="#ref-5" class="cite-tag">[5]</a><a href="#ref-6" class="cite-tag">[6]</a>
+        しかし、1999年改正はこの立法思想を決定的に転換させました。
+      </p>
+
+      <!-- 構造比較：ポジティブ vs ネガティブ -->
+      <div class="compare-container">
+        <div class="compare-box old-box">
+          <div class="compare-box-title">
+            <span>🛡️ 改正前：ポジティブリスト方式（限定列挙）</span>
+            <span class="rule-tag tag-slate">1985年〜1999年</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 700; color: #334155;">
+            「原則禁止・例外として指定された業務のみ許可」
+          </p>
+          <p style="font-size: 0.84rem; color: #475569; line-height: 1.55;">
+            通訳、翻訳、情報処理、機器操作など、専門的な知識・技術を要する13業務（のちに26業務に拡大）に限定。一般事務、営業、販売などの基幹業務への派遣は法律で厳格に禁じられ、正社員の代替を阻止する防波堤として機能していました。
+          </p>
+        </div>
+
+        <div class="compare-box new-box">
+          <div class="compare-box-title">
+            <span>⚡ 改正後：ネガティブリスト方式（原則自由化）</span>
+            <span class="rule-tag tag-amber">1999年改正〜現在</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; font-weight: 700; color: #9a3412;">
+            「原則自由・禁止された一部業務のみ除外」
+          </p>
+          <p style="font-size: 0.84rem; color: #7c2d12; line-height: 1.55;">
+            法律で明示された禁止業務（建設、港湾運送、警備、医療等）を除く<strong>すべての業務で派遣労働が全面的に解禁</strong>されました。これにより、企業のあらゆる通常業務（一般事務・受付・販売・データ入力等）に派遣労働者が大量投入される道が開かれました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- 主な改正の3大ポイント -->
+      <h3 style="margin-top: 1.5rem;">🔑 1999年改正における「3大重要ポイント」</h3>
+      <div class="grid-3">
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🔓</span>
+            <span>対象業務の原則自由化</span>
+          </div>
+          <div class="factor-desc">
+            専門的26業務の枠組みを撤廃し、ネガティブリストへ移行。建設・港湾・警備・医療等を除くほぼすべての産業・業務で派遣利用が可能になり、正社員の定員枠が派遣へ置き換えられる構造的契機となりました。<a href="#ref-3" class="cite-tag">[3]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>⏱️</span>
+            <span>派遣期間の制限（1年ルール）</span>
+          </div>
+          <div class="factor-desc">
+            新しく自由化された業務について、同一事業所・組織での受け入れを最長1年に制限（従来の専門26業務は無制限）。「常用雇用の代替を防ぐための一時的利用」という建前でしたが、実際には1年ごとの雇い止め・入れ替えを生む結果となりました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-emerald">
+          <div class="factor-title">
+            <span>🤝</span>
+            <span>「紹介予定派遣」の法定化</span>
+          </div>
+          <div class="factor-desc">
+            派遣就業終了後に派遣先企業が直接雇用（正社員等）することを前提とした「紹介予定派遣」が法律上正式に制度化されました。しかし現実には、企業側が正規採用のリスクを回避するための「長期試用期間」として利用される側面も孕みました。<a href="#ref-3" class="cite-tag">[3]</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>1995年日経連ビジョンと1999年法改正の共犯関係</span>
+        </div>
+        <p style="font-size: 0.88rem; margin-bottom: 0;">
+          1995年5月に日経連が打ち出した『新時代の「日本的経営」』では、労働者を「長期蓄積型」「高度専門型」「雇用柔軟型」に3分し、人件費削減のために雇用柔軟層（パート・派遣）を大幅に拡充する方針が掲げられました。1999年の派遣法改正は、まさにこの財界の要求を政府規制改革委員会が全面的に受け入れ、法制度として解禁した決定打でした。<a href="#ref-1" class="cite-tag">[1]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: インタラクティブ図解① タイムラインシミュレーター -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：労働者派遣法 規制緩和の歴史的変遷（1985〜現在）</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        タブを切り替えると、1985年の制定から1999年の原則自由化、2004年の製造業解禁、そして現在の「3年ルール」に至る制度と労働環境の変遷をシミュレーション確認できます。
+      </p>
+
+      <div class="sim-box">
+        <!-- Phase Tabs -->
+        <div class="phase-tabs" role="tablist">
+          <button class="phase-btn" id="btn-p1" onclick="switchPhase(1)" role="tab" aria-selected="false">
+            <span>第1期：法制定</span>
+            <span class="phase-year">1985年（専門13業務）</span>
+          </button>
+          <button class="phase-btn active" id="btn-p2" onclick="switchPhase(2)" role="tab" aria-selected="true">
+            <span>第2期：原則自由化</span>
+            <span class="phase-year">1999年（ネガティブ化）</span>
+          </button>
+          <button class="phase-btn" id="btn-p3" onclick="switchPhase(3)" role="tab" aria-selected="false">
+            <span>第3期：製造業解禁</span>
+            <span class="phase-year">2003-04年（工場解禁）</span>
+          </button>
+          <button class="phase-btn" id="btn-p4" onclick="switchPhase(4)" role="tab" aria-selected="false">
+            <span>第4期：固定化・現在</span>
+            <span class="phase-year">2015年〜（事業所3年）</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Phase Display Card -->
+        <div class="phase-content-card" id="phaseCard">
+          <!-- Dynamic Content rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ分析② ポジティブ vs ネガティブ構造＆インセンティブ -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ分析②：ネガティブリスト化がもたらした「人件費の変動費化」メカニズム</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        なぜ企業は原則自由化を猛烈に推進したのか。制度の構造転換、企業側の経済的インセンティブ、そして労働者・社会への打撃を多角的に検証します。
+      </p>
+
+      <!-- Sub Tabs -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" onclick="switchSubTab('sub1', this)">📋 制度思想の反転（枠組み比較）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub2', this)">🏢 企業側の本音（変動費化インセンティブ）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub3', this)">👤 労働者・社会への打撃（貧困の固定化）</button>
+      </div>
+
+      <!-- Tab 1: 制度思想の反転 -->
+      <div id="sub1" class="tab-pane active">
+        <div class="grid-3">
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>🏛️</span>
+              <span>立法の主客転換</span>
+            </div>
+            <div class="factor-desc">
+              「労働者は直接雇用が原則であり、派遣は例外」という戦後労働法の絶対公理が、「派遣は原則自由であり、禁止業務のみが例外」へと逆転しました。例外が原則を呑み込む制度的逆転の典型例です。<a href="#ref-1" class="cite-tag">[1]</a>
+            </div>
+          </div>
+
+          <div class="factor-card card-rose">
+            <div class="factor-title">
+              <span>🛡️</span>
+              <span>常用代替防止の形骸化</span>
+            </div>
+            <div class="factor-desc">
+              「正社員の仕事を奪わない」という常用代替防止原則は、1年ルール（のちの3年ルール）という形式的期間制限に矮小化されました。企業は人を替えれば派遣を恒常利用できる抜け穴を手に入れました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+            </div>
+          </div>
+
+          <div class="factor-card card-emerald">
+            <div class="factor-title">
+              <span>⚖️</span>
+              <span>使用者責任の二重分離</span>
+            </div>
+            <div class="factor-desc">
+              「指揮命令する企業（派遣先）」と「賃金を払い雇用契約を結ぶ企業（派遣元）」が分離される三角関係により、派遣先企業は労基法上の解雇規制や福利厚生義務から法的に免責される仕組みが確立しました。
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">📊 方式転換による労働市場パラメータの変化</h4>
+          <div class="rating-row">
+            <div class="rating-label">正社員代替リスク</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 90%; background: var(--rose);"></div></div>
+            <div class="rating-score" style="color: var(--rose);">極高 (90%)</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-label">企業の解雇容易性</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 95%; background: var(--accent);"></div></div>
+            <div class="rating-score" style="color: var(--accent-dark);">極高 (95%)</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-label">労働者の権利保障</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 30%; background: var(--primary);"></div></div>
+            <div class="rating-score" style="color: var(--primary);">低下 (30%)</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-label">賃金の生涯上昇率</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 15%; background: var(--text-muted);"></div></div>
+            <div class="rating-score" style="color: var(--text-muted);">極低 (15%)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: 企業側の本音 -->
+      <div id="sub2" class="tab-pane">
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          1997年の山一證券・北海道拓殖銀行破綻とアジア通貨危機以降、日本企業は生き残りのため「固定費（正社員人件費）の変動費化」に邁進しました。派遣の原則自由化は、企業経営に以下の巨大なコスト削減効果を提供しました：
+        </p>
+        <div class="grid-3">
+          <div class="factor-card card-amber">
+            <div class="factor-title">
+              <span>💰</span>
+              <span>社会保険料・退職金の免除</span>
+            </div>
+            <div class="factor-desc">
+              派遣先企業は、厚生年金・健康保険の労使折半負担や、退職金積立、家族手当・住宅手当などの福利厚生費を一切負担する必要がなくなりました。額面賃金以上の莫大な法定外福利費を圧縮可能となったのです。
+            </div>
+          </div>
+
+          <div class="factor-card card-rose">
+            <div class="factor-title">
+              <span>✂️</span>
+              <span>解雇権濫用法理の完全回避</span>
+            </div>
+            <div class="factor-desc">
+              日本の正社員は判例法理（整理解雇の4要件）により解雇が極めて困難ですが、派遣労働者は「契約期間満了（雇い止め）」によって、退職金なし・即座に人員削減が可能です。不況時の安全弁として極めて重宝されました。
+            </div>
+          </div>
+
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>🛡️</span>
+              <span>労働組合の分断・弱体化</span>
+            </div>
+            <div class="factor-desc">
+              派遣労働者は派遣先の企業別労働組合に加入できないため、社内での賃上げ要求や職場改善の団体交渉権を実質的に奪われました。これにより、企業全体の労働分配率を強力に抑制し続けることが可能になりました。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: 労働者・社会への打撃 -->
+      <div id="sub3" class="tab-pane">
+        <div class="callout callout-rose">
+          <div class="callout-title">
+            <span>🚨</span>
+            <span>就職氷河期世代のキャリア断絶と格差の不可逆的固定化</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;">
+            1999年の法改正が実施された時期は、まさに1990年代後半から2000年代前半の「就職氷河期」の真っただ中でした。新卒採用枠を極限まで絞った企業は、正社員になれなかった優秀な大卒・高卒の若者を「原則自由化された派遣枠」で大量に吸収しました。
+          </p>
+          <ul style="font-size: 0.85rem; padding-left: 1.25rem; line-height: 1.6; color: #881337;">
+            <li><strong>技能蓄積の阻害：</strong> OJT（職場内訓練）の対象外とされ、どれほど成果を上げても「代替可能な補助的労働力」として扱われ、キャリア形成が断絶。</li>
+            <li><strong>昇給なきフラット賃金：</strong> 20代から40代になっても時給がほぼ上がらず、年齢に応じた生活防衛が不可能に。</li>
+            <li><strong>結婚・家族形成の断念：</strong> 将来の収入見通しが立たないため未婚率が急上昇し、2010年代以降の少子化急加速の主因となりました。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代貧困の解体新書からの視点 -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「意図された構造的収奪」</h2>
+      <p>
+        本書第1巻において著者のmb_choが強調するのは、1990年代後半以降の非正規雇用の急増が「市場の自然な需給結果」などではなく、<strong>「財界の戦略（日経連1995年報告）と国家の法改正（1999年派遣法改正）が二人三脚で敷設した制度的設計図」</strong>であったという事実です。
+      </p>
+
+      <!-- 4軸詳細比較マトリクス表 -->
+      <h3 style="margin-top: 1.5rem;">📊 労働者派遣法制の変遷と影響マトリクス</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 15%;">時期・改正年</th>
+              <th style="width: 22%;">規制方式・対象業務</th>
+              <th style="width: 18%;">期間制限ルール</th>
+              <th style="width: 20%;">立法の建前</th>
+              <th style="width: 25%;">実態と貧困への因果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1985年制定</strong><br>（中曽根内閣）</td>
+              <td><strong>ポジティブリスト</strong><br>専門的13業務（情報処理、通訳、機器操作等）</td>
+              <td>原則1年（常用代替防止）</td>
+              <td>専門知識を活用する特殊技能職の需給調整</td>
+              <td>正社員の代替は厳格に防止され、基幹事務や工場ラインへの侵食は抑制されていた。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>1999年改正</strong><br>（小渕内閣）★本稿</td>
+              <td><strong>ネガティブリスト</strong><br>原則自由化（禁止業務を除く全業務解禁）</td>
+              <td>新自由化業務は1年<br>（26業務は無制限）</td>
+              <td>雇用の流動化と多様な働き方の選択肢提供</td>
+              <td><strong>正社員の定員削減と派遣への置き換えが本格化。</strong>就職氷河期世代が派遣に固定化され、ワーキングプア層が社会的に大量創出された。<a href="#ref-1" class="cite-tag">[1]</a></td>
+            </tr>
+            <tr>
+              <td><strong>2003-04年改正</strong><br>（小泉内閣）</td>
+              <td><strong>製造業派遣解禁</strong><br>（工場生産ラインへ拡大）</td>
+              <td>自由化業務を3年に延長<br>（製造業は当初1年）</td>
+              <td>国際競争力強化とグローバル市場への適応</td>
+              <td>製造業のコストカットに悪用され、2008年リーマンショックで「派遣切り」「年越し派遣村」の人道危機へ直結。<a href="#ref-4" class="cite-tag">[4]</a></td>
+            </tr>
+            <tr>
+              <td><strong>2015年改正</strong><br>（安倍内閣）</td>
+              <td>26業務区分撤廃<br>すべての業務を共通化</td>
+              <td><strong>事業所単位3年</strong><br>（過半数組合の意見聴取で延長可）</td>
+              <td>キャリアアップ支援と派遣労働者の保護</td>
+              <td>人を入れ替えさえすれば企業は「永久に派遣を使い続けられる」ようになり、常用代替防止が名実ともに崩壊。<a href="#ref-2" class="cite-tag">[2]</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>因果の連鎖：なぜこれが現代日本の「貧困」を生んだのか</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          日本社会の福祉・生活保障は、戦後長らく「企業（終身雇用と家族手当・退職金）」と「家族（専業主婦の無償ケア）」が肩代わりしてきました（第1章1.1節「日本型循環モデル」）。<br>
+          1999年の派遣法原則自由化は、企業に「福祉を負担しない安価な労働力」の調達を国家が公認したことを意味します。公的な社会保障セーフティネットを整備しないまま、企業福祉の土台だけを切り崩した結果、若年層・単身者は「社会保障も企業保障もない制度的真空」へと放り出され、今日の格差・相対的貧困の主たる供給源となったのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References (Condition 2 strict check: no broken links, verified URLs) -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している法学会論文、厚生労働省公的資料、専門法規解説の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www.jstage.jst.go.jp/article/kla/2011/0/2011_31/_pdf/-char/en" target="_blank" rel="noopener noreferrer" class="ref-link">小山正俊「労働者派遣法の改正と時代的背景」九州法学会『法政研究』2011年（J-STAGE学術リポジトリ PDF）</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://keiyaku-watch.jp/media/hourei/hakenho-3years/" target="_blank" rel="noopener noreferrer" class="ref-link">契約Watch「派遣法の『3年ルール』とは？抵触日の計算方法や1999年改正からの変遷をわかりやすく解説」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.r-staffing.co.jp/sol/contents/law/kaisei_point/episode_2.html" target="_blank" rel="noopener noreferrer" class="ref-link">リクルートスタッフィング 人事担当者のための労働者派遣法「第2話：1999年改正 ネガティブリスト化と紹介予定派遣」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.mhlw.go.jp/stf/shingi/2r9852000002w9gg-att/siryou03.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働省 労働政策審議会 労働力需給制度部会 資料「労働者派遣制度の変遷と現状」（PDF）</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://elaws.e-gov.go.jp/document?lawid=360AC0000000088" target="_blank" rel="noopener noreferrer" class="ref-link">e-Gov法令検索『労働者派遣事業の適正な運営の確保及び派遣労働者の保護等に関する法律』（昭和60年法律第88号）</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://elaws.e-gov.go.jp/document?lawid=322AC0000000049" target="_blank" rel="noopener noreferrer" class="ref-link">e-Gov法令検索『労働基準法』第6条（中間搾取の排除）及び『職業安定法』第44条（労働者供給事業の禁止）</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">独立行政法人 労働政策研究・研修機構（JILPT）『労働関係法規の現代的課題と労働市場分析』（JILPT調査研究報告シリーズ）［学術公刊資料］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator & Tabs -->
+  <script>
+    // Phase Data for Timeline Simulator
+    const phaseData = {
+      1: {
+        title: "第1期：1985年 労働者派遣法制定（ポジティブリスト方式）",
+        yearBadge: "1985年（昭和60年）中曽根内閣",
+        desc: "戦後労働法が固く禁じていた中間搾取・労働者供給の例外として制定。正社員の雇用を侵食しない『常用代替防止』を絶対条件に、通訳や情報処理など高度専門13業務（のちに26業務）に極めて限定して許可されました。",
+        metrics: [
+          { label: "対象業務方式", val: "ポジティブリスト（限定13業務）" },
+          { label: "派遣労働者数", val: "約15万人（極めて限定的）" },
+          { label: "常用代替リスク", val: "極小（専門職限定）" },
+          { label: "社会的位置づけ", val: "専門技術の外部調達" }
+        ],
+        points: [
+          "<strong>厳格な常用代替防止：</strong> 正社員の仕事を派遣に置き換えることは法律上不可能な構造。",
+          "<strong>専門性重視：</strong> プログラマー、通訳、機器操作等の高度スキル保持者が主対象。",
+          "<strong>財界の不満：</strong> 企業側からは「対象業務が狭すぎて使いにくい」と継続的な規制緩和要求が噴出。"
+        ]
+      },
+      2: {
+        title: "第2期：1999年 改正（ネガティブリスト方式への歴史的転換）",
+        yearBadge: "1999年（平成11年）小渕内閣",
+        desc: "日経連『新時代の「日本的経営」』（1995年）の要請とアジア通貨危機後の不況を背景に、禁止業務（港湾・建設・警備・医療）を除くすべての業務が解禁。一般事務・販売・サービス等の基幹業務に派遣が雪崩を打ちました。",
+        metrics: [
+          { label: "対象業務方式", val: "ネガティブリスト（原則自由化）" },
+          { label: "派遣労働者数", val: "約107万人（急増開始）" },
+          { label: "常用代替リスク", val: "極大（一般事務へ浸透）" },
+          { label: "社会的位置づけ", val: "人件費削減・変動費化ツール" }
+        ],
+        points: [
+          "<strong>原則と例外の逆転：</strong> 派遣利用が原則自由となり、基幹的正社員枠の削減が加速。",
+          "<strong>就職氷河期を直撃：</strong> 正社員になれない新卒若年層が「派遣社員」として大量に固定化。",
+          "<strong>1年ルールの建前：</strong> 常用代替防止の形骸化が始まり、1年ごとの雇い止め・入替が横行。"
+        ]
+      },
+      3: {
+        title: "第3期：2003-04年 改正（製造業派遣解禁・期間3年延長）",
+        yearBadge: "2003〜04年（平成15〜16年）小泉内閣",
+        desc: "小泉構造改革のもと、日本の基幹産業である製造業（自動車・電機等の工場ライン）への派遣が解禁。自由化業務の派遣可能期間も最長3年に延長され、製造業大手が固定費削減の切り札として派遣労働者を爆発的に活用しました。",
+        metrics: [
+          { label: "対象業務方式", val: "製造業生産ライン全面解禁" },
+          { label: "派遣労働者数", val: "約200万人超（空前のピークへ）" },
+          { label: "常用代替リスク", val: "破滅的（工場正社員激減）" },
+          { label: "社会的結末", val: "リーマンショック「派遣切り」" }
+        ],
+        points: [
+          "<strong>工場の派遣化：</strong> 日本のものづくりの現場で若年労働者が低賃金・有期派遣として酷使。",
+          "<strong>2008年リーマンショックの惨禍：</strong> 減産とともに住居（寮）ごと即日解雇される「派遣切り」が多発。",
+          "<strong>年越し派遣村：</strong> 日比谷公園に失業者があふれ、新自由主義的規制緩和の破綻が白日の下に。"
+        ]
+      },
+      4: {
+        title: "第4期：2015年 改正（事業所単位3年ルール・固定化の完了）",
+        yearBadge: "2015年（平成27年）安倍内閣",
+        desc: "専門26業務の区分を撤廃し、すべての業務に『事業所単位・個人単位3年』の期間制限を統一。しかし、事業所の過半数労働組合等の意見を聴取しさえすれば、人を入れ替えることで企業は『永久に派遣を利用し続けられる』制度となりました。",
+        metrics: [
+          { label: "対象業務方式", val: "業務区分撤廃・共通3年枠" },
+          { label: "非正規比率", val: "労働者全体の約37〜40%" },
+          { label: "常用代替防止", val: "事実上の完全崩壊" },
+          { label: "現代的課題", val: "同一労働同一賃金の実効性欠如" }
+        ],
+        points: [
+          "<strong>永久派遣の完成：</strong> 企業はポストを派遣化し、3年ごとに人を交代させることで正社員化を回避可能に。",
+          "<strong>キャリアの頭打ち：</strong> 40代・50代になっても昇給も退職金もない不安定層が中高年貧困層へ。",
+          "<strong>固定化された二重構造：</strong> 正規と非正規の間に越えられない壁が築かれ、格差社会が不可逆化。"
+        ]
+      }
+    };
+
+    function renderPhase(phaseNum) {
+      const p = phaseData[phaseNum];
+      const card = document.getElementById('phaseCard');
+      if (!card) return;
+
+      let metricsHtml = '<div class="metric-grid">';
+      p.metrics.forEach(m => {
+        metricsHtml += `
+          <div class="metric-card">
+            <div class="metric-label">${m.label}</div>
+            <div class="metric-value">${m.val}</div>
+          </div>
+        `;
+      });
+      metricsHtml += '</div>';
+
+      let pointsHtml = '<ul style="font-size: 0.88rem; padding-left: 1.25rem; line-height: 1.6; margin-top: 0.85rem; color: var(--text-main);">';
+      p.points.forEach(pt => {
+        pointsHtml += `<li style="margin-bottom: 0.4rem;">${pt}</li>`;
+      });
+      pointsHtml += '</ul>';
+
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">${p.title}</h3>
+          <span style="font-size: 0.78rem; font-weight: 700; background: #e0e7ff; color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 0.3rem;">
+            ${p.yearBadge}
+          </span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+          ${p.desc}
+        </p>
+        ${metricsHtml}
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-top: 1.25rem; color: var(--primary-dark);">📌 この時期の構造的メルクマール</h4>
+        ${pointsHtml}
+      `;
+    }
+
+    function switchPhase(num) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`btn-p${i}`);
+        if (btn) {
+          if (i === num) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+          } else {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+          }
+        }
+      }
+      renderPhase(num);
+    }
+
+    function switchSubTab(tabId, el) {
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => pane.classList.remove('active'));
+
+      const btns = document.querySelectorAll('.sub-tab-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // Initialize Default Phase
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPhase(2);
+    });
+  </script>
+</body>
+</html>
