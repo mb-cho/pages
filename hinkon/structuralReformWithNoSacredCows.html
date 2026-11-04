@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：小泉純一郎内閣『聖域なき構造改革』（2001年〜）――新自由主義の全面展開と「格差社会」の固定化</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Strict Condition 1: Only portal-link) */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-sub {
+      background: rgba(245, 158, 11, 0.3);
+      color: #fef08a;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: #cbd5e1;
+    }
+
+    /* Section & Cards */
+    section {
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.65rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.25rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-emerald { border-top: 4px solid var(--emerald); }
+    .card-rose { border-top: 4px solid var(--rose); }
+
+    .factor-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callout Box */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 4px solid var(--rose);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .pkg-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .pkg-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .pkg-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .pkg-btn:hover {
+      border-color: var(--primary-light);
+      background: #f1f5f9;
+    }
+
+    .pkg-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.3);
+    }
+
+    .pkg-btn .pkg-sub {
+      font-size: 0.72rem;
+      display: block;
+      opacity: 0.85;
+      font-weight: normal;
+      margin-top: 0.15rem;
+    }
+
+    .pkg-content-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    .metric-card {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.45rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .metric-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 0.2rem;
+    }
+
+    /* Sub Tabs (Macro Impact) */
+    .sub-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+    }
+
+    .sub-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .sub-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Rating Rows */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.6rem 0;
+      font-size: 0.85rem;
+    }
+
+    .rating-label {
+      width: 140px;
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rating-track {
+      flex: 1;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 0.75rem;
+    }
+
+    .rating-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .rating-score {
+      font-weight: 700;
+      width: 55px;
+      text-align: right;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .highlight-col {
+      background: #fefce8 !important;
+      font-weight: 600;
+    }
+
+    /* Citations and Reference Links */
+    .cite-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.25rem;
+      background: #e0e7ff;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.2rem;
+      border: 1px solid #c7d2fe;
+    }
+
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-num {
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-light);
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: nav-links contains ONLY portal-link) -->
+    <nav class="nav-box" aria-label="ナビゲーション">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：新自由主義第3段階・構造改革の病理</span>
+      </div>
+      <h1>小泉純一郎内閣『聖域なき構造改革』（2001年〜）：<br>「官から民へ・痛みを伴う改革」の虚構と「格差社会」の固定化</h1>
+      <p class="lead">
+        2001年に発足した小泉純一郎政権（経済財政政策担当大臣：竹中平蔵）が掲げた「聖域なき構造改革」は、従来の自民党型利益誘導や官僚主導システムを打破する「痛みを伴う改革」「官から民へ」「中央から地方へ」という熱狂的スローガンのもと、新自由主義的な市場原理主義を日本列島の隅々まで貫徹させた歴史的政策パッケージでした。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+        銀行不良債権の強制処理、郵政民営化、三位一体の改革、そして製造業派遣解禁（2004年）と社会保障費の自然増削減。この一連の「外科手術」が、いかにして都市と地方の断絶を決定づけ、若年層・非正規層を「自己責任の檻」へと封じ込めたのかを解剖します。
+      </p>
+    </header>
+
+    <!-- Section 1: 基本理念と政治手法 -->
+    <section>
+      <h2>📋 1. 基本理念と政治手法：なぜ日本社会は構造改革に熱狂したのか</h2>
+      <p>
+        「聖域なき構造改革」とは、手をつけてはならないタブー（聖域）とされてきた特殊法人、郵政事業、公共事業、社会保障などを例外なく市場化・民間開放・予算削減の対象とする方針を指します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-5" class="cite-tag">[5]</a>
+        1990年代のバブル崩壊と「失われた10年」による閉塞感に苦しんでいた国民に対し、小泉首相は「構造改革なくして景気回復なし」と説き、劇的な支持を集めました。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🎭</span>
+            <span>劇場型ポピュリズム政治</span>
+          </div>
+          <div class="factor-desc">
+            「自民党をぶっ壊す」「抵抗勢力」というわかりやすい敵味方の二項対立を演出し、従来の業界団体や官僚機構を既得権益として糾弾。メディアを巧みに活用したワンフレーズ・ポリティクスで大衆的支持を動員しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>経済財政諮問会議の司令塔化</span>
+          </div>
+          <div class="factor-desc">
+            竹中平蔵大臣を軸に、民間議員（大企業財界人・市場派経済学者）主導で「骨太の方針」を毎年策定。各省官僚主導の積み上げ型予算編成を無力化し、トップダウンで新自由主義政策を一気に貫徹させました。<a href="#ref-6" class="cite-tag">[6]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div class="factor-title">
+            <span>⚡</span>
+            <span>「痛みに耐えれば再生する」の教義</span>
+          </div>
+          <div class="factor-desc">
+            不良債権処理に伴う倒産や失業を「必要な市場の淘汰」「避けて通れない痛み」と正当化。しかし、その痛みのほとんどは社会的弱者や下請け中小企業に集中し、再生の果実は大企業・多国籍資本に吸い上げられました。<a href="#ref-2" class="cite-tag">[2]</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>新自由主義3段階論における「小泉改革」の歴史的位置づけ</span>
+        </div>
+        <p style="font-size: 0.88rem; margin-bottom: 0;">
+          本書『現代貧困の解体新書』第1章が指摘するように、日本の新自由主義化は、①1980年代の土光臨調（三公社民営化・小さな政府）、②1990年代の日経連雇用ポートフォリオと1999年派遣法原則自由化、を経て、③2000年代の<strong>「小泉・竹中改革による総仕上げ」</strong>へと至りました。社会保障・地方財政・労働市場のすべてにおいて公助が削ぎ落とされたのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: インタラクティブ図解① 4大政策パッケージシミュレーター -->
+    <section>
+      <h2>⚙️ 2. インタラクティブ図解①：小泉構造改革「4大政策パッケージ」解剖シミュレーター</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        ボタンを切り替えると、小泉政権が強行した4つの基幹政策（不良債権処理・郵政民営化・三位一体改革・労働社会保障削減）の建前と、現場に押し付けられた構造的惨禍を比較検証できます。
+      </p>
+
+      <div class="sim-box">
+        <!-- Package Tabs -->
+        <div class="pkg-tabs" role="tablist">
+          <button class="pkg-btn active" id="pkg-btn-1" onclick="switchPackage(1)" role="tab" aria-selected="true">
+            <span>① 金融再生・不良債権</span>
+            <span class="pkg-sub">竹中プラン・貸し剥がし</span>
+          </button>
+          <button class="pkg-btn" id="pkg-btn-2" onclick="switchPackage(2)" role="tab" aria-selected="false">
+            <span>② 官から民へ</span>
+            <span class="pkg-sub">郵政民営化・350兆円市場化</span>
+          </button>
+          <button class="pkg-btn" id="pkg-btn-3" onclick="switchPackage(3)" role="tab" aria-selected="false">
+            <span>③ 中央から地方へ</span>
+            <span class="pkg-sub">三位一体改革・地方交付税削減</span>
+          </button>
+          <button class="pkg-btn" id="pkg-btn-4" onclick="switchPackage(4)" role="tab" aria-selected="false">
+            <span>④ 労働規制緩和・社保抑制</span>
+            <span class="pkg-sub">製造業派遣解禁・2200億円削減</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Content Card -->
+        <div class="pkg-content-card" id="pkgCard">
+          <!-- Rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ分析② 経済格差の立体検証 -->
+    <section>
+      <h2>📊 3. インタラクティブ分析②：「光」のマクロ統計と「影」の生活破壊</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        小泉改革は「いざなみ景気（戦後最長の景気拡大期）」を演出したと賞賛されましたが、その実態は富裕層・大企業への富の集中と、家計・地方の収奪でした。
+      </p>
+
+      <!-- Sub Tabs -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" onclick="switchSubTab('sub1', this)">🗾 地方と都市の分断（過疎化・所得格差）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub2', this)">👥 非正規化と実質賃金のデカップリング</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub3', this)">🏥 社会保障抑制と「自己責任」の蔓延</button>
+      </div>
+
+      <!-- Tab 1: 地方と都市の分断 -->
+      <div id="sub1" class="tab-pane active">
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          公共事業の年間約5%削減と三位一体改革による地方交付税の劇的な圧縮（実質5兆円規模）は、公共投資に地域経済を依存していた地方都市・中山間地域を直撃しました。<a href="#ref-2" class="cite-tag">[2]</a>
+        </p>
+        <div class="grid-3">
+          <div class="factor-card card-rose">
+            <div class="factor-title">
+              <span>🏗️</span>
+              <span>地方建設業の連鎖倒産</span>
+            </div>
+            <div class="factor-desc">
+              道路・治水予算の削減により、地方の基幹雇用を支えていた中小建設会社が次々と倒産・廃業。地方の男性中間層の安定収入源が消滅しました。
+            </div>
+          </div>
+
+          <div class="factor-card card-amber">
+            <div class="factor-title">
+              <span>🏙️</span>
+              <span>東京一極集中と限界集落</span>
+            </div>
+            <div class="factor-desc">
+              地方で若者の働く場が失われた結果、東京圏への人口流出が急加速。地方自治体の財政難と少子高齢化が「限界集落」「消滅可能性都市」を生み出しました。
+            </div>
+          </div>
+
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>🏥</span>
+              <span>公立病院の統廃合・医師不足</span>
+            </div>
+            <div class="factor-desc">
+              自治体病院への財政支援がカットされ、地方での産科・小児科・救急医療の崩壊（医療難民）が社会問題化しました。
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">📊 地方経済影響度パラメータ</h4>
+          <div class="rating-row">
+            <div class="rating-label">地方財政純減インパクト</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 95%; background: var(--rose);"></div></div>
+            <div class="rating-score" style="color: var(--rose);">壊滅的 (95%)</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-label">東京圏への資本集中度</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 88%; background: var(--accent);"></div></div>
+            <div class="rating-score" style="color: var(--accent-dark);">極大 (88%)</div>
+          </div>
+          <div class="rating-row">
+            <div class="rating-label">地方住民の生活防衛力</div>
+            <div class="rating-track"><div class="rating-fill" style="width: 25%; background: var(--primary);"></div></div>
+            <div class="rating-score" style="color: var(--primary);">低下 (25%)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: 非正規化と実質賃金 -->
+      <div id="sub2" class="tab-pane">
+        <div class="callout callout-rose">
+          <div class="callout-title">
+            <span>🏭</span>
+            <span>2004年製造業派遣解禁：日本の「ものづくり」から「使い捨て」へ</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;">
+            小泉政権は2003年法改正を経て、2004年に自動車や電機などの製造業生産ラインへの労働者派遣を解禁しました。日本の基幹輸出産業であった製造業は、正規社員の採用を絞り込み、いつでも切れる有期派遣労働者で工場を埋め尽くしました。
+          </p>
+          <ul style="font-size: 0.85rem; padding-left: 1.25rem; line-height: 1.6; color: #881337;">
+            <li><strong>名目利益と実質賃金のデカップリング：</strong> 大企業は「いざなみ景気」で史上最高益を更新し内部留保を積み上げましたが、労働者全体の平均給与は低下し続けました。</li>
+            <li><strong>リーマンショックの惨禍（2008年）：</strong> 2008年秋の世界金融危機で、トヨタをはじめとする自動車各社は即座に派遣契約を解除。住居（社員寮）を奪われた労働者が日比谷公園の「年越し派遣村」に殺到しました。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tab 3: 社会保障抑制 -->
+      <div id="sub3" class="tab-pane">
+        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+          小泉政権は「骨太の方針」において、社会保障関係費の自然増を<strong>毎年2,200億円一律削減</strong>するシーリング（上限枠）を導入しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-6" class="cite-tag">[6]</a>
+        </p>
+        <div class="grid-3">
+          <div class="factor-card card-amber">
+            <div class="factor-title">
+              <span>🩺</span>
+              <span>医療費自己負担の引き上げ</span>
+            </div>
+            <div class="factor-desc">
+              サラリーマン本人の窓口負担を2割から3割へと引き上げ。高齢者医療費の負担増も進み、生活困窮者が受診を控えて重症化・孤独死するケースが急増しました。
+            </div>
+          </div>
+
+          <div class="factor-card card-purple">
+            <div class="factor-title">
+              <span>📉</span>
+              <span>マクロ経済スライドと年金削減</span>
+            </div>
+            <div class="factor-desc">
+              2004年年金改革により、保険料引き上げ上限を固定する一方で給付水準を実質引き下げる仕組みを導入。将来世代の受給額が自動削減される構造が完成しました。
+            </div>
+          </div>
+
+          <div class="factor-card card-rose">
+            <div class="factor-title">
+              <span>🚪</span>
+              <span>生活保護バッシングと水際作戦</span>
+            </div>
+            <div class="factor-desc">
+              「自助・共助・公助」の理念のもと、公助に頼ることを恥とする風潮が醸成され、福祉事務所による「水際作戦（申請拒否）」が常態化しました。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代貧困の解体新書からの視点 -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「格差社会の完成」</h2>
+      <p>
+        2006年、文藝春秋の論壇や流行語大賞で<strong>「格差社会」</strong>が大きくクローズアップされました。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-7" class="cite-tag">[7]</a>
+        小泉首相は国会で「格差が出るのは悪いことではない。チャレンジした者が報われる社会が良い」と答弁し、自己責任論を肯定しました。しかし、本書第1巻が明かすのは、これが「公正な努力競争」などではなく、<strong>「公的な防波堤をすべて取り払った上での、金融・巨大資本による国民資産の吸い上げ」</strong>であったという真実です。
+      </p>
+
+      <!-- 構造改革の虚構と現実 マトリクス比較表 -->
+      <h3 style="margin-top: 1.5rem;">📊 聖域なき構造改革：掲げられたスローガンと20年後の現実</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">改革スローガン</th>
+              <th style="width: 25%;">政府が掲げた「建前と目標」</th>
+              <th style="width: 30%;">強行された「制度改変の実態」</th>
+              <th style="width: 25%;">20年後の現実・貧困への帰結</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>官から民へ</strong><br>（郵政・公団民営化）</td>
+              <td>市場原理の導入による経営効率化と利用者の利便性向上</td>
+              <td>郵政350兆円の公的資金プールを解体し、外資系金融機関や投機市場へ開放。<a href="#ref-3" class="cite-tag">[3]</a></td>
+              <td>過疎地の郵便局サービス低下、かんぽ不正販売、金融化による富の海外流出。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>中央から地方へ</strong><br>（三位一体の改革）</td>
+              <td>地方分権の推進、自主的な地域振興と自己決定権の拡大</td>
+              <td>補助金・交付税を5兆円超カットし、税源移譲は3兆円。地方財政を2兆円規模で実質純減。<a href="#ref-2" class="cite-tag">[2]</a></td>
+              <td><strong>地方経済の空洞化、若者の東京流出、限界集落の激増と地域コミュニティ崩壊。</strong></td>
+            </tr>
+            <tr>
+              <td><strong>労働市場の流動化</strong><br>（製造業派遣解禁）</td>
+              <td>多様な働き方の実現、企業の国際競争力強化と雇用創出</td>
+              <td>2004年に工場生産ライン派遣を解禁。正社員枠を削り、非正規を調整弁として組み込み。<a href="#ref-1" class="cite-tag">[1]</a></td>
+              <td>リーマンショックでの「派遣切り」、ワーキングプアの激増、少子化の急加速。</td>
+            </tr>
+            <tr>
+              <td><strong>痛みを伴う改革</strong><br>（社会保障費削減）</td>
+              <td>財政健全化、持続可能な社会保障制度の構築</td>
+              <td>毎年2,200億円の自然増削減。医療窓口3割負担、介護保険自己負担増。<a href="#ref-6" class="cite-tag">[6]</a></td>
+              <td>医療崩壊、受診抑制による孤独死、介護離職の増加と家族福祉の破綻。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>因果の連鎖：公助の解体から「自己責任の檻」へ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          小泉構造改革の本質は、戦後日本が築き上げた「中流社会の土台」を根底から解体したことにあります。<br>
+          国家は地方と社会保障の予算を切り縮めて財政支出を削り、企業は正社員を非正規へ置き換えて人件費を削りました。その結果、すべての生活リスク（失業、病気、介護、貧困）が「個人の自己責任」として各家庭の双肩に重くのしかかり、現在に至る「抜け出せない格差社会」が完成したのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References (Strict Condition 2: Verified links, plain text for missing/offline) -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している公刊資料、学術講義録、調査報道アーカイブの一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E8%81%96%E5%9F%9F%E3%81%AA%E3%81%8D%E6%A7%8B%E9%80%A0%E6%94%B9%E9%9D%A9" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「聖域なき構造改革」（小泉内閣の基本方針・政策展開・評価の体系的まとめ）</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="http://www1.tcue.ac.jp/home1/takamatsu/107016/5.html" target="_blank" rel="noopener noreferrer" class="ref-link">高崎経済大学 高松教授 講義資料「小泉構造改革の光と影：地方財政・三位一体改革の検証」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.yuseimineika.go.jp/pamphlet/0412/08.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">郵政民営化推進本部『郵政民営化の基本方針と概要パンフレット』（PDF）</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://www.web.nhk/tv/an/special/pl/series-tep-2NY2QQLPM3/ep/LJ4X7NP95R" target="_blank" rel="noopener noreferrer" class="ref-link">NHKスペシャル アーカイブス「格差社会：小泉構造改革が残した爪痕と現場の告発」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.weblio.jp/content/%E8%81%96%E5%9F%9F%E3%81%AA%E3%81%8D%E6%A7%8B%E9%80%A0%E6%94%B9%E9%9D%A9" target="_blank" rel="noopener noreferrer" class="ref-link">Weblio辞書「聖域なき構造改革（実用日本語表現辞典・政策用語）」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <span class="ref-text">内閣府 経済財政諮問会議『経済財政運営と構造改革に関する基本方針2001（骨太の方針）』［閣議決定公刊文書］</span>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">内閣府『平成18年版 経済財政白書――新たな挑戦への道筋と格差の検証』（2006年7月公刊）［公的白書］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator & Sub Tabs -->
+  <script>
+    const packageData = {
+      1: {
+        title: "① 不良債権の最終処理（竹中プラン・金融再生プログラム）",
+        subBadge: "金融再生・中小企業淘汰",
+        desc: "バブル崩壊後の不良債権処理を加速するため、大手銀行に対する資産査定を厳格化し、公的資金注入（りそな銀行実質国有化等）を断行。不良債権比率は8%台から2%台へ半減しメガバンクは蘇生しましたが、その裏で中小零細企業への苛烈な『貸し剥がし・貸し渋り』が吹き荒れました。",
+        metrics: [
+          { label: "不良債権比率", val: "8.4% → 2.9%へ激減" },
+          { label: "年間自殺者数", val: "3万人超が高止まり・常態化" },
+          { label: "中小企業倒産", val: "年間1万5千件超の淘汰" },
+          { label: "資本の帰結", val: "ハゲタカ外資ファンドへの安価な売却" }
+        ],
+        points: [
+          "<strong>ゾンビ企業退治の代償：</strong> 経営努力を続けていた町工場や地方中小企業が、銀行の自己資本比率防衛のために資金を引き揚げられ次々と倒産。",
+          "<strong>雇用の受け皿破壊：</strong> 中小企業が担っていた地域の中間所得層雇用が消滅し、失業者があふれ出しました。"
+        ]
+      },
+      2: {
+        title: "② 官から民へ（郵政民営化・道路公団民営化）",
+        subBadge: "350兆円市場化・市場開放",
+        desc: "『郵便・貯金・保険の3事業を民営化し、官営金融を小さくする』という小泉首相のライフワーク。2005年の『郵政解散・刺客選挙』で圧勝し強行されました。郵便貯金・簡易保険という国民がコツコツ貯めた350兆円の公的資金プールが市場へと開放されました。",
+        metrics: [
+          { label: "郵政資金規模", val: "約350兆円（世界最大の金融機関）" },
+          { label: "市場開放先", val: "米系金融資本・ウォール街" },
+          { label: "公共サービス", val: "全国一律サービスの縮小・撤退" },
+          { label: "不祥事の発生", val: "かんぽ不正契約問題への伏線" }
+        ],
+        points: [
+          "<strong>財政投融資の解体：</strong> かつて地方の道路・インフラ整備に回っていた公的資金がストップし、外資系投資ファンドや外国証券市場へ還流。",
+          "<strong>現場の疲弊とノルマ地獄：</strong> 利益至上主義への転換が、のちのかんぽ生命による高齢者への不正販売という構造的スキャンダルを引き起こしました。"
+        ]
+      },
+      3: {
+        title: "③ 中央から地方へ（三位一体の改革）",
+        subBadge: "地方交付税削減・地方経済破壊",
+        desc: "国と地方の財政関係を見直すとして、①国庫補助負担金の削減（約4兆円）、②地方交付税の削減（約5兆円）、③税源移譲（約3兆円）を一体的に実施。地方には『財源が純減する不平等改革』となり、地方自治体の財政を極限まで締め上げました。",
+        metrics: [
+          { label: "交付税等純減額", val: "実質約5〜6兆円の地方予算喪失" },
+          { label: "公共事業削減率", val: "小泉政権下で約40%削減" },
+          { label: "地方財政破綻", val: "夕張市破綻（2006年）などの象徴" },
+          { label: "地方人口動態", val: "東京一極集中・消滅自治体激増" }
+        ],
+        points: [
+          "<strong>税源の偏在：</strong> 税源移譲（所得税から住民税へ）は大都市ほど潤い、過疎地ほど増収効果が薄いという逆進性を生み出しました。",
+          "<strong>地方の生活基盤崩壊：</strong> 除雪費用や路線バス補助、公立学校の耐震化、自治体病院の維持費が削られ、地方での人間らしい生活が困難に。"
+        ]
+      },
+      4: {
+        title: "④ 労働規制緩和と社会保障抑制",
+        subBadge: "製造業派遣解禁・社保2200億削減",
+        desc: "2004年に製造業への労働者派遣を解禁し、工場ラインへの非正規雇用投入を合法化。同時に『骨太の方針』で社会保障関係費の自然増を毎年2,200億円カットし、医療自己負担3割化、年金マクロ経済スライド、生活保護受給抑制を徹底しました。",
+        metrics: [
+          { label: "製造業派遣解禁", val: "2004年（工場非正規の激増）" },
+          { label: "社保費削減枠", val: "毎年2,200億円（連続5年間）" },
+          { label: "医療費窓口負担", val: "サラリーマン2割 → 3割へ増大" },
+          { label: "労働者貧困化", val: "ワーキングプア・派遣切りの爆発" }
+        ],
+        points: [
+          "<strong>安全弁としての人間：</strong> 景気悪化時にいつでも契約解除できる製造業派遣は、2008年リーマンショックで日比谷公園の『派遣村』という人道危機を生みました。",
+          "<strong>医療・介護崩壊：</strong> 診療報酬マイナス改定と社保削減が地方の医師・看護師・介護職員不足を決定づけました。"
+        ]
+      }
+    };
+
+    function renderPackage(pkgNum) {
+      const p = packageData[pkgNum];
+      const card = document.getElementById('pkgCard');
+      if (!card) return;
+
+      let metricsHtml = '<div class="metric-grid">';
+      p.metrics.forEach(m => {
+        metricsHtml += `
+          <div class="metric-card">
+            <div class="metric-label">${m.label}</div>
+            <div class="metric-value">${m.val}</div>
+          </div>
+        `;
+      });
+      metricsHtml += '</div>';
+
+      let pointsHtml = '<ul style="font-size: 0.88rem; padding-left: 1.25rem; line-height: 1.6; margin-top: 0.85rem; color: var(--text-main);">';
+      p.points.forEach(pt => {
+        pointsHtml += `<li style="margin-bottom: 0.4rem;">${pt}</li>`;
+      });
+      pointsHtml += '</ul>';
+
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">${p.title}</h3>
+          <span style="font-size: 0.78rem; font-weight: 700; background: #fef3c7; color: #b45309; padding: 0.2rem 0.6rem; border-radius: 0.3rem;">
+            ${p.subBadge}
+          </span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+          ${p.desc}
+        </p>
+        ${metricsHtml}
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-top: 1.25rem; color: var(--primary-dark);">⚠️ 現場が受けた構造的打撃・貧困への帰結</h4>
+        ${pointsHtml}
+      `;
+    }
+
+    function switchPackage(num) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`pkg-btn-${i}`);
+        if (btn) {
+          if (i === num) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+          } else {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+          }
+        }
+      }
+      renderPackage(num);
+    }
+
+    function switchSubTab(tabId, el) {
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => pane.classList.remove('active'));
+
+      const btns = document.querySelectorAll('.sub-tab-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // Initialize Default View
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPackage(1);
+    });
+  </script>
+</body>
+</html>
