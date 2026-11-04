@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：社会的蓄積構造（SSA理論：Social Structure of Accumulation）――制度が紡ぐ資本主義の長期波動と「新自由主義SSA」の構造的危機</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Condition 1: nav-links contains ONLY portal-link) */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .nav-link.portal-link {
+      background: var(--primary-dark);
+      color: #ffffff;
+      border-color: var(--primary-dark);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-sub {
+      background: rgba(245, 158, 11, 0.3);
+      color: #fef08a;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: #cbd5e1;
+    }
+
+    /* Section & Cards */
+    section {
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.65rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .factor-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.25rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-purple { border-top: 4px solid var(--purple); }
+    .card-amber { border-top: 4px solid var(--accent); }
+    .card-emerald { border-top: 4px solid var(--emerald); }
+    .card-rose { border-top: 4px solid var(--rose); }
+    .card-teal { border-top: 4px solid var(--teal); }
+
+    .factor-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Callout Box */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--emerald);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.92rem;
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      border-left: 4px solid var(--rose);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout-teal {
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-left: 4px solid var(--teal);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Interactive Simulator Box */
+    .sim-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .cycle-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .cycle-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .cycle-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .cycle-btn:hover {
+      border-color: var(--primary-light);
+      background: #f1f5f9;
+    }
+
+    .cycle-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.3);
+    }
+
+    .cycle-btn .cycle-sub {
+      font-size: 0.72rem;
+      display: block;
+      opacity: 0.85;
+      font-weight: normal;
+      margin-top: 0.15rem;
+    }
+
+    .cycle-content-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    .metric-card {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.45rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .metric-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .metric-value {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 0.2rem;
+    }
+
+    /* Sub Tabs (Pillars) */
+    .sub-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .sub-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+
+    .sub-tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .highlight-col {
+      background: #fefce8 !important;
+      font-weight: 600;
+    }
+
+    /* Citations and Reference Links */
+    .cite-tag {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 0.25rem;
+      background: #e0e7ff;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.2rem;
+      border: 1px solid #c7d2fe;
+    }
+
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-num {
+      background: #e2e8f0;
+      color: #475569;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.25rem;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ref-link:hover {
+      color: var(--primary-light);
+    }
+
+    .ref-text {
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: nav-links contains ONLY portal-link) -->
+    <nav class="nav-box" aria-label="ナビゲーション">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：制度的蓄積論・資本主義の歴史的長期波動</span>
+      </div>
+      <h1>社会的蓄積構造（SSA理論：Social Structure of Accumulation）：<br>制度が織りなす長期波動と「新自由主義SSA」の構造的危機</h1>
+      <p class="lead">
+        1970年代末に米国のラディカル政治経済学者たち（D・ゴードン、R・エドワーズ、M・ライシュ、D・コッツら）によって提唱された<strong>「社会的蓄積構造（SSA理論）」</strong>は、「市場の見えざる手」だけでは資本主義は決して安定存立できず、長期的な資本蓄積には労使関係・国家政策・金融システム・国際秩序を包括する<strong>「強固な制度的枠組み（SSA）」</strong>が不可欠であると説く理論的体系です。<a href="#ref-1" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[1]</a><a href="#ref-2" class="cite-tag" style="background: rgba(255,255,255,0.2); color: #fef08a; border-color: rgba(255,255,255,0.35);">[2]</a>
+        戦後の「一億総中流」を支えた制度がいかに崩壊し、新自由主義SSAの「賃金抑制と金融バブル依存」の罠によって現代日本の貧困が構造化されたのかを解明します。
+      </p>
+    </header>
+
+    <!-- Section 1: 基本概念と理論の成り立ち -->
+    <section>
+      <h2>📋 1. SSA理論の核心概念：資本主義はなぜ「数十年の好況と長期の危機」を繰り返すのか</h2>
+      <p>
+        主流派の新古典派経済学は「市場は常に均衡に向かう」と仮定しますが、現実の資本主義の歴史は、約25〜30年の「長期好況（黄金期）」と、それに続く数十年規模の「長期停滞・構造的危機」（コンドラチェフの長期波動）を繰り返してきました。SSA理論は、マルクス経済学の「資本蓄積の矛盾」とケインズ経済学の「不確実性と投資の不安定性」を融合し、この長期変動を「制度」の観点から解明しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-teal">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>社会的蓄積構造（SSA）の定義</span>
+          </div>
+          <div class="factor-desc">
+            企業が長期的な投資を行い利益を再生産するために必要な、**「相互に補完し合う政治的・経済的・社会的制度の複合体」**。労使協調ルール、福祉国家、金融規制、国際基軸通貨体制など、市場の外側にある制度的安定装置の全体を指します。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>⚙️</span>
+            <span>「制度の寿命」と内生的危機</span>
+          </div>
+          <div class="factor-desc">
+            SSAは永遠には機能しません。**経済成長そのものが制度を内側から疲弊・動揺させます**（完全雇用による賃金上昇圧力、国際競争激化、インフレなど）。制度が限界に達すると利潤率が圧迫され、経済は「構造的危機」へと突入します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-teal">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>フランス「レギュラシオン理論」との理論的親和性</span>
+        </div>
+        <p style="font-size: 0.88rem; margin-bottom: 0;">
+          SSA理論は、ほぼ同時期にフランスで誕生したアグリエッタやボワイエの「レギュラシオン理論（Regulation Theory）」と強い共通性を持ちます。両者とも「純粋な自由市場資本主義など存在せず、時代ごとの蓄積体制（Regime of Accumulation）と制度的調節様式（Mode of Regulation）が危機と安定の歴史的段階を形作る」と捉えます。<a href="#ref-1" class="cite-tag">[1]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: インタラクティブ図解① ライフサイクル4段階シミュレーター -->
+    <section>
+      <h2>🕰️ 2. インタラクティブ図解①：SSAのライフサイクル「4段階プロセス」シミュレーター</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        タブを切り替えると、制度の誕生（形成期）から黄金期（拡張期）、内生的矛盾（疲弊期）、そして体制崩壊（構造的危機）に至るSSAの歴史的動態をステップ確認できます。
+      </p>
+
+      <div class="sim-box">
+        <!-- Cycle Tabs -->
+        <div class="cycle-tabs" role="tablist">
+          <button class="cycle-btn" id="cycle-btn-1" onclick="switchCycle(1)" role="tab" aria-selected="false">
+            <span>第1期：制度形成期</span>
+            <span class="cycle-sub">危機の克服と新制度の合意</span>
+          </button>
+          <button class="cycle-btn active" id="cycle-btn-2" onclick="switchCycle(2)" role="tab" aria-selected="true">
+            <span>第2期：安定・拡張期</span>
+            <span class="cycle-sub">高成長と資本蓄積の好循環</span>
+          </button>
+          <button class="cycle-btn" id="cycle-btn-3" onclick="switchCycle(3)" role="tab" aria-selected="false">
+            <span>第3期：矛盾・疲弊期</span>
+            <span class="cycle-sub">利潤率の圧迫と制度のきしみ</span>
+          </button>
+          <button class="cycle-btn" id="cycle-btn-4" onclick="switchCycle(4)" role="tab" aria-selected="false">
+            <span>第4期：構造的危機</span>
+            <span class="cycle-sub">制度破綻と体制再編の闘争</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Content Card -->
+        <div class="cycle-content-card" id="cycleCard">
+          <!-- Rendered by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ分析② 4大ピラーと新自由主義の罠 -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ分析②：SSAを構成する「4大制度ピラー」と新自由主義SSAの病理</h2>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        資本主義を支える4つの制度的支柱（労使関係・国家福祉・金融システム・国際秩序）が、「戦後黄金期」から「新自由主義期」へいかに変貌したかを比較検証します。
+      </p>
+
+      <!-- Sub Tabs -->
+      <div class="sub-tabs">
+        <button class="sub-tab-btn active" onclick="switchSubTab('sub1', this)">🤝 ① 労使関係・労働編成（雇用の二重構造化）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub2', this)">🏛️ ② 国家の役割・福祉レジーム（公助の切捨て）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub3', this)">💹 ③ 金融システム・企業統治（実体経済の金融化）</button>
+        <button class="sub-tab-btn" onclick="switchSubTab('sub4', this)">🌐 ④ 国際秩序・グローバル競争（底辺への競争）</button>
+      </div>
+
+      <!-- Tab 1: 労使関係 -->
+      <div id="sub1" class="tab-pane active">
+        <div class="grid-2">
+          <div class="factor-card card-emerald">
+            <div class="factor-title"><span>🛡️</span><span>戦後SSA（1945〜70年代）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「労使妥協と生産性連動賃金」</p>
+            <p class="factor-desc">強い労働組合のもとで団体交渉が機能。労働生産性の伸びに見合った昇給（生活給・年功賃金）が保障され、労働者は「買い手」として国内消費市場を力強く牽引しました。</p>
+          </div>
+          <div class="factor-card card-rose">
+            <div class="factor-title"><span>⚡</span><span>新自由主義SSA（1980年代〜現在）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「労働の脱規制と非正規化・組合分断」</p>
+            <p class="factor-desc">派遣法の原則自由化（1999年）や成果主義の導入により労働組合が弱体化。人件費を「削るべきコスト」と見なし、労働生産性と賃金のデカップリングが進行しました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: 国家の役割 -->
+      <div id="sub2" class="tab-pane">
+        <div class="grid-2">
+          <div class="factor-card card-emerald">
+            <div class="factor-title"><span>🛡️</span><span>戦後SSA（福祉国家とケインズ政策）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「有効需要創出と分厚い社会保障」</p>
+            <p class="factor-desc">累進課税によって富裕層から富を再分配し、医療・年金・教育を公的に保障。政府が不況期に財政出動を行うことで、総需要不足を防ぎました。</p>
+          </div>
+          <div class="factor-card card-rose">
+            <div class="factor-title"><span>⚡</span><span>新自由主義SSA（小さな政府・緊縮財政）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「公助の削減と自己責任社会」</p>
+            <p class="factor-desc">三公社民営化（土光臨調）や聖域なき構造改革（小泉内閣）により公的支出をカット。社会保障費の自然増削減と消費税増税で、生活リスクが個人へ転嫁されました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: 金融システム -->
+      <div id="sub3" class="tab-pane">
+        <div class="grid-2">
+          <div class="factor-card card-emerald">
+            <div class="factor-title"><span>🛡️</span><span>戦後SSA（規制された金融・間接金融）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「実体経済を支える銀行融資」</p>
+            <p class="factor-desc">金融機関の投機行動は厳格に規制され、資本は工場の機械設備や技術開発といった「実物投資」へと優先的に配分されました。</p>
+          </div>
+          <div class="factor-card card-rose">
+            <div class="factor-title"><span>⚡</span><span>新自由主義SSA（金融化・株主至上主義）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「OTCデリバティブと配当偏重」</p>
+            <p class="factor-desc">金融ビッグバンで投機市場が肥大化。実体経済から遊離した金融取引が資本を吸い上げ、企業は賃金よりも短期的な株主還元・内部留保の蓄積を最優先するようになりました。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: 国際秩序 -->
+      <div id="sub4" class="tab-pane">
+        <div class="grid-2">
+          <div class="factor-card card-emerald">
+            <div class="factor-title"><span>🛡️</span><span>戦後SSA（ブレトン・ウッズ体制）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--emerald);">「固定相場制と資本移動の規制」</p>
+            <p class="factor-desc">ホットマネーの国境を越えた乱高下が防がれ、各国の政策当局は国内の完全雇用と社会保障を最優先する主権的政策を維持できました。</p>
+          </div>
+          <div class="factor-card card-rose">
+            <div class="factor-title"><span>⚡</span><span>新自由主義SSA（グローバル市場と資本移動の完全自由化）</span></div>
+            <p style="font-size: 0.88rem; font-weight: 700; color: var(--rose);">「タックスヘイブンと底辺への競争」</p>
+            <p class="factor-desc">多国籍資本が「税率が低く賃金が安い国」を求めて自由に移動。各国政府は法人税引き下げと労働規制緩和を強いられ、社会的連帯が破壊されました。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-rose" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>デヴィッド・コッツが告発した「新自由主義SSAの致命的矛盾」</span>
+        </div>
+        <p style="font-size: 0.88rem; margin-bottom: 0;">
+          新自由主義SSAは、人件費削減によって企業の利潤率を一時的に回復させましたが、労働者の賃金を抑え込んだため、経済全体で<strong>「生産されたモノを買う購買力（消費）が不足する」という構造的過剰生産</strong>に直面しました。米国はこれを「サブプライムローン等の家計債務膨張と住宅バブル」で無理やり延命させましたが、2008年リーマンショックで破綻しました。日本はバブル崩壊後、内需不足を放置したままデフレ不況へと沈没したのです。<a href="#ref-6" class="cite-tag">[6]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代貧困の解体新書からの視点 -->
+    <section>
+      <h2>⚠️ 4. 本書（『現代貧困の解体新書』）が読み解く「日本型SSAの解体と貧困の罠」</h2>
+      <p>
+        本書第1巻において著者のmb_choが強調するのは、日本における「貧困の拡大」「一億総中流の解体」が、<strong>「戦後日本型SSA（企業福祉と家族モデル）を意図的に壊しながら、それに代わる公的SSA（セーフティネット）を意図的に構築しなかったこと」</strong>に起因するという制度的因果です。
+      </p>
+
+      <!-- 構造比較マトリクス表 -->
+      <h3 style="margin-top: 1.5rem;">📊 日本における「戦後型SSA」と「新自由主義型SSA」の比較</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">制度ピラー</th>
+              <th style="width: 27%;">戦後日本型SSA（〜1980年代）</th>
+              <th style="width: 27%;">新自由主義型SSA（1990年代〜現在）</th>
+              <th style="width: 28%;">家計と貧困への帰結</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>雇用・労働</strong></td>
+              <td>終身雇用、年功賃金、新卒一括採用、春闘による賃上げ波及</td>
+              <td>非正規化（派遣原則自由化）、成果主義、総額人件費抑制</td>
+              <td>労働分配率の低下、就職氷河期世代のキャリア断絶、ワーキングプアの急増。</td>
+            </tr>
+            <tr class="highlight-col">
+              <td><strong>社会福祉</strong></td>
+              <td>「企業福祉」（住宅・家族手当、退職金）＋「家族福祉」（専業主婦の無償ケア）</td>
+              <td>企業の福祉負担逃れ、社会保障費自然増削減（毎年2200億減）、消費税増税</td>
+              <td><strong>「制度的真空」の発生。</strong>企業も家族も公助も支えてくれない無防備な単身困窮層が激増。</td>
+            </tr>
+            <tr>
+              <td><strong>地域再分配</strong></td>
+              <td>地方交付税、公共事業による全国津々浦々への所得循環</td>
+              <td>三位一体改革、地方交付税の純減（5兆円超）、公共事業約40%削減</td>
+              <td>地方経済の空洞化、若者の東京流出、限界集落と地域コミュニティ崩壊。</td>
+            </tr>
+            <tr>
+              <td><strong>金融・企業</strong></td>
+              <td>メインバンク制、株式持合い、長期視点の実物投資重視</td>
+              <td>株主至上主義、金融所得一律20%優遇、企業の内部留保（500兆円）蓄積</td>
+              <td>富の偏重配分。実体経済から資本が吸い上げられ、労働者の実質賃金が長期低迷。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-teal" style="margin-top: 1.5rem;">
+        <div class="callout-title">
+          <span>📌</span>
+          <span>SSA理論が教える処方箋：新しい「調整されたSSA」の構築へ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
+          新自由主義SSAが構造的破綻を迎えた今日、私たちに必要なのは「個人の自己責任」で競争することではありません。崩壊した新自由主義の瓦礫の上に、**「労働とケアを尊重し、公的社会保障と社会的共通資本を再建する、新しい『調整されたSSA』を社会的に設計すること」**です。これが本書第3巻で提示する、連帯と包摂に向けたグランドデザインの理論的支柱となります。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: References (Strict Condition 2: Verified links, plain text for offline citations) -->
+    <section>
+      <h2>📚 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している政治経済学学術論文、公的リポジトリ、専門文献の一覧です。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://www.jstage.jst.go.jp/article/peq/60/4/60_020/_pdf/-char/en" target="_blank" rel="noopener noreferrer" class="ref-link">平野健「バイデノミクスとアメリカ資本主義の現局面：SSA理論による分析」政治経済学・経済史学会『歴史と経済』60巻4号（2018年、J-STAGE PDF）</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://economics.ucr.edu/wp-content/uploads/2019/11/VictorLippit10-20-06.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">Victor Lippit, "Social Structure of Accumulation Theory," Department of Economics, University of California, Riverside (UCR Working Paper, PDF)</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://kotobank.jp/word/%E8%B3%87%E6%9C%AC%E8%93%84%E7%A9%8D-75078" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「資本蓄積（日本大百科全書・世界大百科事典：制度的蓄積理論の解説）」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://dl.ndl.go.jp/view/prepareDownload?itemId=info:ndljp/pid/13859534" target="_blank" rel="noopener noreferrer" class="ref-link">国立国会図書館デジタルコレクション「現代資本主義と社会的蓄積構造（SSA）の理論的展開」（学術リポジトリ資料）</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <span class="ref-text">鍋島直樹「社会的蓄積構造（SSA）アプローチの展開と理論的射程」名古屋大学大学院経済学研究科研究年報［学術論文］</span>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <span class="ref-text">David M. Kotz, <em>The Rise and Fall of Neoliberal Capitalism</em>, Harvard University Press, 2015.（デヴィッド・コッツ『新自由主義資本主義の興亡：社会的蓄積構造論による解明』）［学術公刊書］</span>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <span class="ref-text">Gordon, D. M., Edwards, R., & Reich, M., <em>Segmented Work, Divided Workers: The Historical Transformation of Labor in the United States</em>, Cambridge University Press, 1982.［SSA理論の古典的原典］</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator & Sub Tabs -->
+  <script>
+    const cycleData = {
+      1: {
+        title: "第1期：制度形成期（Crisis Resolution & Institutional Consolidation）",
+        subBadge: "危機の克服・新ルールの合意",
+        desc: "前の時代の深刻な危機（恐慌や戦争、スタグフレーション）を契機に、支配層と被支配層、企業と労働者、国家間の妥協や政治闘争を通じて、新しい制度の組み合わせ（SSA）が合意・形成される時期です。",
+        metrics: [
+          { label: "経済の不確実性", val: "高 ➔ 徐々に沈静化" },
+          { label: "企業の投資意欲", val: "慎重から積極化へ転換" },
+          { label: "制度の整合性", val: "新規構築中（模索期）" },
+          { label: "歴史的実例", val: "1930〜40年代ニューディール・戦後改革" }
+        ],
+        points: [
+          "<strong>制度的妥協：</strong> 激しい階級対立を収めるため、国家が介入して最低限の福祉や労働法制を整備。",
+          "<strong>期待の安定化：</strong> 通貨・金融の秩序が回復し、企業家が10年〜20年の長期投資を行える環境が整う。"
+        ]
+      },
+      2: {
+        title: "第2期：安定・拡張期（Boom & Golden Age）",
+        subBadge: "高成長・好循環の謳歌",
+        desc: "確立されたSSAの諸制度（労使協調、福祉国家、金融安定）が完全に噛み合い、利潤率の上昇と実質賃金の向上が同時進行する『資本主義の黄金期』です。企業は安心して設備投資を行い、高成長と低失業率が持続します。",
+        metrics: [
+          { label: "経済成長率", val: "歴史的高水準（年4〜8%）" },
+          { label: "労働分配率", val: "安定（生産性と賃金が連動）" },
+          { label: "利潤率動向", val: "高水準で安定推移" },
+          { label: "歴史的実例", val: "1950〜60年代の戦後黄金期（一億総中流）" }
+        ],
+        points: [
+          "<strong>成長の果実の分配：</strong> 労働者は賃金上昇によって購買力を高め、企業が大量生産した製品を大量消費する好循環。",
+          "<strong>社会の安定：</strong> 中間層が分厚くなり、格差は歴史的最低水準まで縮小。"
+        ]
+      },
+      3: {
+        title: "第3期：矛盾・疲弊期（Decay & Profit Squeeze）",
+        subBadge: "内生的矛盾・利潤率の圧迫",
+        desc: "経済成長そのものが、SSAの基盤を内側から崩し始めます。完全雇用の継続による労働者の交渉力強化（賃金コスト高騰）、資源価格の高騰、多国籍企業の台頭による国内規制の形骸化など、制度と実体経済のズレが顕在化します。",
+        metrics: [
+          { label: "利潤率動向", val: "低下傾向（プロフィット・スクイーズ）" },
+          { label: "インフレ圧力", val: "高進（賃金・物価スパイラル）" },
+          { label: "労使関係", val: "ストライキ急増・対立再燃" },
+          { label: "歴史的実例", val: "1960年代末〜70年代のスタグフレーション" }
+        ],
+        points: [
+          "<strong>制度の制度疲労：</strong> かつて成長を支えたケインズ政策や労使妥協が、企業側からは『高コストの足かせ』に見え始める。",
+          "<strong>資本の反逆：</strong> 財界や保守政治勢力が、規制撤廃や福祉削減を声高に要求し始める。"
+        ]
+      },
+      4: {
+        title: "第4期：構造的危機（Structural Crisis & Restructuring）",
+        subBadge: "制度破綻・体制崩壊と激変",
+        desc: "既存のSSAが完全に機能不全に陥り、通常の景気刺激策では回復できない長期停滞（構造的危機）に突入します。古い制度を解体し、次の覇権的SSAを誰の主導で構築するかをめぐる激しい政治的・社会的闘争が展開されます。",
+        metrics: [
+          { label: "経済状態", val: "長期低迷・金融バブルと崩壊" },
+          { label: "社会的不安定", val: "格差爆発・ポピュリズム台頭" },
+          { label: "制度の帰結", val: "旧制度の崩壊・新自由主義化" },
+          { label: "歴史的実例", val: "1980年代サッチャー/レーガン革命、2008年リーマン危機" }
+        ],
+        points: [
+          "<strong>新自由主義による強硬再編：</strong> 1980年代以降、労働組合を叩き潰し、福祉を削り、金融を肥大化させる『新自由主義SSA』が成立。",
+          "<strong>現代の危機：</strong> その新自由主義SSAも2008年リーマンショックで構造的破綻に達し、現代は第4期の真っただ中にある。"
+        ]
+      }
+    };
+
+    function renderCycle(cycleNum) {
+      const c = cycleData[cycleNum];
+      const card = document.getElementById('cycleCard');
+      if (!card) return;
+
+      let metricsHtml = '<div class="metric-grid">';
+      c.metrics.forEach(m => {
+        metricsHtml += `
+          <div class="metric-card">
+            <div class="metric-label">${m.label}</div>
+            <div class="metric-value">${m.val}</div>
+          </div>
+        `;
+      });
+      metricsHtml += '</div>';
+
+      let pointsHtml = '<ul style="font-size: 0.88rem; padding-left: 1.25rem; line-height: 1.6; margin-top: 0.85rem; color: var(--text-main);">';
+      c.points.forEach(pt => {
+        pointsHtml += `<li style="margin-bottom: 0.4rem;">${pt}</li>`;
+      });
+      pointsHtml += '</ul>';
+
+      card.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <h3 style="margin: 0; color: var(--primary-dark); font-size: 1.2rem;">${c.title}</h3>
+          <span style="font-size: 0.78rem; font-weight: 700; background: #ccfbf1; color: #0f766e; padding: 0.2rem 0.6rem; border-radius: 0.3rem;">
+            ${c.subBadge}
+          </span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem;">
+          ${c.desc}
+        </p>
+        ${metricsHtml}
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-top: 1.25rem; color: var(--primary-dark);">📌 この段階の構造的特徴と歴史的力学</h4>
+        ${pointsHtml}
+      `;
+    }
+
+    function switchCycle(num) {
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`cycle-btn-${i}`);
+        if (btn) {
+          if (i === num) {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+          } else {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+          }
+        }
+      }
+      renderCycle(num);
+    }
+
+    function switchSubTab(tabId, el) {
+      const panes = document.querySelectorAll('.tab-pane');
+      panes.forEach(pane => pane.classList.remove('active'));
+
+      const btns = document.querySelectorAll('.sub-tab-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+
+      const activePane = document.getElementById(tabId);
+      if (activePane) activePane.classList.add('active');
+      if (el) el.classList.add('active');
+    }
+
+    // Initialize Default View
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCycle(2);
+    });
+  </script>
+</body>
+</html>
