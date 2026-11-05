@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：シーボーム・ラウントリーの貧困調査（1899年ヨーク調査）――「第一次貧困」「第二次貧困」の科学的画定と貧困線の誕生</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #854d0e 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.22);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 191, 36, 0.22);
+      color: #fef08a;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.88rem;
+      line-height: 1.38;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.03rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #fde047 !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #93c5fd !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(147, 197, 253, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.2rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fde047;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.38rem;
+      margin: 0 0.18rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+      border-color: #fde68a;
+      border-left-width: 4px;
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+      border-color: #fecdd3;
+      border-left-width: 4px;
+    }
+
+    .callout-emerald {
+      border-left-color: var(--emerald);
+      background-color: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-width: 4px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .callout-amber .callout-title { color: var(--accent-dark); }
+    .callout-rose .callout-title { color: var(--crimson); }
+    .callout-emerald .callout-title { color: #065f46; }
+
+    /* Compare Grid */
+    .compare-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .compare-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .compare-box.primary-poverty {
+      border-top: 4px solid var(--crimson);
+      background: linear-gradient(180deg, #fff1f2 0%, #ffffff 35%);
+    }
+
+    .compare-box.secondary-poverty {
+      border-top: 4px solid var(--accent);
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 35%);
+    }
+
+    .compare-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Life Cycle Flow */
+    .lifecycle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.85rem;
+      margin: 1.5rem 0;
+    }
+
+    .lifecycle-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      text-align: center;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .lifecycle-card.trough {
+      border-top: 4px solid var(--crimson);
+      background: #fff1f2;
+    }
+
+    .lifecycle-card.peak {
+      border-top: 4px solid var(--emerald);
+      background: #ecfdf5;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      margin-bottom: 0.4rem;
+    }
+
+    .phase-badge.danger { background: #fecdd3; color: var(--crimson); }
+    .phase-badge.safe { background: #a7f3d0; color: #065f46; }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 1.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr.highlight-row {
+      background-color: #fef3c7;
+      font-weight: 600;
+    }
+
+    /* Factor Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .factor-card.card-amber { border-top-color: var(--accent); }
+    .factor-card.card-emerald { border-top-color: var(--emerald); }
+    .factor-card.card-rose { border-top-color: var(--rose); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .factor-meta {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.35rem;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      align-self: flex-start;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: linear-gradient(180deg, #f8fafc 0%, #fffbeb 100%);
+      border: 2px solid #fde68a;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      margin: 1.5rem 0;
+    }
+
+    .sim-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #fde68a;
+      padding-bottom: 0.85rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #d97706;
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-group {
+      background: #ffffff;
+      border: 1px solid #fde68a;
+      border-radius: 0.75rem;
+      padding: 1rem 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .value-badge {
+      background: #fffbeb;
+      color: var(--accent-dark);
+      border: 1px solid #fde68a;
+      padding: 0.15rem 0.55rem;
+      border-radius: 0.35rem;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .result-sub {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 5px solid var(--accent);
+      border-radius: 0.5rem;
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .banner-desc {
+      font-size: 0.86rem;
+      color: #334155;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .ref-item {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      padding: 0.65rem 0.9rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .ref-text {
+      color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .compare-container, .grid-3, .sim-controls, .lifecycle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第2章：貧困測定の起源と理論的源流</span>
+      </div>
+      <h1>シーボーム・ラウントリーの貧困調査（1899年ヨーク調査）とは何か：<br>「第一次貧困」「第二次貧困」の科学的画定と絶対的貧困線の誕生</h1>
+      <p class="lead">
+        イギリスの実業家・社会調査家<strong>ベンジャミン・シーボーム・ラウントリー（Benjamin Seebohm Rowntree, 1871–1954）</strong>が1899年に実施し、1901年に公刊した歴史的著作<strong>『貧困――都市生活の研究（Poverty: A Study of Town Life）』</strong>は、近代社会政策と貧困研究の歴史を塗り替えた記念碑的調査です。<a href="#ref-2" class="cite-tag-header">[2]</a><a href="#ref-3" class="cite-tag-header">[3]</a><br>
+        ラウントリーは、当時の栄養学（カロリー・タンパク質基準）と生活必需支出を積み上げるマーケット・バスケット方式を用い、人間が肉体的能率を維持するための最低生計費として世界で初めて科学的な<span class="highlight-term">「貧困線（Poverty Line）」</span>を引きました。<a href="#ref-4" class="cite-tag-header">[4]</a><br>
+        調査の結果、ヨーク市全人口の約28%が貧困状態にあり、そのうち約10%は真面目にフルタイムで働いても収入そのものが生存ラインに満たない<strong>「第一次貧困」</strong>にあることを実証。「貧困は個人の怠惰や放蕩が原因である」という当時の自己責任論を根底から打ち砕き、20世紀のイギリス福祉国家（ナショナル・ミニマム）および現代の生活保護基準の礎を築きました。<a href="#ref-5" class="cite-tag-header">[5]</a><a href="#ref-6" class="cite-tag-header">[6]</a>
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🔬</span>
+            <span>1. 科学的「貧困線」の創出</span>
+          </div>
+          <p class="h-item-desc">
+            栄養生理学（アトウォーター基準等）に基づき、成人・子どもの最低必要食費と家賃・衣類・燃料費を積算。絶対的貧困の客観的基準を創出しました。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>⚖️</span>
+            <span>2. 第一次貧困と第二次貧困の峻別</span>
+          </div>
+          <p class="h-item-desc">
+            総収入自体が生存ラインに満たない<strong>「第一次貧困（約10%）」</strong>と、娯楽や非効率支出で食い込む<strong>「第二次貧困（約18%）」</strong>を明確に区分しました。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🔄</span>
+            <span>3. 生涯にわたる「貧困のライフサイクル」</span>
+          </div>
+          <p class="h-item-desc">
+            労働者の人生において「幼少期」「子育て期」「老齢期」という3つの時期に構造的に貧困の谷底（Trough）へ落ち込む動態的メカニズムを解明しました。
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 調査の概要と時代背景 -->
+    <section>
+      <h2>🏛️ 1. ヨーク市全数調査の概要と時代的背景</h2>
+      <p>
+        ラウントリーの調査以前、イギリス社会では「大英帝国はヴィクトリア朝の繁栄の頂点にあり、貧困になるのは本人の怠惰、酒癖、あるいは自制心の欠如による自業自得（自己責任）である」という道徳主義的・懲戒的な慈善観（1834年新救貧法の「劣等処遇の原則」）が支配的でした。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+      <p>
+        この通念に挑んだのが、チョコレート製造企業（ラウントリー社）の経営者であり敬虔なクエーカー教徒であったシーボーム・ラウントリーでした。彼は、富豪チャールズ・ブースがロンドンで実施した先駆的調査（『ロンドン市民の生活と労働』）に刺激を受け、「首都ロンドンの過密ゆえの特殊現象ではなく、イギリスの典型的な地方中道都市でも同様の貧困が存在するのではないか」という仮説を立て、自らの工場がある<strong>ヨーク市（人口約7万5,000人）</strong>で徹底的な実態調査を敢行しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>調査項目</th>
+              <th>1899年 ヨーク市第1回調査のデータ</th>
+              <th>調査の意義・特徴</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>調査対象</strong></td>
+              <td>ヨーク市内の<strong>全労働者階級世帯：11,560世帯（46,754人）</strong></td>
+              <td>標本（サンプル）抽出ではなく、対象地域の全戸を調査員が一軒ずつ訪問して聴き取った前代未聞の全数調査。</td>
+            </tr>
+            <tr>
+              <td><strong>調査地</strong></td>
+              <td>イギリス・ヨーク市（中規模の地方製造業・鉄道都市）</td>
+              <td>巨大首都ロンドンだけでなく、地方都市でも構造的貧困が蔓延している事実を立証。</td>
+            </tr>
+            <tr>
+              <td><strong>第一次貧困率</strong></td>
+              <td>ヨーク市全人口の <strong>9.91%（約10%）</strong>／労働者階級の 15.46%</td>
+              <td>最低限の食料・家賃・衣服すら賄えない生存ライン未満の人口。</td>
+            </tr>
+            <tr>
+              <td><strong>第二次貧困率</strong></td>
+              <td>ヨーク市全人口の <strong>17.93%（約18%）</strong>／労働者階級の 27.94%</td>
+              <td>理論上は足りる収入があるが、飲酒や雑費、病気等で生活必需費を欠く人口。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>総貧困率</strong></td>
+              <td>ヨーク市全人口の <strong>27.84%（約28%）</strong>／労働者階級の 43.4%</td>
+              <td><strong>都市住民のおよそ4人に1人以上が貧困状態</strong>にある衝撃の実態を解明。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-6" class="cite-tag">[6]</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: 第一次貧困と第二次貧困の定義 -->
+    <section>
+      <h2>⚖️ 2. 「第一次貧困」と「第二次貧困」の科学的定義</h2>
+      <p>
+        ラウントリーの最大の理論的功績は、それまで「貧民」としてひとくくりにされ怠惰のレッテルを貼られていた困窮層を、所得と生活費の厳密な照合によって<strong>「第一次貧困」</strong>と<strong>「第二次貧困」</strong>の2つに峻別した点にあります。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="compare-container">
+        <!-- 第一次貧困 -->
+        <div class="compare-box primary-poverty">
+          <div class="compare-box-title" style="color: var(--crimson);">
+            <span>🚨</span>
+            <span>① 第一次貧困（Primary Poverty）</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.75rem;">
+            <strong>世帯の総収入そのものが、単に肉体的能率（Physical Efficiency）を維持するために必要な最低生活費（貧困線）にすら届いていない状態。</strong><a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+          <ul style="font-size: 0.84rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>生活実態</strong>：1ペニーの無駄遣い（新聞購入、タバコ、ビール、路面電車利用、教会への献金）も一切せず、すべての収入を最も安いカロリー食料と最低限の家賃・衣服に投じてもなお、生命維持に必要な栄養を満たせない極限の欠乏。</li>
+            <li><strong>原因</strong>：家長の低賃金、多子、家長の死亡・傷病・失業など、<strong>個人の努力ではどうにもならない市場・構造的原因</strong>。</li>
+            <li><strong>規模</strong>：ヨーク市全人口の約10%（7,230人）。</li>
+          </ul>
+        </div>
+
+        <!-- 第二次貧困 -->
+        <div class="compare-box secondary-poverty">
+          <div class="compare-box-title" style="color: var(--accent-dark);">
+            <span>🍺</span>
+            <span>② 第二次貧困（Secondary Poverty）</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.75rem;">
+            <strong>世帯の総収入自体は肉体的能率を維持できる水準にあるが、支出の一部が生活必需品以外の用途（飲酒・賭博・非効率な家計管理など）に費やされた結果、生活必需品が不足している状態。</strong><a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+          </p>
+          <ul style="font-size: 0.84rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>生活実態</strong>：理論上は最低限の栄養を賄える所得があるものの、過酷な肉体労働のストレスからパブでの飲酒に支出したり、急な冠婚葬祭や不意の出費によって食費や衣服費が削られ、肉体的欠乏に陥っている。</li>
+            <li><strong>原因</strong>：過酷な労働環境、娯楽の欠如、教育不足、生活習慣など。</li>
+            <li><strong>規模</strong>：ヨーク市全人口の約18%（13,072人）。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>ラウントリーが算出した「最低生活費（貧困線）」の冷徹な厳密さ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          ラウントリーは、アメリカの栄養学者アトウォーターらの研究に基づき、男性労働者に1日3,500kcal、女性に2,800kcalが必要であると算定。当時の救貧院で提供されていた最も味気なく安価な食事基準（パン、オートミール、ジャガイモ、スキムミルク、わずかなベーコン）を採用し、夫婦と子ども3人の5人家族の最低生活費を「週21シリング8ペンス」と算出しました。ラウントリーは「この貧困線基準には、一切の嗜好品、娯楽、薬代、貯蓄、身だしなみの費用は含まれておらず、人間が純粋に労働マシンとして壊れないためのギリギリの境界線である」と強調しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-4" class="cite-tag">[4]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: 貧困のライフサイクル -->
+    <section>
+      <h2>🔄 3. ラウントリーの「貧困のライフサイクル（Poverty Cycle）」</h2>
+      <p>
+        ラウントリーのもう一つの画期的な発見は、労働者の貧困が固定的なものではなく、<strong>人生の特定のステージにおいて定期的に訪れる「動態的（ダイナミック）な現象」</strong>であると解明した点です。彼は労働者の生涯を追跡し、以下の「3つの谷底（貧困期）」と「2つの山（比較的ゆとりある時期）」が交互に現れることをグラフ化しました。<a href="#ref-2" class="cite-tag">[2]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <!-- ライフサイクル5段階 -->
+      <div class="lifecycle-grid">
+        <div class="lifecycle-card trough">
+          <span class="phase-badge danger">第1の谷底（困窮）</span>
+          <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--crimson);">① 幼少期</div>
+          <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0;">親が多数の幼い兄弟を養っているため、家庭全体が貧困線以下に沈む。</p>
+        </div>
+
+        <div class="lifecycle-card peak">
+          <span class="phase-badge safe">第1の山（好転）</span>
+          <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; color: #065f46;">② 独身青年期</div>
+          <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0;">自身が就労し始め、養うべき家族がまだいないため貧困線を上回る。</p>
+        </div>
+
+        <div class="lifecycle-card trough">
+          <span class="phase-badge danger">第2の谷底（困窮）</span>
+          <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--crimson);">③ 子育て期</div>
+          <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0;">結婚して子どもが生まれ、子どもたちが働きに出るまで再び貧困へ転落。</p>
+        </div>
+
+        <div class="lifecycle-card peak">
+          <span class="phase-badge safe">第2の山（好転）</span>
+          <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; color: #065f46;">④ 子離れ期</div>
+          <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0;">成長した子どもたちが働き始め、家計に入れるため一時的に生活が好転。</p>
+        </div>
+
+        <div class="lifecycle-card trough">
+          <span class="phase-badge danger">第3の谷底（困窮）</span>
+          <div style="font-weight: 800; font-size: 0.95rem; margin-bottom: 0.35rem; color: var(--crimson);">⑤ 老齢期</div>
+          <p style="font-size: 0.78rem; color: #475569; line-height: 1.5; margin-bottom: 0;">体力が衰えて稼働能力を失い、公的年金がないため最終的な極貧へ沈む。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>⚠️</span>
+          <span>ライフサイクル理論が現代の社会保障（児童手当・公的年金）を生んだ</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          ラウントリーのこの発見は、貧困が「個人の怠惰」ではなく「ライフステージに伴う扶養負担と稼働能力の不均衡」によって必然的に生じることを証明しました。この洞察はのちに、子どもがいる世帯への<strong>「児童手当（家族手当）」</strong>や、働けなくなった高齢者への<strong>「公的年金制度」</strong>という、人生の谷底を公的に下支えする福祉国家の社会保障体系へと直結していったのです。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-6" class="cite-tag">[6]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 4. インタラクティブ図解：ラウントリー・モデル「第一次・第二次貧困判定シミュレーター」</h2>
+      <p>
+        世帯の週給（実収入）、家族人数、住居費、および嗜好品・交際費（パブ等）のスライダーを動かすことで、ラウントリーのマーケット・バスケット方式に基づく最低生活費（貧困線）を自動算出し、「第一次貧困」「第二次貧困」「貧困線以上」をリアルタイムでシミュレーション判定します。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>ラウントリー方式：最低生活費（貧困線）＆ 貧困類型診断シミュレーター</span>
+          </div>
+          <div class="sim-desc">
+            ヴィクトリア朝後期の基準（シリング・ペンス換算／現代的購買力比率）をモデル化しています。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">典型ケース：</span>
+          <button class="preset-btn active" onclick="applyRowntreePreset('primary', this)">🚨 第一次貧困（低賃金・多子世帯）</button>
+          <button class="preset-btn" onclick="applyRowntreePreset('secondary', this)">🍺 第二次貧困（収入はあるが必需費不足）</button>
+          <button class="preset-btn" onclick="applyRowntreePreset('above', this)">🍞 貧困線以上（熟練工・共働き）</button>
+        </div>
+
+        <div class="sim-controls">
+          <!-- ① 世帯週給 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>① 世帯の週収入（週給）</span>
+              <span id="label-wage" class="value-badge">18.0 s</span>
+            </div>
+            <input type="range" id="slider-wage" min="10" max="40" step="0.5" value="18" oninput="calcRowntree()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>10s（不熟練・過酷）</span>
+              <span>25s（一般労働者）</span>
+              <span>40s（熟練工）</span>
+            </div>
+          </div>
+
+          <!-- ② 家族人数 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>② 家族人数（子ども数）</span>
+              <span id="label-family" class="value-badge">夫婦＋子3人（5人）</span>
+            </div>
+            <input type="range" id="slider-family" min="1" max="7" step="1" value="5" oninput="calcRowntree()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>1人（単身）</span>
+              <span>3人（子1人）</span>
+              <span>5人（標準）</span>
+              <span>7人（子5人）</span>
+            </div>
+          </div>
+
+          <!-- ③ 家賃・燃料費 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>③ 家賃・燃料・被服費（必須固定費）</span>
+              <span id="label-fixed" class="value-badge">6.0 s</span>
+            </div>
+            <input type="range" id="slider-fixed" min="3" max="12" step="0.5" value="6" oninput="calcRowntree()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>3s（粗悪長屋）</span>
+              <span>6s（標準）</span>
+              <span>12s（過密都市部）</span>
+            </div>
+          </div>
+
+          <!-- ④ 嗜好品・交際費 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>④ 嗜好品・飲酒・不意の雑費</span>
+              <span id="label-extra" class="value-badge">1.0 s</span>
+            </div>
+            <input type="range" id="slider-extra" min="0" max="8" step="0.5" value="1" oninput="calcRowntree()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>0s（禁欲的ゼロ）</span>
+              <span>3s（パブ飲酒等）</span>
+              <span>8s（浪費・多額借金）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">ラウントリー貧困線（最低生活費）</div>
+            <div id="res-line" class="result-value" style="color: var(--primary);">21.8 s</div>
+            <div id="res-line-sub" class="result-sub">最低食費 15.8s ＋ 固定費 6.0s</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">総収入 vs 貧困線</div>
+            <div id="res-gap" class="result-value" style="color: var(--crimson);">-3.8 s</div>
+            <div id="res-gap-sub" class="result-sub">生存基準に対する過不足</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">必需生活費に使える実質残金</div>
+            <div id="res-actual" class="result-value" style="color: var(--crimson);">17.0 s</div>
+            <div id="res-actual-sub" class="result-sub">週給 18.0s − 雑費 1.0s</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">ラウントリー判定</div>
+            <div id="res-status" class="result-value" style="font-size: 1.15rem; color: var(--crimson);">🚨 第一次貧困</div>
+            <div id="res-status-sub" class="result-sub">構造的生存不能状態</div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🚨</span>
+            <span>判定：第一次貧困（Primary Poverty）</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            世帯の総収入（週18.0シリング）が、肉体的能率を維持するための最低生活費（週21.8シリング）に届いていません。たとえ1ペニーも無駄遣いせず完全に禁欲的な生活を送ったとしても、十分なカロリーや住居を確保できない状態です。低賃金や家族数の多さという構造的要因が原因です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献・公的資料リンク -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している社会学・社会福祉学の古典文献、公式学術アーカイブ、公的解説の一覧です（実在確認済みリンクのみ掲載）。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">B. Seebohm Rowntree, <em>Poverty: A Study of Town Life</em>, Macmillan and Co., 1901.（B・シーボーム・ラウントリー『貧困――都市生活の研究』［ヨーク調査の原典］）</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%A0%E3%83%BB%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「シーボーム・ラウントリー（ヨーク調査の経緯と貧困線の設定）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://kotobank.jp/word/%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC-148117" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「ラウントリー（日本大百科全書／ブリタニカ国際大百科事典）」</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://socialconnection-wellbeing.com/inquiry-booth-rowntree/" target="_blank" rel="noopener noreferrer" class="ref-link">社会福祉学解説「ブースとラウントリーの貧困調査：科学的貧困観への転換」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.jrf.org.uk/" target="_blank" rel="noopener noreferrer" class="ref-link">Joseph Rowntree Foundation (JRF) 公式サイト［ラウントリーの意志を継ぐ英国貧困研究財団］</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://gentosha-go.com/articles/-/47301?page=2" target="_blank" rel="noopener noreferrer" class="ref-link">幻冬舎GOLD ONLINE「社会調査の歴史：ラウントリーのヨーク調査と貧困線の発見」</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://maji-riki-shakaihukushi.com/anohito001" target="_blank" rel="noopener noreferrer" class="ref-link">社会福祉士国家試験対策「あの人物：シーボーム・ラウントリーの功績と第一次・第二次貧困」</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://www.weblio.jp/content/%E3%82%B7%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%A0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC" target="_blank" rel="noopener noreferrer" class="ref-link">Weblio辞書「シーボーム・ラウントリー」</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcRowntree() {
+      const wage = parseFloat(document.getElementById('slider-wage').value); // 週給（シリング: s）
+      const familySize = parseInt(document.getElementById('slider-family').value, 10); // 家族人数
+      const fixedCost = parseFloat(document.getElementById('slider-fixed').value); // 家賃・燃料・被服
+      const extraCost = parseFloat(document.getElementById('slider-extra').value); // 嗜好品・雑費
+
+      // ラウントリーの最低食費モデル：大人2人基準で約8s、子ども1人増えるごとに約2.6s追加
+      let foodCost = 0;
+      if (familySize === 1) {
+        foodCost = 4.5;
+      } else if (familySize === 2) {
+        foodCost = 8.0;
+      } else {
+        foodCost = 8.0 + (familySize - 2) * 2.6;
+      }
+
+      const povertyLine = foodCost + fixedCost; // 最低生活費（貧困線）
+      const primaryGap = wage - povertyLine; // 週給と貧困線の差額
+      const actualRemaining = wage - extraCost; // 雑費を引いた後の実質支出可能額
+      const secondaryGap = actualRemaining - povertyLine; // 必需費に対する過不足
+
+      // ラベル更新
+      document.getElementById('label-wage').innerText = wage.toFixed(1) + ' s';
+      let familyLabel = '';
+      if (familySize === 1) familyLabel = '単身（1人）';
+      else if (familySize === 2) familyLabel = '夫婦のみ（2人）';
+      else familyLabel = '夫婦＋子' + (familySize - 2) + '人（' + familySize + '人）';
+      document.getElementById('label-family').innerText = familyLabel;
+      document.getElementById('label-fixed').innerText = fixedCost.toFixed(1) + ' s';
+      document.getElementById('label-extra').innerText = extraCost.toFixed(1) + ' s';
+
+      // 結果更新
+      document.getElementById('res-line').innerText = povertyLine.toFixed(1) + ' s';
+      document.getElementById('res-line-sub').innerText = '最低食費 ' + foodCost.toFixed(1) + 's ＋ 固定費 ' + fixedCost.toFixed(1) + 's';
+
+      const gapElem = document.getElementById('res-gap');
+      gapElem.innerText = (primaryGap >= 0 ? '+' : '') + primaryGap.toFixed(1) + ' s';
+      gapElem.style.color = primaryGap < 0 ? 'var(--crimson)' : 'var(--emerald)';
+
+      const actualElem = document.getElementById('res-actual');
+      actualElem.innerText = actualRemaining.toFixed(1) + ' s';
+      actualElem.style.color = actualRemaining < povertyLine ? 'var(--crimson)' : 'var(--emerald)';
+      document.getElementById('res-actual-sub').innerText = '週給 ' + wage.toFixed(1) + 's − 雑費 ' + extraCost.toFixed(1) + 's';
+
+      // ステータス・バナー判定
+      const statusElem = document.getElementById('res-status');
+      const statusSub = document.getElementById('res-status-sub');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (wage < povertyLine) {
+        // 第一次貧困
+        statusElem.innerText = '🚨 第一次貧困';
+        statusElem.style.color = 'var(--crimson)';
+        statusSub.innerText = '総収入自体が生存ライン未満';
+
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：第一次貧困（Primary Poverty）';
+        bannerDesc.innerText = `世帯の総収入（週 ${wage.toFixed(1)}シリング）が、肉体的能率を維持するための最低生活費（週 ${povertyLine.toFixed(1)}シリング）に届いていません（差額: ${primaryGap.toFixed(1)}s）。たとえ1ペニーも無駄遣いせず完全に禁欲的な生活を送ったとしても、生命維持に必要な栄養を満たせない極限状態です。低賃金や家族数の多さなど、個人の努力を超えた構造的原因による貧困です。`;
+      } else if (actualRemaining < povertyLine) {
+        // 第二次貧困
+        statusElem.innerText = '🍺 第二次貧困';
+        statusElem.style.color = 'var(--accent-dark)';
+        statusSub.innerText = '収入はあるが必需費が欠乏';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🍺 判定：第二次貧困（Secondary Poverty）';
+        bannerDesc.innerText = `世帯の総収入（週 ${wage.toFixed(1)}シリング）は最低生活費（週 ${povertyLine.toFixed(1)}シリング）を上回っていますが、嗜好品・飲酒・雑費等（週 ${extraCost.toFixed(1)}シリング）を差し引いた結果、生活必需品に回る実質残金が ${actualRemaining.toFixed(1)}シリングとなり貧困線を下回っています。過酷な労働による飲酒や家計のゆとりのなさが必需費を圧迫している状態です。`;
+      } else {
+        // 貧困線以上
+        statusElem.innerText = '🛡️ 貧困線以上';
+        statusElem.style.color = 'var(--emerald)';
+        statusSub.innerText = '最低生活基準を充足';
+
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🛡️ 判定：貧困線以上（生活充足）';
+        bannerDesc.innerText = `世帯の総収入（週 ${wage.toFixed(1)}シリング）および雑費控除後の残金（週 ${actualRemaining.toFixed(1)}シリング）の双方が最低生活費（週 ${povertyLine.toFixed(1)}シリング）をクリアしています（余力: +${secondaryGap.toFixed(1)}s）。肉体的能率を維持しつつ、一定の文化的生活や貯蓄に回す余力がある安定状態です。`;
+      }
+    }
+
+    function applyRowntreePreset(preset, btnElem) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+
+      const wageSlider = document.getElementById('slider-wage');
+      const familySlider = document.getElementById('slider-family');
+      const fixedSlider = document.getElementById('slider-fixed');
+      const extraSlider = document.getElementById('slider-extra');
+
+      if (preset === 'primary') {
+        wageSlider.value = 18.0;
+        familySlider.value = 5;
+        fixedSlider.value = 6.0;
+        extraSlider.value = 0.5;
+      } else if (preset === 'secondary') {
+        wageSlider.value = 24.0;
+        familySlider.value = 4;
+        fixedSlider.value = 5.5;
+        extraSlider.value = 6.0;
+      } else if (preset === 'above') {
+        wageSlider.value = 32.0;
+        familySlider.value = 4;
+        fixedSlider.value = 6.0;
+        extraSlider.value = 2.0;
+      }
+      calcRowntree();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcRowntree();
+    });
+  </script>
+</body>
+</html>
