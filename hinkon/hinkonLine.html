@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：貧困ライン（貧困線：Poverty Line）とは何か――絶対的貧困（1日3.00ドル最新改定）と相対的貧困（等価可処分所得中央値50%）の算出構造と日本の現実</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 52%, #0f766e 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.22);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(251, 191, 36, 0.22);
+      color: #fef08a;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      line-height: 1.38;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.03rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #7dd3fc !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.2rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #7dd3fc;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--primary-light);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.38rem;
+      margin: 0 0.18rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+      border-color: #fde68a;
+      border-left-width: 4px;
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+      border-color: #fecdd3;
+      border-left-width: 4px;
+    }
+
+    .callout-emerald {
+      border-left-color: var(--emerald);
+      background-color: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-width: 4px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .callout-amber .callout-title { color: var(--accent-dark); }
+    .callout-rose .callout-title { color: var(--crimson); }
+    .callout-emerald .callout-title { color: #065f46; }
+
+    /* Compare Grid */
+    .compare-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .compare-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .compare-box.absolute-box {
+      border-top: 4px solid var(--accent);
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 35%);
+    }
+
+    .compare-box.relative-box {
+      border-top: 4px solid var(--primary-light);
+      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 35%);
+    }
+
+    .compare-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 0.85rem;
+      padding: 1.6rem 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+      border: 1px solid #334155;
+    }
+
+    .formula-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .math-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 1.1rem 1.25rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 1rem;
+    }
+
+    .math-fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .math-num {
+      border-bottom: 2px solid #fbbf24;
+      padding: 0 0.5rem 0.2rem;
+      color: #fef08a;
+    }
+
+    .math-den {
+      padding: 0.2rem 0.5rem 0;
+      color: #7dd3fc;
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 1.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr.highlight-row {
+      background-color: #eff6ff;
+      font-weight: 600;
+    }
+
+    /* Factor Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .factor-card.card-amber { border-top-color: var(--accent); }
+    .factor-card.card-emerald { border-top-color: var(--emerald); }
+    .factor-card.card-rose { border-top-color: var(--rose); }
+    .factor-card.card-purple { border-top-color: var(--purple); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .factor-meta {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.35rem;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      align-self: flex-start;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      margin: 1.5rem 0;
+    }
+
+    .sim-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #bfdbfe;
+      padding-bottom: 0.85rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #93c5fd;
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-group {
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 0.75rem;
+      padding: 1rem 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .value-badge {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 0.15rem 0.55rem;
+      border-radius: 0.35rem;
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin-bottom: 0.35rem;
+    }
+
+    select.sim-select {
+      width: 100%;
+      padding: 0.5rem 0.65rem;
+      border-radius: 0.45rem;
+      border: 1px solid #cbd5e1;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: #f8fafc;
+    }
+
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .result-sub {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    /* Visual Gauge Bar */
+    .gauge-container {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .gauge-track {
+      position: relative;
+      height: 22px;
+      background: linear-gradient(90deg, #fda4af 0%, #fde68a 45%, #a7f3d0 100%);
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      margin: 0.6rem 0;
+    }
+
+    .gauge-line-marker {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #dc2626;
+      z-index: 2;
+    }
+
+    .gauge-user-marker {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      width: 14px;
+      border-radius: 9999px;
+      background: #1e3a8a;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+      z-index: 3;
+      transition: left 0.25s ease;
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 5px solid var(--primary);
+      border-radius: 0.5rem;
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .banner-desc {
+      font-size: 0.86rem;
+      color: #334155;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .ref-item {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      padding: 0.65rem 0.9rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .ref-text {
+      color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .compare-container, .grid-3, .grid-4, .sim-controls {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第2章：貧困を捉える多角的指標と国際比較</span>
+      </div>
+      <h1>貧困ライン（貧困線：Poverty Line）とは何か：<br>絶対的貧困（1日3.00ドル最新改定）と相対的貧困（等価可処分所得中央値50%）の算出構造</h1>
+      <p class="lead">
+        <strong>貧困ライン（貧困線：Poverty Line / Poverty Threshold）</strong>とは、人間が健康で文化的な最低限度の生活を維持するために必要な所得や消費支出の基準となる境界線のことです。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        経済学および社会政策において、貧困ラインは大きく<span class="highlight-term">「絶対的貧困ライン（Absolute Poverty Line）」</span>と<span class="highlight-term">「相対的貧困ライン（Relative Poverty Line）」</span>の2つの考え方に分かれます。2025年6月には世界銀行が国際貧困ラインを「1日あたり3.00米ドル（2021年購買力平価ベース）」へと改定した一方、日本国内では等価可処分所得の中央値の50%未満を基準とする相対的貧困率が約15%（およそ6.5〜7人に1人）に達しています。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-5" class="cite-tag-header">[5]</a><br>
+        本稿では、2つの貧困ラインの理論的源流と計算式、世界銀行の最新改定の意味、そして日本の貧困ラインが抱える「生活保護基準とのねじれ」や「中央値低下の罠」をインタラクティブ図解とともに徹底解説します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🌍</span>
+            <span>1. 絶対的貧困と2025年世銀改定</span>
+          </div>
+          <p class="h-item-desc">
+            生存に不可欠な食料・住居・衣類の最低基準。世界銀行の国際貧困ラインは2025年6月改定により<strong>「1日3.00ドル（2021年PPPベース）」</strong>へ更新されました。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>📐</span>
+            <span>2. 相対的貧困と平方根（√n）調整</span>
+          </div>
+          <p class="h-item-desc">
+            社会の標準的生活水準から引き離された状態。世帯の手取り収入を世帯人数の平方根で割った<strong>「等価可処分所得」の中央値50%未満</strong>で定義されます。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🇯🇵</span>
+            <span>3. 日本の貧困率約15%と統計の死角</span>
+          </div>
+          <p class="h-item-desc">
+            日本の相対的貧困率は<strong>約15.0%〜15.4%（約7人に1人）</strong>。単身基準額（約127万〜138万円）と生活保護基準の逆転や、中間層沈下による閾値低下が問題となっています。
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 貧困ラインの2大アプローチ -->
+    <section>
+      <h2>⚖️ 1. 貧困ラインの2大種類：「絶対的貧困」と「相対的貧困」</h2>
+      <p>
+        「どこからが貧困なのか」という境界線（貧困ライン）を引く方法には、大きく分けて<strong>「絶対的貧困（Absolute Poverty）」</strong>と<strong>「相対的貧困（Relative Poverty）」</strong>の2つのレンズが存在します。この2つは対立するものではなく、人間が直面する欠乏の異なる側面を測定する指標です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+
+      <div class="compare-container">
+        <!-- 絶対的貧困ライン -->
+        <div class="compare-box absolute-box">
+          <div class="compare-box-title" style="color: var(--accent-dark);">
+            <span>🍞</span>
+            <span>① 絶対的貧困ライン（Absolute Poverty Line）</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.75rem;">
+            その国や時代の所得分布にかかわらず、<strong>人間が生物として生存し肉体的能率を維持するために必要な最低限の基準（食料・栄養、安全な水、衣服、雨風をしのぐ住居など）</strong>を満たせない状態の境界線です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+          </p>
+          <ul style="font-size: 0.84rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>理論的源流</strong>：英国の社会調査家シーボーム・ラウントリー（1901年『貧困』）による最低生活費（栄養カロリー＋最低家賃等）の積上げ方式。</li>
+            <li><strong>世界銀行の最新基準</strong>：2025年6月の改定により、極度の貧困を示す国際貧困ラインは<strong>「1日あたり3.00米ドル（2021年購買力平価［PPP］ベース）」</strong>（旧2017年PPP基準では2.15ドル）と定められています。<a href="#ref-3" class="cite-tag">[3]</a></li>
+            <li><strong>主な用途</strong>：国連SDGs目標1「あらゆる場所のあらゆる形態の貧困を終わらせる」など、地球規模の極度の貧困削減の測定。</li>
+          </ul>
+        </div>
+
+        <!-- 相対的貧困ライン -->
+        <div class="compare-box relative-box">
+          <div class="compare-box-title" style="color: var(--primary-dark);">
+            <span>🏘️</span>
+            <span>② 相対的貧困ライン（Relative Poverty Line）</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.65; margin-bottom: 0.75rem;">
+            その国や地域における<strong>「大多数が享受している一般的な生活水準・文化水準」と比べて所得が著しく低く、通常の社会参加や生活習慣の維持が困難な状態</strong>の境界線です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+          </p>
+          <ul style="font-size: 0.84rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>理論的源流</strong>：英国の社会学者ピーター・タウンゼント（1979年）による「社会的標準からの剥奪」アプローチ。</li>
+            <li><strong>OECD・厚生労働省の基準</strong>：世帯の手取り収入を世帯人数の平方根で割った<strong>「等価可処分所得」の中央値（真ん中の値）の50%未満</strong>（EUでは主に60%未満）と定義されます。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a></li>
+            <li><strong>主な用途</strong>：日本、韓国、欧州諸国（EU）、OECD加盟国など先進国における国内格差や生活困窮、子どもの貧困の測定。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>🌍 世界銀行「国際貧困ライン」の歴史的変遷（1990年〜2025年6月改定）</h3>
+      <p>
+        世界銀行（World Bank）は、世界各国の物価水準を調査する「国際比較プログラム（ICP）」のデータが更新されるたびに、現地通貨の実質的な購買力を測る<strong>購買力平価（PPP：Purchasing Power Parity）</strong>の基準年を更新し、国際貧困ラインを改定してきました。2025年6月には2021年PPPへの更新に伴い、以下のように基準額が改定されています。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-7" class="cite-tag">[7]</a>
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>設定・改定年</th>
+              <th>購買力平価（PPP）基準年</th>
+              <th>極度の貧困ライン<br>（低所得国基準）</th>
+              <th>低中所得国（LMIC）基準</th>
+              <th>高中所得国（UMIC）基準</th>
+              <th>主な特徴・背景</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1990年</strong></td>
+              <td>1985年PPP</td>
+              <td><strong>1日 1.00ドル</strong></td>
+              <td>―</td>
+              <td>―</td>
+              <td>『世界開発報告1990』で創設。最貧国の国内貧困基準から算出。</td>
+            </tr>
+            <tr>
+              <td><strong>2008年</strong></td>
+              <td>2005年PPP</td>
+              <td><strong>1日 1.25ドル</strong></td>
+              <td>―</td>
+              <td>―</td>
+              <td>途上国の物価データ更新に伴い改定。国連MDGsの主要指標に。</td>
+            </tr>
+            <tr>
+              <td><strong>2015年</strong></td>
+              <td>2011年PPP</td>
+              <td><strong>1日 1.90ドル</strong></td>
+              <td>1日 3.20ドル</td>
+              <td>1日 5.50ドル</td>
+              <td>国連SDGs採択時の基準。2017年より所得階層別基準を導入。</td>
+            </tr>
+            <tr>
+              <td><strong>2022年9月</strong></td>
+              <td>2017年PPP</td>
+              <td><strong>1日 2.15ドル</strong></td>
+              <td><strong>1日 3.65ドル</strong></td>
+              <td><strong>1日 6.85ドル</strong></td>
+              <td>2017年ICP物価調査を反映。多くの国際統計で参照される基準。</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>2025年6月（最新）</strong></td>
+              <td><strong>2021年PPP</strong></td>
+              <td><strong>1日 3.00ドル</strong></td>
+              <td><strong>1日 4.20ドル</strong></td>
+              <td><strong>1日 8.30ドル</strong></td>
+              <td>2021年ICP物価調査と低所得国の国内貧困基準上昇を反映した最新基準。<a href="#ref-3" class="cite-tag">[3]</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>購買力平価（PPP）ベースの「1日3.00ドル」とはどういう意味か？</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          国際貧困ラインの「1日3.00米ドル（2021年PPP）」とは、外国為替市場のレート（例：1ドル＝150円）で換算した金額ではありません。発展途上国では食料や現地サービスの物価が先進国より安いため、「現地通貨で買えるモノやサービスの物理的な量が、<strong>基準国であるアメリカ合衆国で2021年時点に1日3.00ドルを出して購入できる財・サービスの量に相当する水準</strong>」を意味します。つまり、現地の安い物価を考慮してもなお、米国で1日わずか3ドル分の生活必需品しか消費できない極限の生存状態（極度の貧困）を指しています。<a href="#ref-3" class="cite-tag">[3]</a><a href="#ref-7" class="cite-tag">[7]</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: 相対的貧困ラインの算出式と日本の状況 -->
+    <section>
+      <h2>🇯🇵 2. 相対的貧困ラインの算出メカニズムと日本の状況</h2>
+      <p>
+        日本をはじめとするOECD加盟国では、国内の貧困を測る基準として<strong>「等価可処分所得（Equivalised Disposable Income）の中央値の50%未満」</strong>という相対的貧困ラインが用いられています。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <!-- 数式ボックス（HTMLネイティブ表現） -->
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>📐</span>
+          <span>等価可処分所得と相対的貧困ラインの算出式（OECD・厚生労働省方式）</span>
+        </div>
+        <div class="math-equation">
+          <span>等価可処分所得 ＝</span>
+          <span class="math-fraction">
+            <span class="math-num">世帯の可処分所得（総収入 − 所得税・住民税・社会保険料等）</span>
+            <span class="math-den">&radic;<span style="text-decoration: overline; padding: 0 0.25rem;">世帯人員数（n）</span></span>
+          </span>
+        </div>
+        <div class="math-equation" style="margin-bottom: 0.5rem; font-size: 1.05rem;">
+          <span style="color: #fca5a5;">相対的貧困ライン（単身基準）</span>
+          <span>＝</span>
+          <span style="color: #fef08a;">全国民の等価可処分所得の「中央値（Median）」 &times; 50%（半分）</span>
+        </div>
+        <p style="font-size: 0.82rem; color: #cbd5e1; margin-bottom: 0; text-align: center;">
+          ※なぜ世帯人数そのものではなく「平方根（&radic;n）」で割るのか？：家族で同居すると家賃や光熱費、家電製品などを共有できる「世帯規模の経済」が働くため、4人家族は単身者の4倍ではなく<strong>2倍（&radic;4 ＝ 2）</strong>の所得で同等の生活水準を維持できると調整するためです。
+        </p>
+      </div>
+
+      <h3>📊 日本における貧困ラインの金額と相対的貧困率の推移</h3>
+      <p>
+        厚生労働省の『国民生活基礎調査』に基づく日本の相対的貧困率は<strong>約15.0%〜15.4%前後</strong>で推移しており、<strong>国民のおよそ6.5人〜7人に1人が貧困ライン以下</strong>で暮らしています。調査年や参照される統計区分によって、単身世帯（1人あたり）の貧困ライン基準額は<strong>約127万円〜138万円以下（月額約10.6万〜11.5万円以下）</strong>となっています。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-rose">
+          <div>
+            <div class="factor-title"><span>📉</span><span>日本の相対的貧困率：約15%</span></div>
+            <p class="factor-desc">
+              厚労省『国民生活基礎調査』において日本の相対的貧困率は約15.0%〜15.4%（2022年調査［2021年所得］で15.4%）に達し、約7人に1人が貧困線以下。G7（主要7カ国）でも米国に次ぐ高い水準です。<a href="#ref-4" class="cite-tag">[4]</a><a href="#ref-5" class="cite-tag">[5]</a>
+            </p>
+          </div>
+          <div class="factor-meta">子どもの貧困率：11.5% / ひとり親世帯：44.5%</div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div>
+            <div class="factor-title"><span>💴</span><span>貧困ライン：約127万〜138万円</span></div>
+            <p class="factor-desc">
+              等価可処分所得の中央値（約254万〜276万円）の半分である<strong>年額約127万円（2021年所得）〜約138万円</strong>が単身1人あたりの貧困ライン。4人世帯（&radic;4＝2倍）では手取り約254万〜276万円未満が該当します。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+            </p>
+          </div>
+          <div class="factor-meta">月額換算：単身で約10.6万〜11.5万円以下</div>
+        </div>
+
+        <div class="factor-card card-purple">
+          <div>
+            <div class="factor-title"><span>⚠️</span><span>生活保護基準との「ねじれ」</span></div>
+            <p class="factor-desc">
+              都市部（1級地-1）の単身稼働層の生活保護基準（生活扶助＋住宅扶助で月額約13万円・年額約156万円）と比較すると、相対的貧困ラインの方が低く、保護基準以下で働くワーキングプアが多数存在します。
+            </p>
+          </div>
+          <div class="factor-meta">生活保護の捕捉率は約2〜3割に低迷</div>
+        </div>
+      </div>
+
+      <div class="callout callout-rose">
+        <div class="callout-title">
+          <span>🚨</span>
+          <span>相対的貧困ラインが抱える「2つの構造的死角」</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.5rem;">
+          相対的貧困ラインは社会の格差を映し出す優れた指標ですが、以下の2つの統計的盲点（死角）に注意する必要があります。
+        </p>
+        <ul style="font-size: 0.85rem; line-height: 1.65; margin-left: 1.25rem; color: #334155;">
+          <li><strong>① 社会全体の貧困化による「貧困ラインの自動低下」</strong>：相対的貧困ラインは「所得中央値の50%」で決まるため、長期停滞によって中間層の所得中央値そのものが下がると（日本では1990年代半ばの約298万円から254万円へ低下）、貧困ラインの金額ハードル自体が切り下がり、実質的な生活悪化が見えにくくなります。</li>
+          <li><strong>② 固定費・医療費・住居費の捨象</strong>：同じ手取り年収140万円でも、健康で持ち家・公営住宅に暮らす人と、民間賃貸の高い家賃や持病の医療費、奨学金返済を抱える人では実際の困窮度が全く異なります。そのため、所得だけでなく「多次元貧困指数（MPI）」や「相対的剥奪指標」との併用が不可欠です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：世帯別「等価可処分所得 ＆ 貧困ライン」判定シミュレーター</h2>
+      <p>
+        世帯の「手取り年収（可処分所得）」「世帯人数（1〜6人）」「参照する貧困ライン基準」を選択・操作すると、平方根（&radic;n）で調整された<strong>等価可処分所得</strong>と<strong>その世帯人数における貧困ライン金額</strong>を自動計算し、日本の所得分布およびセーフティネット上の位置づけをリアルタイムでシミュレーションします。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>等価可処分所得（&radic;n 調整）＆ 貧困ライン・生活保護比較シミュレーター</span>
+          </div>
+          <div class="sim-desc">
+            典型的な世帯プリセットボタンを押すか、スライダーを動かして世帯の手取り年収と人数を変更してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">世帯モデル選択：</span>
+          <button class="preset-btn active" onclick="applyPovertyPreset('single_wp', this)">👤 単身ワーキングプア（手取り120万円・1人）</button>
+          <button class="preset-btn" onclick="applyPovertyPreset('single_parent', this)">👩‍👧‍👦 ひとり親＋子2人（手取り190万円・3人）</button>
+          <button class="preset-btn" onclick="applyPovertyPreset('family4_low', this)">👨‍👩‍👧‍👦 子育て4人世帯（手取り240万円・4人）</button>
+          <button class="preset-btn" onclick="applyPovertyPreset('median_family', this)">🏠 中央値4人世帯（手取り508万円・4人）</button>
+        </div>
+
+        <div class="sim-controls">
+          <!-- ① 世帯の手取り年収 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>① 世帯全体の手取り年収（可処分所得）</span>
+              <span id="label-income" class="value-badge">120 万円</span>
+            </div>
+            <input type="range" id="slider-income" min="50" max="700" step="10" value="120" oninput="calcPovertyLine()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>50万円</span>
+              <span>250万円</span>
+              <span>450万円</span>
+              <span>700万円</span>
+            </div>
+          </div>
+
+          <!-- ② 世帯人数 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>② 世帯人員数（n）と等価尺度（&radic;n）</span>
+              <span id="label-size" class="value-badge">1人（&radic;1 = 1.00）</span>
+            </div>
+            <input type="range" id="slider-size" min="1" max="6" step="1" value="1" oninput="calcPovertyLine()">
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted);">
+              <span>1人(1.00)</span>
+              <span>2人(1.41)</span>
+              <span>3人(1.73)</span>
+              <span>4人(2.00)</span>
+              <span>6人(2.45)</span>
+            </div>
+          </div>
+
+          <!-- ③ 比較する貧困ライン基準 -->
+          <div class="control-group">
+            <div class="control-label">
+              <span>③ 比較する基準（単身1人あたり基準額）</span>
+            </div>
+            <select id="select-standard" class="sim-select" onchange="calcPovertyLine()">
+              <option value="127">厚労省『国民生活基礎調査』基準（127万円 / 中央値254万円の50%）</option>
+              <option value="138">解説・概算基準（138万円 / 中央値276万円の50%）</option>
+              <option value="156">都市部・生活保護最低生活費モデル（単身約156万円相当）</option>
+              <option value="152">欧州（EU）型・中央値60%基準（約152万円）</option>
+            </select>
+            <div style="font-size: 0.73rem; color: var(--text-muted); margin-top: 0.45rem;">
+              ※選択した単身基準額に &radic;世帯人数 を掛けた金額が「世帯全体の貧困ライン」となります。
+            </div>
+          </div>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">等価可処分所得（1人換算）</div>
+            <div id="res-equiv" class="result-value" style="color: var(--primary);">120.0 万円</div>
+            <div id="res-equiv-sub" class="result-sub">手取り 120万円 &divide; &radic;1 (1.00)</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">この世帯人数の貧困ライン</div>
+            <div id="res-threshold" class="result-value" style="color: var(--crimson);">127.0 万円</div>
+            <div id="res-threshold-sub" class="result-sub">月額換算：約 10.6 万円</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">貧困ラインとの差額（世帯）</div>
+            <div id="res-gap" class="result-value" style="color: var(--crimson);">-7.0 万円</div>
+            <div id="res-gap-sub" class="result-sub">基準に対する充足率：94.5%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">貧困ライン判定</div>
+            <div id="res-status" class="result-value" style="font-size: 1.15rem; color: var(--crimson);">🚨 相対的貧困</div>
+            <div id="res-status-sub" class="result-sub">中央値の 47.2% 水準</div>
+          </div>
+        </div>
+
+        <!-- 視覚的ポジションゲージ -->
+        <div class="gauge-container">
+          <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; color: var(--text-muted);">
+            <span>0万円（極度の困窮）</span>
+            <span id="gauge-line-label" style="color: #dc2626;">▼ 貧困ライン閾値（単身127万円）</span>
+            <span>中央値（254万円）〜 安定圏（350万円+）</span>
+          </div>
+          <div class="gauge-track">
+            <div id="gauge-line" class="gauge-line-marker" style="left: 36.3%;"></div>
+            <div id="gauge-user" class="gauge-user-marker" style="left: 34.3%;"></div>
+          </div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); text-align: right;">
+            青丸（●）が現在の世帯の等価可処分所得、赤線（｜）が選択した貧困ラインの位置を示します。
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🚨</span>
+            <span>判定：相対的貧困ライン未満（かつ都市部の生活保護基準未満）</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            等価可処分所得が貧困ラインを下回っており、統計上の「相対的貧困」に該当します。さらに都市部の生活保護最低生活費をも下回る水準であり、医療費や家賃負担によって食費・光熱費・教育機会の深刻な剥奪が生じる危険領域です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 出典・参考文献・公的資料リンク -->
+    <section>
+      <h2>📚 4. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿の作成にあたり参照した公的統計、国際機関ファクトシート、および基礎資料の一覧です（すべてリンク実在確認済み）。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E8%B2%A7%E5%9B%B0%E7%B7%9A" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「貧困線（Poverty threshold / Poverty line）」［絶対的貧困と相対的貧困の定義・日本の基準額と歴史的変遷］</a>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://eow.alc.co.jp/search?q=poverty+line" target="_blank" rel="noopener noreferrer" class="ref-link">英辞郎 on the WEB「poverty line（貧困ライン・最低生活水準）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.worldbank.org/ja/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines" target="_blank" rel="noopener noreferrer" class="ref-link">世界銀行（World Bank）公式ファクトシート「国際貧困ラインの改定（2025年6月）：2021年PPPに基づく1日3.00ドルへの改定」（2025年6月5日）</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://grameen.jp/about/poverty/" target="_blank" rel="noopener noreferrer" class="ref-link">一般社団法人グラミン日本（Grameen Nippon）「日本の貧困問題を考える：相対的貧困率と等価可処分所得の基準」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.mhlw.go.jp/toukei/list/dl/20-21a-01.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働省『国民生活基礎調査（貧困率の状況）』公式統計資料（PDF）</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.mhlw.go.jp/toukei/list/20-21.html" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働省「国民生活基礎調査」統計一覧ポータル</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="https://www.worldbank.org/en/topic/poverty" target="_blank" rel="noopener noreferrer" class="ref-link">World Bank Group "Poverty: Overview and Global Poverty Monitoring"</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcPovertyLine() {
+      const income = parseFloat(document.getElementById('slider-income').value); // 世帯手取り年収（万円）
+      const size = parseInt(document.getElementById('slider-size').value, 10); // 世帯人数（1〜6人）
+      const baseLine = parseFloat(document.getElementById('select-standard').value); // 単身基準額（127 / 138 / 156 / 152）
+
+      const sqrtN = Math.sqrt(size);
+      const equivIncome = income / sqrtN; // 等価可処分所得（万円）
+      const householdThreshold = baseLine * sqrtN; // 世帯全体の貧困ライン額（万円）
+      const monthlyThreshold = householdThreshold / 12.0; // 月額換算（万円）
+      const gap = income - householdThreshold; // 世帯差額（万円）
+      const ratioToThreshold = (equivIncome / baseLine) * 100;
+      const medianBase = (baseLine === 138) ? 276 : 254;
+      const ratioToMedian = (equivIncome / medianBase) * 100;
+
+      // ラベル更新
+      document.getElementById('label-income').innerText = income + ' 万円';
+      document.getElementById('label-size').innerText = size + '人（√' + size + ' = ' + sqrtN.toFixed(2) + '）';
+
+      // 結果カード更新
+      document.getElementById('res-equiv').innerText = equivIncome.toFixed(1) + ' 万円';
+      document.getElementById('res-equiv-sub').innerText = '手取り ' + income + '万円 ÷ √' + size + ' (' + sqrtN.toFixed(2) + ')';
+
+      document.getElementById('res-threshold').innerText = householdThreshold.toFixed(1) + ' 万円';
+      document.getElementById('res-threshold-sub').innerText = '月額換算：約 ' + monthlyThreshold.toFixed(1) + ' 万円（' + size + '人世帯）';
+
+      const gapElem = document.getElementById('res-gap');
+      gapElem.innerText = (gap >= 0 ? '+' : '') + gap.toFixed(1) + ' 万円';
+      gapElem.style.color = gap < 0 ? 'var(--crimson)' : (equivIncome < 156 ? 'var(--accent-dark)' : 'var(--emerald)');
+      document.getElementById('res-gap-sub').innerText = '基準に対する充足率：' + ratioToThreshold.toFixed(1) + '%';
+
+      // ゲージ位置更新（最大350万円を100%としてマッピング）
+      const maxScale = 350;
+      const linePos = Math.min(96, Math.max(4, (baseLine / maxScale) * 100));
+      const userPos = Math.min(96, Math.max(2, (equivIncome / maxScale) * 100));
+      document.getElementById('gauge-line').style.left = linePos.toFixed(1) + '%';
+      document.getElementById('gauge-user').style.left = userPos.toFixed(1) + '%';
+      document.getElementById('gauge-line-label').innerText = '▼ 選択基準ライン（単身換算 ' + baseLine + '万円）';
+
+      // ステータス＆バナー判定
+      const statusElem = document.getElementById('res-status');
+      const statusSub = document.getElementById('res-status-sub');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      statusSub.innerText = '所得中央値の ' + ratioToMedian.toFixed(1) + '% 水準';
+
+      if (equivIncome < baseLine * 0.75) {
+        statusElem.innerText = '🚨 深刻な貧困状態';
+        statusElem.style.color = 'var(--crimson)';
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：深刻な相対的貧困（貧困ラインを大幅に下回る水準）';
+        bannerDesc.innerText = `${size}人世帯での手取り年収 ${income}万円は、1人あたり等価可処分所得に換算すると ${equivIncome.toFixed(1)}万円となり、世帯貧困ライン（${householdThreshold.toFixed(1)}万円）よりも年間 ${Math.abs(gap).toFixed(1)}万円不足しています。食料や光熱費、医療、子どもの教育機会において深刻な「多次元的剥奪」が発生する極めて過酷な水準です。`;
+      } else if (equivIncome < baseLine) {
+        statusElem.innerText = '⚠️ 貧困ライン未満';
+        statusElem.style.color = 'var(--crimson)';
+        banner.style.borderLeftColor = 'var(--rose)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '⚠️ 判定：貧困ライン未満（統計上の貧困層に該当）';
+        bannerDesc.innerText = `等価可処分所得（${equivIncome.toFixed(1)}万円）が基準ライン（${baseLine}万円）を下回っており、${size}人世帯の貧困ライン（${householdThreshold.toFixed(1)}万円）に対して年間 ${Math.abs(gap).toFixed(1)}万円不足しています。日本の相対的貧困率（約15%）にカウントされる層であり、都市部では生活保護の最低生活費をも下回るワーキングプア状態にあります。`;
+      } else if (equivIncome < 165) {
+        statusElem.innerText = '🟡 境界・脆弱層';
+        statusElem.style.color = 'var(--accent-dark)';
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🟡 判定：貧困ライン直上の「見えにくい困窮層（ワーキングプア・脆弱層）」';
+        bannerDesc.innerText = `統計上の相対的貧困ライン（世帯で ${householdThreshold.toFixed(1)}万円）はわずかに上回っているため、政府統計では「貧困ではない」と分類されます。しかし、都市部の生活保護基準（単身換算約156万円）と同等かそれ以下の水準であり、民間家賃や医療費・自動車維持費・奨学金返済などが重なれば、実質的な生活は貧困層以上に苦しくなる「制度の谷間」の領域です。`;
+      } else {
+        statusElem.innerText = '🛡️ 貧困ライン以上';
+        statusElem.style.color = 'var(--emerald)';
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bannerTitle.style.color = 'var(--emerald)';
+        bannerTitle.innerText = '🛡️ 判定：相対的貧困ライン以上の生活圏';
+        bannerDesc.innerText = `${size}人世帯の手取り年収 ${income}万円は、等価可処分所得で ${equivIncome.toFixed(1)}万円（所得中央値の ${ratioToMedian.toFixed(1)}%）となり、統計上の貧困ライン（${householdThreshold.toFixed(1)}万円）を +${gap.toFixed(1)}万円上回っています。ただし、実質賃金の停滞と社会保険料・物価高騰のなかで中間層全体の可処分所得が圧迫されている点に留意が必要です。`;
+      }
+    }
+
+    function applyPovertyPreset(preset, btnElem) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+
+      const incSlider = document.getElementById('slider-income');
+      const sizeSlider = document.getElementById('slider-size');
+      const stdSelect = document.getElementById('select-standard');
+
+      if (preset === 'single_wp') {
+        incSlider.value = 120;
+        sizeSlider.value = 1;
+        stdSelect.value = "127";
+      } else if (preset === 'single_parent') {
+        incSlider.value = 190;
+        sizeSlider.value = 3;
+        stdSelect.value = "127";
+      } else if (preset === 'family4_low') {
+        incSlider.value = 240;
+        sizeSlider.value = 4;
+        stdSelect.value = "127";
+      } else if (preset === 'median_family') {
+        incSlider.value = 510;
+        sizeSlider.value = 4;
+        stdSelect.value = "127";
+      }
+      calcPovertyLine();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcPovertyLine();
+    });
+  </script>
+</body>
+</html>
