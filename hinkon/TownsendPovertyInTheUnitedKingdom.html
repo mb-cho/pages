@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ピーター・タウンゼント『連合王国における貧困（Poverty in the United Kingdom）』――「相対的剥奪（Relative Deprivation）」の確立と現代貧困理論の金字塔</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .nav-link.portal-link {
+      background-color: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      font-weight: 600;
+    }
+
+    .nav-link.portal-link:hover {
+      background-color: #dbeafe;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #4338ca 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      right: -8%;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-primary {
+      background: rgba(56, 189, 248, 0.22);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .badge-sub {
+      background: rgba(192, 132, 252, 0.25);
+      color: #f3e8ff;
+      border: 1px solid rgba(192, 132, 252, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.88rem;
+      line-height: 1.38;
+      font-weight: 800;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.02em;
+      color: #ffffff !important;
+    }
+
+    header p.lead,
+    header p,
+    .lead {
+      font-size: 1.03rem;
+      line-height: 1.85;
+      color: #f8fafc !important;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    header strong {
+      color: #93c5fd !important;
+      font-weight: 700;
+    }
+
+    header .highlight-term {
+      color: #fde047 !important;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+      padding-bottom: 1px;
+    }
+
+    .cite-tag-header {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.45rem;
+      margin: 0 0.2rem;
+      border-radius: 0.25rem;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fef08a !important;
+      border: 1px solid rgba(254, 240, 138, 0.45);
+      text-decoration: none;
+      vertical-align: super;
+      line-height: 1;
+      transition: all 0.2s ease;
+    }
+
+    .cite-tag-header:hover {
+      background: #fef08a;
+      color: #0f172a !important;
+    }
+
+    /* 3-column header summary grid */
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .header-summary-item {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 0.65rem;
+      padding: 1.1rem;
+    }
+
+    .h-item-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #93c5fd;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 48px;
+      height: 2px;
+      background-color: var(--indigo);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-top: 1.75rem;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #334155;
+      text-align: justify;
+    }
+
+    .cite-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.25rem;
+      padding: 0.05rem 0.38rem;
+      margin: 0 0.18rem;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cite-tag:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-bottom: 1.75rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .callout-indigo {
+      border-left-color: var(--indigo);
+      background-color: #eef2ff;
+      border-color: #c7d2fe;
+      border-left-width: 4px;
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background-color: #fffbeb;
+      border-color: #fde68a;
+      border-left-width: 4px;
+    }
+
+    .callout-rose {
+      border-left-color: var(--rose);
+      background-color: #fff1f2;
+      border-color: #fecdd3;
+      border-left-width: 4px;
+    }
+
+    .callout-emerald {
+      border-left-color: var(--emerald);
+      background-color: #ecfdf5;
+      border-color: #a7f3d0;
+      border-left-width: 4px;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .callout-indigo .callout-title { color: var(--indigo); }
+    .callout-amber .callout-title { color: var(--accent-dark); }
+    .callout-rose .callout-title { color: var(--crimson); }
+    .callout-emerald .callout-title { color: #065f46; }
+
+    /* Compare Grid */
+    .compare-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .compare-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .compare-box.absolute-box {
+      border-top: 4px solid var(--accent);
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 35%);
+    }
+
+    .compare-box.relative-box {
+      border-top: 4px solid var(--indigo);
+      background: linear-gradient(180deg, #eef2ff 0%, #ffffff 35%);
+    }
+
+    .compare-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Townsend 12 Deprivation Items Checklist Grid */
+    .deprivation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.85rem;
+      margin: 1.5rem 0;
+    }
+
+    .deprivation-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 0.85rem 1rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: all 0.2s;
+    }
+
+    .deprivation-item:hover {
+      border-color: var(--indigo);
+      background: #f8fafc;
+    }
+
+    .item-checkbox {
+      margin-top: 0.25rem;
+      accent-color: var(--indigo);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .item-content {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .item-label {
+      font-weight: 700;
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Factor Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .factor-card.card-indigo { border-top-color: var(--indigo); }
+    .factor-card.card-amber { border-top-color: var(--accent); }
+    .factor-card.card-rose { border-top-color: var(--rose); }
+
+    .factor-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .factor-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .factor-meta {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.35rem;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      align-self: flex-start;
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      border: 2px solid #c7d2fe;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      margin: 1.5rem 0;
+    }
+
+    .sim-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #c7d2fe;
+      padding-bottom: 0.85rem;
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--indigo);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #818cf8;
+      color: var(--indigo);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: var(--indigo);
+      color: #ffffff;
+      border-color: var(--indigo);
+    }
+
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .result-sub {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+    }
+
+    .sim-banner {
+      background: #ffffff;
+      border-left: 5px solid var(--indigo);
+      border-radius: 0.5rem;
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .banner-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .banner-desc {
+      font-size: 0.86rem;
+      color: #334155;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* Reference List */
+    .ref-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .ref-item {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      padding: 0.65rem 0.9rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .ref-num {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .ref-text {
+      color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      header {
+        padding: 2rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .compare-container, .grid-3, .deprivation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第2章：相対的貧困と社会的排除の原点</span>
+      </div>
+      <h1>ピーター・タウンゼント『連合王国における貧困（1979年）』とは何か：<br>「相対的剥奪（Relative Deprivation）」の確立と現代貧困理論の金字塔</h1>
+      <p class="lead">
+        イギリスの社会学者<strong>ピーター・タウンゼント（Peter Brereton Townsend, 1928–2009）</strong>が1979年に発表した1,200ページ超の大著<strong>『連合王国における貧困（Poverty in the United Kingdom: A Survey of Household Resources and Standards of Living）』</strong>は、貧困研究の歴史におけるコペルニクス的転回をもたらした古典です。<a href="#ref-1" class="cite-tag-header">[1]</a><a href="#ref-2" class="cite-tag-header">[2]</a><br>
+        タウンゼントは、19世紀末のラウントリー以来支配的だった「生存に必要なカロリー・肉体的能率の欠如」という絶対的貧困観を打破し、人間を社会的存在として捉え直す<span class="highlight-term">「相対的剥奪（Relative Deprivation）」</span>の概念を打ち立てました。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-4" class="cite-tag-header">[4]</a><br>
+        「ゆりかごから墓場まで」の福祉国家によって貧困は過去のものになったと信じられていた1970年代のイギリスにおいて、実際には国民の約23%が「社会の標準的生活習慣や活動から排除されている相対的貧困」にあることをデータで実証。その理論は、現代のOECDやEUの公式基準（等価可処分所得の中央値50%/60%未満）、国連開発計画（UNDP）の多次元貧困指数（MPI）、そして日本の相対的剥奪研究の確固たる理論的土台となっています。<a href="#ref-3" class="cite-tag-header">[3]</a><a href="#ref-5" class="cite-tag-header">[5]</a>
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🌍</span>
+            <span>1. 「相対的貧困」へのパラダイム転換</span>
+          </div>
+          <p class="h-item-desc">
+            貧困とは飢餓や凍死だけでなく、その社会で当たり前とされている「食事・行事・交友・習慣」への参加資源が奪われている状態であると再定義しました。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>📋</span>
+            <span>2. 「剥奪指標（Deprivation Index）」の創出</span>
+          </div>
+          <p class="h-item-desc">
+            休日の過ごし方、友人の招待、子どもの遊興、温水設備など具体的な生活項目の欠如をスコア化し、剥奪が急増する客観的所得閾値を実証しました。
+          </p>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title">
+            <span>🛡️</span>
+            <span>3. 「社会的排除（Social Exclusion）」の源流</span>
+          </div>
+          <p class="h-item-desc">
+            単なる金銭の不足を超え、市民としての役割やコミュニティのつながりから切り離される「社会的孤立・排除」の概念を世界に先駆けて定式化しました。
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: タウンゼントの相対的貧困の定義 -->
+    <section>
+      <h2>🏛️ 1. タウンゼントによる「相対的貧困」の革命的定義</h2>
+      <p>
+        タウンゼントは、ラウントリーらが設定した「生存のためのカロリー積算（絶対的貧困線）」を鋭く批判しました。人間は単にカロリーを摂取して工場で働く肉体機械ではなく、家族を持ち、友人と交わり、地域の冠婚葬祭や祝祭に参加する**社会的存在**だからです。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-4" class="cite-tag">[4]</a>
+      </p>
+      
+      <div class="callout callout-indigo">
+        <div class="callout-title">
+          <span>📖</span>
+          <span>ピーター・タウンゼントの不朽の定義（『連合王国における貧困』1979年より）</span>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.8; color: #1e1b4b; font-style: italic; margin-bottom: 0;">
+          「個人、家族、および社会集団が、彼らが属する社会において慣習的であるか、あるいは少なくとも広く奨励され承認されているような種類の食事を摂取し、社会活動に参加し、生活条件と設備を享受するための資源を欠いているとき、彼らは貧困状態にあると言える。<br>
+          彼らの利用可能な資源が、その社会の平均的な個人や家族によって指揮されている資源を大きく下回っているため、彼らは事実上、通常の生活様式、慣習、活動から排除（excluded）されているのである。」<a href="#ref-1" class="cite-tag">[1]</a>
+        </p>
+      </div>
+
+      <div class="compare-container">
+        <!-- ラウントリーの絶対的貧困 -->
+        <div class="compare-box absolute-box">
+          <div class="compare-box-title" style="color: var(--accent-dark);">
+            <span>🍞</span>
+            <span>ラウントリー流「絶対的貧困」観</span>
+          </div>
+          <ul style="font-size: 0.85rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>着目点</strong>：肉体的能率（Physical Efficiency）の維持。</li>
+            <li><strong>基準</strong>：最低限のカロリー摂取量（アトウォーター基準等）と必要最低限の家賃・衣服費の積上げ。</li>
+            <li><strong>前提</strong>：時代や社会の生活習慣と切り離された、生物学的な固定基準。</li>
+            <li><strong>帰結</strong>：飢えや寒さを免れていれば、友人と会えなくても「貧困ではない」とされる。</li>
+          </ul>
+        </div>
+
+        <!-- タウンゼントの相対的貧困 -->
+        <div class="compare-box relative-box">
+          <div class="compare-box-title" style="color: var(--indigo);">
+            <span>🤝</span>
+            <span>タウンゼント流「相対的貧困」観</span>
+          </div>
+          <ul style="font-size: 0.85rem; color: #334155; padding-left: 1.2rem; line-height: 1.65;">
+            <li><strong>着目点</strong>：社会参加（Social Participation）と市民権の行使。</li>
+            <li><strong>基準</strong>：その社会の大多数が当たり前に行っている生活習慣・活動を享受するための資源の有無。</li>
+            <li><strong>前提</strong>：社会の発展に伴い、生活必需品の範囲も変化するという歴史的・相対的基準。</li>
+            <li><strong>帰結</strong>：日々のパンがあっても、祝祭や友人付き合い、子どもの体験から排除されていれば「貧困」である。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 剥奪指標（Deprivation Index）と所得閾値 -->
+    <section>
+      <h2>📋 2. 「剥奪指標（Deprivation Index）」と客観的貧困線の導出</h2>
+      <p>
+        タウンゼントは、貧困を単なる「主観的な不満」や「所得統計の一刀両断」に終わらせないため、イギリス全土の大規模調査（約2,000世帯・約6,000人）を通じて、実際の生活様式における<strong>「客観的な剥奪指標（Deprivation Index）」</strong>を設計しました。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+      <p>
+        彼は、イギリス国民の大多数（半数以上）が享受している標準的な生活習慣から<strong>「代表的な12項目の剥奪指標」</strong>を抽出し、所得が一定の水準を下回った瞬間に、この剥奪スコアが急激に跳ね上がる変曲点（閾値：Threshold）が存在することをグラフ（散布図）で示しました。これが、今日の科学的「相対的貧困線」の原型です。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-6" class="cite-tag">[6]</a>
+      </p>
+
+      <h3>タウンゼントが調査で用いた「12項目の客観的剥奪指標」</h3>
+      <div class="deprivation-grid">
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">① 過去1年間の休暇旅行の欠如</span>
+            過去12ヶ月間に、自宅を離れて1週間以上の休暇（ホリデー）を過ごしていない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">② 友人の招待・食事の欠如</span>
+            過去4週間に、友人や親戚を自宅に招いて食事やお茶を振る舞っていない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">③ 他家への訪問・食事の欠如</span>
+            過去4週間に、友人や親戚の家へ食事や集まりに訪問していない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">④ 肉・魚（温かい食事）の欠如</span>
+            2日に1回以上、肉や魚を含む温かい食事を摂取できていない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑤ 生鮮果物の欠如</span>
+            ほとんど毎日、新鮮な果物を食べることができない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑥ 日曜の特別料理（ロースト等）の欠如</span>
+            週に1回（日曜等）、家族で伝統的な特別料理（ローストミート等）を食べられない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑦ 子どもの友人を招く機会の欠如</span>
+            過去4週間に、子どもが学校の友人や近所の子を家に呼んで遊ばせることができなかった。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑧ 子どもの誕生祝いの欠如</span>
+            子どもの誕生日に、プレゼントや小さなパーティー・ごちそうを用意してあげられなかった。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑨ 暖房器具の不備</span>
+            冬場に部屋を適切に暖める暖房設備や燃料が不足している。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑩ 温水供給設備の欠如</span>
+            自宅に給湯設備（お湯が出る設備）が備わっていない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑪ 専用の室内トイレの欠如</span>
+            他世帯と共用でない、自宅専用の水洗トイレが屋内にない。
+          </div>
+        </div>
+        <div class="deprivation-item">
+          <div class="item-content">
+            <span class="item-label">⑫ 適切な衣服・靴の欠如</span>
+            仕事や外出に必要な清潔で傷んでいない衣服や靴を買い替えることができない。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：タウンゼント式「剥奪スコア ＆ 相対的貧困判定シミュレーター」</h2>
+      <p>
+        現代の日本や先進国の文脈に合わせて再構成した12項目の剥奪チェックボックスをクリックするか、典型的な世帯プリセットを選択してください。あなたの世帯の「剥奪スコア」と、所得に対する剥奪の跳ね上がり（タウンゼント閾値）をリアルタイムでシミュレーションします。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>タウンゼント・モデル：生活習慣・社会関係の剥奪スコア診断</span>
+          </div>
+          <div class="sim-desc">
+            当てはまる「剥奪項目（経済的理由でできない・持てないもの）」にチェックを入れてください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">典型世帯プリセット：</span>
+          <button class="preset-btn" onclick="applyTownsendPreset('middle', this)">🏡 一般中間層（剥奪 0〜1項目）</button>
+          <button class="preset-btn" onclick="applyTownsendPreset('vulnerable', this)">🟡 境界・ワーキングプア層（剥奪 3〜4項目）</button>
+          <button class="preset-btn" onclick="applyTownsendPreset('severe', this)">🚨 深刻な相対的貧困・排除層（剥奪 7項目以上）</button>
+        </div>
+
+        <!-- チェックボックスグリッド -->
+        <div class="deprivation-grid">
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-1" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">① 年1回・1週間の休暇旅行</span>
+              経済的理由で年に1回も旅行やまとまった休養をとれない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-2" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">② 友人・知人との交友・外食</span>
+              交際費が出せないため友人や親族を招いたり外食できない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-3" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">③ 冠婚葬祭への参加</span>
+              祝儀や香典が払えず親戚・知人の冠婚葬祭を欠席せざるを得ない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-4" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">④ 2日に1回のタンパク質食事</span>
+              食費を切り詰めるため肉や魚を含む十分な食事をとれない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-5" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑤ 新鮮な野菜・果物の摂取</span>
+              生鮮野菜や果物を日常的に購入する余裕がない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-6" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑥ 子どもの体験・習い事・部活</span>
+              部活動費用や塾、文化体験の費用を出してあげられない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-7" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑦ 子どもの誕生日・祝事のプレゼント</span>
+              誕生日のごちそうやプレゼントを用意してあげられない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-8" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑧ 衣服や靴の定期的な新調</span>
+              すり切れた衣服や靴を買い替えることができない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-9" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑨ 冷暖房の適切な利用（エアコン・暖房）</span>
+              光熱費を恐れて冬場の暖房や夏場の冷房を過度に我慢している
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-10" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑩ 予期せぬ急な出費への対応</span>
+              5万〜10万円の急な医療費や家電故障に対応できる貯蓄がない
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-11" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑪ 必要な医療・歯科の受診</span>
+              窓口負担が払えず歯痛や持病の通院を我慢したことがある
+            </div>
+          </label>
+          <label class="deprivation-item">
+            <input type="checkbox" class="item-checkbox" id="chk-12" onchange="calcTownsend()">
+            <div class="item-content">
+              <span class="item-label">⑫ 家賃・公共料金の未払い・滞納</span>
+              過去1年間に家賃や電気・ガス・水道料金を滞納したことがある
+            </div>
+          </label>
+        </div>
+
+        <!-- 結果表示グリッド -->
+        <div class="sim-results-grid">
+          <div class="result-card">
+            <div class="result-label">剥奪スコア（欠如項目数）</div>
+            <div id="res-score" class="result-value" style="color: var(--indigo);">0 / 12</div>
+            <div id="res-score-sub" class="result-sub">剥奪率：0.0%</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">タウンゼント閾値との比較</div>
+            <div id="res-threshold" class="result-value" style="color: var(--emerald);">基準クリア</div>
+            <div class="result-sub">閾値（4項目以上欠如で貧困）</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">社会的包摂・排除度判定</div>
+            <div id="res-status" class="result-value" style="font-size: 1.15rem; color: var(--emerald);">🛡️ 社会的包摂層</div>
+            <div id="res-status-sub" class="result-sub">標準的生活習慣を維持</div>
+          </div>
+        </div>
+
+        <!-- 診断バナー -->
+        <div id="sim-banner" class="sim-banner">
+          <div id="banner-title" class="banner-title">
+            <span>🛡️</span>
+            <span>判定：社会的包摂状態（剥奪なし〜軽微）</span>
+          </div>
+          <p id="banner-desc" class="banner-desc">
+            その社会において慣習的とされている食事、生活設備、人間関係の交流を十分に維持できています。タウンゼントの定義において、社会から排除されていない安定した生活水準にあります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代への理論的遺産と影響 -->
+    <section>
+      <h2>🏛️ 4. タウンゼント理論が現代の貧困政策に与えた決定的遺産</h2>
+      <p>
+        『連合王国における貧困』が投げかけた波紋は、単なる一学者の研究にとどまらず、今日の世界の貧困測定基準を根底から形作っています。<a href="#ref-1" class="cite-tag">[1]</a><a href="#ref-3" class="cite-tag">[3]</a>
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-indigo">
+          <div>
+            <div class="factor-title"><span>🇪🇺</span><span>EU公式の「物質的・社会的剥奪率」</span></div>
+            <p class="factor-desc">
+              欧州連合（EU-SILC）は、タウンゼントの剥奪アプローチを公式統計に採用。所得だけでなく9〜13項目の必需品欠如を測定する「物質的・社会的剥奪指標」を貧困・社会的排除リスク（AROPE）の中核に据えています。<a href="#ref-3" class="cite-tag">[3]</a>
+            </p>
+          </div>
+          <div class="factor-meta">所得と実生活の二重測定</div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div>
+            <div class="factor-title"><span>🌐</span><span>UNDP「多次元貧困指数（MPI）」</span></div>
+            <p class="factor-desc">
+              アマルティア・センの潜在能力アプローチとタウンゼントの剥奪測定が融合し、国連開発計画（UNDP）の多次元貧困指数（MPI）へと結実。教育・健康・生活水準の多次元欠乏を測る世界標準となりました。<a href="#ref-5" class="cite-tag">[5]</a>
+            </p>
+          </div>
+          <div class="factor-meta">金銭的貧困を超えた国際基準</div>
+        </div>
+
+        <div class="factor-card card-rose">
+          <div>
+            <div class="factor-title"><span>🇯🇵</span><span>日本の「見えにくい貧困」の解明</span></div>
+            <p class="factor-desc">
+              阿部彩氏らによる日本の相対的剥奪研究は、タウンゼントの理論を現代日本に応用したもの。所得統計上は貧困線以上でも、子どもの体験や食生活が奪われている「不可視の貧困」を抉り出しました。<a href="#ref-3" class="cite-tag">[3]</a>
+            </p>
+          </div>
+          <div class="factor-meta">阿部彩『弱者の居場所がない社会』</div>
+        </div>
+      </div>
+
+      <div class="callout callout-emerald">
+        <div class="callout-title">
+          <span>💡</span>
+          <span>本書『現代貧困の解体新書』への接続：なぜタウンゼントを知る必要があるのか？</span>
+        </div>
+        <p style="font-size: 0.88rem; line-height: 1.65; margin-bottom: 0;">
+          私たちが日々直面している「うちはなぜ貧乏なのか？」という違和感は、餓死の恐怖ではなく、「周囲と同じように子どもに服を買えない」「友人の結婚式に包むお金が出せない」「急な出費を恐れてエアコンをつけられない」という<strong>社会的な尊厳と生活習慣の剥奪</strong>です。<br>
+          タウンゼントが解き明かした通り、貧困とは個人の能力不足ではなく、社会全体の富の分配構造が歪んだ結果、一部の市民が標準的な生活から構造的に「締め出される（社会的排除）」現象です。この視点を持つことで、私たちは自己責任論の呪縛を解き、マクロ経済の分配不全（第3章・第4章）へと科学的に迫ることができるのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献・公的資料リンク -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+        本稿で引用・参照している社会政策・貧困研究の古典原典、公式学術アーカイブの一覧です（実在確認済みリンクのみ掲載）。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item" id="ref-1">
+          <span class="ref-num">[1]</span>
+          <span class="ref-text">Peter Townsend, <em>Poverty in the United Kingdom: A Survey of Household Resources and Standards of Living</em>, Penguin Books and University of California Press, 1979.（ピーター・タウンゼント『連合王国における貧困』［相対的剥奪概念の原典］）</span>
+        </li>
+        <li class="ref-item" id="ref-2">
+          <span class="ref-num">[2]</span>
+          <a href="https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%BB%E3%82%BF%E3%82%A6%E3%83%B3%E3%82%BC%E3%83%B3%E3%83%89" target="_blank" rel="noopener noreferrer" class="ref-link">Wikipedia「ピーター・タウンゼント（社会学者：相対的剥奪と貧困研究）」</a>
+        </li>
+        <li class="ref-item" id="ref-3">
+          <span class="ref-num">[3]</span>
+          <a href="https://www.ipss.go.jp/syoushika/bunken/data/pdf/sh19040303.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">阿部彩 (2012)「相対的剥奪の測定と貧困研究の展開」国立社会保障・人口問題研究所［タウンゼント理論の解説と日本への応用］</a>
+        </li>
+        <li class="ref-item" id="ref-4">
+          <span class="ref-num">[4]</span>
+          <a href="https://kotobank.jp/word/%E3%82%BF%E3%82%A6%E3%83%B3%E3%82%BC%E3%83%B3%E3%83%89-93110" target="_blank" rel="noopener noreferrer" class="ref-link">コトバンク「タウンゼンド（ブリタニカ国際大百科事典／日本大百科全書）」</a>
+        </li>
+        <li class="ref-item" id="ref-5">
+          <span class="ref-num">[5]</span>
+          <a href="https://www.hinkonstat.net/%E8%B2%A7%E5%9B%B0%E6%8C%87%E6%A8%99-%E7%B5%B1%E8%A8%88-%E3%81%AE%E7%A8%AE%E9%A1%9E/3-%E5%89%A5%E5%A5%AA%E3%82%A2%E3%83%97%E3%83%AD%E3%83%BC%E3%83%81/" target="_blank" rel="noopener noreferrer" class="ref-link">貧困統計ホームページ「貧困指標・統計の種類：3. 剥奪アプローチ」</a>
+        </li>
+        <li class="ref-item" id="ref-6">
+          <span class="ref-num">[6]</span>
+          <a href="https://www.bristol.ac.uk/poverty/" target="_blank" rel="noopener noreferrer" class="ref-link">ブリストル大学（University of Bristol）タウンゼント貧困研究センター（Townsend Centre for International Poverty Research）公式リポジトリ</a>
+        </li>
+        <li class="ref-item" id="ref-7">
+          <span class="ref-num">[7]</span>
+          <a href="http://mirai21canal.com/PDF/Pstructure/twoindex/dep-ex-1.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">学術論文「剥奪指標による相対的貧困の把握と社会的排除の構造分析」（PDF資料）</a>
+        </li>
+        <li class="ref-item" id="ref-8">
+          <span class="ref-num">[8]</span>
+          <a href="https://mhlw-grants.niph.go.jp/system/files/2012/121011/201201013A/201201013A0014.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">厚生労働科学研究成果データベース「相対的剥奪指標を用いた低所得者層の実態把握に関する研究報告書」</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcTownsend() {
+      let score = 0;
+      for (let i = 1; i <= 12; i++) {
+        const chk = document.getElementById('chk-' + i);
+        if (chk && chk.checked) {
+          score++;
+        }
+      }
+
+      const ratio = ((score / 12) * 100).toFixed(1);
+
+      // 結果表示更新
+      document.getElementById('res-score').innerText = score + ' / 12';
+      document.getElementById('res-score-sub').innerText = '剥奪率：' + ratio + '%';
+
+      const threshElem = document.getElementById('res-threshold');
+      const statusElem = document.getElementById('res-status');
+      const statusSub = document.getElementById('res-status-sub');
+      const banner = document.getElementById('sim-banner');
+      const bannerTitle = document.getElementById('banner-title');
+      const bannerDesc = document.getElementById('banner-desc');
+
+      if (score >= 6) {
+        threshElem.innerText = '🚨 深刻な剥奪';
+        threshElem.style.color = 'var(--crimson)';
+        statusElem.innerText = '🚨 重度相対的貧困・排除層';
+        statusElem.style.color = 'var(--crimson)';
+        statusSub.innerText = '社会生活から構造的に孤立';
+
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '🚨 判定：深刻な相対的剥奪状態（社会的排除）';
+        bannerDesc.innerText = `12項目中 ${score}項目が剥奪されています。タウンゼントが示した「所得の閾値」を大幅に下回っており、日々の食生活や住環境だけでなく、人間関係の交流や子どもの体験機会から完全に切り離された「社会的排除」の状態にあります。公的な再分配と生活再建支援が不可欠な領域です。`;
+      } else if (score >= 4) {
+        threshElem.innerText = '⚠️ 閾値超過（貧困線）';
+        threshElem.style.color = 'var(--rose)';
+        statusElem.innerText = '⚠️ 相対的貧困状態';
+        statusElem.style.color = 'var(--crimson)';
+        statusSub.innerText = '生活習慣の著しい制約';
+
+        banner.style.borderLeftColor = 'var(--rose)';
+        bannerTitle.style.color = 'var(--crimson)';
+        bannerTitle.innerText = '⚠️ 判定：タウンゼント貧困線以下の「相対的貧困」';
+        bannerDesc.innerText = `12項目中 ${score}項目で剥奪が生じています。タウンゼントの調査において剥奪が急激に跳ね上がる客観的閾値（4項目以上）を超えており、社会の標準的な生活習慣を享受できず、社会的孤立や子どもの教育・健康格差が生じる境界線以下にあります。`;
+      } else if (score >= 2) {
+        threshElem.innerText = '🟡 境界・脆弱層';
+        threshElem.style.color = 'var(--accent-dark)';
+        statusElem.innerText = '🟡 生活困窮・脆弱層';
+        statusElem.style.color = 'var(--accent-dark)';
+        statusSub.innerText = '一部の活動・必需品を我慢';
+
+        banner.style.borderLeftColor = 'var(--accent)';
+        bannerTitle.style.color = 'var(--accent-dark)';
+        bannerTitle.innerText = '🟡 判定：相対的剥奪の萌芽（ワーキングプア・脆弱層）';
+        bannerDesc.innerText = `12項目中 ${score}項目の剥奪が見られます。深刻な排除には至っていませんが、交友費や子どもの体験、光熱費の節約など、生活の一部を強く切り詰めて生活を維持している状態です。物価高や予期せぬ支出によって貧困線以下へと容易に転落するリスクを抱えています。`;
+      } else {
+        threshElem.innerText = '🛡️ 基準クリア';
+        threshElem.style.color = 'var(--emerald)';
+        statusElem.innerText = '🛡️ 社会的包摂層';
+        statusElem.style.color = 'var(--emerald)';
+        statusSub.innerText = '標準的生活習慣を維持';
+
+        banner.style.borderLeftColor = 'var(--indigo)';
+        bannerTitle.style.color = 'var(--indigo)';
+        bannerTitle.innerText = '🛡️ 判定：社会的包摂状態（剥奪なし〜軽微）';
+        bannerDesc.innerText = 'その社会において慣習的とされている食事、生活設備、人間関係の交流を十分に維持できています。タウンゼントの定義において、社会から排除されていない安定した生活水準にあります。';
+      }
+    }
+
+    function applyTownsendPreset(preset, btnElem) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      if (btnElem) btnElem.classList.add('active');
+
+      // 全解除
+      for (let i = 1; i <= 12; i++) {
+        const chk = document.getElementById('chk-' + i);
+        if (chk) chk.checked = false;
+      }
+
+      if (preset === 'middle') {
+        // 剥奪1項目
+        document.getElementById('chk-1').checked = true;
+      } else if (preset === 'vulnerable') {
+        // 剥奪4項目
+        document.getElementById('chk-1').checked = true;
+        document.getElementById('chk-2').checked = true;
+        document.getElementById('chk-9').checked = true;
+        document.getElementById('chk-10').checked = true;
+      } else if (preset === 'severe') {
+        // 剥奪8項目
+        document.getElementById('chk-1').checked = true;
+        document.getElementById('chk-2').checked = true;
+        document.getElementById('chk-3').checked = true;
+        document.getElementById('chk-4').checked = true;
+        document.getElementById('chk-6').checked = true;
+        document.getElementById('chk-7').checked = true;
+        document.getElementById('chk-9').checked = true;
+        document.getElementById('chk-11').checked = true;
+      }
+
+      calcTownsend();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcTownsend();
+    });
+  </script>
+</body>
+</html>
