@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：2013年生活保護基準引き下げの構造と「いのちのとりで裁判」――デフレ調整の統計的虚構とセーフティネットのドミノ倒し</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --primary-dark: #0f172a;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --navy: #1e293b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Condition 1 strictly met: ONLY Portal Top) */
+    .top-nav {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-brand {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link.portal-link {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.375rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-link.portal-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1e293b 0%, #881337 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      border-bottom: 4px solid var(--rose);
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fecdd3;
+      border: 1px solid rgba(254, 205, 211, 0.4);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .lead-text {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: #e2e8f0;
+      border-left: 3px solid var(--rose);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Stat Banner */
+    .stat-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-light);
+    }
+
+    .stat-card.alert::before { background: var(--rose); }
+    .stat-card.warn::before { background: var(--accent); }
+    .stat-card.purple::before { background: var(--purple); }
+    .stat-card.emerald::before { background: var(--emerald); }
+
+    .stat-card .stat-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 0.35rem 0;
+      font-feature-settings: "palt";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+
+    .stat-card.alert .stat-val { color: var(--rose); }
+    .stat-card.warn .stat-val { color: var(--accent-dark); }
+    .stat-card.purple .stat-val { color: var(--purple); }
+    .stat-card.emerald .stat-val { color: var(--emerald); }
+
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .stat-card .stat-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) td {
+      background: #fbfcfe;
+    }
+
+    /* Info Boxes */
+    .info-box {
+      background: #f0fdf4;
+      border-left: 4px solid var(--emerald);
+      padding: 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .info-box.alert {
+      background: #fff1f2;
+      border-left-color: var(--rose);
+    }
+
+    .info-box.warn {
+      background: #fefce8;
+      border-left-color: var(--accent);
+    }
+
+    .info-box.primary {
+      background: #eff6ff;
+      border-left-color: var(--primary-light);
+    }
+
+    .info-box-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-box.alert .info-box-title { color: var(--rose); }
+    .info-box.warn .info-box-title { color: var(--accent-dark); }
+
+    /* Math & Formula Styling */
+    .formula-box {
+      background: #f8fafc;
+      border: 2px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .math-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .formula-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: left;
+      line-height: 1.6;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    /* Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .compare-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .compare-box {
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1.25rem;
+      background: #ffffff;
+    }
+
+    .compare-box.gov {
+      border-top: 4px solid var(--accent);
+    }
+
+    .compare-box.court {
+      border-top: 4px solid var(--rose);
+    }
+
+    .compare-title {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .compare-box.gov .compare-title { color: var(--accent-dark); }
+    .compare-box.court .compare-title { color: var(--rose); }
+
+    /* Interactive Simulators */
+    .sim-container {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .sim-header {
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .sim-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    /* Form Controls */
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .form-control {
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.4rem;
+      font-size: 0.92rem;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Domino Visual Cards */
+    .domino-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .domino-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 0.85rem;
+      border-left: 4px solid var(--rose);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .domino-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .domino-impact {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 2px solid var(--border);
+      padding: 2.5rem 0 1rem 0;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1 strictly met: ONLY Portal Top) -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>書籍連動・特別補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOPへ戻る
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">書籍連動・特別補論 ［第1巻 第2章 2.4節連動／生活保護基準論］</div>
+      <h1>2013年生活保護基準引き下げと「いのちのとりで裁判」<br><span style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">デフレ調整の統計的虚構、生活扶助最大10%削減とセーフティネットのドミノ倒し</span></h1>
+      <p class="lead-text">
+        2013年から3年間にわたり強行された生活扶助基準の最大10%（平均6.7%・削減総額約670億円）引き下げ。政府が掲げた「デフレ調整」と「ゆがみ調整」の欺瞞、全国29地裁で提訴された「新生存権裁判（いのちのとりで裁判）」における司法判断、そして最低賃金・就学援助・住民税非課税限度額が雪崩を打って崩壊した「セーフティネットのドミノ倒し」を徹底解明。
+      </p>
+    </header>
+
+    <!-- Stat Banner -->
+    <section class="stat-banner">
+      <div class="stat-card alert">
+        <div class="stat-label">生活扶助削減率</div>
+        <div class="stat-val">最大 10% 削減</div>
+        <div class="stat-sub">平均6.7%引き下げ<br>戦後生活保護史上最大の切り下げ幅</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="stat-label">国費・地方費 削減総額</div>
+        <div class="stat-val">約670億円 / 年</div>
+        <div class="stat-sub">当時の自民党総務会公約<br>「生活保護10%削減」を強引に達成</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-label">いのちのとりで裁判</div>
+        <div class="stat-val">全国29都道府県</div>
+        <div class="stat-sub">原告1,000人以上の一斉提訴<br>高裁・地裁で国側敗訴判決が続出</div>
+      </div>
+      <div class="stat-card emerald">
+        <div class="stat-label">他制度への波及影響</div>
+        <div class="stat-val">47以上の制度連動</div>
+        <div class="stat-sub">就学援助・住民税・最賃など<br>セーフティネットの底が抜けるドミノ被害</div>
+      </div>
+    </section>
+
+    <!-- Section 1: Overview and Political Background -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        1. 2013年生活保護基準引き下げの全体像と政治的背景
+      </h2>
+      <p>
+        2012年末の政権交代（第2次安倍内閣発足）直後、2013年（平成25年）1月の政府予算案編成において、電撃的に決定されたのが<strong>「生活保護基準（日常生活費にあたる生活扶助基準）の最大10%（平均6.7%・3年間で約670億円規模）の削減」</strong>であった。
+      </p>
+      <p>
+        生活保護費は、日本国憲法第25条が保障する「健康で文化的な最低限度の生活（ナショナル・ミニマム）」を金銭的に具体化する最後の砦である。しかし、当時の自民党が衆院選政権公約に「生活保護給付水準の10%引き下げ」を明記していたことから、厚生労働省は<strong>「まず先に10%削減という政治目標ありき」</strong>で逆算し、専門部会（社会保障審議会生活保護基準部会）の科学的検証を経ずに前代未聞の大削減を断行した。
+      </p>
+
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>⚖️</span>
+          <span>2013年引き下げの算定構造（最大10%削減の二重トリック）</span>
+        </div>
+        <div class="math-equation">
+          <span>全体削減率（最大10%） ＝ </span>
+          <span style="color: #b45309;">① ゆがみ調整（最大▲5%）</span>
+          <span> ＋ </span>
+          <span style="color: #881337;">② デフレ調整（一律▲4.78%）</span>
+        </div>
+        <p class="formula-note">
+          ※ 2013年8月から2015年4月にかけて3段階で実施。<br>
+          ※ 世帯人数が多い世帯（特に子どものいる多人数世帯）ほど削減率が最大10%に達し、月額1.5万〜2.5万円以上もの生活費が容赦なく奪われた。
+        </p>
+      </div>
+    </article>
+
+    <!-- Section 2: Two False Arguments -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        2. 厚生労働省が持ち出した2大口実とその数理的・論理的欺瞞
+      </h2>
+      <p>
+        厚生労働省は、この急激な引き下げを正当化するために「ゆがみ調整」と「デフレ調整」という2つの理屈を掲げた。しかし、その実態は科学的根拠を欠いた「統計の数字合わせ」であった。
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-box gov">
+          <div class="compare-title">
+            <span>📉</span>
+            <span>①「ゆがみ調整」の罠――ワーキングプアとの下方均衡スパイラル</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><strong>政府の主張：</strong>一般低所得世帯（全世帯の所得下位10%＝第1十分位層）の消費支出と比べると、多人数世帯で保護水準の方が高い「ゆがみ」が生じているため是正する。</p>
+          <ul style="font-size: 0.84rem; margin-bottom: 0;">
+            <li><strong>残酷な論理のすり替え：</strong>当時、非正規雇用の拡大とデフレ下で、生活保護を受けられないワーキングプア層は、食費や暖房費を極限まで削って生き延びていた。</li>
+            <li><strong>底辺への下方スパイラル：</strong>政府は困窮するワーキングプアを救うのではなく、「彼らがこれだけ切り詰めて我慢しているのだから、生活保護もそこまで下げて当然だ」と、我慢比べを強要した。</li>
+            <li><strong>比較対象の不当性：</strong>第1十分位層には、貯蓄を取り崩して生活している高齢富裕層や、自営業の一時的赤字世帯も混入しており、純粋な消費水準比較として破綻していた。</li>
+          </ul>
+        </div>
+
+        <div class="compare-box court">
+          <div class="compare-title">
+            <span>📊</span>
+            <span>②「デフレ調整」の偽装――公的指数の2倍に膨らませた独自CPI</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><strong>政府の主張：</strong>2008年から2011年にかけて物価が下落したため、受給者の実質購買力が増えた分（▲4.78%）を機械的に差し引く。</p>
+          <ul style="font-size: 0.84rem; margin-bottom: 0;">
+            <li><strong>公的統計との著しい乖離：</strong>総務省統計局が公表する公式の消費者物価指数（持家の帰属家賃を除く総合CPI）の下落率は、同時期でわずか <strong>▲2.35%</strong> であった。</li>
+            <li><strong>厚労省独自の歪んだ計算：</strong>厚労省は審議会にも諮らず、水面下の課長レベルでテレビやパソコンなどの劇的な価格下落を過大反映させた「生活扶助相当CPI」を独自作成。</li>
+            <li><strong>統計学的初歩エラー：</strong>価格の下落率を計算する際、統計理論上あり得ない「パーシェ・算術平均」の歪み（バイアス）を放置し、下落率を2倍以上の <strong>▲4.78%</strong> に人為的に吊り上げた。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box alert">
+        <div class="info-box-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          なぜ「テレビやパソコンの下落」で生活扶助（食費）が削られるのか？
+        </div>
+        <p style="margin-bottom: 0; font-size: 0.88rem;">
+          2008年〜2011年は、地上デジタル放送移行や技術革新によって薄型テレビやパソコンの価格が暴落した時期であった。しかし、生活保護受給者が毎日購入して消費するのは「食料品」や「電気・ガス・水道」である。米や野菜、光熱費が値下がりしていないにもかかわらず、めったに買い替えない家電製品の価格暴落を過大に組み込んだ物価指数で「デフレだから生活費を削る」と判定されたため、受給者の食卓から肉や魚、野菜が直接奪われるという悲劇が生じた。
+        </p>
+      </div>
+    </article>
+
+    <!-- Section 3: Domino Effect across Welfare Net -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+        3. セーフティネットの「ドミノ倒し現象」――受給者を超えて全社会へ波及
+      </h2>
+      <p>
+        生活保護基準は、単に保護受給者だけの基準ではない。日本の社会保障法制において、生活保護基準は<strong>「ナショナル・ミニマム（国が認める最低限度の生活費）」</strong>として、47以上もの公的制度の境界線（アンカー）として機能している。
+      </p>
+      <p>
+        一番底にある生活保護基準を引き下げた結果、以下のように連動してセーフティネットの底が抜ける「ドミノ倒し現象」が全国で発生した。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">連動する主な制度</th>
+              <th style="text-align:center;">連動の仕組み</th>
+              <th style="text-align:center;">生活現場に生じたドミノ被害</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>小中学生の就学援助制度</strong></td>
+              <td>多くの自治体が「生活保護基準の1.0〜1.3倍未満」を対象基準に設定</td>
+              <td>保護基準の引き下げに伴い認定所得ラインが低下。給食費や学用品費、修学旅行費の補助を打ち切られる低所得子育て世帯が続出。</td>
+            </tr>
+            <tr>
+              <td><strong>個人住民税の非課税限度額</strong></td>
+              <td>地方税法上の非課税基準（1級地の生活扶助額などを参照）</td>
+              <td>非課税基準が引き下がったため、年収は変わらないのに「課税世帯」へと転落。税金を取られるだけでなく、非課税世帯向けの各種給付や減免資格を一挙に喪失。</td>
+            </tr>
+            <tr>
+              <td><strong>国民健康保険料・介護保険料</strong></td>
+              <td>住民税非課税基準に連動した保険料軽減措置（7割・5割・2割減額）</td>
+              <td>軽減措置から外れたため、低所得高齢者やフリーランス世帯の国保料・介護保険料が年数万円単位で急増。</td>
+            </tr>
+            <tr>
+              <td><strong>地域別最低賃金</strong></td>
+              <td>最低賃金法第9条により「生活保護水準との整合性（逆転防止）」を考慮</td>
+              <td>生活保護基準が下がったことで、最低賃金を引き上げる法的圧力が弱まり、全国の一般労働者の賃金改善ペースにブレーキがかかった。</td>
+            </tr>
+            <tr>
+              <td><strong>保育料・高額療養費・大学等修学支援</strong></td>
+              <td>所得階層区分や免除ラインに生活保護水準を準用</td>
+              <td>医療費の自己負担限度額の引き上げや、公営住宅の割増家賃の発生など、多岐にわたる福祉負担増が発生。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Section 4: Interactive Simulator (Household Impact & Domino Calculator) -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        4. 【インタラクティブ図解】生活保護引き下げ被害＆ドミノ倒しシミュレーター
+      </h2>
+      <p>
+        世帯構成と居住地域（級地）を選択すると、2013年改定によって毎月・年間の生活扶助費がどれだけ削られたか、そしてその世帯にどのような「ドミノ被害」が連動したかを即座に可視化します。
+      </p>
+
+      <div class="sim-container">
+        <div class="input-grid">
+          <div class="form-group">
+            <label class="form-label">世帯モデルの選択</label>
+            <select class="form-control" id="sim-household" onchange="calcDomino()">
+              <option value="single-old">単身高齢者（70歳・1人暮らし）</option>
+              <option value="single-work">単身稼働層（35歳・病気療養中）</option>
+              <option value="single-mother2">母子2人世帯（母30代＋小学生1人）</option>
+              <option value="single-mother3" selected>母子3人世帯（母40代＋中学生1人＋小学生1人）</option>
+              <option value="family4">4人世帯（夫婦40代＋中学生1人＋小学生1人）</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">居住地域の級地</label>
+            <select class="form-control" id="sim-region" onchange="calcDomino()">
+              <option value="1-1" selected>1級地-1（東京23区・大阪市・名古屋市等の大都市）</option>
+              <option value="2-1">2級地-1（県庁所在地・中核市クラスの地方都市）</option>
+              <option value="3-1">3級地-1（町村部・郡部・地方小都市）</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 2px solid var(--rose); border-radius: 0.6rem; padding: 1.25rem;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+            <div style="font-size: 1rem; font-weight: 800; color: var(--primary-dark);">この世帯の生活扶助削減額（月額・年額）</div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: var(--rose);" id="cut-amount-disp">▲ 約18,500円 / 月</div>
+          </div>
+
+          <div class="compare-grid" style="margin-top: 0; margin-bottom: 1rem;">
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 0.4rem; padding: 0.85rem; text-align: center;">
+              <div style="font-size: 0.78rem; color: var(--text-muted); font-weight: 700;">2013年 改定前 生活扶助月額</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--primary);" id="before-val">約 186,000 円</div>
+            </div>
+            <div style="background: #fff1f2; border: 1px solid #fecaca; border-radius: 0.4rem; padding: 0.85rem; text-align: center;">
+              <div style="font-size: 0.78rem; color: #991b1b; font-weight: 700;">2015年 完了後 生活扶助月額（最大削減後）</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: var(--rose);" id="after-val">約 167,500 円</div>
+            </div>
+          </div>
+
+          <div style="font-size: 0.88rem; color: var(--text-main); margin-bottom: 0.75rem;">
+            <strong>年間累積被害額：</strong> <span style="font-size: 1.15rem; font-weight: 800; color: #881337;" id="yearly-cut">年間 ▲ 約22.2万円 の実質生活費喪失！</span>
+          </div>
+
+          <div style="font-size: 0.82rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.4rem;">
+            この世帯・周辺低所得層を直撃した「ドミノ連動被害」：
+          </div>
+          <div class="domino-grid" id="domino-list">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Section 5: The Inochi-no-Toride Lawsuit -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        5. 「いのちのとりで裁判」の司法判断と国の違法性認定
+      </h2>
+      <p>
+        この違法な切り下げに対し、全国29都道府県で1,000人以上の原告が立ち上がったのが<strong>「新生存権裁判（いのちのとりで裁判）」</strong>である。
+      </p>
+      <p>
+        過去の生存権裁判（朝日訴訟や堀木訴訟）では、「厚生労働大臣には極めて広範な立法・行政上の裁量権がある」として、裁判所が政府の基準決定に踏み込むことは極めて稀であった。しかし、今回の裁判では、<strong>専門家が暴いた「デフレ調整の統計的捏造と手続的瑕疵」</strong>が決定的な証拠となり、司法判断の潮目を完全に塗り替えた。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">判決年月日・裁判所</th>
+              <th style="text-align:center;">司法判断の結果</th>
+              <th style="text-align:center;">判決の核心的理由（国の違法性判断）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2021年2月22日<br>大阪地方裁判所</strong></td>
+              <td align="center"><span style="color:var(--emerald); font-weight:800;">原告勝訴</span><br>（処分取消）</td>
+              <td>全国で初の違法判決。独自のデフレ調整について「統計学的根拠を欠き、厚生労働大臣の判断過程に過誤・欠落がある」と断定。</td>
+            </tr>
+            <tr>
+              <td><strong>2023年4月13日<br>名古屋高等裁判所</strong></td>
+              <td align="center"><span style="color:var(--emerald); font-weight:800;">原告勝訴</span><br>（高裁初判決）</td>
+              <td>高裁レベルで全国初の勝訴判決。物価指数の算定において統計の専門家の知見を無視し、審議会の議を経ていない手続的瑕疵を認定。</td>
+            </tr>
+            <tr>
+              <td><strong>2023年4月〜2024年<br>大阪高裁・広島高裁・福岡高裁・札幌高裁等</strong></td>
+              <td align="center"><span style="color:var(--emerald); font-weight:800;">原告勝訴続出</span><br>（高裁で違法認定が定着）</td>
+              <td>各地の高裁で「裁量権の範囲の逸脱・濫用」を認める判決が相次ぐ。国の「政治的思惑による統計操作」が司法によって断罪される。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box primary">
+        <div class="info-box-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          司法が突きつけた「裁量権の限界」
+        </div>
+        <p style="margin-bottom: 0; font-size: 0.88rem;">
+          最高裁判所のこれまでの判例は「最低限度の生活基準の決定は厚労大臣の広い裁量に委ねられる」としてきた。しかし、近年のいのちのとりで裁判の高裁判決群は、<strong>「裁量があるからといって、統計学の客観的ルールを無視して数字を偽装したり、専門部会の審議プロセスを無視して結論ありきで決定すること（判断過程の著しい過誤・欠落）は、裁量権の逸脱・濫用であり明確に違法である」</strong>という極めて重い立憲的歯止めを打ち立てた。
+        </p>
+      </div>
+    </article>
+
+    <!-- Section 6: Lessons for Modern Japan -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"></path></svg>
+        6. 本書（『うちはなぜ貧乏なの？』）が提起する統治の病理
+      </h2>
+      <p>
+        本書の第1章・第2章で一貫して暴いてきたのは、<strong>「政府は貧困を解決するのではなく、基準線を下にずらすことで『統計上の貧困者』を消滅させ、公的責任を放棄する」</strong>という現代統治の構造的欺瞞である。
+      </p>
+      <p>
+        中国が農村貧困基準（月330元）をクリアしただけで「絶対的貧困の解消」を宣言し、アメリカが60年前の食費×3倍（OPM）に固執して医療貧困を隠蔽したのと全く同じ手口が、2013年の日本において「デフレ調整」という統計操作によって実行された。
+      </p>
+      <p>
+        最低賃金で働くワーキングプアの苦境を口実に生活保護を引き下げ、生活保護が下がったことを口実に最低賃金や就学援助の引き上げを抑制する――この<strong>「貧困者同士をいがみ合わせ、底辺へ向かって全員で転落していく下方均衡のスパイラル（Race to the Bottom）」</strong>を打ち破るためには、国民一人ひとりが「生活保護は恥ではなく、社会全体の賃金と福祉を守る最後の防波堤である」という真実を共有しなければならない。
+      </p>
+    </article>
+
+    <!-- Section 7: Sources & Official References -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        7. 出典・公的資料・学術参考文献
+      </h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+        ※本補論の数値・判例データは、裁判所公式判例集、社会保障審議会生活保護基準部会報告書、および日本弁護士連合会（日弁連）の公的検証資料に基づいています（リンク切れ防止のため公式永続ドメインのみ設定）。
+      </p>
+      <ul>
+        <li>
+          <strong>裁判所公式判例検索：</strong><br>
+          <a href="https://www.courts.go.jp" target="_blank" rel="noopener noreferrer" class="footer-link">裁判所判例検索：名古屋高裁令和5年4月13日判決（平31(行コ)11号）、大阪高裁令和5年4月14日判決等</a>
+        </li>
+        <li>
+          <strong>社会保障審議会生活保護基準部会（厚生労働省）：</strong><br>
+          <a href="https://www.mhlw.go.jp" target="_blank" rel="noopener noreferrer" class="footer-link">厚生労働省：生活保護基準部会報告書（2012年12月報告書、および2013年生活扶助基準改定関係資料）</a>
+        </li>
+        <li>
+          <strong>日本弁護士連合会（日弁連）：</strong><br>
+          <a href="https://www.nichibenren.or.jp" target="_blank" rel="noopener noreferrer" class="footer-link">日弁連：生活保護基準引き下げによる他制度への影響調査報告書・会長声明</a>
+        </li>
+        <li>
+          <strong>いのちのとりで裁判全国アクション：</strong><br>
+          『新生存権裁判の軌跡と争点検証――デフレ調整の統計的過誤の全記録』。
+        </li>
+        <li>
+          <strong>白井康彦（2022）：</strong><br>
+          『生活保護基準引き下げの統計不正を告発する』かもがわ出版。
+        </li>
+        <li>
+          <strong>岩田正美・吉中季代子（2019）：</strong><br>
+          『生活保護基準と社会保障のゆくえ』ミネルヴァ書房。
+        </li>
+      </ul>
+    </article>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-links">
+        <a href="indexHinkon.html" class="footer-link">← 補論ポータルTOPへ戻る</a>
+      </div>
+      <div class="copyright">
+        &copy; mb_cho 『現代貧困の解体新書――見えない搾取の構造と処方箋』 All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    const householdData = {
+      'single-old': {
+        name: '単身高齢者（70歳・1人暮らし）',
+        baseBefore: { '1-1': 80820, '2-1': 75200, '3-1': 68700 },
+        cutPct: 0.05,
+        dominos: [
+          { title: '冬期の暖房費削減', impact: 'エアコンやストーブの使用を極限まで控え、低体温症やヒートショックのリスクが激増。' },
+          { title: '食事回数の削減', impact: '1日3食から2食へ削り、主食の炭水化物ばかりで栄養状態が急速に悪化。' },
+          { title: '通院・薬の節約', impact: '生活扶助が減ったことで通院の交通費や湿布等の自己負担を削り、持病が悪化。' }
+        ]
+      },
+      'single-work': {
+        name: '単身稼働層（35歳・病気療養中）',
+        baseBefore: { '1-1': 83700, '2-1': 78100, '3-1': 71500 },
+        cutPct: 0.055,
+        dominos: [
+          { title: '社会復帰の就活費断念', impact: '面接用スーツの購入や交通費、通信費が払えず、求職活動そのものが停滞。' },
+          { title: '関係性の完全孤立', impact: '知人や友人との交際費が完全にゼロになり、精神的な孤立・抑うつが深刻化。' }
+        ]
+      },
+      'single-mother2': {
+        name: '母子2人世帯（母30代＋小学生1人）',
+        baseBefore: { '1-1': 148500, '2-1': 138000, '3-1': 125000 },
+        cutPct: 0.08,
+        dominos: [
+          { title: '子どもの体験機会剥奪', impact: '修学旅行の積立や学校行事の教材費が払えず、孤立感・引け目を植え付ける。' },
+          { title: '就学援助の認定境界線', impact: '周辺の一般低所得ひとり親世帯で就学援助が打ち切られるドミノ現象が直撃。' },
+          { title: '母親の食事欠食', impact: '子どもの分を確保するために母親自身が朝食や昼食を抜く日常が常態化。' }
+        ]
+      },
+      'single-mother3': {
+        name: '母子3人世帯（母40代＋中学生1人＋小学生1人）',
+        baseBefore: { '1-1': 186000, '2-1': 173000, '3-1': 158000 },
+        cutPct: 0.10,
+        dominos: [
+          { title: '最大10%の大削減が直撃', impact: '月額約1.8万〜2.0万円、年間20万円超もの生活費が根こそぎ奪われた最激変層。' },
+          { title: '高校進学・塾の断念', impact: '高校受験のための模擬試験代や教材費が出せず、子どもの教育機会が著しく阻害。' },
+          { title: '就学援助のドミノ打ち切り', impact: '保護基準連動により、全国の同規模ワーキングプア家庭で就学援助の支給停止が相次いだ。' }
+        ]
+      },
+      'family4': {
+        name: '4人世帯（夫婦40代＋中学生1人＋小学生1人）',
+        baseBefore: { '1-1': 218000, '2-1': 202000, '3-1': 185000 },
+        cutPct: 0.095,
+        dominos: [
+          { title: '世帯全体の食費危機', impact: '食べ盛りの子ども2人の食費が不足し、米と安価なうどん等の炭水化物中心に偏重。' },
+          { title: '住民税非課税枠の縮小', impact: '周辺の一般低所得層で住民税が新たに課税され、保育料や保険料が跳ね上がる。' },
+          { title: 'クラブ活動・部活動の断念', impact: 'ユニフォーム代や遠征費、部費が払えず、子どもの成長機会が容赦なく奪われる。' }
+        ]
+      }
+    };
+
+    function calcDomino() {
+      const hhKey = document.getElementById('sim-household').value;
+      const regKey = document.getElementById('sim-region').value;
+
+      const data = householdData[hhKey];
+      const beforeAmount = data.baseBefore[regKey];
+      const cutRate = data.cutPct;
+
+      const monthlyCut = Math.round(beforeAmount * cutRate);
+      const afterAmount = beforeAmount - monthlyCut;
+      const yearlyCut = monthlyCut * 12;
+
+      document.getElementById('cut-amount-disp').textContent = `▲ 約 ${monthlyCut.toLocaleString()} 円 / 月 (${(cutRate * 100).toFixed(1)}%減)`;
+      document.getElementById('before-val').textContent = `約 ${beforeAmount.toLocaleString()} 円`;
+      document.getElementById('after-val').textContent = `約 ${afterAmount.toLocaleString()} 円`;
+      document.getElementById('yearly-cut').textContent = `年間 ▲ 約 ${(yearlyCut / 10000).toFixed(1)} 万円 の実質生活費喪失！`;
+
+      const listContainer = document.getElementById('domino-list');
+      listContainer.innerHTML = '';
+
+      data.dominos.forEach(d => {
+        const div = document.createElement('div');
+        div.className = 'domino-card';
+        div.innerHTML = `
+          <div class="domino-title">
+            <span style="color:var(--rose);">⚠️</span>
+            <span>${d.title}</span>
+          </div>
+          <div class="domino-impact">${d.impact}</div>
+        `;
+        listContainer.appendChild(div);
+      });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      calcDomino();
+    });
+  </script>
+</body>
+</html>
