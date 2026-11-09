@@ -330,31 +330,67 @@
       border-radius: 0.75rem;
       padding: 1.5rem;
       margin: 1.5rem 0;
-      text-align: center;
       box-shadow: var(--shadow-sm);
     }
 
     .formula-title {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 800;
       color: var(--primary-dark);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px dashed #99f6e4;
+      padding-bottom: 0.75rem;
     }
 
-    .math-equation {
+    .formula-list {
       display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .formula-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--primary-light);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-case-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 1.12rem;
+      gap: 0.3rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .formula-calc {
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.75rem;
+      color: var(--text-main);
+      overflow-x: auto;
+      padding: 0.3rem 0;
+      line-height: 1.6;
+    }
+
+    .formula-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      line-height: 1.4;
     }
 
     .formula-note {
@@ -764,23 +800,55 @@
         中央最低賃金審議会および各都道府県の地方最低賃金審議会では、逆転現象の有無を判定するために、厚生労働省が策定した統一基準に基づいて「最低賃金の手取り月額」と「生活保護基準の月額」を比較検証しています。
       </p>
 
-      <div class="formula-box">
+            <div class="formula-box">
         <div class="formula-title">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
           最低賃金と生活保護水準の比較算式
         </div>
-        <div class="math-equation">
-          $$	ext{最低賃金手取り月額} = 	ext{時間額（時給）} 	imes 173.8	ext{時間} 	imes 0.847$$
+
+        <div class="formula-list">
+          <!-- 労働側 -->
+          <div class="formula-item">
+            <div class="formula-case-badge">
+              <span>💼</span> 労働側：最低賃金の手取り月額換算
+            </div>
+            <div class="formula-calc">
+              最低賃金手取り月額 ＝ <strong>時間額（時給） \(\times\) 173.8時間 \(\times\) 0.847</strong>
+            </div>
+            <div class="formula-sub">
+              ※ 173.8時間：年間平均月所定労働時間定数 ／ 0.847：手取り換算係数（税・社保控除率 約15.3%）
+            </div>
+          </div>
+
+          <!-- 保護側 -->
+          <div class="formula-item">
+            <div class="formula-case-badge">
+              <span>🛡️</span> 保護側：生活保護の月額基準
+            </div>
+            <div class="formula-calc">
+              生活保護基準月額 ＝ <strong>生活扶助（第1類＋第2類） ＋ 住宅扶助（実費限度額）</strong>
+            </div>
+            <div class="formula-sub">
+              ※ 比較基準世帯：18〜19歳単身未婚就業者（各都道府県の人口最大級地）
+            </div>
+          </div>
+
+          <!-- 逆転判定 -->
+          <div class="formula-item">
+            <div class="formula-case-badge">
+              <span>⚖️</span> 逆転判定と時給換算乖離額
+            </div>
+            <div class="formula-calc">
+              乖離額（月額） ＝ <strong>最低賃金手取り月額 − 生活保護基準月額</strong>
+            </div>
+            <div class="formula-sub">
+              ※ 乖離額がマイナスの場合「逆転現象」。不足時給 ＝ \(|\text{乖離額}| \div (173.8 \times 0.847) = |\text{乖離額}| \div 147.2086\)
+            </div>
+          </div>
         </div>
-        <div class="math-equation">
-          $$	ext{生活保護基準月額} = 	ext{生活扶助（第1類＋第2類）} + 	ext{住宅扶助（実費限度額）}$$
-        </div>
-        <div class="math-equation">
-          $$	ext{乖離額（月額）} = 	ext{最低賃金手取り月額} - 	ext{生活保護基準月額}$$
-        </div>
+
         <p class="formula-note">
-          ※ 乖離額がマイナス（手取り月額 ＜ 保護基準月額）となった場合を「逆転現象」と判定する。<br>
-          ※ 不足している時間額は、$$	ext{時給換算乖離額} = rac{|	ext{乖離額}|}{173.8 	imes 0.847} = rac{|	ext{乖離額}|}{147.2086}$$ で算出される。
+          ※ 乖離額がマイナス（手取り月額 ＜ 保護基準月額）となった場合を「逆転現象」と判定し、各地域の地方最低賃金審議会において引上げ目安への「乖離解消分の上乗せ」が行われます。
         </p>
       </div>
 
