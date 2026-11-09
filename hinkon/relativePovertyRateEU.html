@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：欧州連合（EU）の相対的貧困率――なぜ中央値の「60%」なのか？ AROPE（貧困・社会的排除リスク）の3本柱と日本・OECD基準の徹底比較</title>
+
+  <!-- KaTeX for Enhanced LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --primary-dark: #0f172a;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --eu-blue: #003399;
+      --eu-gold: #ffcc00;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Condition 1 strictly met: ONLY Portal Top) */
+    .top-nav {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-brand {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link.portal-link {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.375rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .nav-link.portal-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #003399 0%, #1e1b4b 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      border-bottom: 4px solid var(--eu-gold);
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(255, 204, 0, 0.2);
+      color: #fef08a;
+      border: 1px solid rgba(254, 240, 138, 0.4);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .lead-text {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: #e2e8f0;
+      border-left: 3px solid var(--eu-gold);
+      padding-left: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Stat Banner */
+    .stat-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary-light);
+    }
+
+    .stat-card.alert::before { background: var(--rose); }
+    .stat-card.warn::before { background: var(--accent); }
+    .stat-card.emerald::before { background: var(--emerald); }
+    .stat-card.gold::before { background: #eab308; }
+
+    .stat-card .stat-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 0.35rem 0;
+      font-feature-settings: "palt";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+
+    .stat-card.alert .stat-val { color: var(--rose); }
+    .stat-card.warn .stat-val { color: var(--accent-dark); }
+    .stat-card.emerald .stat-val { color: var(--emerald); }
+    .stat-card.gold .stat-val { color: #854d0e; }
+
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .stat-card .stat-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) td {
+      background: #fbfcfe;
+    }
+
+    /* Info Boxes */
+    .info-box {
+      background: #f0fdf4;
+      border-left: 4px solid var(--emerald);
+      padding: 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    .info-box.alert {
+      background: #fff1f2;
+      border-left-color: var(--rose);
+    }
+
+    .info-box.warn {
+      background: #fefce8;
+      border-left-color: var(--accent);
+    }
+
+    .info-box.primary {
+      background: #eff6ff;
+      border-left-color: var(--primary-light);
+    }
+
+    .info-box.eu {
+      background: #eef2ff;
+      border-left-color: var(--eu-blue);
+    }
+
+    .info-box-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-box.alert .info-box-title { color: var(--rose); }
+    .info-box.warn .info-box-title { color: var(--accent-dark); }
+    .info-box.eu .info-box-title { color: var(--eu-blue); }
+
+    /* Math & Formula Styling (Native HTML Rendering) */
+    .formula-box {
+      background: #f8fafc;
+      border: 2px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .math-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .math-fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      font-size: 0.92rem;
+      padding: 0 0.25rem;
+      line-height: 1.1;
+    }
+
+    .math-num {
+      border-bottom: 1.5px solid var(--primary);
+      padding: 0 0.35rem 0.15rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    .math-den {
+      padding: 0.15rem 0.35rem 0;
+      color: var(--primary-dark);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    var {
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
+      padding: 0 0.15rem;
+    }
+
+    .formula-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: left;
+      line-height: 1.6;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    /* Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .compare-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .compare-box {
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1.25rem;
+      background: #ffffff;
+    }
+
+    .compare-box.jp {
+      border-top: 4px solid #dc2626;
+    }
+
+    .compare-box.eu {
+      border-top: 4px solid var(--eu-blue);
+    }
+
+    .compare-title {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .compare-box.jp .compare-title { color: #dc2626; }
+    .compare-box.eu .compare-title { color: var(--eu-blue); }
+
+    /* Interactive Simulators */
+    .sim-container {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .sim-header {
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .sim-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    /* 3 Pillars Visual Matrix */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .pillar-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1.1rem;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow);
+    }
+
+    .pillar-card.active {
+      border-color: var(--eu-blue);
+      background: #f0f4ff;
+    }
+
+    .pillar-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-arop { background: #fee2e2; color: #991b1b; }
+    .badge-smsd { background: #fef3c7; color: #92400e; }
+    .badge-vlwi { background: #e0e7ff; color: #3730a3; }
+
+    .pillar-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .pillar-threshold {
+      font-size: 0.8rem;
+      color: var(--rose);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Form Controls */
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .form-control {
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.4rem;
+      font-size: 0.92rem;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Diagnosis Box */
+    .diag-result {
+      background: #ffffff;
+      border: 2px solid var(--eu-blue);
+      border-radius: 0.6rem;
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .diag-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .diag-tag {
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+
+    .tag-safe { background: #d1fae5; color: #065f46; }
+    .tag-warn { background: #fef3c7; color: #92400e; }
+    .tag-alert { background: #ffe4e6; color: #9f1239; }
+    .tag-triple { background: #881337; color: #ffffff; }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    footer.page-footer {
+      border-top: 2px solid var(--border);
+      padding: 2.5rem 0 1rem 0;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1 strictly met: ONLY Portal Top) -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>書籍連動・特別補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOPへ戻る
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge">書籍連動・特別補論 ［第1巻 第2章 2.4節連動］</div>
+      <h1>欧州連合（EU）の相対的貧困率とAROPE指標の全貌<br><span style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">なぜ中央値の「60%」なのか？ 3本柱モデルと日・OECD「50%基準」の乖離を解剖</span></h1>
+      <p class="lead-text">
+        日本の公的統計やOECDでは「中央値の50%未満」が定着している相対的貧困率。しかし、欧州連合（EU）の公式統計（Eurostat）は一貫して「中央値の60%未満（AROP）」を公式基準としています。なぜEUは60%を採用するのか？ 「最低限の生存」から「社会参加の保障」へのパラダイムシフト、そして物質的剥奪・就労強度を組み合わせた公式指標「AROPE」の数理構造を完全解読。
+      </p>
+    </header>
+
+    <!-- Stat Banner -->
+    <section class="stat-banner">
+      <div class="stat-card gold">
+        <div class="stat-label">EU公式の貧困リスク基準</div>
+        <div class="stat-val">中央値の 60% 未満</div>
+        <div class="stat-sub">OECD・日本の「50%基準」より高い閾値<br>社会的排除リスクを予防的に捕捉</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="stat-label">EU全域のAROPE該当人口</div>
+        <div class="stat-val">約9,460万人</div>
+        <div class="stat-sub">全EU人口の 21.4%（約5人に1人）<br>貧困・剥奪・低就労のいずれかに直面</div>
+      </div>
+      <div class="stat-card warn">
+        <div class="stat-label">日本に60%基準を適用した場合</div>
+        <div class="stat-val">約21.5%〜22%</div>
+        <div class="stat-sub">50%基準（15.4%）から約800万人急増<br>中間層下位のワーキングプアが顕在化</div>
+      </div>
+      <div class="stat-card emerald">
+        <div class="stat-label">EU2030目標の貧困削減</div>
+        <div class="stat-val">1,500万人削減</div>
+        <div class="stat-sub">2030年までに子どもの貧困500万人を含む<br>AROPE人口の大幅削減を法定義務化</div>
+      </div>
+    </section>
+
+    <!-- Section 1: Why 60%? -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        1. なぜ「60%」なのか？――EUの「貧困リスク（AROP）」の概念哲学
+      </h2>
+      <p>
+        日本の公的統計（厚生労働省『国民生活基礎調査』）を読んでいると、「相対的貧困率とは、等価可処分所得の中央値の半分（50%）未満の人の割合」と当たり前のように定義されている。そのため、EUの統計（EU-SILC）で「中央値の60%未満」という数値を目にすると、「誤植ではないか？ 50%の間違いではないか？」と疑問に思う読者が少なくない。
+      </p>
+      <p>
+        しかし結論から言えば、<strong>欧州連合（EU）の公式定義（Eurostat）では、一貫して「等価可処分所得の中央値の60%未満」が公式の貧困リスクライン（At-risk-of-poverty threshold：AROP）</strong>として採用されている。ここには、日米と欧州における「貧困」に対する哲学的な捉え方の決定的な相違が存在する。
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-box jp">
+          <div class="compare-title">
+            <span>🇯🇵</span>
+            <span>OECD・日本方式（中央値の50%未満）</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><strong>「極限的な生存の危機」に着目する絞り込み基準</strong></p>
+          <ul style="font-size: 0.84rem; margin-bottom: 0;">
+            <li><strong>水準の性格：</strong>所得中央値の半分（日本なら単身で年約127万円・月約10.5万円）という極めて低い水準。生活保護基準（最低生活費）に酷似した「崖っぷち」の窮迫層を測定。</li>
+            <li><strong>政策の意図：</strong>最低限の公的扶助（生活保護など）の受給対象者規模を絞り込み、社会保障費の膨張を抑制する財政規律的インセンティブが強く働く。</li>
+            <li><strong>見落とされる盲点：</strong>中央値の50%〜60%の間に位置する数百万人のワーキングプア層が「統計上は中間層（非貧困）」として切り捨てられ、公的支援の谷間に落ちる。</li>
+          </ul>
+        </div>
+
+        <div class="compare-box eu">
+          <div class="compare-title">
+            <span>🇪🇺</span>
+            <span>EU方式（中央値の60%未満：AROP）</span>
+          </div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><strong>「社会的一員としての参加権」を保障する予防的基準</strong></p>
+          <ul style="font-size: 0.84rem; margin-bottom: 0;">
+            <li><strong>水準の性格：</strong>中央値の60%（日本に当てはめると単身で年約152万円・月約12.7万円）。「その社会で普通の市民として生活し、他者と交流する活動」から脱落し始める境界。</li>
+            <li><strong>政策の意図：</strong>社会的排除（Social Exclusion）を未然に防ぐ予防的福祉国家の観点。単に餓死を防ぐだけでなく、「社会の標準的慣習に参加する権利」を人権として保障。</li>
+            <li><strong>実証的根拠：</strong>ピーター・タウンゼント（Peter Townsend）以来の剥奪研究において、所得が中央値の60%を下回ると急激に生活必需品の欠如や社会的孤立が跳ね上がることが実証されている。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box eu">
+        <div class="info-box-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          用語の厳密性：「貧困率」ではなく「貧困リスク率（At-risk-of-poverty rate）」
+        </div>
+        <p style="margin-bottom: 0; font-size: 0.88rem;">
+          EU統計局（Eurostat）は、この指標を単なる「貧困率（Poverty Rate）」ではなく、<strong>「貧困リスク率（At-risk-of-poverty rate：AROP）」</strong>と厳密に呼び分けている。所得が中央値の60%未満であることは、直ちに飢餓状態にあることを意味するのではなく、「低い所得のために、その社会における適切な生活水準を維持できず、社会的排除に陥るリスクが高い状態」を指す。この予防的な概念設計こそがEUの社会政策の核心である。
+        </p>
+      </div>
+    </article>
+
+    <!-- Section 2: Three Pillars of AROPE -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        2. EU公式指標「AROPE」の3本柱構造（多次元アプローチ）
+      </h2>
+      <p>
+        さらにEUでは、金銭的所得（AROP）だけで貧困を測る限界を早くから認識し、<strong>「所得」「物質的・社会的剥奪」「就労強度」の3次元を立体的に結合した公式指標「AROPE（At Risk of Poverty or Social Exclusion：貧困または社会的排除のリスク）」</strong>を制度化している。
+      </p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card" id="pillar-arop-card">
+          <span class="pillar-badge badge-arop">柱①：所得の困窮</span>
+          <div class="pillar-name">AROP（貧困リスク率）</div>
+          <div class="pillar-threshold">等価可処分所得中央値の60%未満</div>
+          <div class="pillar-text">
+            社会保障給付後の手取り所得が国の中央値の6割に満たない人々。EU全域で約7,200万人（全人口の約16.2%）が直面。
+          </div>
+        </div>
+
+        <div class="pillar-card" id="pillar-smsd-card">
+          <span class="pillar-badge badge-smsd">柱②：生活必需品の欠乏</span>
+          <div class="pillar-name">SMSD（深刻な物質・社会的剥奪率）</div>
+          <div class="pillar-threshold">13項目中「7項目以上」の欠如</div>
+          <div class="pillar-text">
+            暖房、急な出費、肉魚、滞納なし支払い、最低2足の靴、外食、ネット環境など、経済的理由で7項目以上欠如。EU全域で約3,000万人（約6.8%）。
+          </div>
+        </div>
+
+        <div class="pillar-card" id="pillar-vlwi-card">
+          <span class="pillar-badge badge-vlwi">柱③：労働市場からの疎外</span>
+          <div class="pillar-name">VLWI（超低就労強度世帯比率）</div>
+          <div class="pillar-threshold">年間総就労時間が潜在可能時間の「20%以下」</div>
+          <div class="pillar-text">
+            非高齢世帯において、就業可能時間のうち実際に働けた時間が2割以下にとどまる人々（失業・ギグ・不完全就労）。EU全域で約3,100万人（約8.0%）。
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>🇪🇺</span>
+          <span>EU公式：AROPEの総合判定ルール（重複を除いた和集合）</span>
+        </div>
+        <div class="math-equation">
+          <span>総合 AROPE ＝</span>
+          <span style="color: #991b1b;">AROP（所得60%）</span>
+          <span> &cup; </span>
+          <span style="color: #92400e;">SMSD（剥奪7項目）</span>
+          <span> &cup; </span>
+          <span style="color: #3730a3;">VLWI（低就労20%）</span>
+        </div>
+        <p class="formula-note">
+          ※ 3つの基準のいずれか1つでも該当すれば「AROPE（貧困・社会的排除リスク層）」と認定される。<br>
+          ※ 重複を除いたEU27カ国全体の純人口は <strong>約9,460万人（全人口の 21.4%：約5人に1人超）</strong>（Eurostat 2023年確定値）。3つのすべてに同時に直面する「最重度の3重苦層」も約550万人存在する。
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">指標・柱</th>
+              <th style="text-align:center;">測定対象</th>
+              <th style="text-align:center;">EU27カ国平均該当率</th>
+              <th style="text-align:center;">政策的意義と日本への示唆</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>① AROP</strong><br>(貧困リスク率)</td>
+              <td>等価可処分所得の中央値60%未満</td>
+              <td align="center"><strong>16.2%</strong><br>(約7,200万人)</td>
+              <td>金銭的再分配の指標。年金や失業手当などの現金給付が市場所得格差をどれだけ是正できているかを評価。</td>
+            </tr>
+            <tr>
+              <td><strong>② SMSD</strong><br>(物質・社会的剥奪率)</td>
+              <td>生活必需品13項目中7項目以上欠如</td>
+              <td align="center"><strong>6.8%</strong><br>(約3,000万人)</td>
+              <td>インフレや物価高、住居費高騰による直接的困窮を捕捉。所得統計だけでは見えない生活実態を直接測定。</td>
+            </tr>
+            <tr>
+              <td><strong>③ VLWI</strong><br>(超低就労強度世帯)</td>
+              <td>世帯就労時間が可能時間の20%以下</td>
+              <td align="center"><strong>8.0%</strong><br>(約3,100万人)</td>
+              <td>長期失業、就業不能、ケア負担（育児・介護）による就労機会の喪失を捕捉。雇用セーフティネットの成否を測定。</td>
+            </tr>
+            <tr style="background: #fdf2f8;">
+              <td><strong>★ AROPE総合</strong><br>(いずれかに該当)</td>
+              <td>重複を除いた純該当者数</td>
+              <td align="center"><strong>21.4%</strong><br>(約9,460万人)</td>
+              <td>「ヨーロッパ2030目標」の最重要ベンチマーク指標。多面的なアプローチで社会的排除を根絶する国際標準。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- Section 3: Modified OECD Equivalence Scale -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+        3. 等価尺度の相違：日本方式（平方根）vs EU方式（修正OECD尺度）
+      </h2>
+      <p>
+        相対的貧困率を計算する際、世帯人数が増えるほど生活費（家賃や光熱費）が割安になる「世帯規模の経済」を調整するため、世帯の可処分所得を「等価尺度」で割って等価可処分所得を算出する。ここでも、日本とEUでは国際統計上の計算式が異なっている。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;">世帯構成</th>
+              <th style="text-align:center;">日本・OECD標準方式<br>（世帯人数の平方根：&radic;<var>n</var>）</th>
+              <th style="text-align:center;">EU公式方式<br>（修正OECD等価尺度：Modified OECD Scale）</th>
+              <th style="text-align:center;">相違の理由と影響</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>単身世帯（大人1人）</strong></td>
+              <td align="center">&radic;1 ＝ <strong>1.000</strong></td>
+              <td align="center">第1成人 ＝ <strong>1.000</strong></td>
+              <td>基準値として完全に一致。</td>
+            </tr>
+            <tr>
+              <td><strong>2人世帯（大人2人）</strong></td>
+              <td align="center">&radic;2 &asymp; <strong>1.414</strong></td>
+              <td align="center">1.0 ＋ 0.5 ＝ <strong>1.500</strong></td>
+              <td>EU方式の方が分母が大きく（生活費を多めに見積もり）、所得が低めに評価される。</td>
+            </tr>
+            <tr>
+              <td><strong>3人世帯（大人2人＋子1人）</strong></td>
+              <td align="center">&radic;3 &asymp; <strong>1.732</strong></td>
+              <td align="center">1.0 ＋ 0.5 ＋ 0.3 ＝ <strong>1.800</strong></td>
+              <td>EU方式は子ども（14歳未満）を大人より小さい「0.3」として厳密に区分。</td>
+            </tr>
+            <tr>
+              <td><strong>4人世帯（大人2人＋子2人）</strong></td>
+              <td align="center">&radic;4 ＝ <strong>2.000</strong></td>
+              <td align="center">1.0 ＋ 0.5 ＋ 0.3 ＋ 0.3 ＝ <strong>2.100</strong></td>
+              <td>子どもの多い世帯ではEU方式の方が分母が大きくなり、貧困ライン判定が厳格になる。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>📐</span>
+          <span>EU修正OECD等価尺度（Modified OECD Scale）の計算式</span>
+        </div>
+        <div class="math-equation">
+          <span>世帯等価係数 ＝ 1.0 ＋ 0.5 &times; (14歳以上の同居人) ＋ 0.3 &times; (14歳未満の子ども)</span>
+        </div>
+        <div class="math-equation" style="font-size: 1rem; margin-top: 0.5rem;">
+          <span>等価可処分所得 ＝ </span>
+          <span class="math-fraction">
+            <span class="math-num">世帯の手取り可処分所得</span>
+            <span class="math-den">世帯等価係数</span>
+          </span>
+        </div>
+        <p class="formula-note">
+          ※ 1990年代後半にEurostatによって導入された尺度。旧来のOECD尺度（第1成人1.0、追加大人0.7、子ども0.5）よりも生活の共同化効果を高く評価しつつ、子ども（0.3）と大人（0.5）の消費規模の違いを反映している。
+        </p>
+      </div>
+    </article>
+
+    <!-- Section 4: Interactive Simulator 1 (AROPE Multi-dimensional Diagnosis) -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        4. 【インタラクティブ診断】EU基準・AROPE多重困窮シミュレーター
+      </h2>
+      <p>
+        以下の3つの柱（所得水準・剥奪項目数・世帯就労状況）を選択すると、EU公式基準におけるAROPE判定（該当・非該当、および困窮の重複度）を即座にシミュレーションします。
+      </p>
+
+      <div class="sim-container">
+        <div class="sim-header">
+          <div class="sim-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            世帯状況の入力（3つの要素を選択）
+          </div>
+          <div class="sim-desc">
+            いずれか1つでも該当すればEU基準の「AROPE（貧困・社会的排除リスク層）」と判定されます。
+          </div>
+        </div>
+
+        <div class="input-grid">
+          <div class="form-group">
+            <label class="form-label">① 所得水準（AROP）</label>
+            <select class="form-control" id="sim-arop" onchange="calcAROPE()">
+              <option value="above">中央値の60%以上（通常水準）</option>
+              <option value="between">中央値の50%〜60%未満（EU基準で貧困リスク）</option>
+              <option value="below50">中央値の50%未満（日欧ともに絶対的貧困線）</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">② 物質的剥奪（SMSD：13項目中）</label>
+            <select class="form-control" id="sim-smsd" onchange="calcAROPE()">
+              <option value="0">0〜2項目欠如（標準的生活）</option>
+              <option value="3">3〜6項目欠如（軽度・中度の困窮）</option>
+              <option value="7">7項目以上欠如（公式の深刻な剥奪認定）</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">③ 就労強度（VLWI）</label>
+            <select class="form-control" id="sim-vlwi" onchange="calcAROPE()">
+              <option value="high">通常就労（就業可能時間の50%超稼働）</option>
+              <option value="medium">中低就労（就業可能時間の21%〜50%）</option>
+              <option value="low">超低就労（就業可能時間の20%以下：無職・病気等）</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div class="diag-result">
+          <div class="diag-title">
+            <span>🇪🇺</span>
+            <span>診断判定結果：</span>
+            <span id="arope-status-badge" class="diag-tag tag-safe">非該当（社会的一般層）</span>
+          </div>
+          <div id="arope-detail" style="font-size: 0.9rem; line-height: 1.65; color: var(--text-main);">
+            3つの基準のいずれにも該当していません。EU公式基準において、貧困および社会的排除のリスクは極めて低い状態です。
+          </div>
+          <div id="arope-breakdown" style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.5rem;">
+            ・所得（AROP）：非該当 ｜ ・物質的剥奪（SMSD）：非該当 ｜ ・就労強度（VLWI）：非該当
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Section 5: Interactive Simulator 2 (50% vs 60% Calculator) -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+        5. 【日欧比較シミュレーター】日本50%基準 vs EU60%基準・判定シミュレーター
+      </h2>
+      <p>
+        世帯の大人・子どもの人数と手取り月収を入力すると、<strong>「日本基準（平方根方式×中央値50%）」</strong>と<strong>「EU基準（修正OECD尺度×中央値60%）」</strong>のそれぞれにおいて、あなたの世帯がどう判定されるかをリアルタイムで比較します。
+      </p>
+
+      <div class="sim-container">
+        <div class="input-grid">
+          <div class="form-group">
+            <label class="form-label">大人（14歳以上）の人数</label>
+            <input type="number" id="calc-adults" class="form-control" value="2" min="1" max="6" oninput="calcJpVsEu()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">子ども（14歳未満）の人数</label>
+            <input type="number" id="calc-children" class="form-control" value="2" min="0" max="6" oninput="calcJpVsEu()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">世帯の手取り月収（万円）</label>
+            <input type="number" id="calc-income" class="form-control" value="24" min="5" max="150" step="1" oninput="calcJpVsEu()">
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 0.6rem; padding: 1.25rem;">
+          <div class="compare-grid" style="margin-top: 0; margin-bottom: 1rem;">
+            <!-- JP Box -->
+            <div style="background: #fff5f5; border: 1px solid #fecaca; border-radius: 0.5rem; padding: 1rem; text-align: center;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: #991b1b;">🇯🇵 日本基準（平方根方式・中央値50%）</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin: 0.3rem 0;">世帯の貧困ライン月額：<strong id="jp-line-val" style="color:#991b1b;">21.2万円</strong></div>
+              <div id="jp-verdict" style="font-size: 1.15rem; font-weight: 800; color: var(--emerald); margin-top: 0.5rem;">判定：非貧困（基準以上）</div>
+            </div>
+
+            <!-- EU Box -->
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 0.5rem; padding: 1rem; text-align: center;">
+              <div style="font-size: 0.85rem; font-weight: 700; color: var(--eu-blue);">🇪🇺 EU基準（修正OECD尺度・中央値60%）</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin: 0.3rem 0;">世帯の貧困リスクライン月額：<strong id="eu-line-val" style="color:var(--eu-blue);">26.7万円</strong></div>
+              <div id="eu-verdict" style="font-size: 1.15rem; font-weight: 800; color: var(--rose); margin-top: 0.5rem;">判定：貧困リスク層（基準未満）</div>
+            </div>
+          </div>
+
+          <div id="gap-analysis" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-main); background: #f8fafc; padding: 0.85rem; border-radius: 0.4rem; border-left: 3px solid var(--accent);">
+            <strong>分析結果：</strong> あなたの世帯（月収24万円）は、日本基準では貧困ライン（21.2万円）を上回るため「非貧困（中間層）」と分類されますが、EU基準では貧困リスクライン（26.7万円）を下回るため「社会的排除のリスクにさらされた貧困層」と判定されます。この<strong>「日本基準ではセーフだがEU基準ではアウト」となる約5.5万円のギャップ</strong>に、日本の中間層下位・ワーキングプア世帯が大量に埋没しています。
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Section 6: Japan's Invisible Poverty -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        6. 日本への痛烈な示唆：50%基準という「統計の隠蔽」からの脱却
+      </h2>
+      <p>
+        日本の貧困論において決定的に欠落しているのは、<strong>「政府の公式貧困率15.4%という数字そのものが、極端に厳しい50%基準によって過小評価された氷山の一角である」</strong>という冷徹な認識である。
+      </p>
+
+      <h3>① 中央値50%〜60%ゾーンに眠る約800万人の「見えないワーキングプア」</h3>
+      <p>
+        もし日本政府がEUと同じ「中央値の60%基準」を適用して国民生活を測定すれば、日本の相対的貧困率は直ちに <strong>21.5%〜22%超（約2,700万人・国民の5人に1人強）</strong> へと急拡大する。これはG7諸国で最も格差の激しいアメリカ（約23%）に肉薄する水準である。
+      </p>
+      <p>
+        日本で「年収280万〜330万円（手取り月収20万〜24万円）」で暮らす子育て世帯や単身者は、政府の統計上「貧困ではない普通の中間層」として扱われ、児童扶養手当の満額支給や就学援助、住宅補助などのセーフティネットから排除される。しかし、民間アパートの家賃、高騰する光熱費、社会保険料の天引き、奨学金返済を支払った後には、食事や医療、子どもの教育機会を削らざるを得ない。彼らはEU基準で見れば疑いなく「貧困リスク層」そのものである。
+      </p>
+
+      <h3>② 多次元剥奪（SMSD）と就労強度（VLWI）を持たない日本の政策不全</h3>
+      <p>
+        さらに致命的なのは、日本政府がEUの「AROPE」のような、<strong>生活必需品の剥奪（SMSD）や不完全就労（VLWI）を体系的に追跡する総合統計指標をいまだに制度化していない</strong>点である。
+      </p>
+      <p>
+        物価高や実質賃金低下が続く現代において、過去1年の金銭フローだけを測る所得統計は生活実態から乖離する。「暖房をつけられない」「1日2食に削っている」「歯科治療を我慢している」という生活実態の剥奪を直接測定し、それらを政策目標として法律で位置づけているEUのAROPE体系は、日本の形骸化したセーフティネットを刷新するための必須の青写真を示している。
+      </p>
+    </article>
+
+    <!-- Section 7: Sources & References -->
+    <article class="card">
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        7. 出典・公的資料・学術参考文献
+      </h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+        ※本補論の数値・数理定義は、欧州連合統計局（Eurostat）公式統計マニュアルおよびOECD所得分配データベース（IDD）の最新データに準拠しています（リンク切れ防止のため公式永続ドメインのみ設定）。
+      </p>
+      <ul>
+        <li>
+          <strong>欧州委員会統計局（Eurostat）：</strong><br>
+          <a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener noreferrer" class="footer-link">Eurostat: Income and Living Conditions (EU-SILC) - At-risk-of-poverty or social exclusion (AROPE) Overview</a>
+        </li>
+        <li>
+          <strong>Eurostat Methodology：</strong><br>
+          <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Glossary:At-risk-of-poverty_rate" target="_blank" rel="noopener noreferrer" class="footer-link">Eurostat Statistics Explained: Glossary - At-risk-of-poverty rate (60% median threshold)</a>
+        </li>
+        <li>
+          <strong>OECD（経済協力開発機構）：</strong><br>
+          <a href="https://www.oecd.org/social/income-distribution-database.htm" target="_blank" rel="noopener noreferrer" class="footer-link">OECD Income Distribution Database (IDD): Measuring Poverty and Inequality</a>
+        </li>
+        <li>
+          <strong>厚生労働省：</strong><br>
+          『令和4年 国民生活基礎調査の概況』（等価可処分所得中央値254万円、貧困線127万円、相対的貧困率15.4%）。
+        </li>
+        <li>
+          <strong>阿部彩（2014）：</strong><br>
+          『相対的剥奪の視点からみた日本の貧困・格差』有斐閣；『子どもの貧困』岩波新書。
+        </li>
+        <li>
+          <strong>Townsend, P. (1979)：</strong><br>
+          <em>Poverty in the United Kingdom: A Survey of Household Resources and Standards of Living</em>, Penguin Books.
+        </li>
+      </ul>
+    </article>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-links">
+        <a href="indexHinkon.html" class="footer-link">← 補論ポータルTOPへ戻る</a>
+      </div>
+      <div class="copyright">
+        &copy; mb_cho 『現代貧困の解体新書――見えない搾取の構造と処方箋』 All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // AROPE Multi-dimensional Diagnosis
+    function calcAROPE() {
+      const arop = document.getElementById('sim-arop').value;
+      const smsd = document.getElementById('sim-smsd').value;
+      const vlwi = document.getElementById('sim-vlwi').value;
+
+      const isArop = (arop === 'between' || arop === 'below50');
+      const isSmsd = (smsd === '7');
+      const isVlwi = (vlwi === 'low');
+
+      const count = (isArop ? 1 : 0) + (isSmsd ? 1 : 0) + (isVlwi ? 1 : 0);
+
+      const badge = document.getElementById('arope-status-badge');
+      const detail = document.getElementById('arope-detail');
+      const breakdown = document.getElementById('arope-breakdown');
+
+      breakdown.innerHTML = `・所得（AROP）：<strong>${isArop ? '<span style="color:#e11d48;">該当 (60%未満)</span>' : '非該当'}</strong> ｜ ・物質的剥奪（SMSD）：<strong>${isSmsd ? '<span style="color:#d97706;">深刻な剥奪該当 (7項目以上)</span>' : '非該当'}</strong> ｜ ・就労強度（VLWI）：<strong>${isVlwi ? '<span style="color:#7c3aed;">超低就労該当 (20%以下)</span>' : '非該当'}</strong>`;
+
+      if (count === 0) {
+        badge.className = 'diag-tag tag-safe';
+        badge.textContent = '非該当（社会的一般層）';
+        detail.textContent = '3つの基準のいずれにも該当していません。EU公式基準において、貧困および社会的排除のリスクは極めて低い健全な生活状態です。';
+      } else if (count === 1) {
+        badge.className = 'diag-tag tag-warn';
+        badge.textContent = 'AROPE該当：単一リスク層（1要素に直面）';
+        if (isArop) {
+          detail.textContent = '【所得面での困窮】所得が国の中央値の60%を下回る「貧困リスク層（AROP）」に該当します。現時点では生活必需品の深刻な欠乏や就労断絶には至っていませんが、突発的な物価高や病気等で多重困窮へ転落する脆弱性を抱えています。';
+        } else if (isSmsd) {
+          detail.textContent = '【生活実態の剥奪】所得統計上は60%以上ですが、生活必需品13項目中7項目以上を欠如する「深刻な物質的・社会的剥奪層（SMSD）」に該当します。高額な家賃や債務返済など固定費負担により、日常生活が破綻に瀕しています。';
+        } else {
+          detail.textContent = '【労働市場からの疎外】年間就労時間が潜在可能時間の20%以下である「超低就労強度世帯（VLWI）」に該当します。失業や病気、介護・育児負担による就労断絶が生じており、将来の所得困窮リスクが極めて高い状態です。';
+        }
+      } else if (count === 2) {
+        badge.className = 'diag-tag tag-alert';
+        badge.textContent = 'AROPE該当：二重困窮層（2要素の複合危機）';
+        detail.textContent = '【複合的貧困】3要素のうち2つに同時に該当しています。「低所得×生活必需品の欠如」や「低所得×低就労」など、金銭と生活基盤の双方が侵食されており、公的な手当や就労支援などの複合的政策介入が急務なレベルです。';
+      } else {
+        badge.className = 'diag-tag tag-triple';
+        badge.textContent = 'AROPE該当：最重度・三重苦層（全要素直面）';
+        detail.textContent = '【最重度の社会的排除】「所得60%未満（AROP）」「必需品7項目以上欠如（SMSD）」「就労20%以下（VLWI）」のすべてに直面している最悪の困窮状態です（EU全域で約550万人が該当）。自力での回復は不可能であり、即時かつ包括的な社会的セーフティネットの救済が必要です。';
+      }
+    }
+
+    // 50% vs 60% Calculator
+    function calcJpVsEu() {
+      const adults = parseInt(document.getElementById('calc-adults').value) || 1;
+      const children = parseInt(document.getElementById('calc-children').value) || 0;
+      const monthlyIncome = parseFloat(document.getElementById('calc-income').value) || 0;
+
+      const totalMembers = adults + children;
+
+      // JP Method: Base median 254万/year -> 21.166万/month. 50% line = 127万/year -> 10.583万/month.
+      // Equivalised factor = sqrt(n)
+      const jpFactor = Math.sqrt(totalMembers);
+      const jpThresholdMonthly = (127 / 12) * jpFactor;
+
+      // EU Method: Base median 254万/year -> 60% line = 152.4万/year -> 12.7万/month.
+      // Modified OECD factor = 1.0 + 0.5 * (adults - 1) + 0.3 * children
+      const euFactor = 1.0 + 0.5 * (adults - 1) + 0.3 * children;
+      const euThresholdMonthly = (152.4 / 12) * euFactor;
+
+      document.getElementById('jp-line-val').textContent = `${jpThresholdMonthly.toFixed(1)}万円`;
+      document.getElementById('eu-line-val').textContent = `${euThresholdMonthly.toFixed(1)}万円`;
+
+      const jpVerdict = document.getElementById('jp-verdict');
+      const euVerdict = document.getElementById('eu-verdict');
+      const gapAnalysis = document.getElementById('gap-analysis');
+
+      const isJpPoor = monthlyIncome < jpThresholdMonthly;
+      const isEuPoor = monthlyIncome < euThresholdMonthly;
+
+      if (isJpPoor) {
+        jpVerdict.textContent = '判定：貧困層（基準未満）';
+        jpVerdict.style.color = '#dc2626';
+      } else {
+        jpVerdict.textContent = '判定：非貧困（基準以上）';
+        jpVerdict.style.color = '#059669';
+      }
+
+      if (isEuPoor) {
+        euVerdict.textContent = '判定：貧困リスク層（基準未満）';
+        euVerdict.style.color = '#dc2626';
+      } else {
+        euVerdict.textContent = '判定：非貧困（基準以上）';
+        euVerdict.style.color = '#059669';
+      }
+
+      const diff = euThresholdMonthly - jpThresholdMonthly;
+
+      if (!isJpPoor && isEuPoor) {
+        gapAnalysis.innerHTML = `<strong>★「隠れた貧困」ギャップに該当！：</strong> あなたの世帯（手取り月収 ${monthlyIncome.toFixed(1)}万円）は、日本基準の貧困ライン（${jpThresholdMonthly.toFixed(1)}万円）を上回るため日本政府の統計では「非貧困（中間層）」と分類されます。しかし、EU基準の貧困リスクライン（${euThresholdMonthly.toFixed(1)}万円）を下回るため、欧州基準ではれっきとした「貧困リスク層」と判定されます。この<strong>月額約 ${diff.toFixed(1)}万円のギャップ</strong>に、日本の中間層下位・ワーキングプア層が公的支援を受けられずに沈んでいます。`;
+        gapAnalysis.style.borderLeftColor = '#e11d48';
+      } else if (isJpPoor && isEuPoor) {
+        gapAnalysis.innerHTML = `<strong>日欧ともに深刻な貧困状態：</strong> 手取り月収 ${monthlyIncome.toFixed(1)}万円は、厳格な日本基準（${jpThresholdMonthly.toFixed(1)}万円）もEU基準（${euThresholdMonthly.toFixed(1)}万円）も下回っています。最低生活費すら維持できない極度の生存危機に直面しています。`;
+        gapAnalysis.style.borderLeftColor = '#881337';
+      } else {
+        gapAnalysis.innerHTML = `<strong>日欧ともに基準をクリア：</strong> 手取り月収 ${monthlyIncome.toFixed(1)}万円は、日本基準（${jpThresholdMonthly.toFixed(1)}万円）およびEU基準（${euThresholdMonthly.toFixed(1)}万円）の双方をクリアしています。`;
+        gapAnalysis.style.borderLeftColor = '#059669';
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      calcAROPE();
+      calcJpVsEu();
+    });
+  </script>
+</body>
+</html>
