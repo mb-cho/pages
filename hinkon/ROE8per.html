@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：「ROE 8%以上」という市場至上命令――伊藤レポートから東証PBR改革、そして労働分配率低下への構造的連鎖</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #4c1d95 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .badge-sub {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+
+    /* Lead Card */
+    .lead-card {
+      background: #f0fdf4;
+      border-left: 5px solid var(--emerald);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #064e3b;
+      line-height: 1.8;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1.5rem;
+    }
+
+    .toc-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.15s;
+      display: inline-block;
+    }
+
+    .toc-list a:hover {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin: 2.5rem 0 1.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.75rem 0 0.85rem 0;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 0.98rem;
+    }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.75rem;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid currentColor;
+    }
+
+    /* Formula Box & Fractions */
+    .formula-box {
+      background: #f8fafc;
+      border: 2px solid #bfdbfe;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px dashed #bfdbfe;
+      padding-bottom: 0.65rem;
+    }
+
+    .formula-concept {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .math-fraction-group {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.6rem;
+      padding: 1rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .fraction {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 4px;
+    }
+
+    .numerator {
+      border-bottom: 2px solid var(--primary-dark);
+      padding-bottom: 3px;
+      font-weight: 700;
+    }
+
+    .denominator {
+      padding-top: 3px;
+      font-weight: 700;
+    }
+
+    .math-operator {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      padding: 0 2px;
+    }
+
+    .formula-subnote {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: left;
+      line-height: 1.6;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.75rem;
+      margin-top: 1.1rem;
+    }
+
+    .callout-blue {
+      background: #eff6ff;
+      color: var(--primary-dark);
+      border-color: var(--primary);
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      color: #064e3b;
+      border-color: var(--emerald);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      color: var(--accent-dark);
+      border-color: var(--accent);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      color: var(--crimson);
+      border-color: var(--rose);
+    }
+
+    /* Tables */
+    .data-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th, table.data-table td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    table.data-table tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Interactive Simulator */
+    .interactive-card {
+      background: #f8fafc;
+      border: 2px solid var(--primary);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .preset-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      border-radius: 0.4rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .preset-btn:hover {
+      background: #dbeafe;
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-group {
+      background: #ffffff;
+      padding: 1rem 1.2rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .slider-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .slider-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    /* Dashboard Outputs */
+    .dashboard-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .status-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .pill-green {
+      background: var(--emerald-light);
+      color: #064e3b;
+      border: 1px solid var(--emerald);
+    }
+
+    .pill-yellow {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    .pill-red {
+      background: var(--rose-light);
+      color: var(--crimson);
+      border: 1px solid var(--rose);
+    }
+
+    .metric-bars {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 90px;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.86rem;
+    }
+
+    .metric-name {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .bar-track {
+      background: #e2e8f0;
+      height: 18px;
+      border-radius: 9px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9px;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    .metric-val {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .diag-box {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.6rem;
+      background: #f1f5f9;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* References */
+    .ref-list {
+      list-style: none;
+      margin: 1rem 0;
+      padding: 0;
+    }
+
+    .ref-item {
+      padding: 0.75rem 1rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.88rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .ref-tag {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 2.5rem;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.25rem 1rem;
+      }
+      .formula-box {
+        padding: 1rem 0.75rem;
+      }
+      .formula-concept {
+        font-size: 0.95rem;
+      }
+      .math-fraction-group {
+        font-size: 0.82rem;
+        padding: 0.75rem 0.5rem;
+        gap: 0.35rem;
+        overflow-x: auto;
+      }
+      .fraction {
+        padding: 0 2px;
+      }
+      .numerator {
+        padding-bottom: 2px;
+      }
+      .denominator {
+        padding-top: 2px;
+      }
+      .math-operator {
+        font-size: 1rem;
+      }
+      .sim-dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Only 補論ポータルTOP) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第3章 補論</span>
+        <span class="badge badge-sub">企業金融 ｜ コーポレートガバナンス改革</span>
+      </div>
+      <h1>「ROE 8%以上」という市場至上命令</h1>
+      <p class="subtitle">
+        伊藤レポートから東証PBR改革、そして労働分配率低下と実質賃金低迷への構造的連鎖
+      </p>
+    </header>
+
+    <!-- Lead Card -->
+    <div class="lead-card">
+      <p style="margin: 0; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem;">
+        【本稿の核心的命題】株主至上主義の数値目標がいかに労働者の給料袋を直撃したか
+      </p>
+      2014年の「伊藤レポート」以降、日本の産業界と株式市場において「ROE（自己資本利益率）8%以上」は絶対的な達成目標（市場至上命令）として定着しました。2023年以降の東京証券取引所による「PBR1倍割れ是正要請」と機関投資家の議決権行使厳格化によって、その圧力は最高潮に達しています。しかし、実体経済の成長率（g）が年1%前後に低迷するなかで、一律に高い資本収益率（r）を達成しようとすれば、企業行動は必然的に「人件費の抑制（分子の捻出）」と「自社株買い・増配による資本縮小（分母の圧縮）」へと傾斜します。本補論では、「ROE 8%」の数理的背景と、それがもたらした労働分配率低下のメカニズムを解剖します。
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <span>📑</span>
+        <span>目次（Contents）</span>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec-1">1. なぜ「8%」なのか？――伊藤レポートと資本コストの超克</a></li>
+        <li><a href="#sec-2">2. 「市場至上命令」へと変貌した背景と東証の圧力</a></li>
+        <li><a href="#sec-3">3. デュポンシステムに見るROE向上の3大レバーと副作用</a></li>
+        <li><a href="#sec-4">4. 【インタラクティブ図解】デュポン分析＆分配歪みシミュレーター</a></li>
+        <li><a href="#sec-5">5. 本書（第1巻第3章・第4章）における位置づけ：日本版 r &gt; g の正体</a></li>
+        <li><a href="#sec-6">6. 出典・参考文献・公的資料リンク</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="sec-1">
+      <h2>1. なぜ「8%」なのか？――伊藤レポートと資本コストの超克</h2>
+      <p>
+        日本の企業社会において「ROE 8%」という数値が聖域化された決定的な契機は、2014年8月に経済産業省のプロジェクト（座長：伊藤邦雄・一橋大学特任教授）が公表した<strong>『伊藤レポート（持続的成長への「競争力とインセンティブ〜企業と投資家の望ましい関係構築〜」プロジェクト最終報告書）』</strong>です。
+      </p>
+      <p>
+        当時、欧米企業のROEが平均12%〜15%程度で推移していたのに対し、日本企業は平均5%前後に低迷していました。海外の機関投資家からは「日本企業は現金を貯め込むだけで資本効率が極めて悪く、株主価値を軽視している」という強い批判が寄せられていました。これを受け、伊藤レポートは<strong>「グローバルな投資家との対話において、日本企業が最低限達成すべき資本効率のターゲットとしてROE 8%超を目指すべきである」</strong>と明示したのです。
+      </p>
+
+      <div class="callout callout-blue">
+        <h4 style="color: var(--primary-dark); margin-top: 0;">📊 「8%」の数理的根拠：資本コストとエクイティ・スプレッド</h4>
+        コーポレート・ファイナンス理論において、企業が株主から調達した資金には<strong>「株主資本コスト（Cost of Equity: CoE）」</strong>と呼ばれる期待リターンが存在します。
+        <ul>
+          <li>日本企業の平均的な株主資本コストは、実証的に<strong>おおむね 6%〜7%台</strong> と推計されています。</li>
+          <li>企業が生み出すROEが資本コストを下回っている場合（例：ROE 4% ＜ 資本コスト 6%）、その企業は会計上黒字であっても、<strong>「株主から預かった資本の価値を破壊している（バリュー・デストラクション）」</strong>とみなされます。</li>
+          <li>したがって、資本コストを確実に上回り、企業価値を創造（エクイティ・スプレッド ＞ 0）していると海外投資家に納得させるための「最低防衛ライン」が <strong>8%</strong> なのです。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec-2">
+      <h2>2. 「市場至上命令」へと変貌した背景と東証の圧力</h2>
+      <p>
+        当初は政策提言に過ぎなかった「ROE 8%」は、過去10年間の制度改革を通じて、従わなければ経営陣が追放される「市場至上命令（De facto Standard）」へと変貌を遂げました。その原動力となったのが以下の3つの圧力です。
+      </p>
+
+      <h3>① 東京証券取引所による「PBR 1倍割れ是正要請」（2023年〜）</h3>
+      <p>
+        2023年3月、東証はプライム市場およびスタンダード市場の全上場企業に対し、<strong>「資本コストや株価を意識した経営の実現に向けた対応」</strong>を異例の強さで要請しました。
+        PBR（株価純資産倍率）が1倍を割り込んでいる状態は、「企業の解散価値よりも市場の評価額が低い」ことを意味します。財務数式上、<strong>PBR ＝ ROE × PER</strong> と分解できるため、PBR1倍超を回復するための最も直接的で確実な処方箋が「ROE ＞ 資本コスト（約8%）」の達成とされたのです。
+      </p>
+
+      <h3>② 機関投資家・議決権行使助言会社のトップ選任基準</h3>
+      <p>
+        国内外の機関投資家（年金基金、アセットマネジメント会社）や米議決権行使助言会社（ISSやGlass Lewis）は、企業の定時株主総会における議決権行使基準を急激に厳格化しました。
+        現在では、<strong>「過去3期連続でROEが一定水準（5%〜8%）を下回る企業について、最高経営責任者（CEO・社長）の取締役選任議案には原則として反対する」</strong>というスクリーニング基準が定着しています。ROE 8%の未達は、もはや経営者にとって「社長交代・クビ」に直結する死活問題となったのです。
+      </p>
+
+      <h3>③ アクティビスト（物言う株主）の標的化</h3>
+      <p>
+        潤沢な手元資金や不動産を抱えながらROEが低い企業は、割安に放置されているとみなされ、欧米系および国内系のアクティビスト・ファンドから格好の標的とされます。巨額の自社株買い、配当性向100%への引き上げ、政策保有株の全量売却、あるいは不採算事業の切り売りなどを迫る株主提案が相次ぐことになりました。
+      </p>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec-3">
+      <h2>3. デュポンシステムに見るROE向上の3大レバーと副作用</h2>
+      <p>
+        企業がROEを引き上げるための財務的メカニズムは、伝統的な<strong>「デュポンシステム（DuPont Analysis）」</strong>によって3つの要素に分解して理解することができます。
+      </p>
+
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>📈</span>
+          <span>デュポンシステムによるROEの3要素分解</span>
+        </div>
+
+        <div class="formula-concept">
+          <strong>ROE</strong> ＝ ① <strong>売上高当期純利益率</strong> × ② <strong>総資産回転率</strong> × ③ <strong>財務レバレッジ</strong>
+        </div>
+
+        <div class="math-fraction-group">
+          <div class="fraction">
+            <span class="numerator">当期純利益</span>
+            <span class="denominator">自己資本</span>
+          </div>
+          <span class="math-operator">＝</span>
+          <div class="fraction">
+            <span class="numerator">当期純利益</span>
+            <span class="denominator">売上高</span>
+          </div>
+          <span class="math-operator">×</span>
+          <div class="fraction">
+            <span class="numerator">売上高</span>
+            <span class="denominator">総資産</span>
+          </div>
+          <span class="math-operator">×</span>
+          <div class="fraction">
+            <span class="numerator">総資産</span>
+            <span class="denominator">自己資本</span>
+          </div>
+        </div>
+
+        <div class="formula-subnote">
+          ※ 途中の「売上高」と「総資産」が約分・相殺され、最終的に <strong>当期純利益 ÷ 自己資本</strong> に帰着します。<br>
+          ※ 本来は「本業の付加価値向上（①）」で高めるべき指標ですが、「人件費カット（①の分子）」や「自社株買い（③の分母圧縮）」という安易なショートカットが横行する構造的温床となっています。
+        </div>
+      </div>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>レバー（財務要素）</th>
+              <th>理想的な改善手法（本来の趣旨）</th>
+              <th>安易なショートカット（現実の副作用）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>① 売上高純利益率</strong><br>（収益性・マージン）</td>
+              <td>高付加価値製品の開発、技術革新、価格決定力（プライシングパワー）の向上。</td>
+              <td><span style="color: var(--crimson); font-weight: 700;">人件費の抑制（給与抑制・非正規化）</span>、下請け企業への単価切り下げ、研究開発費の削減。</td>
+            </tr>
+            <tr>
+              <td><strong>② 総資産回転率</strong><br>（効率性・資産のスリム化）</td>
+              <td>政策保有株式（持ち合い株）の売却、遊休資産・過剰在庫の圧縮。</td>
+              <td>将来の成長基盤となる工場やインフラの更新先送り、必要な設備投資の手控え。</td>
+            </tr>
+            <tr>
+              <td><strong>③ 財務レバレッジ</strong><br>（資本構成・分母圧縮）</td>
+              <td>適度な借入金活用による最適資本構成の構築、成長投資の実行。</td>
+              <td><span style="color: var(--crimson); font-weight: 700;">過剰な自社株買い・大幅増配</span>による分母（自己資本）の強制圧縮。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-rose">
+        <h4 style="color: var(--crimson); margin-top: 0;">⚠️ 「分母の破壊」と「人件費カット」という安易な数値合わせ</h4>
+        製品の高付加価値化や事業構造の転換には、何年もの歳月と巨額のリスクマネーが必要です。しかし、毎年の株主総会で退任のプレッシャーに晒される経営者にとって、手っ取り早くROEを8%以上にする方法は極めて明確でした。
+        <strong>「従業員の賃上げを抑えて利益（分子）を捻出し、手元の現金を自社株買いと配当で放出して自己資本（分母）を小さくする」</strong>ことです。この財務工学的なショートカットこそが、日本経済全体で労働分配率を押し下げ、実質賃金を長期低迷させた主犯でした。
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive Simulator -->
+    <section id="sec-4">
+      <h2>4. 【インタラクティブ図解】デュポン分析＆分配歪みシミュレーター</h2>
+      <p>
+        以下のシミュレーターでは、年商1,000億円の標準的な日本企業をモデルとし、経営陣が「ROE 8%以上」を達成するために<strong>「人件費削減（分子増）」</strong>や<strong>「自社株買い・増配（分母減）」</strong>、あるいは<strong>「本業の高付加価値化」</strong>を行った場合、ROEと労働分配率がどう変化するかをリアルタイムに試算できます。
+      </p>
+
+      <div class="interactive-card">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span>
+            <span>ROE目標達成＆労働分配率シミュレーター</span>
+          </div>
+          <div class="preset-btns">
+            <button class="preset-btn active" onclick="applyPreset('traditional')">1. 従来型日本企業（安定重視）</button>
+            <button class="preset-btn" onclick="applyPreset('ito8')">2. 東証・ROE8%達成型（コストカット）</button>
+            <button class="preset-btn" onclick="applyPreset('buyback')">3. 米国流・過剰自社株買い型</button>
+            <button class="preset-btn" onclick="applyPreset('ideal')">4. 理想的ステークホルダー型</button>
+          </div>
+        </div>
+
+        <div class="sim-grid">
+          <!-- Slider 1: Labor Cost -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>人件費総額（従業員給与・福利）</span>
+              <span class="slider-val" id="val-labor">220 億円</span>
+            </div>
+            <input type="range" id="input-labor" min="150" max="250" step="5" value="220" oninput="runDuPontSim()">
+            <div class="slider-hint">給与水準と正規雇用比率（引き下げると純利益が増加）</div>
+          </div>
+
+          <!-- Slider 2: Buyback & Dividends -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>株主還元（自社株買い・配当）</span>
+              <span class="slider-val" id="val-buyback">30 億円</span>
+            </div>
+            <input type="range" id="input-buyback" min="10" max="150" step="5" value="30" oninput="runDuPontSim()">
+            <div class="slider-hint">自己資本から株主へ流出させる金額（自己資本を圧縮）</div>
+          </div>
+
+          <!-- Slider 3: Value Add Margin -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>本業の高付加価値化（価格決定力）</span>
+              <span class="slider-val" id="val-margin">基準値 (0%)</span>
+            </div>
+            <input type="range" id="input-margin" min="-5" max="15" step="1" value="0" oninput="runDuPontSim()">
+            <div class="slider-hint">技術革新・ブランド力による粗利益率の向上</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Outputs -->
+        <div class="dashboard-panel">
+          <div class="status-badge-row">
+            <div>
+              <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">ROE & Labor Share Evaluation</span>
+              <div style="font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); margin-top: 2px;">
+                経営判定・資本効率シミュレーション結果
+              </div>
+            </div>
+            <div id="status-pill-container">
+              <span class="status-pill pill-yellow" id="status-pill">⚠️ ROE 4.8%：東証・株主総会で選任反対リスク</span>
+            </div>
+          </div>
+
+          <!-- Comparative Metric Bars -->
+          <div class="metric-bars">
+            <div class="metric-row">
+              <div class="metric-name">① 達成ROE（自己資本利益率）</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-roe" style="width: 40%; background: var(--accent);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-roe">4.8 %</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-name">② 労働分配率（人件費/付加価値）</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-labor-share" style="width: 72%; background: var(--emerald);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-labor-share">73.3 %</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-name">③ 総還元性向（還元額/純利益）</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-payout" style="width: 50%; background: var(--primary);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-payout">62.5 %</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Diagnostics Box -->
+          <div class="diag-box" id="diag-comment">
+            <strong>【分析所見】</strong> ROEは4.8%にとどまり、伊藤レポートの基準（8%）および株主資本コスト（約7%）を下回っています。労働分配率は73%と手厚く従業員に報いていますが、東証のPBR要請や機関投資家（ISS基準）からは「資本規律の欠如」と批判され、社長再任が危ぶまれます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec-5">
+      <h2>5. 本書（第1巻第3章・第4章）における位置づけ：日本版 r &gt; g の正体</h2>
+      <p>
+        本書『現代貧困の解体新書』において、この「ROE 8%以上」という市場至上命令は、<strong>マクロの金融圧力がミクロの雇用と賃金を破壊していく決定的な「変換装置」</strong>として位置づけられます。
+      </p>
+
+      <div class="callout callout-amber">
+        <h4 style="color: var(--accent-dark); margin-top: 0;">📌 因果の鎖：株主資本主義が家計を圧迫する5ステップ</h4>
+        <ol style="margin-left: 1.25rem; margin-bottom: 0;">
+          <li><strong>東証とグローバル資本の要求:</strong> 実体経済の成長率（g）が0〜1%台に低迷しているにもかかわらず、「ROE 8%以上」を国家と市場が一律に強制する。</li>
+          <li><strong>経営陣の保身と動機づけ:</strong> 取締役選任反対やアクティビストの敵対買収を回避するため、経営陣は短期間での数値達成に追われる。</li>
+          <li><strong>人件費の変動費化と抑制（第4章）:</strong> 最も確実な利益捻出策として、正社員の抑制、非正規雇用の拡大、ベースアップの凍結を実行し、労働分配率を長期的に切り下げる。</li>
+          <li><strong>過剰な自社株買いと内部留保の流出（第3章）:</strong> 設備投資や人への投資を手控え、現金を自社株買いと株主配当へと集中させ、自己資本（分母）をスリム化する。</li>
+          <li><strong>日本版 r ＞ g の実証:</strong> 企業の金融的利益（r）と配当は過去最高を更新し続ける一方で、働く人々の実質賃金（g）は30年間停滞し、「うちはなぜ貧乏なのか？」という生活苦が常態化する。</li>
+        </ol>
+      </div>
+
+      <p>
+        新自由主義の論者たちは「企業価値が上がればトリクルダウンで給料も上がる」と主張してきました。しかし現実には、<strong>「ROEを高めるために給料を抑え、削った人件費を株主還元へ回す」という逆流（トリクルアップ）のポンプ</strong>が組み込まれていたのです。「ROE 8%」という数値目標は、中立な経営指標などではなく、労働者から株主へと富を移転させる政治経済学的イデオロギーそのものなのです。
+      </p>
+    </section>
+
+    <!-- Section 6: References -->
+    <section id="sec-6">
+      <h2>6. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">
+        ※各リンクは2026年11月時点で正常なアクセス（HTTP 200）を確認済みです。公的報告書等の原資料は文献情報を正確に記載しています。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item">
+          <span class="ref-tag">[1]</span>
+          <span>
+            経済産業省（2014年8月）『持続的成長への「競争力とインセンティブ〜企業と投資家の望ましい関係構築〜」プロジェクト最終報告書（伊藤レポート）』座長：伊藤邦雄（一橋大学大学院商学研究科特任教授）。
+          </span>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[2]</span>
+          <a href="https://www.jpx.co.jp/news/1020/20230331-01.html" target="_blank" rel="noopener noreferrer" class="ref-link">
+            株式会社東京証券取引所（2023年3月31日）「資本コストや株価を意識した経営の実現に向けた対応について」東証上場会社への要請文書
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[3]</span>
+          <a href="https://www.fsa.go.jp/news/r1/singi/20200324.html" target="_blank" rel="noopener noreferrer" class="ref-link">
+            金融庁（2020年3月改訂）『責任ある機関投資家の諸原則（日本版スチュワードシップ・コード）』
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[4]</span>
+          <span>
+            東京証券取引所・金融庁（2021年6月改訂）『コーポレートガバナンス・コード（原案および改訂骨子）』
+          </span>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[5]</span>
+          <span>
+            Institutional Shareholder Services (ISS) (2024), <em>Japan Proxy Voting Guidelines Benchmark Policy Recommendations</em>（取締役選任基準におけるROE要件）.
+          </span>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[6]</span>
+          <span>
+            トマ・ピケティ（2014）『21世紀の資本』山形浩生・守岡桜・森本正史訳、みすず書房（第1章・第6章 資本収益率と成長率の不等式）。
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Simulator Logic -->
+  <script>
+    function runDuPontSim() {
+      const sales = 1000; // 年商1000億円固定
+      const laborCost = parseFloat(document.getElementById('input-labor').value); // 人件費
+      const buyback = parseFloat(document.getElementById('input-buyback').value); // 株主還元
+      const marginGainPct = parseFloat(document.getElementById('input-margin').value); // 高付加価値化
+
+      // Labels
+      document.getElementById('val-labor').innerText = laborCost + ' 億円';
+      document.getElementById('val-buyback').innerText = buyback + ' 億円';
+      document.getElementById('val-margin').innerText = (marginGainPct >= 0 ? '+' : '') + marginGainPct + ' %';
+
+      // Base Corporate Financials
+      // 売上原価・その他費用（原材料・減価償却等）
+      const baseOtherCost = 700; // 億円
+      // 高付加価値化で原価率改善または単価向上
+      const effectiveOtherCost = baseOtherCost * (1 - (marginGainPct / 100 * 0.4));
+      
+      // 付加価値 = 売上高 - 外部購入費用（700億円前後）
+      const valueAdded = sales - effectiveOtherCost;
+
+      // 営業利益 = 売上高 - その他費用 - 人件費
+      const opProfit = sales - effectiveOtherCost - laborCost;
+      
+      // 法人税率30%と仮定、純利益算出
+      const taxRate = 0.30;
+      const netProfit = Math.max(0, opProfit * (1 - taxRate));
+
+      // 自己資本の初期ベース = 500億円
+      // 自社株買い・配当によって自己資本が圧縮される
+      const baseEquity = 550;
+      const effectiveEquity = Math.max(150, baseEquity - (buyback * 1.5) + (netProfit * 0.5));
+
+      // ROE 算出
+      const roe = (netProfit / effectiveEquity) * 100;
+
+      // 労働分配率 = 人件費 ÷ 付加価値
+      const laborShare = Math.min(100, Math.max(20, (laborCost / valueAdded) * 100));
+
+      // 総還元性向 = 株主還元 ÷ 純利益
+      const payoutRatio = netProfit > 0 ? (buyback / netProfit) * 100 : 0;
+
+      // Update Bar Widths (ROE max 20%, laborShare max 100%, payout max 150%)
+      const roeWidth = Math.min(100, Math.max(5, (roe / 16) * 100));
+      const laborWidth = Math.min(100, Math.max(5, laborShare));
+      const payoutWidth = Math.min(100, Math.max(5, (payoutRatio / 150) * 100));
+
+      document.getElementById('bar-roe').style.width = roeWidth + '%';
+      document.getElementById('bar-labor-share').style.width = laborWidth + '%';
+      document.getElementById('bar-payout').style.width = payoutWidth + '%';
+
+      document.getElementById('val-bar-roe').innerText = roe.toFixed(1) + ' %';
+      document.getElementById('val-bar-labor-share').innerText = laborShare.toFixed(1) + ' %';
+      document.getElementById('val-bar-payout').innerText = payoutRatio.toFixed(1) + ' %';
+
+      // Bar Colors
+      const roeBar = document.getElementById('bar-roe');
+      if (roe >= 8.0) {
+        roeBar.style.background = 'var(--emerald)';
+      } else if (roe >= 5.0) {
+        roeBar.style.background = 'var(--accent)';
+      } else {
+        roeBar.style.background = 'var(--rose)';
+      }
+
+      // Status & Diagnostics
+      const statusContainer = document.getElementById('status-pill-container');
+      const diagBox = document.getElementById('diag-comment');
+
+      if (roe >= 8.0 && laborShare < 55) {
+        // High ROE via Labor Squeeze & Buyback
+        statusContainer.innerHTML = '<span class="status-pill pill-yellow">⚠️ ROE ' + roe.toFixed(1) + '% 達成（人件費抑制・株主還元偏重型）</span>';
+        diagBox.style.borderLeftColor = 'var(--accent)';
+        diagBox.innerHTML = `<strong>【分析所見：人件費抑制によるROE達成】</strong><br>
+          ROEは目標の <strong>${roe.toFixed(1)}%</strong> に達し東証基準をクリアしていますが、労働分配率は <strong>${laborShare.toFixed(1)}%</strong> まで大幅に低下しています。従業員の給与・人件費が ${laborCost} 億円まで削られ、生み出された純利益の ${payoutRatio.toFixed(0)}%（${buyback}億円）が自社株買い・増配に消えています。まさに「株主を富ませるために従業員の生活を削る」新自由主義的ガバナンスの典型例です。`;
+      } else if (roe >= 8.0 && marginGainPct >= 5) {
+        // High ROE via High Value Add
+        statusContainer.innerHTML = '<span class="status-pill pill-green">🌟 ROE ' + roe.toFixed(1) + '% 達成（本業付加価値・高収益型）</span>';
+        diagBox.style.borderLeftColor = 'var(--emerald)';
+        diagBox.innerHTML = `<strong>【分析所見：本業高付加価値化による健全達成】</strong><br>
+          技術革新と価格決定力の向上（+${marginGainPct}%）により付加価値が拡大し、人件費（${laborCost}億円）を維持したまま純利益が増加した理想的なシナリオです。労働分配率は <strong>${laborShare.toFixed(1)}%</strong> と適正水準を保ちながら、ROE <strong>${roe.toFixed(1)}%</strong> を達成しています。`;
+      } else if (roe >= 8.0 && buyback >= 80) {
+        // High ROE via Financial Engineering
+        statusContainer.innerHTML = '<span class="status-pill pill-red">🚨 ROE ' + roe.toFixed(1) + '% 達成（過剰自社株買い・資本縮小型）</span>';
+        diagBox.style.borderLeftColor = 'var(--rose)';
+        diagBox.innerHTML = `<strong>【分析所見：財務工学による分母圧縮（縮小均衡）】</strong><br>
+          自己資本を ${buyback} 億円もの自社株買いで無理やり圧縮し、見かけのROEを <strong>${roe.toFixed(1)}%</strong> に跳ね上げています。総還元性向は <strong>${payoutRatio.toFixed(0)}%</strong> に達し、研究開発や設備投資に必要な手元資金を吐き出しています。将来の競争力を犠牲にして目先の市場評価を買い取る危険な経営姿勢です。`;
+      } else {
+        // Under 8%
+        statusContainer.innerHTML = '<span class="status-pill pill-red">🚨 ROE ' + roe.toFixed(1) + '% 未達（市場退出・解任圧力）</span>';
+        diagBox.style.borderLeftColor = 'var(--crimson)';
+        diagBox.innerHTML = `<strong>【分析所見：ROE 8%未達による市場からの退場勧告】</strong><br>
+          ROEは <strong>${roe.toFixed(1)}%</strong> にとどまり、株主資本コスト（約7%）を下回る「価値破壊」とみなされます。労働分配率は ${laborShare.toFixed(1)}% と従業員本位の経営ですが、東証のPBR1倍割れ要請やISSの取締役選任反対に直面し、経営陣の刷新またはアクティビストによる敵対的買収のターゲットとなります。`;
+      }
+    }
+
+    function applyPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const laborSlider = document.getElementById('input-labor');
+      const buybackSlider = document.getElementById('input-buyback');
+      const marginSlider = document.getElementById('input-margin');
+
+      if (preset === 'traditional') {
+        laborSlider.value = 220;
+        buybackSlider.value = 30;
+        marginSlider.value = 0;
+      } else if (preset === 'ito8') {
+        laborSlider.value = 180;
+        buybackSlider.value = 65;
+        marginSlider.value = 1;
+      } else if (preset === 'buyback') {
+        laborSlider.value = 175;
+        buybackSlider.value = 110;
+        marginSlider.value = 0;
+      } else if (preset === 'ideal') {
+        laborSlider.value = 215;
+        buybackSlider.value = 45;
+        marginSlider.value = 10;
+      }
+      runDuPontSim();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runDuPontSim();
+    });
+  </script>
+</body>
+</html>

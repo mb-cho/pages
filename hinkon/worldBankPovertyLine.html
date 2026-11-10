@@ -570,6 +570,24 @@
       font-size: 0.82rem;
       color: var(--text-muted);
     }
+      .math-expr {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+    .math-var {
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+    .math-fn {
+      font-weight: 700;
+      color: #0369a1;
+    }
   </style>
 </head>
 <body>
@@ -713,12 +731,20 @@
           <tbody>
             <tr>
               <td><strong>2017年PPP基準</strong></td>
-              <td>$$\text{SPL} = \max\left(\$2.15, \quad \$1.15 + 0.5 \times \text{国内所得中央値}\right)$$</td>
+              <td>
+                <div class="math-expr">
+                  <span class="math-var">SPL</span> ＝ <span class="math-fn">max</span>( <strong>$2.15</strong>, <strong>$1.15 ＋ 0.5 × 国内所得中央値</strong> )
+                </div>
+              </td>
               <td>最貧国では2.15ドルを下限とし、中央値が1日2ドル超の国では中央値の50%＋1.15ドルに連動</td>
             </tr>
             <tr>
               <td><strong>2021年PPP基準<br>（最新改定）</strong></td>
-              <td>$$\text{SPL} = \max\left(\$3.00, \quad \$1.45 + 0.5 \times \text{国内所得中央値}\right)$$</td>
+              <td>
+                <div class="math-expr">
+                  <span class="math-var">SPL</span> ＝ <span class="math-fn">max</span>( <strong>$3.00</strong>, <strong>$1.45 ＋ 0.5 × 国内所得中央値</strong> )
+                </div>
+              </td>
               <td>極度の貧困ライン（3.00ドル）を下限フロアとして保証しつつ、発展国では相対的貧困へ滑らかに移行</td>
             </tr>
           </tbody>
