@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：カール・マルクス「資本の本源的蓄積（Primitive Accumulation）」――自給農民はいかにして土地と生活手段を奪われ「二重の自由」を持つ賃労働者へ転落したのか？</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-brand {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .portal-link {
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    .portal-link:hover {
+      background: #dbeafe;
+    }
+
+    /* Header Section */
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .badge-primary {
+      background-color: #dbeafe;
+      color: var(--primary);
+    }
+
+    .badge-sub {
+      background-color: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 2rem;
+      line-height: 1.85;
+      background: #f8fafc;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .header-summary-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .h-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Content Typography & Structure */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.75rem 0 1.25rem 0;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.75rem 0 0.85rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #1e293b;
+    }
+
+    /* Callout & Quotes */
+    .callout {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-quote {
+      background: #fff7ed;
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+    }
+
+    .callout-quote-author {
+      text-align: right;
+      font-style: normal;
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Formula & Conceptual Box (Native Semantic HTML) */
+    .formula-box {
+      background: #f8fafc;
+      border: 2px solid #bfdbfe;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px dashed #bfdbfe;
+      padding-bottom: 0.65rem;
+    }
+
+    .math-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+
+    .math-fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      font-size: 0.95rem;
+      padding: 0 0.35rem;
+    }
+
+    .math-num {
+      border-bottom: 2px solid var(--primary);
+      padding: 0 0.5rem 0.2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    .math-den {
+      padding: 0.2rem 0.5rem 0;
+      color: var(--text-main);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    .math-var {
+      color: var(--primary);
+      font-family: inherit;
+    }
+
+    .math-op {
+      font-weight: 800;
+      color: #64748b;
+      padding: 0 0.2rem;
+    }
+
+    .formula-note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 0.85rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* Concept & Factor Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .factor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-purple {
+      border-top: 4px solid var(--purple);
+    }
+
+    .card-amber {
+      border-top: 4px solid var(--accent);
+    }
+
+    .card-emerald {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .card-crimson {
+      border-top: 4px solid var(--crimson);
+    }
+
+    .factor-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Flow Steps */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .flow-step {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.15rem;
+      position: relative;
+    }
+
+    .step-num {
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      line-height: 1.6rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Table Styles */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f8fafc;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f1f5f9;
+    }
+
+    /* Simulator Styles */
+    .sim-box {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .preset-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.45rem 0.85rem;
+      border-radius: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .control-group {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+    }
+
+    .control-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .value-badge {
+      background: #dbeafe;
+      color: var(--primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .control-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .metric-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .sim-desc-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid var(--primary);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .sim-status-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-status-narrative {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* References Section */
+    .ref-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .ref-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .ref-plain {
+      color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.25rem 1rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .header-summary-grid, .grid-2, .grid-3, .flow-grid, .sim-controls, .sim-metrics {
+        grid-template-columns: 1fr;
+      }
+      .math-equation {
+        font-size: 0.9rem;
+        gap: 0.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Only 補論ポータルTOP link) -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第1章：新自由主義の分析視角と因果連鎖</span>
+      </div>
+      <h1>カール・マルクス「資本の本源的蓄積（Primitive Accumulation）」とは何か：<br>自給農民はいかにして土地と生活手段を奪われ「二重の自由」を持つ賃労働者へ転落したのか？</h1>
+      <p class="lead">
+        資本主義とは、最初から自然に存在していたシステムではありません。資本主義が円滑に動き出すためには、生産手段を握る<strong>「資本家」</strong>と、自分の身体（労働力）以外に売るものを一切持たない<strong>「無産賃労働者（プロレタリアート）」</strong>という2つの階級が市場で出会う必要があります。<br>
+        カール・マルクスが『資本論』第1巻第8篇（第24章「いわゆる本源的蓄積」）で暴き出したのは、自給自足の農民たちから共有地（コモンズ）や生産用具を力づくで奪い取り、過酷な暴力と法律によって賃労働者へと叩き込んだ<strong>「血と火の創世記」</strong>でした。<br>
+        本稿では、アダム・スミス流の「勤勉と節約による蓄積」という牧歌的おとぎ話の嘘、イギリスの囲い込み（エンクロージャー）の数理的メカニズム、血の治安立法、そして現代の新自由主義（公的コモンズの民営化とギグワーカー化）へと連なる構造を徹底解明します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🐑</span><span>コモンズの暴力的一掃</span></div>
+          <div class="h-item-desc">「羊が人間を食う」囲い込み運動により、農民から共有放牧地・入会地・燃料採集地を強奪し、自給の基盤を粉砕。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⛓️</span><span>「二重の自由」への転落</span></div>
+          <div class="h-item-desc">身分制からの自由（契約の自由）× 生存手段からの自由（剥奪）。身体を資本に売らなければ即座に餓死する無産階級の誕生。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>🩸</span><span>血の立法と現代の反復</span></div>
+          <div class="h-item-desc">浮浪者への鞭打ち・焼き印による工場規律調教。現代新自由主義による公営住宅・公的医療・年金の切り崩しへと直結。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 本源的蓄積の核心概念 -->
+    <section>
+      <h2>📖 1. 「資本の本源的蓄積」の核心概念：おとぎ話の破壊と前提条件</h2>
+      <p>
+        古典派経済学の祖アダム・スミスらは、資本の蓄積がどのように始まったのかについて、かつて大昔に<strong>「勤勉で倹約家の人々がコツコツと富を貯め、一方で怠惰で浪費家の人々がすべてを失った」</strong>という道徳的な物語（おとぎ話）を語りました。スミスはこれを「原始的蓄積（Previous Accumulation）」と呼びました。
+      </p>
+      <p>
+        これに対しマルクスは、『資本論』においてこの牧歌的おとぎ話を痛烈に批判しました。
+      </p>
+
+      <div class="callout-quote">
+        「この原始的蓄積は、経済学において、神学における原罪と同じ役割を演じている。アダムがりんごをかじったがゆえに、人類に罪が押し付けられたというわけだ……。だが現実の歴史においては、征服、隷属化、強盗殺人、要するに暴力が決定的な役割を演じたことは周知の事実である。」
+        <div class="callout-quote-author">―― カール・マルクス『資本論』第1巻 第24章「いわゆる本源的蓄積の秘密」</div>
+      </div>
+
+      <h3>資本主義が成立するための「2大前提条件」</h3>
+      <p>
+        資本がお金を投じて工場を建て、商品を生産して利潤（剰余価値）を得て自己増殖するサイクル（拡大再生産）を回すためには、その前提として社会に次の2つの人間がすでに揃っていなければなりません。
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🏭</span>
+            <span>① 資本家（Capitalist）</span>
+          </div>
+          <div class="factor-desc">
+            土地、建物、機械、原材料、および労働者の生活費を支払うための大量の貨幣・生産手段を私有財産として独占している者。
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>👤</span>
+            <span>② 賃労働者（Proletariat）</span>
+          </div>
+          <div class="factor-desc">
+            自分の土地や農具、作業場を一切持たず、自分の身体（労働力）を市場で資本家に売る以外に生きていく術がない無産者。
+          </div>
+        </div>
+      </div>
+
+      <p>
+        もし農民が自分の土地や村の共有地（コモンズ）を持ち、自給自足で生きていけるなら、わざわざ1日14時間も他人の工場で低賃金で働くはずがありません。<strong>「いかにして自立した小農民から生存手段が奪われ、工場で働かざるを得ない無産者に仕立て上げられたのか」</strong>――その暴力的な歴史的分離プロセスこそが「本源的蓄積（Ursprüngliche Akkumulation）」の正体です。
+      </p>
+
+      <!-- 数理・構造フォーミュラ -->
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>📐</span>
+          <span>本源的蓄積における生産手段と生産者の「歴史的分離の算定構造」</span>
+        </div>
+
+        <div class="math-equation">
+          <span>自給自足的小農 ＝</span>
+          <span>土地保有 ＋ 家畜 ＋ コモンズ（共有地利用権）</span>
+        </div>
+
+        <div style="font-size: 1.3rem; font-weight: 800; color: var(--crimson); margin: 0.5rem 0;">
+          ⬇ 【本源的蓄積の暴力】（囲い込み ＋ コモンズ私有化 ＋ 家屋破却）
+        </div>
+
+        <div class="math-equation">
+          <span>プロレタリアート ＝</span>
+          <span>身分的自由（契約自由） ＋ <strong>生産手段・生存基盤の剥奪（完全無産）</strong></span>
+        </div>
+
+        <p class="formula-note">
+          ※ マルクスが指摘した「二重の意味で自由な労働者（Double-free Laborers）」：<br>
+          ① 奴隷や農奴と異なり、自分の労働力を自由に処分・売買できる法的主体としての自由。<br>
+          ② あらゆる生産手段および生存のための自然資源から「完全に自由にされている（＝一切持たされていない）」という剥奪の自由。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: イギリスにおける本源的蓄積の歴史的プロセス -->
+    <section>
+      <h2>🏛️ 2. イギリスにおける本源的蓄積の歴史：血と火の文字で刻まれた4大プロセス</h2>
+      <p>
+        マルクスは、資本主義が世界で最も純粋かつ古典的な形で立ち現れたイギリス（イングランド）の歴史を解剖し、本源的蓄積を推し進めた4つの暴力的契機を明らかにしました。
+      </p>
+
+      <div class="flow-grid">
+        <div class="flow-step">
+          <span class="step-num">1</span>
+          <div class="step-title">第1次囲い込み</div>
+          <div class="step-desc">15〜16世紀。羊毛価格高騰により、領主が農民の共同耕地・入会地を柵で囲い込み牧羊地へ転換。「羊が人間を食う」。</div>
+        </div>
+
+        <div class="flow-step">
+          <span class="step-num">2</span>
+          <div class="step-title">議会囲い込み</div>
+          <div class="step-desc">18〜19世紀。議会立法を通じて数千のコモンズを合法的に略奪。農民を都市スラムの工場労働者へ叩き落とす。</div>
+        </div>
+
+        <div class="flow-step">
+          <span class="step-num">3</span>
+          <div class="step-title">血の治安立法</div>
+          <div class="step-desc">浮浪者狩り、鞭打ち、焼き印、奴隷化、死刑法。逃亡する農民を国家暴力で強制的に工場労働規律へ服従させた。</div>
+        </div>
+
+        <div class="flow-step">
+          <span class="step-num">4</span>
+          <div class="step-title">世界的略奪・植民地</div>
+          <div class="step-desc">新大陸の金銀強奪、大西洋三角奴隷貿易、東インド会社の搾取、公債制度により初期の莫大な貨幣資本を蓄積。</div>
+        </div>
+      </div>
+
+      <h3>① 囲い込み運動（エンクロージャー）とコモンズの強奪</h3>
+      <p>
+        中世イングランドの農村では、農民たちは開放耕地制度のもとで細長い地条を耕すとともに、<strong>「コモンズ（Commons：入会地、共有草地、森林、荒野）」</strong>を共同利用していました。農民たちはコモンズで羊や牛を放牧し、冬の燃料となる薪を拾い、木の実や魚を採集することで、不作の年でも飢え死にせずに生活を維持できていました。
+      </p>
+      <p>
+        ところが、15世紀末からフランドル地方（現在のベルギー・オランダ周辺）の毛織物工業が急速に発展し、羊毛の価格が高騰します。領主やジェントリ（地主層）は、農民に小作料を払わせるよりも、農民を追い出して土地を牧羊地にした方が桁違いに儲かることに気づきました。地主たちは農民の家を焼き払い、共有地に生垣（ヘッジ）を巡らせて私有地として囲い込みました。
+      </p>
+
+      <div class="callout-quote">
+        「あなたがたの羊は、かつてはおとなしく、ごくわずかの食物ですんでいたのが、いまや人間を食い殺し、田畑や家屋や村落を荒らし回るほど獰猛になったと言われています。」
+        <div class="callout-quote-author">―― トマス・モア『ユートピア』（1516年）</div>
+      </div>
+
+      <p>
+        さらに18世紀後半から19世紀にかけて、産業革命の進展とともに<strong>「第2次囲い込み（議会囲い込み）」</strong>が爆発します。今度は地主たちが牛耳る議会が「囲い込み法（Enclosure Acts）」を次々と成立させ、約700万エーカー（イングランド全耕地の2割以上）に及ぶ共有地が合法的に私有地化されました。土地を失った小農民（ヨーマン）は自給の基盤を完全に失い、マンチェスターやリーズといった新興工業都市のスラム街へとなだれ込み、蒸気機関で動く紡績工場の極めて安価な労働力プールとなったのです。
+      </p>
+
+      <h3>② 血の治安立法（Bloody Legislation）：暴力による工場規律の調教</h3>
+      <p>
+        土地から叩き出された何十万人もの農民たちは、最初から素直に工場で1日14時間も働いたわけではありません。彼らは行くあてもなく街道をさまよい、浮浪者や物乞い、あるいは盗賊になりました。
+      </p>
+      <p>
+        これに対し、イギリスのテューダー朝からステュアート朝の国家権力は、身の毛もよだつ過酷な「血の立法」を連発し、暴力によって彼らを資本の規律に服従させました。
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 22%;">国王・制定年</th>
+              <th style="width: 38%;">制定された過酷な法令の内容</th>
+              <th style="width: 40%;">本源的蓄積における機能と歴史的帰結</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ヘンリー8世法<br>（1530年）</strong></td>
+              <td>労働能力のある浮浪者は、荷車の後ろに縛り付けられ、身体から血が吹き出すまで鞭打たれ、生まれ故郷へ送還される。</td>
+              <td>土地を追われた農民の自活・移動を禁じ、逃亡者を犯罪者として仕立て上げた。</td>
+            </tr>
+            <tr>
+              <td><strong>エドワード6世法<br>（1547年）</strong></td>
+              <td>就労を拒否する者は、告発者の「奴隷」と宣告される。胸に赤熱した鉄で「S（Slave）」の焼き印を押され、逃亡すれば死刑。</td>
+              <td>人間から私有財産と人格を剥奪し、強制労働を受け入れさせるテロル装置。</td>
+            </tr>
+            <tr>
+              <td><strong>エリザベス1世法<br>（1572年）</strong></td>
+              <td>14歳以上の無認可の物乞いは、耳に穴を空けられ鞭打たれる。2度目の再犯は死刑。</td>
+              <td>土地を失った者を容赦なく国家暴力で追い詰め、新興の資本家へ身売りするしか選択肢をなくした。</td>
+            </tr>
+            <tr>
+              <td><strong>職人人法<br>（1563年）</strong></td>
+              <td>治安判事に賃金の「上限」を定める権限を付与。定められた上限以上の賃金を払った資本家、受け取った労働者を投獄。</td>
+              <td>賃金の下限を守るのではなく「上限」を法律で抑え込み、労働者を常に生存ギリギリの低賃金に縛り付けた。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title"><span>💡</span> マルクスによる歴史的総括</div>
+        <p style="font-size: 0.92rem; margin-bottom: 0;">
+          「こうして農村住民は、まず暴力的に土地から収奪され、追い出され、浮浪者にされた上で、グロテスクなテロル的法律によって、賃労働の体系に必要な規律へと、鞭打ちや焼き印や拷問によって叩き込まれたのである。資本主義的生産の進展に伴い、教育、伝統、習慣によって、この生産様式の要求を自明の自然法則として認める労働者階級が発達する。」（『資本論』第24章）
+        </p>
+      </div>
+
+      <h3>③ 植民地略奪・大西洋奴隷貿易・公債制度</h3>
+      <p>
+        国内における農民の無産化と並行して、資本主義の「貨幣資本」を準備したのが、海外植民地における略奪と奴隷貿易でした。
+      </p>
+      <ul>
+        <li><strong>アメリカ大陸の金銀略奪</strong>：インカ帝国・アステカ文明の破壊、ポトシ銀山での先住民の過酷な強制労働。ヨーロッパに膨大な貴金属が流入し「価格革命」を引き起こした。</li>
+        <li><strong>大西洋三角貿易と黒人奴隷</strong>：アフリカから1,000万人以上の黒人を新大陸の綿花・砂糖プランテーションへ家畜同然に運搬。イギリスのリヴァプールやブリストルはこの奴隷貿易で莫大な富を蓄積した。</li>
+        <li><strong>近代公債制度と中央銀行</strong>：戦争資金を調達するために国家債務（公債）が発行され、1694年にイングランド銀行が設立。金融投機と国際信用制度の母体となった。</li>
+      </ul>
+      <p>
+        これらすべての要因が一体となり、資本主義の幕開けに必要な「資本」と「労働力」が力づくで調達されたのです。
+      </p>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：本源的蓄積＆無産プロレタリアート化シミュレーター</h2>
+      <p>
+        歴史上の政策パラメータ（コモンズ剥奪度・国家治安暴力・植民地略奪度）を操作し、自立していた小農民がどのように生存基盤を奪われ、資本への絶対的従属（賃労働者化）へと追い込まれていったのかを数理モデルで検証できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>本源的蓄積力学シミュレーター（マルクス『資本論』モデル）</span>
+          </div>
+          <div class="sim-subtitle">
+            歴史的プリセットを選択するか、各スライダーを動かしてプロレタリアート化の推移を確認してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">歴史的シナリオ：</span>
+          <button class="preset-btn active" onclick="applyHistoricalPreset('feudal')">🌿 15世紀 封建農村（コモンズ自給）</button>
+          <button class="preset-btn" onclick="applyHistoricalPreset('enclosure1')">🐑 16世紀 牧羊囲い込み（ユートピア）</button>
+          <button class="preset-btn" onclick="applyHistoricalPreset('parliament')">🏭 18〜19世紀 議会囲い込み＆産業革命</button>
+          <button class="preset-btn" onclick="applyHistoricalPreset('neoliberal')">🌐 現代 新自由主義（公的コモンズ解体）</button>
+        </div>
+
+        <!-- コントロールスライダー -->
+        <div class="sim-controls">
+          <div class="control-group">
+            <div class="control-label">
+              <span>① コモンズ（共有地）剥奪度</span>
+              <span id="label-enclosure" class="value-badge">5 %</span>
+            </div>
+            <input type="range" id="slider-enclosure" min="0" max="100" value="5" oninput="calcAccumulation()">
+            <div class="control-sub">農民の入会地・森林・水利権の私有化率。数値が上がるほど自給自足が不可能に。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>② 国家治安暴力・血の立法強度</span>
+              <span id="label-violence" class="value-badge">10 %</span>
+            </div>
+            <input type="range" id="slider-violence" min="0" max="100" value="10" oninput="calcAccumulation()">
+            <div class="control-sub">浮浪者処罰、焼き印、奴隷化、賃金上限法による工場労働への強制服従度。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>③ 植民地略奪・対外収奪度</span>
+              <span id="label-colonial" class="value-badge">5 %</span>
+            </div>
+            <input type="range" id="slider-colonial" min="0" max="100" value="5" oninput="calcAccumulation()">
+            <div class="control-sub">新大陸の金銀略奪、奴隷貿易、公債制度による資本家側の初期貨幣集積度。</div>
+          </div>
+        </div>
+
+        <!-- リアルタイム算出メトリクス -->
+        <div class="sim-metrics">
+          <div class="metric-card">
+            <div class="metric-label">自給自足・生存自律度</div>
+            <div id="res-autonomy" class="metric-value" style="color: var(--emerald);">92.5 %</div>
+            <div class="metric-desc">コモンズから得られる生存余力</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">プロレタリアート化率</div>
+            <div id="res-prole" class="metric-value" style="color: var(--primary);">6.3 %</div>
+            <div class="metric-desc">「二重の自由」への転落比率</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">工場労働への服従圧力</div>
+            <div id="res-pressure" class="metric-value" style="color: var(--accent-dark);">12.0 %</div>
+            <div class="metric-desc">低賃金でも働かざるを得ない強制力</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">資本側・本源的蓄積規模</div>
+            <div id="res-capital" class="metric-value" style="color: var(--purple);">50 万£</div>
+            <div class="metric-desc">略奪・集積された初期貨幣資本</div>
+          </div>
+        </div>
+
+        <!-- リアルタイム判定・解説バナー -->
+        <div id="sim-banner" class="sim-desc-box">
+          <div id="banner-title" class="sim-status-title">🌿 判定：伝統的共同体社会（コモンズ健在・資本主義前夜）</div>
+          <div id="banner-narrative" class="sim-status-narrative">
+            農民たちは自給用の土地を持ち、村の入会地（コモンズ）で家畜を飼い、薪や食糧を確保できています。自給自足生存指数は極めて高く、資本家が工場で働かせようとしても誰も応募しません。資本主義的な拡大再生産はまだ成立し得ない段階です。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 現代への射程――終わらない本源的蓄積 -->
+    <section>
+      <h2>🛡️ 4. 現代への射程：「終わらない本源的蓄積」と新自由主義の貧困</h2>
+      <p>
+        マルクスの本源的蓄積論は、単なる16〜19世紀のイギリス史の昔話ではありません。20世紀から現代に至るマルクス主義や批判的社会理論（ローザ・ルクセンブルク、カール・ポランニー、デヴィッド・ハーヴェイら）は、<strong>「本源的蓄積とは、資本主義が生き延びるために絶えず外部を食い破り続ける恒常的メカニズムである」</strong>と看破しました。
+      </p>
+
+      <div class="grid-3">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🌍</span>
+            <span>ローザ・ルクセンブルク</span>
+          </div>
+          <div class="factor-desc">
+            『資本蓄積論』（1913年）。資本主義はそれ自体の内部だけでは剰余価値を実現できない。非資本主義的環境（農村、自然、植民地）を侵略・破壊・包摂し続けなければ崩壊する。
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>⚙️</span>
+            <span>カール・ポランニー</span>
+          </div>
+          <div class="factor-desc">
+            『大転換』（1944年）。本来は商品ではない「労働・土地・貨幣」を無理やり商品化したことが市場社会の根源的破滅をもたらした。コモンズの解体は人間の生存基盤を破壊する。
+          </div>
+        </div>
+
+        <div class="factor-card card-crimson">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>デヴィッド・ハーヴェイ</span>
+          </div>
+          <div class="factor-desc">
+            『新帝国主義』（2003年）。現代の新自由主義は、価値創造ではなく公共コモンズ（水道・医療・年金・教育）を略奪して資本に差し出す「収奪による蓄積」そのものである。
+          </div>
+        </div>
+      </div>
+
+      <h3>現代日本における「静かなる本源的蓄積」の正体</h3>
+      <p>
+        現代の日本社会で起きている「子どもの貧困」「若者のワーキングプア」「高齢者の孤立死」の深層には、まさに現代版の囲い込み（本源的蓄積の反復）が横たわっています。
+      </p>
+      <ul>
+        <li><strong>低廉な公営住宅の縮小と民間家賃への囲い込み</strong>：かつてセーフティネットとして機能していた公営住宅の供給が絞られ、国民は高額な民間家賃や35年住宅ローンを支払うために、どんなブラック企業でも働き続けなければならない状態へと追い込まれました。</li>
+        <li><strong>社会保障の縮小と生活必需経費の市場化</strong>：医療費の窓口負担増や介護保険料の引き上げ、国民年金の引き下げにより、国民は「生きるためのコスト」を自己資金で賄うことを強いられています。</li>
+        <li><strong>ギグワーカー・フリーランスという名の「究極の無産化」</strong>：ウーバーイーツなどのギグ労働は「好きな時間に自由に働ける（身分的自由）」と宣伝されますが、労働基準法、雇用保険、労災保険、最低賃金の保護から完全に切り離されています（保護からの自由＝完全な無保護）。これはまさに、身体一つでアルゴリズムに従属する現代のプロレタリアートです。</li>
+      </ul>
+
+      <div class="callout" style="border-left-color: var(--emerald); background-color: #f0fdf4;">
+        <div class="callout-title" style="color: var(--emerald-dark);"><span>🌱</span> 処方箋：コモンズの脱商品化（共通資本の民主的奪還）</div>
+        <p style="font-size: 0.92rem; margin-bottom: 0;">
+          貧困から人々を救い出す真の道は、単なる現金の小遣い給付（事後的一時金）ではありません。住宅、医療、教育、水道、ケア労働といった生命維持の根幹を「利潤追求の市場」から切り離し、誰もが利用できる「社会の共有コモンズ」として脱商品化（無償・低廉化）することです。生存の足場を取り戻したとき、人間は初めて「不当な低賃金労働を拒否する力（交渉力）」を取り戻すことができるのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: 出典・参考文献・公的資料リンク (Condition 2: Only HTTP 200 links with <a>) -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p>
+        本稿で引用・参照した一次文献、学術解説、および公的・信頼できるデータベースの一覧です（※アクセス検証済みのリンクのみ掲載しています）。
+      </p>
+
+      <ul class="ref-list">
+        <li class="ref-item">
+          <span class="ref-num">[1]</span>
+          <div>
+            <a href="https://ja.wikipedia.org/wiki/%E8%B3%87%E6%9C%AC%E3%81%AE%E6%9C%AC%E6%BA%90%E7%9A%84%E8%93%84%E7%A9%8D" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Wikipedia「資本の本源的蓄積」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">マルクスの『資本論』第8篇第24章における本源的蓄積の定義、囲い込み（エンクロージャー）、二重の自由、血の治安立法の詳細な歴史的経緯。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[2]</span>
+          <div>
+            <a href="https://kotobank.jp/word/%E6%9C%AC%E6%BA%90%E7%9A%84%E8%93%84%E7%A9%8D-135023" target="_blank" rel="noopener noreferrer" class="ref-link">
+              コトバンク「本源的蓄積」（日本大百科全書 / 世界大百科事典 / ブリタニカ国際大百科事典）
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">資本主義成立期における直接的生産者からの生産手段の収奪、賃労働者創出のメカニズムに関する経済学事典解説。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[3]</span>
+          <div>
+            <a href="https://kotobank.jp/word/%E5%8E%9F%E5%A7%8B%E7%9A%84%E8%93%84%E7%A9%8D-60610" target="_blank" rel="noopener noreferrer" class="ref-link">
+              コトバンク「原始的蓄積」（百科事典マイペディア / 精選版 日本国語大辞典）
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">アダム・スミスの Previous Accumulation（原始的蓄積）とマルクスの批判的再解釈の概念的異同。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[4]</span>
+          <div>
+            <a href="http://kisoken.org/webjiten/hongentekitikuseki.html" target="_blank" rel="noopener noreferrer" class="ref-link">
+              基礎経済科学研究所「Web経済学事典：本源的蓄積」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">イギリス農業革命、共有地追放、浮浪者取締法、および労働力商品化の数理・論理構造。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[5]</span>
+          <div>
+            <a href="https://www.marxists.org/archive/marx/works/1867-c1/ch26.htm" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Marxists Internet Archive: Karl Marx "Capital Volume One, Part VIII: Primitive Accumulation" (Chapter 26: The Secret of Primitive Accumulation)
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">マルクス『資本論』第1巻第8篇「いわゆる本源的蓄積」の英語原典アーカイブ。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[6]</span>
+          <div>
+            <a href="https://plato.stanford.edu/entries/marx/" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Stanford Encyclopedia of Philosophy: Karl Marx (Section on Historical Materialism & Economics)
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">スタンフォード哲学百科事典によるマルクスの歴史的唯物論および資本主義移行理論の包括的解説。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[7]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>カール・マルクス『資本論』第1巻 第8篇「いわゆる本源的蓄積」</strong>（長谷部文雄訳、青木書店／岡崎次郎訳、大月書店／今村仁司・三島憲一ほか訳、筑摩書房）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">第24章「いわゆる本源的蓄積の秘密」、第25章「近代植民論」における歴史的事実の網羅的記録。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[8]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>トマス・モア『ユートピア』</strong>（1516年／平井正穂訳、岩波文庫）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">第1次囲い込み運動における牧羊熱と農民追放に対する古典的告発「羊が人間を食う」。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[9]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>デヴィッド・ハーヴェイ『新帝国主義』</strong>（本橋哲也訳、青土社、2005年）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">マルクスの本源的蓄積概念を現代新自由主義の民営化・金融化・危機操作へと拡張した「収奪による蓄積」の理論的基礎。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[10]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>カール・ポランニー『大転換――市場社会の形成と崩壊』</strong>（野口建彦・栖原学訳、東洋経済新報社、1975年／新装版2009年）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">囲い込み運動の衝撃、スピーナムランド法、および「労働と土地の擬制商品化」による社会の破滅と自己防衛の分析。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[11]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>ローザ・ルクセンブルク『資本蓄積論――帝国主義の経済的説明への一寄与』</strong>（1913年／長谷部文雄訳、岩波文庫）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">資本主義の拡大再生産における非資本主義的環境（植民地・農村・自然）の収奪と解体の必然性の証明。</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function calcAccumulation() {
+      const enclosure = parseFloat(document.getElementById('slider-enclosure').value); // 0-100%
+      const violence = parseFloat(document.getElementById('slider-violence').value);   // 0-100%
+      const colonial = parseFloat(document.getElementById('slider-colonial').value);   // 0-100%
+
+      // ラベル更新
+      document.getElementById('label-enclosure').innerText = enclosure + ' %';
+      document.getElementById('label-violence').innerText = violence + ' %';
+      document.getElementById('label-colonial').innerText = colonial + ' %';
+
+      // 自給自足・生存自律度（コモンズ剥奪に最も強く逆連動）
+      let autonomy = 100.0 - (enclosure * 0.85) - (violence * 0.15);
+      if (autonomy < 0) autonomy = 0;
+
+      // プロレタリアート化率（「二重の自由」への転落比率）
+      let proleRate = (enclosure * 0.75) + (violence * 0.25);
+      if (proleRate > 100) proleRate = 100;
+
+      // 工場労働への服従圧力（コモンズ喪失と国家暴力の相乗）
+      let pressure = (enclosure * 0.5) + (violence * 0.5);
+      if (pressure > 100) pressure = 100;
+
+      // 資本側の初期貨幣蓄積規模（万ポンド推計）
+      const baseCapital = 30; // 万ポンド
+      const totalCapital = baseCapital + (colonial * 15.0) + (enclosure * 3.5);
+
+      // DOM反映
+      document.getElementById('res-autonomy').innerText = autonomy.toFixed(1) + ' %';
+      document.getElementById('res-prole').innerText = proleRate.toFixed(1) + ' %';
+      document.getElementById('res-pressure').innerText = pressure.toFixed(1) + ' %';
+      document.getElementById('res-capital').innerText = Math.round(totalCapital).toLocaleString() + ' 万£';
+
+      // カラーリング調整
+      const autoElem = document.getElementById('res-autonomy');
+      if (autonomy <= 20) {
+        autoElem.style.color = 'var(--crimson)';
+      } else if (autonomy <= 50) {
+        autoElem.style.color = 'var(--accent-dark)';
+      } else {
+        autoElem.style.color = 'var(--emerald)';
+      }
+
+      const pressElem = document.getElementById('res-pressure');
+      if (pressure >= 70) {
+        pressElem.style.color = 'var(--crimson)';
+      } else if (pressure >= 40) {
+        pressElem.style.color = 'var(--accent-dark)';
+      } else {
+        pressElem.style.color = 'var(--emerald)';
+      }
+
+      // バナー解説更新
+      const banner = document.getElementById('sim-banner');
+      const bTitle = document.getElementById('banner-title');
+      const bNarrative = document.getElementById('banner-narrative');
+
+      if (enclosure >= 70 && violence >= 60) {
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bTitle.style.color = 'var(--crimson)';
+        bTitle.innerText = '🏭 判定：産業革命・完全プロレタリアート社会（過酷な工場制度の確立）';
+        bNarrative.innerText = `共有地（コモンズ）がほぼ完全に囲い込まれ、農民の自給自足率はわずか ${autonomy.toFixed(1)}% まで壊滅しました。土地から追われた人々の約 ${proleRate.toFixed(1)}% が都市スラムへ流入し、過酷な「血の治安立法」と飢餓の恐怖（服従圧力 ${pressure.toFixed(1)}%）によって、1日14〜16時間の綿紡績工場労働へと規律づけられています。植民地略奪と奴隷貿易により蓄積された初期貨幣資本（約 ${Math.round(totalCapital)}万ポンド）がフル稼働し、資本主義の爆発的拡大が進行しています。`;
+      } else if (enclosure >= 40) {
+        banner.style.borderLeftColor = 'var(--accent)';
+        bTitle.style.color = 'var(--accent-dark)';
+        bTitle.innerText = '🐑 判定：囲い込み激化と浮浪者急増期（トマス・モア『ユートピア』の時代）';
+        bNarrative.innerText = `羊毛価格高騰による牧羊囲い込みが進み、自給基盤が半減（自給度 ${autonomy.toFixed(1)}%）。先祖代々の農地を追われた農民が街道にあふれ出し、浮浪者や盗賊が急増しています。国家は過酷な鞭打ちや焼き印法でこれを力づくで抑え込もうとしており、農民が「身体を売って働く賃労働者」へと変貌させられる過渡期の激震が走っています。`;
+      } else if (colonial >= 60) {
+        banner.style.borderLeftColor = 'var(--purple)';
+        bTitle.style.color = 'var(--purple)';
+        bTitle.innerText = '🌐 判定：重商主義・世界的略奪蓄積フェーズ（奴隷貿易と新大陸銀山）';
+        bNarrative.innerText = `国内の囲い込みよりも先に、外洋航路を通じた新大陸の銀山略奪や奴隷貿易、東インド会社による東南アジア搾取によって巨額の貨幣資本（約 ${Math.round(totalCapital)}万ポンド）が集積されています。この莫大な貨幣プールが、やがて国内の農民を土地から引き剥がす原動力となっていきます。`;
+      } else {
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bTitle.style.color = 'var(--emerald)';
+        bTitle.innerText = '🌿 判定：伝統的封建農村（コモンズ共有・自立的小農体制）';
+        bNarrative.innerText = `農民たちは自分たちの耕地と共同利用の入会地（コモンズ）を保持しており、自給自足生存指数は ${autonomy.toFixed(1)}% と極めて高い水準です。自分の労働力を資本家に売らなくても生活が成り立つため、工場労働への服従圧力は ${pressure.toFixed(1)}% と低く、資本主義的な賃労働関係はまだ社会の主流になり得ません。`;
+      }
+    }
+
+    function applyHistoricalPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const encSlider = document.getElementById('slider-enclosure');
+      const vioSlider = document.getElementById('slider-violence');
+      const colSlider = document.getElementById('slider-colonial');
+
+      if (preset === 'feudal') {
+        encSlider.value = 5;
+        vioSlider.value = 10;
+        colSlider.value = 5;
+      } else if (preset === 'enclosure1') {
+        encSlider.value = 45;
+        vioSlider.value = 50;
+        colSlider.value = 25;
+      } else if (preset === 'parliament') {
+        encSlider.value = 85;
+        vioSlider.value = 80;
+        colSlider.value = 75;
+      } else if (preset === 'neoliberal') {
+        encSlider.value = 90;
+        vioSlider.value = 70;
+        colSlider.value = 95;
+      }
+      calcAccumulation();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcAccumulation();
+    });
+  </script>
+</body>
+</html>

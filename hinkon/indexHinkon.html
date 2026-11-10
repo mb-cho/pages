@@ -477,7 +477,7 @@
           <input type="text" id="searchInput" class="search-input" placeholder="用語・指標・キーワードで検索（例: 剥奪、世論調査、排除、分配率、OTC）...">
         </div>
         <div class="filter-tabs">
-          <button class="filter-btn active" data-filter="all">すべて (36)</button>
+          <button class="filter-btn active" data-filter="all">すべて (46)</button>
           <button class="filter-btn" data-filter="第1章">第1章：生活実感と因果</button>
           <button class="filter-btn" data-filter="第2章">第2章：貧困指標と国際比較</button>
           <button class="filter-btn" data-filter="第3章">第3章：実体経済の金融化</button>
@@ -693,6 +693,17 @@
           <h3 class="term-title"><a href="accumulationByDispossession.html">デヴィッド・ハーヴェイ「収奪による蓄積（Accumulation by Dispossession）」</a></h3>
           <p class="term-desc">新自由主義下の資本が、拡大再生産ではなく公共インフラ・年金・医療・自然環境などの既存コモンズを略奪して自己増殖するメカニズム。マルクスの本源的蓄積から、民営化・金融化・危機の操作・国家の逆進再分配までを解読するシミュレーターを搭載。</p>
           <a href="accumulationByDispossession.html" class="term-link-btn featured"><span>詳細解説・収奪度シミュレーターを開く</span><span>→</span></a>
+        </article>
+        <!-- Card: 資本の本源的蓄積 -->
+        <article class="term-card" data-chapter="第1章" data-keywords="資本の本源的蓄積 本源的蓄積 原始的蓄積 カール・マルクス 資本論 エンクロージャー 囲い込み 二重の自由 プロレタリアート 血の立法 コモンズ 共有地 略奪 奴隷貿易">
+          <div class="term-meta">
+            <span class="section-badge">1.3（1）新自由主義の分析視角</span>
+            <span class="category-badge">古典経済学・マルクス経済学</span>
+            <span class="interactive-badge">⚙️ 本源的蓄積＆無産プロレタリアート化シミュレーター</span>
+          </div>
+          <h3 class="term-title"><a href="originalAccumulation.html">カール・マルクス「資本の本源的蓄積（Primitive Accumulation）」</a></h3>
+          <p class="term-desc">自給自足の農民はいかにして土地と生活手段を奪われ、身体を売るしかない「二重の自由」を持つ賃労働者へ転落したのか？ イギリスの囲い込み（エンクロージャー）、血の治安立法、植民地略奪から現代新自由主義によるコモンズ侵食までを動的シミュレーターで解読。</p>
+          <a href="originalAccumulation.html" class="term-link-btn featured"><span>詳細解説・本源的蓄積シミュレーターを開く</span><span>→</span></a>
         </article>
 
       </div>
@@ -1158,7 +1169,10 @@
           <a href="minimumWage.html">㊲ 地域別最低賃金と生活保護水準の「逆転現象」（最低賃金法第9条第3項の数理と格差構造）</a> ｜ 
           <a href="personalResidenceTax.html">㊳ 個人住民税の非課税限度額（住民税非課税世帯の境界線と「1円の崖」）</a> ｜ 
           <a href="schoolAttendanceSupportSystem.html">㊴ 就学援助制度の認定基準と「隠れ教育費」（生活保護基準連動と教育セーフティネット）</a> ｜ 
-          <a href="mitigationMeasures.html">㊵ 高額療養費・介護保険料・保育料の軽減措置基準（3大生活防衛セーフティネットの境界線）</a>
+          <a href="mitigationMeasures.html">㊵ 高額療養費・介護保険料・保育料の軽減措置基準（3大生活防衛セーフティネットの境界線）</a> ｜ 
+          <a href="decoupling.html">㊶ デカップリングと「富のパイ無限論」の限界</a> ｜ 
+          <a href="ROE8per.html">㊷ 「ROE 8%以上」至上命令と労働分配率</a> ｜ 
+          <a href="originalAccumulation.html">㊸ カール・マルクス「資本の本源的蓄積」</a>
         </p>
       </div>
     </div>
@@ -1170,6 +1184,8 @@
       const searchInput = document.getElementById('searchInput');
       const filterBtns = document.querySelectorAll('.filter-btn');
       const cards = document.querySelectorAll('.term-card');
+      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) allBtn.textContent = `すべて (${cards.length})`;
       const sections = document.querySelectorAll('.chapter-section');
       const noResults = document.getElementById('noResults');
 
