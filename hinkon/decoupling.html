@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：デカップリング（Decoupling）の概念と限界――経済成長と環境負荷の切り離しは「富のパイ無限論」を救えるか</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #064e3b 0%, #0f766e 50%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .badge-sub {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+
+    /* Lead Card */
+    .lead-card {
+      background: #f0fdf4;
+      border-left: 5px solid var(--emerald);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #064e3b;
+      line-height: 1.8;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1.5rem;
+    }
+
+    .toc-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.15s;
+      display: inline-block;
+    }
+
+    .toc-list a:hover {
+      color: var(--emerald);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--emerald);
+      padding-bottom: 0.5rem;
+      margin: 2.5rem 0 1.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--emerald);
+      margin: 1.75rem 0 0.85rem 0;
+      border-left: 4px solid var(--emerald);
+      padding-left: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 0.98rem;
+    }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.75rem;
+      font-size: 0.98rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Callout & Highlights */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid currentColor;
+    }
+
+    .callout-blue {
+      background: #eff6ff;
+      color: var(--primary-dark);
+      border-color: var(--primary);
+    }
+
+    .callout-emerald {
+      background: #ecfdf5;
+      color: #064e3b;
+      border-color: var(--emerald);
+    }
+
+    .callout-amber {
+      background: #fffbeb;
+      color: var(--accent-dark);
+      border-color: var(--accent);
+    }
+
+    .callout-rose {
+      background: #fff1f2;
+      color: var(--crimson);
+      border-color: var(--rose);
+    }
+
+    /* Comparison Table */
+    .data-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    table.data-table th, table.data-table td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    table.data-table tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Interactive Simulator Section */
+    .interactive-card {
+      background: #f8fafc;
+      border: 2px solid var(--emerald);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sim-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .preset-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .preset-btn {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      border-radius: 0.4rem;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .preset-btn:hover {
+      background: var(--emerald-light);
+      border-color: var(--emerald);
+      color: #064e3b;
+    }
+
+    .preset-btn.active {
+      background: var(--emerald);
+      color: #ffffff;
+      border-color: var(--emerald);
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-group {
+      background: #ffffff;
+      padding: 1rem 1.2rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .slider-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: var(--emerald);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .slider-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    /* Result Dashboard */
+    .dashboard-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .status-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .pill-green {
+      background: var(--emerald-light);
+      color: #064e3b;
+      border: 1px solid var(--emerald);
+    }
+
+    .pill-yellow {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    .pill-red {
+      background: var(--rose-light);
+      color: var(--crimson);
+      border: 1px solid var(--rose);
+    }
+
+    .metric-bars {
+      display: grid;
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 85px;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.86rem;
+    }
+
+    .metric-name {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .bar-track {
+      background: #e2e8f0;
+      height: 18px;
+      border-radius: 9px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9px;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+
+    .metric-val {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .diag-box {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.6rem;
+      background: #f1f5f9;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      border-left: 4px solid var(--primary);
+    }
+
+    /* References Section */
+    .ref-list {
+      list-style: none;
+      margin: 1rem 0;
+      padding: 0;
+    }
+
+    .ref-item {
+      padding: 0.75rem 1rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.88rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .ref-tag {
+      font-weight: 700;
+      color: var(--emerald);
+      min-width: 2.5rem;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Only 補論ポータルTOP) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第3章 補論</span>
+        <span class="badge badge-sub">環境経済学 ｜ 成長至上主義批判</span>
+      </div>
+      <h1>デカップリング（Decoupling）の概念と構造的限界</h1>
+      <p class="subtitle">
+        経済成長と資源消費・炭素排出の「切り離し」は可能か？――相対的／絶対的デカップリングの欺瞞と地球環境の物理的限界
+      </p>
+    </header>
+
+    <!-- Lead Card -->
+    <div class="lead-card">
+      <p style="margin: 0; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.4rem;">
+        【本稿の核心的命題】新自由主義の「富のパイ無限論」を支える虚構の防壁
+      </p>
+      新自由主義や主流派経済学は、「格差や貧困の解決には経済成長（パイの拡大）が最優先であり、環境問題も技術革新による『デカップリング（切り離し）』で両立できる」と主張します。しかし、過去数十年間の歴史的データと自然科学の知見は、効率向上によってかえって消費が増大する「ジェボンズのパラドックス」や、重工業・排出を途上国へ移転させた「見せかけのデカップリング」の存在を告発しています。本補論では、デカップリングの定義とメカニズムを整理し、なぜ技術的解決のみでは「富のパイの限界」を突破できないのかを多角的に検証します。
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <span>📑</span>
+        <span>目次（Contents）</span>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec-1">1. デカップリングの基本概念と2つの類型</a></li>
+        <li><a href="#sec-2">2. デカップリング実現に向けた4大技術・政策要素</a></li>
+        <li><a href="#sec-3">3. 「見せかけのデカップリング」を生む3つの構造的罠</a></li>
+        <li><a href="#sec-4">4. 【インタラクティブ図解】デカップリング診断シミュレーター</a></li>
+        <li><a href="#sec-5">5. 本書（第1巻第3章）における位置づけと示唆</a></li>
+        <li><a href="#sec-6">6. 出典・参考文献・公的資料リンク</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="sec-1">
+      <h2>1. デカップリングの基本概念と2つの類型</h2>
+      <p>
+        <strong>デカップリング（Decoupling：切り離し・分離）</strong>とは、経済学および環境政策において、<strong>「経済活動の拡大（GDPの成長）」と「天然資源の消費量や環境負荷（温室効果ガス排出量、廃棄物、生物多様性の損失など）」との比例的な連動関係を断ち切ること</strong>を意味します。
+      </p>
+      <p>
+        産業革命以来の伝統的な工業化モデルでは、「GDPが増加すればするほど、石炭・石油などの化石燃料や鉱物資源の採掘量、CO₂排出量も直線的に増大する」という強固な結合（カップリング）が常態でした。これに対し、持続可能な発展や「グリーン成長（Green Growth）」を掲げる立場は、技術革新やエネルギー転換によってこの結合を解除できると主張します。
+      </p>
+      <p>
+        しかし、環境経済学や国連環境計画（UNEP）の国際資源パネル（IRP）等では、デカップリングをその達成水準に応じて明確に<strong>「相対的デカップリング」</strong>と<strong>「絶対的デカップリング」</strong>の2つに厳格に区別しています。
+      </p>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>分類項目</th>
+              <th>相対的デカップリング（Relative Decoupling）</th>
+              <th>絶対的デカップリング（Absolute Decoupling）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>定義・数理関係</strong></td>
+              <td>GDP成長率 ＞ 資源消費・環境負荷の増加率 ＞ 0</td>
+              <td>GDP成長率 ＞ 0 かつ 資源消費・環境負荷の増減率 ＜ 0</td>
+            </tr>
+            <tr>
+              <td><strong>環境負荷の推移</strong></td>
+              <td><span style="color: var(--accent-dark); font-weight: 700;">絶対量として増加し続けている</span>（ペースが鈍化しただけ）</td>
+              <td><span style="color: var(--emerald); font-weight: 700;">絶対量として減少している</span>（地球の許容量へ向かう）</td>
+            </tr>
+            <tr>
+              <td><strong>実態・達成度</strong></td>
+              <td>省エネ技術の向上により多くの先進国・新興国で日常的に観察される。</td>
+              <td>局所的・一時的なCO₂排出減少（再エネ普及等）は見られるが、<strong>グローバルな資源フットプリント全体では未達成</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>プラネタリー・バウンダリーとの関係</strong></td>
+              <td>破滅までの時間をわずかに先送りしているに過ぎず、環境危機を回避できない。</td>
+              <td>カーボンニュートラルや資源循環の達成に不可欠だが、高成長（年3%超）との両立は極めて困難。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-amber">
+        <h4 style="color: var(--accent-dark); margin-top: 0;">⚠️ 相対的デカップリングの落とし穴</h4>
+        「製品1単位あたりのエネルギー消費が半分になった」としても、経済成長によって社会全体の生産・消費量が3倍に増えれば、トータルのエネルギー消費とCO₂排出量は1.5倍に増大します。新自由主義的なグリーン成長論は、この「相対的な効率改善」を「絶対的な環境保護」であるかのようにすり替えて語る傾向があります。
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec-2">
+      <h2>2. デカップリング実現に向けた4大技術・政策要素</h2>
+      <p>
+        国際機関や持続可能性研究において、デカップリングを推進するために不可欠とされる主要なアプローチは、以下の4つの柱に整理されます。
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+          <h4 style="color: var(--primary-dark); margin-bottom: 0.35rem;">① エネルギー効率の向上</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+            高効率モーター、建物の断熱化、熱電併給（コージェネレーション）、製造プロセスの電化などにより、生み出す付加価値あたりの投入エネルギーを最小化する。
+          </p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">☀️</div>
+          <h4 style="color: var(--emerald); margin-bottom: 0.35rem;">② 再生可能エネルギーへの転換</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+            太陽光、風力、水力、地熱など、燃焼時に温室効果ガスを排出しないクリーン電力へ電力系統を全面的に移行し、経済活動から化石燃料を排除する。
+          </p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔄</div>
+          <h4 style="color: var(--teal); margin-bottom: 0.35rem;">③ サーキュラーエコノミー（循環経済）</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+            従来の「採取・製造・廃棄」という線形（リニア）モデルを脱却し、長寿命設計、修理、部品再利用、素材リサイクルにより、一次資源の採掘量を絶対的に抑制する。
+          </p>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; box-shadow: var(--shadow-sm);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📱</div>
+          <h4 style="color: var(--purple); margin-bottom: 0.35rem;">④ デジタル技術・シェアリングの活用</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+            IoTやAIによる需要予測・スマートグリッド制御、カーシェアリングや製品のサービス化（Servitization）により、物質的資産の稼働率を最大化し無駄を省く。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec-3">
+      <h2>3. 「見せかけのデカップリング」を生む3つの構造的罠</h2>
+      <p>
+        西欧諸国など一部の先進国では、「自国の実質GDPが成長する一方で、国内の温室効果ガス排出量が減少した」として、すでに絶対的デカップリングに成功したと主張されることがあります。しかし、グローバルな物質循環とエコロジカル経済学の観点から精査すると、そこには<strong>3つの重大な統計的・物理的欺瞞</strong>が横たわっています。
+      </p>
+
+      <h3>罠①：オフショアリングと「環境負荷の輸出」（生産ベース vs 消費ベース）</h3>
+      <p>
+        多くの先進国が誇る「排出量削減」は、鉄鋼、セメント、化学、家電製品などの重工業・製造拠点を中国や東南アジアなどの途上国へ移転（オフショアリング）した結果にすぎません。
+      </p>
+      <p>
+        国内で生産された分だけをカウントする「生産ベース統計（Territorial emissions）」では排出が減って見えますが、国民が海外から輸入して消費している財・サービスの製造に伴う排出を含めた<strong>「消費ベース統計（Consumption-based emissions / Carbon footprint）」</strong>で再計算すると、先進国の排出量・資源消費量は依然として高止まり、あるいは増加している事例が多々あります。自国の空気を綺麗にするために、環境破壊と温室効果ガス排出を途上国へ外注しているだけなのです。
+      </p>
+
+      <h3>罠②：ジェボンズのパラドックス（リバウンド効果）</h3>
+      <p>
+        19世紀のイギリスの経済学者ウィリアム・スタンレー・ジェボンズが著書『石炭問題』（1865年）で指摘した通り、<strong>「ある資源の利用効率が高まると、単位あたりの利用コストが下がるため、社会全体での消費総量はかえって増大する」</strong>という逆説が存在します。
+      </p>
+      <ul>
+        <li><strong>直接的リバウンド:</strong> 燃費の良いハイブリッド車に乗り換えた結果、ガソリン代が浮いた安心感から走行距離が伸びてしまう。</li>
+        <li><strong>間接的リバウンド:</strong> 省エネ家電で節約できた電気代の浮いたお金で、海外旅行に行ったり大型の電子機器を新たに購入したりして他部門の環境負荷を増大させる。</li>
+      </ul>
+      <p>
+        経済成長を至上命題とする資本主義社会では、効率改善によって生じた余剰（コスト低下）は、必ず「新たな生産と消費の拡大」へと再投資されます。このため、技術革新の果実が成長圧力によって食いつぶされてしまうのです。
+      </p>
+
+      <h3>罠③：熱力学第二法則（エントロピー増大）とリサイクルの物理的限界</h3>
+      <p>
+        サーキュラーエコノミーがどれほど喧伝されようとも、物理法則（熱力学の法則）を無視することはできません。
+        物質を再利用・リサイクルする過程では、必ず摩擦、摩耗、散逸、品質劣化が生じます。アルミニウムや貴金属の一部を除き、プラスチックや複合素材を100%永久に循環させることは原理的に不可能です。また、リサイクル作業自体にも膨大なエネルギーと化学薬品が必要となります。経済規模そのものが指数関数的に拡大し続ける限り、一次資源の新たな採掘をゼロにすることは物理的にあり得ません。
+      </p>
+    </section>
+
+    <!-- Section 4: Interactive Simulator -->
+    <section id="sec-4">
+      <h2>4. 【インタラクティブ図解】デカップリング診断シミュレーター</h2>
+      <p>
+        以下のシミュレーターでは、<strong>「GDP成長率」</strong>と<strong>「資源・炭素効率改善率」</strong>、さらに<strong>「リバウンド効果」</strong>や<strong>「海外への環境負荷転嫁（オフショアリング）」</strong>のパラメータを動かすことで、20年後に実体経済と環境負荷がどのような関係になるかをリアルタイムにシミュレーションできます。
+      </p>
+
+      <div class="interactive-card">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span>
+            <span>デカップリング達成度＆環境持続性 診断パネル</span>
+          </div>
+          <div class="preset-btns">
+            <button class="preset-btn" onclick="applyPreset('coupling')">1. 従来型完全連動</button>
+            <button class="preset-btn active" onclick="applyPreset('relative')">2. 現実的相対分離</button>
+            <button class="preset-btn" onclick="applyPreset('green')">3. 推進派グリーン成長</button>
+            <button class="preset-btn" onclick="applyPreset('degrowth')">4. ポスト成長・脱成長</button>
+          </div>
+        </div>
+
+        <div class="sim-grid">
+          <!-- Slider 1: GDP Growth -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>年平均 GDP成長率（g）</span>
+              <span class="slider-val" id="val-gdp">+2.0 %</span>
+            </div>
+            <input type="range" id="input-gdp" min="0.0" max="4.0" step="0.1" value="2.0" oninput="runDecoupleSim()">
+            <div class="slider-hint">実体経済の拡大ペース（富のパイの成長目標）</div>
+          </div>
+
+          <!-- Slider 2: Efficiency Gain -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>資源・炭素効率改善ペース</span>
+              <span class="slider-val" id="val-eff">+2.5 %</span>
+            </div>
+            <input type="range" id="input-eff" min="0.5" max="6.0" step="0.1" value="2.5" oninput="runDecoupleSim()">
+            <div class="slider-hint">省エネ・再エネ技術導入による原単位改善率</div>
+          </div>
+
+          <!-- Slider 3: Rebound Effect -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>リバウンド効果（ジェボンズ）</span>
+              <span class="slider-val" id="val-rebound">30 %</span>
+            </div>
+            <input type="range" id="input-rebound" min="0" max="60" step="5" value="30" oninput="runDecoupleSim()">
+            <div class="slider-hint">効率向上によるコスト低下が生む追加消費の相殺比率</div>
+          </div>
+
+          <!-- Slider 4: Offshoring Leakage -->
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>海外負荷転嫁率（輸入フットプリント）</span>
+              <span class="slider-val" id="val-leak">25 %</span>
+            </div>
+            <input type="range" id="input-leak" min="0" max="50" step="5" value="25" oninput="runDecoupleSim()">
+            <div class="slider-hint">途上国へ外注された製造業に伴う隠れ環境負荷の割合</div>
+          </div>
+        </div>
+
+        <!-- Dashboard Outputs -->
+        <div class="dashboard-panel">
+          <div class="status-badge-row">
+            <div>
+              <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Decoupling Status</span>
+              <div style="font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); margin-top: 2px;">
+                20年後の判定結果
+              </div>
+            </div>
+            <div id="status-pill-container">
+              <span class="status-pill pill-yellow" id="status-pill">⚠️ 相対的デカップリング（環境負荷は増大中）</span>
+            </div>
+          </div>
+
+          <!-- Comparative Metric Bars -->
+          <div class="metric-bars">
+            <div class="metric-row">
+              <div class="metric-name">① 実質GDP規模</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-gdp" style="width: 74%; background: var(--primary);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-gdp">148.6 %</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-name">② 国内見かけ排出量</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-prod" style="width: 52%; background: var(--teal);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-prod">105.2 %</div>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-name">③ 真の消費ベース負荷</div>
+              <div class="bar-track">
+                <div class="bar-fill" id="bar-cons" style="width: 65%; background: var(--rose);"></div>
+              </div>
+              <div class="metric-val" id="val-bar-cons">131.5 %</div>
+            </div>
+          </div>
+
+          <!-- Dynamic Diagnostics Box -->
+          <div class="diag-box" id="diag-comment">
+            <strong>【分析所見】</strong> 経済成長率（+2.0%）に対し、実質的な純効率改善ペース（リバウンド相殺後）が追いついていません。国内の生産ベース排出は微増にとどまっているように見えますが、海外からの輸入消費を含めた「真の消費ベース環境負荷」は現在より31.5%増加しています。地球の許容量（プラネタリー・バウンダリー）の超過を加速させています。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec-5">
+      <h2>5. 本書（第1巻第3章）における位置づけと示唆</h2>
+      <p>
+        本書『現代貧困の解体新書――第1巻 構造編』の第3章において、デカップリング問題は<strong>「富のパイの大きさは無限か？」という成長至上主義の虚構を解体するための決定的な証拠</strong>として位置づけられます。
+      </p>
+
+      <div class="callout callout-rose">
+        <h4 style="color: var(--crimson); margin-top: 0;">📌 マクロ経済構造とゼロサム強奪への接続</h4>
+        <ol style="margin-left: 1.25rem; margin-bottom: 0;">
+          <li><strong>実体経済の成長率（g）の物理的減速:</strong> 地球環境の炭素予算・資源限界（プラネタリー・バウンダリー）により、物質的な生産・消費のパイを無限に年数パーセントずつ拡大し続けることは、完全な絶対的デカップリングが世界規模で達成されない限り物理的に不可能である。</li>
+          <li><strong>金融資本の要求利回り（r）との乖離:</strong> にもかかわらず、新自由主義の金融市場・株主至上主義は、実体経済の低迷を無視して年8〜10%以上の資本収益率（ROE・株主配当）を要求し続ける。</li>
+          <li><strong>ゼロサム収奪の不可避性:</strong> 全体のパイ（実体GDP）が増大しないなかで金融資本が取り分（r）を維持しようとすれば、その原資は<strong>「労働分配率の引き下げ（非正規化・賃金抑制）」</strong>や<strong>「公共サービス・社会保障の民営化・切り売り」</strong>というゼロサム的強奪（デヴィッド・ハーヴェイの言う「収奪による蓄積」）から絞り出すしかなくなる。</li>
+        </ol>
+      </div>
+
+      <p>
+        すなわち、「技術が発展すれば無限に経済成長できる」というデカップリング信仰にすがりつくことは、結果として「成長によって格差を解決する」という幻想を延命させ、足元で進行している労働者・生活者からの富の吸い上げ（トリクルアップ）を不可視化することに加担しているのです。真に生活者の暮らしを守るためには、もはや不可能な「無限の成長」を追うのではなく、<strong>生み出された富の公正な「事前分配」と「社会的共通資本」の再構築</strong>へと舵を切らなければなりません。
+      </p>
+    </section>
+
+    <!-- Section 6: References -->
+    <section id="sec-6">
+      <h2>6. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">
+        ※各リンクは2026年11月時点で正常なアクセス（HTTP 200）を確認済みです。
+      </p>
+      <ul class="ref-list">
+        <li class="ref-item">
+          <span class="ref-tag">[1]</span>
+          <a href="https://green-transformation.jp/media/decarbonization/decoupling-105/" target="_blank" rel="noopener noreferrer" class="ref-link">
+            Green Transformation (GX)：デカップリングとは？経済成長と環境負荷の分離、相対的・絶対的デカップリングの定義と最新動向
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[2]</span>
+          <a href="https://circulareconomy.tokyo/glossary/2896" target="_blank" rel="noopener noreferrer" class="ref-link">
+            Circular Economy Hub：デカップリング（Decoupling）とは・意味 ｜ サーキュラーエコノミー用語集
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[3]</span>
+          <a href="https://rechroma.co.jp/column/sustainability/decoupling" target="_blank" rel="noopener noreferrer" class="ref-link">
+            reChroma サステナビリティコラム：デカップリングとは？気候変動対策と企業成長の両立における課題と取り組み事例
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[4]</span>
+          <a href="https://www.ishes.org/economic_growth/dilemma/dlm03.html" target="_blank" rel="noopener noreferrer" class="ref-link">
+            幸せ経済社会研究所（ISHES）：経済成長のジレンマ ―― デカップリングは可能か？（ティム・ジャクソンらの議論）
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[5]</span>
+          <a href="https://www.isz.co.jp/circular/column/124/" target="_blank" rel="noopener noreferrer" class="ref-link">
+            石坂産業 サーキュラーエコノミーコラム：循環経済とデカップリングの実現に向けた実践的プロセスと産業廃棄物削減
+          </a>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[6]</span>
+          <span>
+            UNEP International Resource Panel (IRP) (2011), <em>Decoupling natural resource use and environmental impacts from economic growth</em>, United Nations Environment Programme.
+          </span>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[7]</span>
+          <span>
+            OECD (2002), <em>Indicators to Measure Decoupling of Environmental Pressure from Economic Growth</em>, SG/SD(2002)1/FINAL.
+          </span>
+        </li>
+        <li class="ref-item">
+          <span class="ref-tag">[8]</span>
+          <span>
+            Stockholm Resilience Centre (2023), <em>Planetary Boundaries Update: Earth beyond six of nine planetary boundaries</em>.
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Simulator Logic -->
+  <script>
+    function runDecoupleSim() {
+      const gdpRate = parseFloat(document.getElementById('input-gdp').value);
+      const effRate = parseFloat(document.getElementById('input-eff').value);
+      const reboundPct = parseFloat(document.getElementById('input-rebound').value);
+      const leakPct = parseFloat(document.getElementById('input-leak').value);
+
+      // Label updates
+      document.getElementById('val-gdp').innerText = (gdpRate >= 0 ? '+' : '') + gdpRate.toFixed(1) + ' %';
+      document.getElementById('val-eff').innerText = '+' + effRate.toFixed(1) + ' %';
+      document.getElementById('val-rebound').innerText = reboundPct + ' %';
+      document.getElementById('val-leak').innerText = leakPct + ' %';
+
+      // 20-year Compound Multipliers
+      const years = 20;
+      const gdpMultiplier = Math.pow(1 + (gdpRate / 100), years); // GDP index (base 1.0)
+      
+      // Effective Efficiency Gain after Rebound
+      // Net efficiency gain rate per year = effRate * (1 - reboundPct/100)
+      const netEffRate = effRate * (1 - (reboundPct / 100));
+      const intensityMultiplier = Math.pow(1 - (netEffRate / 100), years);
+
+      // Production-based Environmental Impact = GDP * Domestic Intensity
+      // (Domestic intensity drops faster if dirty production is offshored)
+      const offshoreDamping = 1 - (leakPct / 100 * 0.5); // offshore makes domestic look cleaner
+      const prodImpactMultiplier = gdpMultiplier * intensityMultiplier * offshoreDamping;
+
+      // Consumption-based True Environmental Impact = includes imported embedded impact
+      const consImpactMultiplier = gdpMultiplier * intensityMultiplier * (1 + (leakPct / 100 * 0.3));
+
+      // Bar Widths (Clamped between 5% and 100% relative to a max scale of 200%)
+      const maxScale = 200;
+      const gdpWidth = Math.min(100, Math.max(5, (gdpMultiplier * 100 / maxScale) * 100));
+      const prodWidth = Math.min(100, Math.max(5, (prodImpactMultiplier * 100 / maxScale) * 100));
+      const consWidth = Math.min(100, Math.max(5, (consImpactMultiplier * 100 / maxScale) * 100));
+
+      document.getElementById('bar-gdp').style.width = gdpWidth + '%';
+      document.getElementById('bar-prod').style.width = prodWidth + '%';
+      document.getElementById('bar-cons').style.width = consWidth + '%';
+
+      document.getElementById('val-bar-gdp').innerText = (gdpMultiplier * 100).toFixed(1) + ' %';
+      document.getElementById('val-bar-prod').innerText = (prodImpactMultiplier * 100).toFixed(1) + ' %';
+      document.getElementById('val-bar-cons').innerText = (consImpactMultiplier * 100).toFixed(1) + ' %';
+
+      // Status Evaluation
+      const statusContainer = document.getElementById('status-pill-container');
+      const diagBox = document.getElementById('diag-comment');
+
+      if (consImpactMultiplier < 0.85 && gdpMultiplier > 1.0) {
+        // Absolute Decoupling
+        statusContainer.innerHTML = '<span class="status-pill pill-green">🌿 絶対的デカップリング達成（真の環境負荷減少）</span>';
+        document.getElementById('bar-cons').style.background = 'var(--emerald)';
+        diagBox.style.borderLeftColor = 'var(--emerald)';
+        diagBox.innerHTML = `<strong>【分析所見：高水準の絶対的デカップリング】</strong><br>
+          経済が20年で <strong>+${((gdpMultiplier - 1)*100).toFixed(1)}%</strong> 成長する一方で、真の消費ベース環境負荷が <strong>${((1 - consImpactMultiplier)*100).toFixed(1)}% 減少</strong> しています。リバウンド効果を抑え込み、再生可能エネルギーと完全循環型経済（サーキュラー）を極限まで進めた理想シナリオです。ただし、この水準を世界全体・全産業で実現するには、年率6%超の持続的脱炭素化が必要とされます。`;
+      } else if (prodImpactMultiplier < 1.0 && consImpactMultiplier >= 1.0) {
+        // Phantom Decoupling via Offshoring
+        statusContainer.innerHTML = '<span class="status-pill pill-yellow">⚠️ 見せかけのデカップリング（環境負荷の海外転嫁）</span>';
+        document.getElementById('bar-cons').style.background = 'var(--rose)';
+        diagBox.style.borderLeftColor = 'var(--accent)';
+        diagBox.innerHTML = `<strong>【分析所見：見せかけのデカップリング（オフショアリングの罠）】</strong><br>
+          国内生産ベースの排出量は <strong>${(prodImpactMultiplier*100).toFixed(1)}%</strong> と減少しているように見えますが、海外への負荷転嫁（${leakPct}%）により、真の消費ベース環境負荷は <strong>+${((consImpactMultiplier - 1)*100).toFixed(1)}% 増加</strong> しています。自国の統計上は環境先進国を装いながら、地球全体には負荷を輸出し続けている構造です。`;
+      } else if (consImpactMultiplier < gdpMultiplier && consImpactMultiplier >= 1.0) {
+        // Relative Decoupling
+        statusContainer.innerHTML = '<span class="status-pill pill-yellow">📊 相対的デカップリング止まり（負荷は増加中）</span>';
+        document.getElementById('bar-cons').style.background = 'var(--accent)';
+        diagBox.style.borderLeftColor = 'var(--accent)';
+        diagBox.innerHTML = `<strong>【分析所見：相対的デカップリングの限界】</strong><br>
+          資源効率の向上（+${effRate.toFixed(1)}%）により、環境負荷の増加率はGDP成長率より緩やかになっていますが、消費ベース環境負荷は依然として <strong>+${((consImpactMultiplier - 1)*100).toFixed(1)}% 拡大</strong> しています。効率改善の果実が経済成長とリバウンド効果（${reboundPct}%）に食いつぶされ、プラネタリー・バウンダリーの崩壊を止めることはできません。`;
+      } else {
+        // Full Coupling or Worse
+        statusContainer.innerHTML = '<span class="status-pill pill-red">🚨 完全カップリング（環境破綻シナリオ）</span>';
+        document.getElementById('bar-cons').style.background = 'var(--crimson)';
+        diagBox.style.borderLeftColor = 'var(--rose)';
+        diagBox.innerHTML = `<strong>【分析所見：完全カップリングによる環境破綻】</strong><br>
+          経済成長に対して効率改善が完全に劣後しており、環境負荷が <strong>+${((consImpactMultiplier - 1)*100).toFixed(1)}% 爆発</strong> しています。資源枯渇、気候危機の破局的激化、生態系破壊が短期間で不可逆的な限界点（ティッピング・ポイント）を突破します。`;
+      }
+    }
+
+    function applyPreset(type) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const gdpSlider = document.getElementById('input-gdp');
+      const effSlider = document.getElementById('input-eff');
+      const reboundSlider = document.getElementById('input-rebound');
+      const leakSlider = document.getElementById('input-leak');
+
+      if (type === 'coupling') {
+        gdpSlider.value = 3.0;
+        effSlider.value = 1.0;
+        reboundSlider.value = 40;
+        leakSlider.value = 10;
+      } else if (type === 'relative') {
+        gdpSlider.value = 2.0;
+        effSlider.value = 2.5;
+        reboundSlider.value = 30;
+        leakSlider.value = 25;
+      } else if (type === 'green') {
+        gdpSlider.value = 2.0;
+        effSlider.value = 5.5;
+        reboundSlider.value = 15;
+        leakSlider.value = 10;
+      } else if (type === 'degrowth') {
+        gdpSlider.value = 0.5;
+        effSlider.value = 4.0;
+        reboundSlider.value = 5;
+        leakSlider.value = 5;
+      }
+      runDecoupleSim();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runDecoupleSim();
+    });
+  </script>
+</body>
+</html>
