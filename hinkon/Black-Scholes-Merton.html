@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ブラック＝ショールズ方程式（Black-Scholes-Merton方程式）――金融工学の誕生、オプション価格算定の数理メカニズムと新自由主義金融化の罠</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --indigo: #4338ca;
+      --indigo-light: #e0e7ff;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-brand {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .portal-link {
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      border: 1px solid #bfdbfe;
+    }
+
+    .portal-link:hover {
+      background: #dbeafe;
+    }
+
+    /* Header Section */
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .badge-primary {
+      background-color: #dbeafe;
+      color: var(--primary);
+    }
+
+    .badge-sub {
+      background-color: #f1f5f9;
+      color: var(--text-muted);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-bottom: 2rem;
+      line-height: 1.85;
+      background: #f8fafc;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--primary);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+    .header-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .header-summary-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .h-item-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .h-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Content Typography & Structure */
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 2.75rem 0 1.25rem 0;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.75rem 0 0.85rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: #1e293b;
+    }
+
+    /* Callout & Quotes */
+    .callout {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .callout-danger {
+      background: #fff1f2;
+      border-left: 4px solid var(--crimson);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.5rem 0;
+    }
+
+    .callout-danger-title {
+      font-weight: 700;
+      color: var(--crimson);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Formula & Math Styles (Pure Native Semantic HTML/CSS) */
+    .formula-box {
+      background: #f8fafc;
+      border: 2px solid #bfdbfe;
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 1px dashed #bfdbfe;
+      padding-bottom: 0.65rem;
+    }
+
+    .math-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1rem 0;
+      line-height: 1.7;
+    }
+
+    .math-fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      font-size: 0.95rem;
+      padding: 0 0.35rem;
+    }
+
+    .math-num {
+      border-bottom: 2px solid var(--primary);
+      padding: 0 0.45rem 0.2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    .math-den {
+      padding: 0.2rem 0.45rem 0;
+      color: var(--text-main);
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+    }
+
+    .math-op {
+      font-weight: 800;
+      color: #64748b;
+      padding: 0 0.2rem;
+    }
+
+    .formula-note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 0.85rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .factor-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-purple {
+      border-top: 4px solid var(--purple);
+    }
+
+    .card-amber {
+      border-top: 4px solid var(--accent);
+    }
+
+    .card-emerald {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .card-crimson {
+      border-top: 4px solid var(--crimson);
+    }
+
+    .factor-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .factor-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Table Styles */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f8fafc;
+      font-weight: 700;
+      color: var(--primary-dark);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f1f5f9;
+    }
+
+    /* Simulator Styles */
+    .sim-box {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .preset-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.45rem 0.85rem;
+      border-radius: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .control-group {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 0.9rem;
+    }
+
+    .control-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-badge {
+      background: #dbeafe;
+      color: var(--primary);
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .control-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    .sim-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .metric-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .metric-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .greeks-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      background: #f1f5f9;
+      padding: 1rem;
+      border-radius: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .greek-item {
+      background: #ffffff;
+      padding: 0.6rem;
+      border-radius: 0.4rem;
+      text-align: center;
+      border: 1px solid #cbd5e1;
+    }
+
+    .greek-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .greek-val {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 0.15rem;
+    }
+
+    .sim-desc-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 5px solid var(--primary);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .sim-status-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-status-narrative {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* References Section */
+    .ref-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .ref-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .ref-num {
+      font-weight: 700;
+      color: var(--primary);
+      flex-shrink: 0;
+      min-width: 2rem;
+    }
+
+    .ref-link {
+      color: var(--primary);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .ref-link:hover {
+      text-decoration: underline;
+    }
+
+    .ref-plain {
+      color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.25rem 1rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .header-summary-grid, .grid-2, .grid-3, .sim-controls, .sim-metrics, .greeks-grid {
+        grid-template-columns: 1fr;
+      }
+      .math-equation {
+        font-size: 0.85rem;
+        gap: 0.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Only 補論ポータルTOP link) -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <span>📖</span>
+        <span>現代貧困の解体新書 Web補論アーカイブ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">🏠 補論ポータルTOP</a>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">現代貧困の解体新書 補論</span>
+        <span class="badge badge-sub">第3章：実体経済の金融化とデリバティブ</span>
+      </div>
+      <h1>ブラック＝ショールズ方程式（Black-Scholes-Merton方程式）とは何か：<br>金融工学の誕生、オプション価格算定の数理と新自由主義「金融化」の暴走</h1>
+      <p class="lead">
+        1973年、フィッシャー・ブラックとマイロン・ショールズ、そしてロバート・マートンによって発表された<strong>「ブラック＝ショールズ方程式（Black-Scholes-Merton方程式：BSMモデル）」</strong>は、人類の金融史における最大のパラダイムシフトをもたらしました。<br>
+        それまで「将来の不確実な勘や思惑」に委ねられていたオプション取引（買う権利・売る権利）に、熱伝導方程式や伊藤の公式という物理学・確率微分方程式を応用し、<strong>「厳密な数理理論価格（プレミアム）」</strong>を与えることに成功したのです（1997年ノーベル経済学賞受賞）。<br>
+        しかし、この方程式がもたらした「リスクは数理で完全に管理・消滅できる」という過信は、巨大ヘッジファンドLTCM（ロングターム・キャピタル・マネジメント）の破綻（1998年）や、信用派生商品（CDS）の暴走による2008年リーマン・ショックという未曾有の災厄を招くことになりました。本稿では、その数理メカニズムと新自由主義金融化の罠を徹底解剖します。
+      </p>
+
+      <!-- 3大論点サマリーカード -->
+      <div class="header-summary-grid">
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>📐</span><span>リスクの「商品化・証券化」</span></div>
+          <div class="h-item-desc">無裁定原理と複製ポートフォリオにより、原資産の期待収益率を排除。「価格のつかなかった不確実性」を売買可能な金融商品へと変貌させた。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>⚡</span><span>1973年 変動相場制との共鳴</span></div>
+          <div class="h-item-desc">ブレトン・ウッズ崩壊（ニクソン・ショック）による為替・金利変動リスクの爆発と、シカゴ・オプション取引所（CBOE）開設の歴史的合流点。</div>
+        </div>
+        <div class="header-summary-item">
+          <div class="h-item-title"><span>💥</span><span>数理の過信とLTCM・リーマン破綻</span></div>
+          <div class="h-item-desc">正規分布を前提とする「薄いテール」の致命的欠陥。100万年に1度の暴落が数年ごとに現実化するシステミック危機の温床。</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 基本構造と数理メカニズム -->
+    <section>
+      <h2>📖 1. ブラック＝ショールズ方程式の数理構造と「無裁定の原理」</h2>
+      <p>
+        ブラック＝ショールズ＝マートン・モデルの最も驚くべき数学的洞察は、<strong>「原資産（株式等）が将来どれだけ値上がりするかという期待利回り（&mu;）が、オプションの価格算定式から完全に消滅する」</strong>という点にあります。投資家が強気（ブル）か弱気（ベア）か、リスク愛好家かリスク回避的かに関係なく、万人にとって唯一の理論価格が一意に決まります。
+      </p>
+
+      <h3>基本原理：複製ポートフォリオとデルタヘッジ</h3>
+      <p>
+        この魔法のような結果をもたらすのが、金融工学の根本教義である<strong>「無裁定原理（一物一価の法則）」</strong>です。
+      </p>
+      <ul>
+        <li><strong>複製ポートフォリオの組成</strong>：原資産（株式）をある割合（デルタ：&Delta; ＝ &part;<var>f</var>/&part;<var>S</var>）だけ保有し、同時に安全資産（無リスク国債など、金利 <var>r</var>）で資金を借り入れ・運用するポートフォリオを作ると、その将来価値の変動はコール・オプションの価値変動と瞬間ごとに完全に一致させることができます。</li>
+        <li><strong>完全なリスクヘッジ</strong>：もしオプションの市場価格が複製ポートフォリオの価値と食い違っていれば、割高な方を売り割安な方を買うことで、誰でも「ノーリスクで無限の利潤（裁定取引：アービトラージ）」を得られてしまいます。市場競争が働く結果、オプション価格は複製コストと完全に等しくならざるを得ません。</li>
+      </ul>
+
+      <!-- 偏微分方程式 フォーミュラボックス -->
+      <div class="formula-box">
+        <div class="formula-title">
+          <span>📐</span>
+          <span>ブラック＝ショールズ偏微分方程式（Black-Scholes PDE）</span>
+        </div>
+
+        <div class="math-equation">
+          <span class="math-fraction">
+            <span class="math-num">&part; <var>f</var></span>
+            <span class="math-den">&part; <var>t</var></span>
+          </span>
+          <span class="math-op">＋</span>
+          <span class="math-fraction">
+            <span class="math-num">1</span>
+            <span class="math-den">2</span>
+          </span>
+          <span><var>&sigma;</var><sup>2</sup> <var>S</var><sup>2</sup></span>
+          <span class="math-fraction">
+            <span class="math-num">&part;<sup>2</sup> <var>f</var></span>
+            <span class="math-den">&part; <var>S</var><sup>2</sup></span>
+          </span>
+          <span class="math-op">＋</span>
+          <span><var>r</var> <var>S</var></span>
+          <span class="math-fraction">
+            <span class="math-num">&part; <var>f</var></span>
+            <span class="math-den">&part; <var>S</var></span>
+          </span>
+          <span class="math-op">−</span>
+          <span><var>r</var> <var>f</var></span>
+          <span class="math-op">＝</span>
+          <span>0</span>
+        </div>
+
+        <div class="formula-note">
+          【構成要素の定義】：<br>
+          ・<var>f</var>(<var>S</var>, <var>t</var>)：オプションの理論価格（プレミアム）<br>
+          ・<var>S</var>：原資産の市場価格（現在の株価や為替レートなど）<br>
+          ・<var>t</var>：現在の時間（<var>T</var> は満期日、<var>T</var> − <var>t</var> は満期までの残存期間）<br>
+          ・<var>&sigma;</var>（シグマ）：原資産価格のボラティリティ（年率ボラティリティ：標準偏差）<br>
+          ・<var>r</var>：無リスク短期金利（安全資産の連続複利利回り）
+        </div>
+      </div>
+
+      <!-- 解析解 フォーミュラボックス -->
+      <div class="formula-box" style="border-color: #a7f3d0; background-color: #f0fdf4;">
+        <div class="formula-title" style="border-bottom-color: #a7f3d0; color: #065f46;">
+          <span>📈</span>
+          <span>ヨーロピアン・コールオプションの理論価格算定式（解析解）</span>
+        </div>
+
+        <div class="math-equation" style="color: #065f46;">
+          <span><var>C</var> ＝ <var>S</var> &times; <var>N</var>(<var>d</var><sub>1</sub>) − <var>K</var> <var>e</var><sup>−<var>r</var>(<var>T</var>−<var>t</var>)</sup> &times; <var>N</var>(<var>d</var><sub>2</sub>)</span>
+        </div>
+
+        <div class="math-equation" style="font-size: 0.96rem; color: #047857;">
+          <span><var>d</var><sub>1</sub> ＝</span>
+          <span class="math-fraction">
+            <span class="math-num">ln(<var>S</var> / <var>K</var>) ＋ (<var>r</var> ＋ <sup>1</sup>/<sub>2</sub> <var>&sigma;</var><sup>2</sup>)(<var>T</var> − <var>t</var>)</span>
+            <span class="math-den"><var>&sigma;</var> &radic;(<var>T</var> − <var>t</var>)</span>
+          </span>
+          <span style="margin: 0 0.8rem; color: #94a3b8;">｜</span>
+          <span><var>d</var><sub>2</sub> ＝ <var>d</var><sub>1</sub> − <var>&sigma;</var> &radic;(<var>T</var> − <var>t</var>)</span>
+        </div>
+
+        <div class="formula-note" style="color: #065f46;">
+          ※ <var>K</var> は権利行使価格（ストライク・プライス）。<br>
+          ※ <var>N</var>(<var>x</var>) は標準正規分布の累積分布関数（確率変数が <var>x</var> 以下となる確率）。<br>
+          ※ <var>N</var>(<var>d</var><sub>1</sub>) は「デルタ（&Delta;）」に相当し、原資産が1単位動いた時のコール価格の変動割合を示すと同時に、複製ポートフォリオで保有すべき株式数を表します。<br>
+          ※ <var>N</var>(<var>d</var><sub>2</sub>) は満期時にオプションがイン・ザ・マネー（権利行使可能）となるリスク中立確率を表します。
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 歴史的転換点としての1973年 -->
+    <section>
+      <h2>🏛️ 2. 歴史的転換点としての1973年：ブレトン・ウッズ崩壊と金融工学の合流</h2>
+      <p>
+        ブラック＝ショールズ方程式がなぜ1973年という特定の年に登場し、世界を席巻したのか――それは偶然ではありません。資本主義の世界体制が劇的に変貌した歴史的必然と完全に同期していました。
+      </p>
+
+      <div class="grid-2">
+        <div class="factor-card card-purple">
+          <div class="factor-title">
+            <span>🌐</span>
+            <span>変動相場制への大転換（1971〜1973年）</span>
+          </div>
+          <div class="factor-desc">
+            1971年8月のニクソン・ショック、12月のスミソニアン協定を経て、1973年3月に主要国通貨は本格的な変動相場制へ突入。固定レートという「公的防壁」を失った多国籍企業や銀行は、激しい為替・金利・インフレ変動リスクに晒され、ヘッジ手法を渇望していた。
+          </div>
+        </div>
+
+        <div class="factor-card card-amber">
+          <div class="factor-title">
+            <span>🏛️</span>
+            <span>CBOEの創設と取引所の標準化（1973年4月）</span>
+          </div>
+          <div class="factor-desc">
+            世界初の公認オプション取引所であるシカゴ・オプション取引所（CBOE）が設立。ブラック＝ショールズ方程式が即座に公式なプライシング基準として採用され、それまで「いかがわしいギャンブル」と見なされていたデリバティブが、洗練された「科学」へと公認された。
+          </div>
+        </div>
+      </div>
+
+      <h3>リスクの「脱埋め込み」と金融商品の爆発的増殖</h3>
+      <p>
+        ブラック＝ショールズ方程式がもたらした最大の社会経済的影響は、<strong>「リスクの小分け・切り売り（アンバンドリングと証券化）」を可能にしたこと</strong>です。
+      </p>
+      <p>
+        それまでの実体経済において、工場の操業リスクや為替リスクは、企業経営者が事業そのものと一体として引き受ける不可分の重荷でした。しかし、数理モデルによってリスクに客観的な値札（プライシング）が付けられたことで、リスクは企業から切り離され（脱埋め込み）、世界中の金融機関や投機家が売買する「独立した金融商品」へと変貌しました。
+      </p>
+      <p>
+        ここから、通貨先物、金利スワップ、通貨スワップ、エキゾチック・オプション、そして2000年代の住宅ローン担保証券（MBS）や債務担保証券（CDO）、クレジット・デフォルト・スワップ（CDS）へと連なる、実体経済の数十倍に膨れ上がる「デリバティブ金融空間」の巨大な扉が開かれたのです。
+      </p>
+    </section>
+
+    <!-- Section 3: インタラクティブ・シミュレーター -->
+    <section>
+      <h2>⚙️ 3. インタラクティブ図解：ブラック＝ショールズ・オプション価格 ＆ ギリシャ指標シミュレーター</h2>
+      <p>
+        原資産価格（株価）、権利行使価格、満期までの残存日数、予想ボラティリティ、および無リスク金利を操作することで、ブラック＝ショールズ方程式が導き出すコール・プット価格、本質的価値と時間価値の内訳、およびリスク管理指標（ギリシャ指標：デルタ・ガンマ・ベガ・セータ）をリアルタイムに確認できます。
+      </p>
+
+      <div class="sim-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>📊</span>
+            <span>ブラック＝ショールズ・プライシング・シミュレーター</span>
+          </div>
+          <div class="sim-subtitle">
+            歴史的シナリオを選択するか、各変数のスライダーを動かして数理挙動を体感してください。
+          </div>
+        </div>
+
+        <!-- プリセットボタン -->
+        <div class="preset-row">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); align-self: center; margin-right: 0.35rem;">市場シナリオ：</span>
+          <button class="preset-btn active" onclick="applyBsmPreset('standard')">📈 平常時・標準オプション（ATM・20%ボラ）</button>
+          <button class="preset-btn" onclick="applyBsmPreset('ltcm')">🌪️ 1998年 LTCM破綻前夜（ボラティリティ急騰・高金利）</button>
+          <button class="preset-btn" onclick="applyBsmPreset('lehman')">💣 2008年 リーマン危機（パニック売り・暴落）</button>
+          <button class="preset-btn" onclick="applyBsmPreset('zero_rate')">📉 現代 低金利環境（超低金利・残存長期）</button>
+        </div>
+
+        <!-- スライダーコントロール -->
+        <div class="sim-controls">
+          <div class="control-group">
+            <div class="control-label">
+              <span>① 原資産価格（株価 <var>S</var>）</span>
+              <span id="label-stock" class="value-badge">100.0 円</span>
+            </div>
+            <input type="range" id="slider-stock" min="50" max="200" step="1" value="100" oninput="calcBsm()">
+            <div class="control-sub">現在の株式や為替のスポット市場価格。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>② 権利行使価格（ストライク <var>K</var>）</span>
+              <span id="label-strike" class="value-badge">100.0 円</span>
+            </div>
+            <input type="range" id="slider-strike" min="50" max="200" step="1" value="100" oninput="calcBsm()">
+            <div class="control-sub">満期日に売買するあらかじめ約束された価格。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>③ 満期までの残存期間（<var>T</var>−<var>t</var>）</span>
+              <span id="label-time" class="value-badge">1.00 年 (365日)</span>
+            </div>
+            <input type="range" id="slider-time" min="0.05" max="3.0" step="0.05" value="1.0" oninput="calcBsm()">
+            <div class="control-sub">権利行使日までの残り年数（時間経過で価値減少）。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>④ ボラティリティ（変動率 <var>&sigma;</var>）</span>
+              <span id="label-vol" class="value-badge">20.0 %</span>
+            </div>
+            <input type="range" id="slider-vol" min="5" max="120" step="1" value="20" oninput="calcBsm()">
+            <div class="control-sub">原資産の年率予想変動率。高いほどプレミアム急増。</div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>⑤ 無リスク金利（<var>r</var>）</span>
+              <span id="label-rate" class="value-badge">2.0 %</span>
+            </div>
+            <input type="range" id="slider-rate" min="0.0" max="15.0" step="0.25" value="2.0" oninput="calcBsm()">
+            <div class="control-sub">安全国債の連続複利利回り。</div>
+          </div>
+
+          <div class="control-group" style="display: flex; flex-direction: column; justify-content: center; background: #f1f5f9;">
+            <div style="font-size: 0.82rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.25rem;">価格モデル状態</div>
+            <div id="disp-moneyness" style="font-size: 1.05rem; font-weight: 800; color: var(--primary);">At The Money (ATM)</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">原資産価格 ＝ 行使価格</div>
+          </div>
+        </div>
+
+        <!-- 理論価格メトリクス -->
+        <div class="sim-metrics">
+          <div class="metric-card" style="border-top: 4px solid var(--primary);">
+            <div class="metric-label">コール・プレミアム（買う権利）</div>
+            <div id="res-call" class="metric-value">8.92 円</div>
+            <div id="res-call-sub" class="metric-desc">本質価値: 0.0円 ｜ 時間価値: 8.9円</div>
+          </div>
+
+          <div class="metric-card" style="border-top: 4px solid var(--accent);">
+            <div class="metric-label">プット・プレミアム（売る権利）</div>
+            <div id="res-put" class="metric-value">6.96 円</div>
+            <div id="res-put-sub" class="metric-desc">本質価値: 0.0円 ｜ 時間価値: 7.0円</div>
+          </div>
+
+          <div class="metric-card" style="border-top: 4px solid var(--emerald);">
+            <div class="metric-label">コール・デルタ（&Delta;）</div>
+            <div id="res-delta" class="metric-value">0.579</div>
+            <div class="metric-desc">ヘッジ比率（株の必要保有量）</div>
+          </div>
+
+          <div class="metric-card" style="border-top: 4px solid var(--purple);">
+            <div class="metric-label">ベガ（&nu;：ボラ感応度）</div>
+            <div id="res-vega" class="metric-value">0.391</div>
+            <div class="metric-desc">ボラ1%上昇時の価格変化</div>
+          </div>
+        </div>
+
+        <!-- ギリシャ指標詳細一覧 -->
+        <div class="greeks-grid">
+          <div class="greek-item">
+            <div class="greek-name">ガンマ（&Gamma;：デルタ変化率）</div>
+            <div id="greek-gamma" class="greek-val">0.0196</div>
+          </div>
+          <div class="greek-item">
+            <div class="greek-name">セータ（&Theta;：1日あたりの時間減衰）</div>
+            <div id="greek-theta" class="greek-val">-0.013 円/日</div>
+          </div>
+          <div class="greek-item">
+            <div class="greek-name">ロー（&rho;：金利1%変化感応度）</div>
+            <div id="greek-rho" class="greek-val">0.518</div>
+          </div>
+          <div class="greek-item">
+            <div class="greek-name">プット・コール・パリティ差額</div>
+            <div id="greek-parity" class="greek-val">0.00 円</div>
+          </div>
+        </div>
+
+        <!-- シミュレーター解説バナー -->
+        <div id="sim-banner" class="sim-desc-box">
+          <div id="banner-title" class="sim-status-title">📈 判定：平常時の標準的オプション環境（ATM）</div>
+          <div id="banner-narrative" class="sim-status-narrative">
+            株価と行使価格が一致している「アット・ザ・マネー（ATM）」の状態です。オプションの本質的価値（今すぐ行使した場合の儲け）はゼロですが、将来株価が上昇する可能性に対する「時間価値」がプレミアム（約8.9円）の大半を占めています。ヘッジ比率であるデルタは約0.58であり、オプション1単位をショート（売り）した投資家は、現物株を0.58単位買い持つことで価格変動リスクを完全に相殺（デルタ中立）できます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: 前提条件の崩壊とLTCM・リーマン危機の教訓 -->
+    <section>
+      <h2>⚠️ 4. 数理の過信が招いた破滅：LTCM破綻からリーマン・ショックへ</h2>
+      <p>
+        ブラック＝ショールズ方程式はエレガントな数理的勝利を収めましたが、そのモデルには現実の人間社会では成立し得ない<strong>「極めて危うい前提条件」</strong>が組み込まれていました。
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 28%;">モデルの理論的仮定</th>
+              <th style="width: 36%;">現実の金融市場の実態</th>
+              <th style="width: 36%;">生じた致命的バグと市場破綻</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>① 価格変動の正規分布仮定<br>（薄い裾野：シン・テール）</strong></td>
+              <td>現実は急激な暴落や取り付け騒ぎが頻発する「ファット・テール（裾の重い分布・ベキ乗則）」。</td>
+              <td>100万年に1度しか起きないはずの暴落（6シグマ現象）が、現実には数年おきに頻発し、巨大損失が発生。</td>
+            </tr>
+            <tr>
+              <td><strong>② 連続取引と無限の流動性<br>（いつでもヘッジ可能）</strong></td>
+              <td>パニック時には買い手が完全蒸発し、市場の流動性が一瞬でゼロに枯渇する。</td>
+              <td>デルタヘッジのために株を売ろうとしても相手がおらず、投げ売りが価格急落をさらに加速させる悪循環。</td>
+            </tr>
+            <tr>
+              <td><strong>③ 一定のボラティリティ<br>（シグマ不変の仮定）</strong></td>
+              <td>相場急落時にはボラティリティ自体が垂直跳びのように暴騰する（ボラティリティ・スマイル）。</td>
+              <td>モデルが算定したリスク量を遥かに超える損失が瞬時に発生し、自己資本を一瞬で消し飛ばす。</td>
+            </tr>
+            <tr>
+              <td><strong>④ 取引コストと金利の一定性</strong></td>
+              <td>信用不安時にはインターバンク市場で金利が跳ね上がり、借入枠が即座に凍結される。</td>
+              <td>資金調達が不可能となり、健全な資産まで投げ売りして破産へ追い込まれる（資金繰り破綻）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-danger">
+        <div class="callout-danger-title"><span>💣</span> 象徴的悲劇：天才たちのファンド「LTCM」の自爆（1998年）</div>
+        <p style="font-size: 0.92rem; margin-bottom: 0.5rem;">
+          ブラック＝ショールズ方程式の生みの親であるマイロン・ショールズとロバート・マートン自身が取締役に名を連ね、ノーベル賞受賞者たちの「頭脳」を結集して設立されたヘッジファンドが<strong>LTCM（ロングターム・キャピタル・マネジメント）</strong>でした。
+        </p>
+        <p style="font-size: 0.92rem; margin-bottom: 0;">
+          彼らは「高度な数理モデルにより、リスクはゼロに相殺されている」と過信し、わずか数十億ドルの自己資本に対して1,000億ドル以上の借入を行い、デリバティブ想定元本1兆ドルを超える天文学的なレバレッジをかけていました。しかし1998年8月、ロシアがデフォルト（通貨切り下げ・国債支払い停止）を宣言すると、市場の流動性は完全蒸発。モデルが「天文学的確率で絶対に起きない」と弾き出した事態が現実化し、LTCMはわずか数週間で自己資本の9割を消失して経営破綻。世界金融危機の連鎖を防ぐため、FRB（連邦準備制度理事会）がウォール街の大手銀行を緊急招集し、巨額の救済融資を組織せざるを得なくなりました。
+        </p>
+      </div>
+
+      <h3>新自由主義の罠：金融工学による「格差の正当化」と実体経済の収奪</h3>
+      <p>
+        本書『うちはなぜ貧乏なの？』が告発する核心は、<strong>「金融工学の数理的装飾が、新自由主義による実体経済からの富の吸い上げを正当化する道具として使われた」</strong>という冷厳な事実です。
+      </p>
+      <p>
+        ウォール街の投資銀行は、ブラック＝ショールズ方程式から派生した複雑な数理モデル（ガウス・コピュラ関数など）を用いて、返済能力のない貧困層への略奪的貸付（サブプライム・ローン）を切り刻み、「AAA格の安全な金融商品」へと錬金術のように仕立て上げました。
+      </p>
+      <p>
+        金融エリートたちは「高度な数学的リスク管理を行っている」として巨額の報酬とボーナスを山分けする一方、モデルが破綻した2008年リーマン・ショックの際には、損失は公的資金（国民の税金）によって救済され、住宅を差し押さえられて路上に放り出されたのは一般庶民でした。
+      </p>
+      <p>
+        数理モデルは「リスクを消滅させた」のではなく、<strong>「リスクを見えなくして社会全体にばら撒き、利益だけを巨大金融資本へ集中させる装置」</strong>として機能したのです。
+      </p>
+    </section>
+
+    <!-- Section 5: 出典・参考文献・公的資料リンク (Condition 2: Only verified HTTP 200 URLs with <a>) -->
+    <section>
+      <h2>📚 5. 出典・参考文献・公的資料リンク</h2>
+      <p>
+        本稿で引用・参照した一次文献、学術論文、ノーベル賞公式資料、およびアクセス検証済みの解説アーカイブです。
+      </p>
+
+      <ul class="ref-list">
+        <li class="ref-item">
+          <span class="ref-num">[1]</span>
+          <div>
+            <a href="https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E2%80%93%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%AB%E3%82%BA%E6%96%B9%E7%A8%8B%E5%BC%8F" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Wikipedia「ブラック–ショールズ方程式」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">偏微分方程式の定式化、境界条件、伊藤の補題による導出、熱伝導方程式への変換、および歴史的概要。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[2]</span>
+          <div>
+            <a href="https://www.jstor.org/stable/1831029" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Fischer Black and Myron Scholes, "The Pricing of Options and Corporate Liabilities", Journal of Political Economy, Vol. 81, No. 3 (1973), pp. 637-654.
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">ブラック＝ショールズ方程式が世界で初めて公表された金字塔的原論文（JSTORアーカイブ）。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[3]</span>
+          <div>
+            <a href="https://www.nobelprize.org/prizes/economic-sciences/1997/press-release/" target="_blank" rel="noopener noreferrer" class="ref-link">
+              The Nobel Prize: The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel 1997 (Robert C. Merton and Myron S. Scholes)
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">スウェーデン王立科学アカデミーによる1997年ノーベル経済学賞授賞理由説明書（金融デリバティブ評価手法の確立）。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[4]</span>
+          <div>
+            <a href="https://event.phys.s.u-tokyo.ac.jp/physlab2023/pdf/eco-article01.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">
+              東京大学 理学部物理学科 PhysLab「経済物理学：ブラック・ショールズ方程式の導出と物理的解釈」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">幾何ブラウン運動、熱伝導方程式との厳密な数理的対応関係、および物理学的視点からの解説。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[5]</span>
+          <div>
+            <a href="https://www.sigmabase.co.jp/useful/keyword/h/bs_model.html" target="_blank" rel="noopener noreferrer" class="ref-link">
+              シグマベイスキャピタル「金融用語集：ブラック・ショールズ・モデル（BSモデル）」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">金融実務におけるヨーロピアン・オプション価格算定式と前提条件、インプライド・ボラティリティの解説。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[6]</span>
+          <div>
+            <a href="https://www.cboe.com" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Cboe Global Markets（シカゴ・オプション取引所：CBOE公式サイト）
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">1973年4月に設立された世界初の公認オプション取引所。VIX指数やオプション取引の国際標準市場。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[7]</span>
+          <div>
+            <a href="https://qiita.com/N-H-Shimada/items/5c284b8e5c8e26a3a316" target="_blank" rel="noopener noreferrer" class="ref-link">
+              Qiita「ブラック-ショールズ方程式の導出をわかりやすく解説する」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">確率解析（伊藤の公式）を用いた無裁定ポートフォリオによる偏微分方程式の導出ステップ詳細。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[8]</span>
+          <div>
+            <a href="https://note.com/bespokepartner/n/nbfde7c5e140d" target="_blank" rel="noopener noreferrer" class="ref-link">
+              note「ブラック・ショールズ方程式の基礎と実務的意味合い」
+            </a>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">オプション・プレミアムの決定要因とボラティリティ、リスク中立評価の意味に関する実務的解説。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[9]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>ロバート・マートン『連続時間金融論』</strong>（Robert C. Merton, "Theory of Rational Option Pricing", Bell Journal of Economics and Management Science, 1973）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">配当落ちや確率金利への拡張を行い、ブラック＝ショールズ方程式に厳密な確率論的基礎を与えたマートンの古典的論文。</div>
+          </div>
+        </li>
+
+        <li class="ref-item">
+          <span class="ref-num">[10]</span>
+          <div>
+            <span class="ref-plain">
+              <strong>ロジャー・ローウェンスタイン『天才たちの誤算――ドキュメントLTCM破綻』</strong>（東江一紀訳、日本経済新聞出版、2001年）
+            </span>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">ノーベル賞学者たちが過信した金融工学モデルの限界と、1998年ロシア危機におけるLTCM崩壊の全貌を描いたノンフィクション傑作。</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.35rem;">
+          『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論
+        </p>
+        <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript: Black-Scholes-Merton Calculator -->
+  <script>
+    // 標準正規分布の累積分布関数 N(x) （Abramowitz & Stegun 精度10^-7多項式近似）
+    function cdfNormal(x) {
+      const b1 =  0.319381530;
+      const b2 = -0.356563782;
+      const b3 =  1.781477937;
+      const b4 = -1.821255978;
+      const b5 =  1.330274429;
+      const p  =  0.2316419;
+      const c2 =  0.3989422804014327; // 1 / sqrt(2 * PI)
+
+      if (x >= 0.0) {
+        const t = 1.0 / (1.0 + p * x);
+        const poly = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) * t;
+        return 1.0 - c2 * Math.exp(-0.5 * x * x) * poly;
+      } else {
+        const t = 1.0 / (1.0 - p * x);
+        const poly = ((((b5 * t + b4) * t + b3) * t + b2) * t + b1) * t;
+        return c2 * Math.exp(-0.5 * x * x) * poly;
+      }
+    }
+
+    // 標準正規分布の確率密度関数 N'(x)
+    function pdfNormal(x) {
+      return (1.0 / Math.sqrt(2.0 * Math.PI)) * Math.exp(-0.5 * x * x);
+    }
+
+    function calcBsm() {
+      const S = parseFloat(document.getElementById('slider-stock').value);  // 原資産価格
+      const K = parseFloat(document.getElementById('slider-strike').value); // 行使価格
+      const T = parseFloat(document.getElementById('slider-time').value);   // 残存年数
+      const volPct = parseFloat(document.getElementById('slider-vol').value); // ボラ %
+      const ratePct = parseFloat(document.getElementById('slider-rate').value); // 金利 %
+
+      const sigma = volPct / 100.0;
+      const r = ratePct / 100.0;
+
+      // ラベル表示更新
+      document.getElementById('label-stock').innerText = S.toFixed(1) + ' 円';
+      document.getElementById('label-strike').innerText = K.toFixed(1) + ' 円';
+      const days = Math.round(T * 365);
+      document.getElementById('label-time').innerText = T.toFixed(2) + ` 年 (${days}日)`;
+      document.getElementById('label-vol').innerText = volPct.toFixed(1) + ' %';
+      document.getElementById('label-rate').innerText = ratePct.toFixed(1) + ' %';
+
+      // モネネス（Moneyness）判定
+      const ratio = S / K;
+      const dispMoney = document.getElementById('disp-moneyness');
+      if (Math.abs(ratio - 1.0) < 0.02) {
+        dispMoney.innerText = 'At The Money (ATM)';
+        dispMoney.style.color = 'var(--primary)';
+      } else if (ratio > 1.0) {
+        dispMoney.innerText = `In The Money (+${((ratio - 1)*100).toFixed(1)}%)`;
+        dispMoney.style.color = 'var(--emerald)';
+      } else {
+        dispMoney.innerText = `Out of The Money (${((ratio - 1)*100).toFixed(1)}%)`;
+        dispMoney.style.color = 'var(--crimson)';
+      }
+
+      // d1, d2 の計算
+      const sqrtT = Math.sqrt(T);
+      const d1 = (Math.log(S / K) + (r + 0.5 * sigma * sigma) * T) / (sigma * sqrtT);
+      const d2 = d1 - sigma * sqrtT;
+
+      // コールおよびプット価格の計算
+      const Nd1 = cdfNormal(d1);
+      const Nd2 = cdfNormal(d2);
+      const expNegRT = Math.exp(-r * T);
+
+      const callPrice = S * Nd1 - K * expNegRT * Nd2;
+      const putPrice = K * expNegRT * cdfNormal(-d2) - S * cdfNormal(-d1);
+
+      // 本質的価値と時間価値
+      const callIntrinsic = Math.max(0, S - K);
+      const callTimeVal = Math.max(0, callPrice - callIntrinsic);
+
+      const putIntrinsic = Math.max(0, K - S);
+      const putTimeVal = Math.max(0, putPrice - putIntrinsic);
+
+      // ギリシャ指標（Greeks）の計算
+      const deltaCall = Nd1;
+      const gamma = pdfNormal(d1) / (S * sigma * sqrtT);
+      const vega = S * pdfNormal(d1) * sqrtT / 100.0; // 1%ボラ変化あたり
+      // セータ（年換算から1日あたりに換算）
+      const thetaCallAnnual = -(S * pdfNormal(d1) * sigma) / (2 * sqrtT) - r * K * expNegRT * Nd2;
+      const thetaCallDaily = thetaCallAnnual / 365.0;
+      const rhoCall = (K * T * expNegRT * Nd2) / 100.0; // 1%金利変化あたり
+
+      // プット・コール・パリティ差額検算 (C - P - (S - K*e^-rT))
+      const parityDiff = (callPrice - putPrice) - (S - K * expNegRT);
+
+      // メトリクスDOM反映
+      document.getElementById('res-call').innerText = callPrice.toFixed(2) + ' 円';
+      document.getElementById('res-call-sub').innerText = `本質価値: ${callIntrinsic.toFixed(1)}円 ｜ 時間価値: ${callTimeVal.toFixed(1)}円`;
+
+      document.getElementById('res-put').innerText = putPrice.toFixed(2) + ' 円';
+      document.getElementById('res-put-sub').innerText = `本質価値: ${putIntrinsic.toFixed(1)}円 ｜ 時間価値: ${putTimeVal.toFixed(1)}円`;
+
+      document.getElementById('res-delta').innerText = deltaCall.toFixed(3);
+      document.getElementById('res-vega').innerText = vega.toFixed(3);
+
+      document.getElementById('greek-gamma').innerText = gamma.toFixed(4);
+      document.getElementById('greek-theta').innerText = thetaCallDaily.toFixed(3) + ' 円/日';
+      document.getElementById('greek-rho').innerText = rhoCall.toFixed(3);
+      document.getElementById('greek-parity').innerText = Math.abs(parityDiff).toFixed(4) + ' 円';
+
+      // バナー解説の動的生成
+      const banner = document.getElementById('sim-banner');
+      const bTitle = document.getElementById('banner-title');
+      const bNarrative = document.getElementById('banner-narrative');
+
+      if (volPct >= 60) {
+        banner.style.borderLeftColor = 'var(--crimson)';
+        bTitle.style.color = 'var(--crimson)';
+        bTitle.innerText = '🌪️ 判定：極限ボラティリティ・危機局面（LTCM破綻・リーマンショック型）';
+        bNarrative.innerText = `ボラティリティが ${volPct}% へと跳ね上がり、将来の価格不確実性が極大化しています。時間価値が膨張し、コール・プレミアム（${callPrice.toFixed(2)}円）およびプット（${putPrice.toFixed(2)}円）双方が暴騰。ベガ（${vega.toFixed(3)}）が示す通り、ボラが1%動くだけで価格が激変します。LTCMなどの高レバレッジ・ファンドは、平常時の低ボラティリティを前提に大量のオプションを売っていたため、このボラティリティ急騰によって天文学的な追証と評価損を抱え、一瞬で自爆しました。`;
+      } else if (T <= 0.1) {
+        banner.style.borderLeftColor = 'var(--accent)';
+        bTitle.style.color = 'var(--accent-dark)';
+        bTitle.innerText = '⏱️ 判定：満期直前・時間価値の急速蒸発フェーズ（セータ・クラッシュ）';
+        bNarrative.innerText = `満期まで残り ${days} 日と迫っており、時間価値が急速に失われています（セータ: 1日あたり ${thetaCallDaily.toFixed(3)}円の価値減少）。オウト・オブ・ザ・マネー（OTM）のオプションはほぼゼロに向かって無価値化し、イン・ザ・マネー（ITM）のオプションのみが本質価値（株価と行使価格の差額）に収束していきます。`;
+      } else if (ratio >= 1.2) {
+        banner.style.borderLeftColor = 'var(--emerald)';
+        bTitle.style.color = 'var(--emerald)';
+        bTitle.innerText = '📈 判定：ディープ・イン・ザ・マネー（強い上昇トレンド局面）';
+        bNarrative.innerText = `株価（${S.toFixed(1)}円）が行使価格（${K.toFixed(1)}円）を20%以上上回っています。コール・デルタは ${deltaCall.toFixed(3)} とほぼ 1.0 に近づいており、オプション価格の動きが現物株の動きとほぼ1対1で完全に連動しています。時間価値の割合が減少し、本質的価値（${callIntrinsic.toFixed(1)}円）が価格の主成分となっています。`;
+      } else {
+        banner.style.borderLeftColor = 'var(--primary)';
+        bTitle.style.color = 'var(--primary-dark)';
+        bTitle.innerText = '📈 判定：平常時の標準的オプション環境（ATM）';
+        bNarrative.innerText = `株価と行使価格が接近した「アット・ザ・マネー（ATM）」の状態です。コール価格 ${callPrice.toFixed(2)}円、プット価格 ${putPrice.toFixed(2)}円となっており、デルタ（${deltaCall.toFixed(3)}）によって原資産と安全債券を用いた複製ポートフォリオが理論通り成立しています。プット・コール・パリティ（裁定関係）も完全な無裁定価格を維持しています。`;
+      }
+    }
+
+    function applyBsmPreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const sStock = document.getElementById('slider-stock');
+      const sStrike = document.getElementById('slider-strike');
+      const sTime = document.getElementById('slider-time');
+      const sVol = document.getElementById('slider-vol');
+      const sRate = document.getElementById('slider-rate');
+
+      if (preset === 'standard') {
+        sStock.value = 100;
+        sStrike.value = 100;
+        sTime.value = 1.0;
+        sVol.value = 20;
+        sRate.value = 2.0;
+      } else if (preset === 'ltcm') {
+        sStock.value = 95;
+        sStrike.value = 100;
+        sTime.value = 0.5;
+        sVol.value = 75;
+        sRate.value = 7.0;
+      } else if (preset === 'lehman') {
+        sStock.value = 65;
+        sStrike.value = 100;
+        sTime.value = 0.25;
+        sVol.value = 90;
+        sRate.value = 1.0;
+      } else if (preset === 'zero_rate') {
+        sStock.value = 105;
+        sStrike.value = 100;
+        sTime.value = 2.0;
+        sVol.value = 15;
+        sRate.value = 0.1;
+      }
+      calcBsm();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calcBsm();
+    });
+  </script>
+</body>
+</html>
