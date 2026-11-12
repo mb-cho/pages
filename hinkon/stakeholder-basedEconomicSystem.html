@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ステークホルダー型の経済システム（ステークホルダー資本主義）――株主至上主義との対立、日本型「三方よし」の変遷と「新しい資本主義」の虚実</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0d9488 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .badge-sub {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+
+    /* Lead Card */
+    .lead-card {
+      background: #f0fdf4;
+      border-left: 5px solid var(--emerald);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #064e3b;
+      line-height: 1.8;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .toc-list a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s;
+    }
+
+    .toc-list a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.75rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+    }
+
+    /* Grid & Cards */
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card.primary { border-top: 4px solid var(--primary); }
+    .info-card.emerald { border-top: 4px solid var(--emerald); }
+    .info-card.accent { border-top: 4px solid var(--accent); }
+    .info-card.purple { border-top: 4px solid var(--purple); }
+    .info-card.rose { border-top: 4px solid var(--rose); }
+    .info-card.teal { border-top: 4px solid var(--teal); }
+
+    .card-header-sm {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Interactive Diagrams & Stakeholder Map */
+    .stakeholder-map-wrapper {
+      background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .map-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-header h4 {
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .map-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .interactive-stakeholder-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .interactive-stakeholder-container {
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .circle-map-visual {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 380px;
+      margin: 0 auto;
+    }
+
+    .center-hub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(30, 58, 138, 0.35);
+      z-index: 2;
+      text-align: center;
+      border: 3px solid #ffffff;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .center-hub:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .center-hub span.hub-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .center-hub span.hub-sub {
+      font-size: 0.72rem;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    .sat-node {
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: var(--shadow);
+      z-index: 3;
+      padding: 0.3rem;
+    }
+
+    .sat-node:hover, .sat-node.active {
+      transform: scale(1.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      background: #eff6ff;
+    }
+
+    .node-icon {
+      font-size: 1.3rem;
+      margin-bottom: 2px;
+    }
+
+    /* 5 positions around circle */
+    .sat-node.n1 { top: 8%; left: 50%; transform: translateX(-50%); }
+    .sat-node.n2 { top: 32%; right: 4%; }
+    .sat-node.n3 { bottom: 8%; right: 15%; }
+    .sat-node.n4 { bottom: 8%; left: 15%; }
+    .sat-node.n5 { top: 32%; left: 4%; }
+
+    .sat-node.n1:hover, .sat-node.n1.active { transform: translateX(-50%) scale(1.15); }
+
+    .node-detail-panel {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detail-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      margin-bottom: 0.5rem;
+      background: var(--teal-light);
+      color: var(--teal);
+    }
+
+    .detail-heading {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-content {
+      font-size: 0.92rem;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    /* Comparison Tabs */
+    .tab-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.25rem;
+      border: none;
+      background: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 0.5rem 0.5rem 0 0;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background: #eff6ff;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: #ffffff;
+      border: 2px solid var(--primary-light);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+    }
+
+    .preset-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .preset-btn {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .preset-btn:hover {
+      background: #e2e8f0;
+      border-color: #cbd5e1;
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .slider-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.35rem;
+    }
+
+    .slider-val {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 7px;
+      border-radius: 5px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background 0.15s;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--accent);
+    }
+
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .sim-metric-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metric-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .metric-eval {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+
+    .eval-good { background: var(--emerald-light); color: var(--emerald); }
+    .eval-warn { background: var(--accent-light); color: var(--accent-dark); }
+    .eval-bad { background: var(--rose-light); color: var(--rose); }
+
+    .sim-dynamic-message {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary-light);
+      padding: 1rem 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: #1e3a8a;
+      line-height: 1.6;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      line-height: 1.75;
+    }
+
+    .callout-info {
+      background: #f0fdf4;
+      border-left: 5px solid var(--emerald);
+      color: #064e3b;
+    }
+
+    .callout-warn {
+      background: #fffbeb;
+      border-left: 5px solid var(--accent);
+      color: #78350f;
+    }
+
+    .callout-danger {
+      background: #fef2f2;
+      border-left: 5px solid var(--rose);
+      color: #881337;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 1.5rem;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.75rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -1.95rem;
+      top: 0.2rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .timeline-year {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-content-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0.15rem 0 0.35rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* Reference & Footer */
+    .reference-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+    }
+
+    .reference-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .reference-list {
+      list-style: none;
+    }
+
+    .reference-list li {
+      margin-bottom: 0.65rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .reference-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .reference-list a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 0.75rem 0.5rem;
+      }
+      .container {
+        padding: 1.25rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+      .circle-map-visual {
+        height: 340px;
+      }
+      .center-hub {
+        width: 110px;
+        height: 110px;
+      }
+      .sat-node {
+        width: 80px;
+        height: 80px;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第3章 補論</span>
+        <span class="badge badge-sub">企業統治・社会経済システム</span>
+        <span class="badge badge-primary">株主資本主義 vs ステークホルダー資本主義</span>
+      </div>
+      <h1>ステークホルダー型の経済システム（ステークホルダー資本主義）</h1>
+      <p class="subtitle">株主至上主義との対立、日本型「三方よし」の解体と「新しい資本主義」の虚実</p>
+    </header>
+
+    <!-- Lead Box -->
+    <div class="lead-card">
+      <strong>【エグゼクティブ・サマリー】</strong><br>
+      企業は誰のために存在し、生み出された富は誰に還元されるべきか――。1970年のミルトン・フリードマンによる「企業の社会的責任は利益を増やすことにある（株主至上主義）」宣言以来、半世紀にわたり世界経済を支配した株主資本主義は、労働分配率の急低下、格差の爆発、環境破壊という深刻な行き詰まりに直面しています。<br>
+      これに対し、2019年の米ビジネス・ラウンドテーブル宣言やダボス会議マニフェストは「ステークホルダー資本主義への回帰」を高らかに謳い、日本政府も「新しい資本主義」を掲げました。しかし、株主への年率数%〜10%超の資本収益率（$r$ やROE）を要求し続けるグローバル金融市場の支配構造を温存したまま、「従業員や取引先も大切にする」という美名だけで生活苦は解消できるのか？ 本補論では、ステークホルダー資本主義の理論的系譜、戦後日本型経営の変容、および現代の言説に潜む構造的限界を徹底解明します。
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        目次・構成
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec1">1. ステークホルダー資本主義の定義と5大利害関係者</a></li>
+        <li><a href="#sec2">2. 株主資本主義との徹底対比（目的・時間軸・分配）</a></li>
+        <li><a href="#sec3">3. 戦後日本型「三方よし」の特質とその解体プロセス</a></li>
+        <li><a href="#sec4">4. 【体験型】付加価値のステークホルダー分配シミュレーター</a></li>
+        <li><a href="#sec5">5. 「新しい資本主義」とESGの欺瞞・構造的限界</a></li>
+        <li><a href="#sec6">6. 参考文献・関連公的資料</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="sec1">
+      <h2><span>1.</span> ステークホルダー資本主義の定義と5大利害関係者</h2>
+
+      <p>
+        <strong>ステークホルダー資本主義（Stakeholder Capitalism）</strong>とは、企業を単なる「株主の私有財産」や「利益最大化のマシーン」として捉えるのではなく、企業活動に関わるすべての利害関係者（従業員、顧客、取引先・サプライヤー、地域社会、地球環境、そして株主）に対する責任を負い、中長期的な社会的共通価値の創出を目指す経済システムです。
+      </p>
+
+      <p>
+        この思想の学問的源流は、米国の哲学者・経営学者<strong>R・エドワード・フリーマン（R. Edward Freeman）</strong>が1984年に著した『Strategic Management: A Stakeholder Approach』にあります。フリーマンは、「企業とは多様なステークホルダー間の合意と信頼関係のネットワークであり、いずれか一つの構成員の利益だけを極大化させれば、長期的なシステムそのものが崩壊する」と論じました。
+      </p>
+
+      <!-- Interactive Stakeholder Map -->
+      <div class="stakeholder-map-wrapper">
+        <div class="map-header">
+          <h4>【インタラクティブ図解】企業を取り巻く5大ステークホルダーの相関</h4>
+          <p>アイコンをクリックすると、各ステークホルダーが求める価値と、株主至上主義下での「歪み」が表示されます。</p>
+        </div>
+
+        <div class="interactive-stakeholder-container">
+          <div class="circle-map-visual">
+            <div class="center-hub" id="hubBtn" onclick="selectNode('hub')">
+              <span class="hub-title">企 業</span>
+              <span class="hub-sub">共通価値の結節点</span>
+            </div>
+
+            <div class="sat-node n1 active" id="node-worker" onclick="selectNode('worker')">
+              <span class="node-icon">👷</span>
+              <span>従業員<br>労働者</span>
+            </div>
+
+            <div class="sat-node n2" id="node-supplier" onclick="selectNode('supplier')">
+              <span class="node-icon">🤝</span>
+              <span>取引先<br>下請け</span>
+            </div>
+
+            <div class="sat-node n3" id="node-community" onclick="selectNode('community')">
+              <span class="node-icon">🌍</span>
+              <span>地域社会<br>地球環境</span>
+            </div>
+
+            <div class="sat-node n4" id="node-customer" onclick="selectNode('customer')">
+              <span class="node-icon">🛒</span>
+              <span>顧客<br>消費者</span>
+            </div>
+
+            <div class="sat-node n5" id="node-shareholder" onclick="selectNode('shareholder')">
+              <span class="node-icon">📈</span>
+              <span>株主<br>投資家</span>
+            </div>
+          </div>
+
+          <div class="node-detail-panel" id="detailPanel">
+            <!-- Dynamic content populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid-3">
+        <div class="info-card emerald">
+          <div class="card-header-sm"><span>🌱</span> 長期的持続可能性</div>
+          <p style="font-size: 0.88rem; margin: 0;">四半期ごとの短期利益に囚われず、人への投資（教育・スキル形成）や基礎研究、脱炭素など10〜20年スパンの競争力基盤を育成する。</p>
+        </div>
+        <div class="info-card primary">
+          <div class="card-header-sm"><span>⚖️</span> 公正な富の分配</div>
+          <p style="font-size: 0.88rem; margin: 0;">生み出された純付加価値を株主の配当・自社株買いだけに偏向させず、働く者の賃金向上やサプライチェーン全体の適正利益として分かち合う。</p>
+        </div>
+        <div class="info-card teal">
+          <div class="card-header-sm"><span>🛡️</span> 負の外部性の内部化</div>
+          <p style="font-size: 0.88rem; margin: 0;">環境汚染、下請け買いたたき、非正規労働者の貧困化といった社会的コスト（外部不経済）を企業自らが引き受け、社会の分断を防ぐ。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec2">
+      <h2><span>2.</span> 株主資本主義との徹底対比（目的・時間軸・分配）</h2>
+
+      <p>
+        ステークホルダー資本主義を深く理解するためには、現代社会の支配的教義となってきた<strong>「株主資本主義（Shareholder Primacy / 株主至上主義）」</strong>との構造的対立を比較することが不可欠です。
+      </p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">
+          <span>📜</span> 歴史的転換点：フリードマン・ドクトリン（1970年）からBRT宣言（2019年）へ
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          ノーベル経済学賞学者ミルトン・フリードマンは、1970年9月13日付のニューヨーク・タイムズ誌に寄稿した論文「The Social Responsibility of Business is to Increase its Profits（企業の社会的責任は利益を増やすことにある）」において、<strong>「企業が従業員や地域社会のために社会的支出を行うことは、株主の金を勝手に盗んで配る背任行為である」</strong>と言い放ちました。これが新自由主義・株主至上主義の神聖な教義となり、役員報酬のストックオプション化や敵対的買収の波を通じて世界へ拡散しました。<br>
+          しかし、その結果生じた格差と生活破壊に耐えかね、2019年8月、米国の主要大企業CEO約180名が集う「ビジネス・ラウンドテーブル（BRT）」が**「株主第一主義の破棄と、すべてのステークホルダーへのコミットメント」**を宣言。翌2020年の世界経済フォーラム（ダボス会議）も「ステークホルダー資本主義」を主題に掲げる劇的な転換を迎えました。
+      </div>
+
+      <!-- Tab Comparison -->
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('tab-matrix')">📊 構造対比マトリクス</button>
+        <button class="tab-btn" onclick="switchTab('tab-anglo')">🇺🇸 株主資本主義（アングロサクソン型）</button>
+        <button class="tab-btn" onclick="switchTab('tab-japan')">🇯🇵 伝統的日本型（戦後共生型）</button>
+        <button class="tab-btn" onclick="switchTab('tab-esg')">🌐 現代ステークホルダー論（ESG/ダボス型）</button>
+      </div>
+
+      <div id="tab-matrix" class="tab-pane active">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 22%;">比較次元</th>
+                <th style="width: 39%;">株主資本主義（従来の主流）</th>
+                <th style="width: 39%;">ステークホルダー資本主義（対抗概念）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>究極の存在目的</strong></td>
+                <td>株主価値の最大化（株価上昇と配当極大化）</td>
+                <td>全ステークホルダーの共通価値の創出と持続可能性</td>
+              </tr>
+              <tr>
+                <td><strong>時間軸・評価基準</strong></td>
+                <td><strong>短期志向</strong>（四半期ごとの決算、ROE、EPS）</td>
+                <td><strong>中長期志向</strong>（10年単位の社会変革、ESG、マルチ資本）</td>
+              </tr>
+              <tr>
+                <td><strong>企業のガバナンス主権</strong></td>
+                <td><strong>株主主権論</strong>（株主総会・取締役会による一元支配）</td>
+                <td><strong>多元的共同統治</strong>（従業員代表や地域代表の関与）</td>
+              </tr>
+              <tr>
+                <td><strong>利益の配分方針</strong></td>
+                <td><strong>自社株買い・配当へ最大集中</strong>（労働分配率は圧縮）</td>
+                <td><strong>人件費・下請け・設備投資・社会貢献へバランス配分</strong></td>
+              </tr>
+              <tr>
+                <td><strong>労働者（従業員）の扱い</strong></td>
+                <td>いつでも削減・切り替え可能な<strong>「変動費（コスト）」</strong></td>
+                <td>価値創出の源泉であり共に歩む<strong>「人的資本（資産）」</strong></td>
+              </tr>
+              <tr>
+                <td><strong>取引先（サプライチェーン）</strong></td>
+                <td>コストカットの圧迫対象（買い叩き・グローバル買継）</td>
+                <td>運命を共にする長期的パートナー（適正利潤の保証）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-anglo" class="tab-pane">
+        <div class="info-card rose" style="margin-bottom: 1rem;">
+          <h4 style="color: var(--crimson); font-size: 1.1rem; margin-bottom: 0.5rem;">【アングロサクソン型株主資本主義のメカニズム】</h4>
+          <p style="font-size: 0.92rem;">
+            1980年代の米英で確立したモデル。企業は「株式市場で取引される金融商品」とみなされます。経営者の報酬は株価と連動するストックオプションで支払われるため、経営陣は自らの巨額報酬のために、労働者のリストラや非正規化、研究開発の凍結を断行してでも、利益を自社株買いに注ぎ込んで株価を釣り上げます。ウィリアム・ラゾニック教授が告発した「縮小と分配（Downsize and Distribute）」のモデルです。
+          </p>
+        </div>
+      </div>
+
+      <div id="tab-japan" class="tab-pane">
+        <div class="info-card emerald" style="margin-bottom: 1rem;">
+          <h4 style="color: var(--emerald); font-size: 1.1rem; margin-bottom: 0.5rem;">【伝統的日本型ステークホルダー経営（戦後型）】</h4>
+          <p style="font-size: 0.92rem;">
+            メインバンクを中心とする間接金融、株式持ち合いによるモノ言う株主の排除、終身雇用・年功序列賃金、企業別労働組合、系列と呼ばれる下請け企業群との運命共同体。株主への配当は額面5〜10%程度の安定配当に抑えられ、稼いだ利益は「雇用を守ること」と「国内工場への再投資」に最優先で充てられました。近江商人の「三方よし（売り手よし・買い手よし・世間よし）」が制度として定着していた時代です。
+          </p>
+        </div>
+      </div>
+
+      <div id="tab-esg" class="tab-pane">
+        <div class="info-card teal" style="margin-bottom: 1rem;">
+          <h4 style="color: var(--teal); font-size: 1.1rem; margin-bottom: 0.5rem;">【現代ステークホルダー資本主義（ESG・ダボス会議型）】</h4>
+          <p style="font-size: 0.92rem;">
+            気候変動や格差、人権問題を背景に、グローバル巨大企業や機関投資家（ブラックロックなど）が提唱する新基準。非財務指標（環境・社会・ガバナンス）を企業価値評価に組み込みます。ただし、株式市場の所有構造や私的所有のルールそのものにはメスを入れず、自主的なガイドラインや開示義務化に頼るため、「看板の掛け替え（ウォッシュ）」に留まる危険性が常に指摘されています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec3">
+      <h2><span>3.</span> 戦後日本型「三方よし」の特質とその解体プロセス</h2>
+
+      <p>
+        かつて日本は、世界で最も洗練された「実質的ステークホルダー資本主義」を体現していると評価されていました。しかし1990年代のバブル崩壊以降、日本企業は自らの強みであったこのシステムを自発的に解体し、アングロサクソン型の株主資本主義へと急激に傾斜していきました。
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1950〜1980年代</div>
+          <div class="timeline-content-title">戦後日本型「共同体経営」の黄金期</div>
+          <div class="timeline-desc">
+            メインバンクによる長期資金供給、株式相互保有（持ち合い）により、経営陣は短期的な投機マネーの圧力から遮断されていました。「会社は従業員のもの」という暗黙の社会契約のもとで安定雇用が保障され、春闘を通じた一律のベースアップが中間層の分厚い内需を創出しました。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1995年</div>
+          <div class="timeline-content-title">日経連『新時代の「日本的経営」』報告</div>
+          <div class="timeline-desc">
+            財界（日経連）が自らステークホルダー共同体の解体を宣言。「長期蓄積能力活用型（正社員）」「高度専門能力活用型」「柔軟雇用型（パート・派遣）」の三層に労働者を分断し、人件費を「固定費」から「変動費」へと切り下げる非正規化への扉を開けました。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1997〜2000年代</div>
+          <div class="timeline-content-title">金融ビッグバン・株式持ち合いの解消と外資の参入</div>
+          <div class="timeline-desc">
+            独占禁止法改正による純粋持株会社の解禁、会計基準の時価主義化により、銀行や企業は持ち合い株式を急速に市場へ放出。空いた持ち株の受け皿となったのが外国人機関投資家であり、外資保有比率はバブル期の5%未満から30%超へと激増しました。
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2014年〜現在</div>
+          <div class="timeline-content-title">「伊藤レポート」「ガバナンス・コード」と東証PBR改革</div>
+          <div class="timeline-desc">
+            経済産業省「伊藤レポート」が最低限達成すべき目標として「ROE 8%以上」を明記。さらに東京証券取引所によるPBR1倍割れ是正要請が加わり、日本企業は従業員のベースアップを凍結したまま、自社株買い（年間10兆円超）と配当（年間35兆円超）という株主還元へと雪崩を打ちました。
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">
+          <span>⚠️</span> 「三方よし」から「株主ひとり勝ち」への転落
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          日本企業がステークホルダー経営を放棄した結果何が起きたか。財務省『法人企業統計』が示す通り、企業の経常利益は1985年の約5.5倍に膨れ上がり、利益剰余金（内部留保）は655兆円に達しました。しかし国内設備投資は1.8倍に低迷し、人件費はほぼ横ばい。生み出された富は、300兆円を超える現預金の死蔵と、過去最高の株主還元（配当・自社株買い）へと吸い上げられ、労働者と中小企業は「貧困化の調整弁」へと突き落とされたのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive Simulator -->
+    <section id="sec4">
+      <h2><span>4.</span> 【体験型】付加価値のステークホルダー分配シミュレーター</h2>
+
+      <p>
+        企業が生み出した純付加価値（売上から原材料費・減価償却費を引いた富）を、5つのステークホルダーにどのように分配するかによって、企業の運命と社会の格差はどう変化するでしょうか？<br>
+        以下のスライダーを動かして、資本主義の配分バランスを実験してみてください。
+      </p>
+
+      <div class="simulator-box">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span> 純付加価値（100億円）の分配実験室
+          </div>
+          <p class="sim-desc">
+            各ステークホルダーへの配分比率（合計100%）を調整し、リアルタイムで変化する経営健全度・生活防衛指標を観察します。
+          </p>
+        </div>
+
+        <div class="preset-btn-row">
+          <span style="font-size: 0.85rem; font-weight: 700; align-self: center; margin-right: 0.5rem; color: var(--text-muted);">モデル選択：</span>
+          <button class="preset-btn active" id="btn-preset-current" onclick="applyPreset('current')">🇺🇸 現代株主至上主義（ROE特化）</button>
+          <button class="preset-btn" id="btn-preset-japan" onclick="applyPreset('japan')">🇯🇵 黄金期日本型（人・設備優先）</button>
+          <button class="preset-btn" id="btn-preset-ideal" onclick="applyPreset('ideal')">🌱 理想的ステークホルダー共創型</button>
+        </div>
+
+        <!-- Sliders -->
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>① 従業員人件費（正社員賃上げ・福利厚生・スキル投資）</span>
+            <span class="slider-val" id="val-worker">35%（35億円）</span>
+          </div>
+          <input type="range" id="slide-worker" min="15" max="65" value="35" oninput="updateSim()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>② 取引先・下請けへの適正還元（公正な調達価格・共存投資）</span>
+            <span class="slider-val" id="val-supplier">10%（10億円）</span>
+          </div>
+          <input type="range" id="slide-supplier" min="5" max="25" value="10" oninput="updateSim()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>③ 将来への設備投資・研究開発（R&D・新技術・DX）</span>
+            <span class="slider-val" id="val-rd">15%（15億円）</span>
+          </div>
+          <input type="range" id="slide-rd" min="5" max="35" value="15" oninput="updateSim()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>④ 地域社会貢献・環境投資・内部留保（脱炭素・防災・安全弁）</span>
+            <span class="slider-val" id="val-community">10%（10億円）</span>
+          </div>
+          <input type="range" id="slide-community" min="5" max="25" value="10" oninput="updateSim()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>⑤ 株主還元（巨額配当 ＆ 自社株買い・ROE向上）</span>
+            <span class="slider-val" id="val-shareholder" style="color: var(--rose);">30%（30億円）</span>
+          </div>
+          <input type="range" id="slide-shareholder" min="5" max="50" value="30" oninput="updateSim()">
+        </div>
+
+        <div style="text-align: right; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-top: 0.25rem;">
+          配分合計：<span id="total-percent" style="color: var(--primary); font-size: 1.05rem;">100%</span>
+        </div>
+
+        <!-- Simulated Metrics -->
+        <div class="sim-results-grid">
+          <div class="sim-metric-card">
+            <div class="metric-name">労働者の生活防衛指数</div>
+            <div class="metric-value" id="res-worker-score" style="color: #0284c7;">55</div>
+            <span class="metric-eval eval-warn" id="res-worker-eval">やや困窮</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">サプライチェーン共存度</div>
+            <div class="metric-value" id="res-supplier-score" style="color: #d97706;">48</div>
+            <span class="metric-eval eval-bad" id="res-supplier-eval">買い叩き懸念</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">10年後の企業競争力</div>
+            <div class="metric-value" id="res-growth-score" style="color: #059669;">58</div>
+            <span class="metric-eval eval-warn" id="res-growth-eval">現状維持</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">短期ROE・株主満足度</div>
+            <div class="metric-value" id="res-roe-score" style="color: #e11d48;">13.8%</div>
+            <span class="metric-eval eval-good" id="res-roe-eval">大喝采</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">トリクルアップ（富の逆流度）</div>
+            <div class="metric-value" id="res-trickle-score" style="color: #7c3aed;">高（危険）</div>
+            <span class="metric-eval eval-bad" id="res-trickle-eval">格差拡大中</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Feedback Message -->
+        <div class="sim-dynamic-message" id="sim-feedback">
+          <!-- Dynamic JS text -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec5">
+      <h2><span>5.</span> 「新しい資本主義」とESGの欺瞞・構造的限界</h2>
+
+      <p>
+        世界経済フォーラムや日本政府が掲げる「ステークホルダー資本主義」や「新しい資本主義」は、なぜ現実の労働者の生活苦や下請け企業の疲弊を救うことができないのでしょうか。そこには、現在の資本主義が抱える<strong>3つの致命的な制度的欺瞞</strong>が存在します。
+      </p>
+
+      <div class="card-grid-3">
+        <div class="info-card rose">
+          <div class="card-header-sm"><span>⚡</span> ① 利害対立の隠蔽と株主主権</div>
+          <p style="font-size: 0.88rem;">
+            法律上、取締役を選任・解任できる権利（会社法上の主権）を株主だけが独占している以上、利益相反が生じた局面（危機や不況）では、常に労働者の解雇や下請け切りが優先されます。「すべての関係者を等しく大切にする」という主張は、権力構造の非対称性を覆い隠す欺瞞です。
+          </p>
+        </div>
+
+        <div class="info-card accent">
+          <div class="card-header-sm"><span>🎭</span> ② ESG・パーパス経営の「看板掛け替え」</div>
+          <p style="font-size: 0.88rem;">
+            多くの大企業は、ウェブサイトやアニュアルレポートで「サステナビリティ」「パーパス経営」「人権尊重」を華々しく掲げながら、裏では納入価格の据え置きや非正規雇用の拡大、巨額の自社株買いを継続しています。実体的な富の分配を伴わない「美名のエシカルウォッシュ」です。
+          </p>
+        </div>
+
+        <div class="info-card purple">
+          <div class="card-header-sm"><span>📈</span> ③ 金融収益率（$r$）と実体成長（$g$）の乖離</div>
+          <p style="font-size: 0.88rem;">
+            実体経済の成長率（$g$）が1〜2%以下に沈むなかで、グローバル資本市場は年率8〜10%超のROEや配当を要求し続けます。富のパイが拡大しない状況下で株主の要求を満たす唯一の方法は、「労働分配率の切り下げ（トリクルアップ）」以外にあり得ないという数理的限界です。
+          </p>
+        </div>
+      </div>
+
+      <h3>真のステークホルダー経済システムへの制度的改革論</h3>
+      <p>
+        もし、私たちがスローガンとしてのステークホルダー資本主義ではなく、真に生活の安定と公正な富の分配を実現する経済システムを構築しようとするならば、以下のような<strong>法的・制度的な強制力を持った構造改革</strong>に踏み込む必要があります。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 28%;">改革領域</th>
+              <th style="width: 36%;">現状の制度（株主至上主義）</th>
+              <th style="width: 36%;">必要な構造改革案</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>取締役会の構成（統治）</strong></td>
+              <td>株主総会が指名する取締役・社外取締役のみで構成</td>
+              <td><strong>共同決定法（独Mitbestimmung型）</strong>：従業員代表に取締役会の議席を法定義務化</td>
+            </tr>
+            <tr>
+              <td><strong>自社株買いの規制</strong></td>
+              <td>原則自由（ROE引き上げ・株価操作の手段）</td>
+              <td><strong>1982年以前のアメリカ型規制へ回帰</strong>（相場操縦とみなし自社株買いに上限課税）</td>
+            </tr>
+            <tr>
+              <td><strong>下請け・サプライチェーン法</strong></td>
+              <td>下請法はあるが買いたたきの立証が困難・罰則微弱</td>
+              <td><strong>EUサプライチェーン指令型</strong>：大企業に適正利益保障と人権・賃金監査を義務付け</td>
+            </tr>
+            <tr>
+              <td><strong>労働分配率・賃金連動</strong></td>
+              <td>企業の自由裁量（賃上げ促進税制など緩やかな優遇のみ）</td>
+              <td><strong>公的調達条件化・累進法人税</strong>：労働分配率を高める企業への強力な減税と逆インセンティブ是正</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="sec6" class="reference-box">
+      <div class="reference-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        出典・公的資料・学術参考文献
+      </div>
+      <ul class="reference-list">
+        <li>
+          <strong>R. Edward Freeman (1984)</strong>, <em>Strategic Management: A Stakeholder Approach</em>, Pitman (ステークホルダー理論の原典的著作).
+        </li>
+        <li>
+          <strong>Milton Friedman (1970)</strong>, "The Social Responsibility of Business is to Increase its Profits", <em>The New York Times Magazine</em>, September 13, 1970 (株主至上主義フリードマン・ドクトリンの原典).
+        </li>
+        <li>
+          <strong>Business Roundtable (2019)</strong>, 
+          <a href="https://www.businessroundtable.org/business-roundtable-redefines-the-purpose-of-a-corporation-to-promote-an-economy-that-serves-all-americans" target="_blank" rel="noopener noreferrer">"Statement on the Purpose of a Corporation"</a> (全米主要大企業CEOによる株主至上主義放棄宣言).
+        </li>
+        <li>
+          <strong>World Economic Forum (2020)</strong>, 
+          <a href="https://www.weforum.org/agenda/2019/12/davos-manifesto-2020-the-universal-purpose-of-a-company-in-the-fourth-industrial-revolution/" target="_blank" rel="noopener noreferrer">"Davos Manifesto 2020: The Universal Purpose of a Company in the Fourth Industrial Revolution"</a> (ダボス・マニフェスト2020).
+        </li>
+        <li>
+          <strong>William Lazonick (2014)</strong>, "Profits Without Prosperity", <em>Harvard Business Review</em> (株主資本主義による自社株買いと生産的投資破壊の実証分析).
+        </li>
+        <li>
+          <strong>経済産業省 (2014)</strong>, 
+          <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/pdf/report20140806.pdf" target="_blank" rel="noopener noreferrer">『『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～』プロジェクト（伊藤レポート）』</a>.
+        </li>
+        <li>
+          <strong>内閣府 (2025)</strong>, 『令和7年度 年次経済財政報告（経済財政白書）』 (日本企業の利益・設備投資・人件費の長期推移実証分析).
+        </li>
+        <li>
+          <strong>財務省</strong>, 『法人企業統計調査（年報・四半期報）』 (日本企業の利益剰余金・現預金・配当金推移データ).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>『現代貧困の解体新書』オープンナレッジ・プロジェクト 補論シリーズ</p>
+      <p style="font-size: 0.78rem; margin-top: 0.25rem;">© 2026 mb_cho. All rights reserved. Web版リファレンス</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Components -->
+  <script>
+    // Stakeholder Interactive Map Data
+    const nodeData = {
+      hub: {
+        tag: "コーポレート・ハブ",
+        title: "企業（共通価値の結節点）",
+        content: "単なる株主の金儲けの道具ではなく、人々の生活物資を生産し、雇用と所得を保障し、技術を次世代へ継承する『社会の公器』。多様なステークホルダーの期待を調整する統合的責任を担います。"
+      },
+      worker: {
+        tag: "最重要ステークホルダー",
+        title: "👷 従業員・労働者",
+        content: "<strong>求める価値：</strong>安定した雇用、生活を支える公正な賃金（ベースアップ）、健康と安全、人間的尊厳とスキルアップの機会。<br><br><span style='color: #be123c;'><strong>株主至上主義の歪み：</strong></span>人件費を『いつでも削減できる変動費（コスト）』とみなされ、非正規雇用の拡大やベースアップ凍結を通じて、労働分配率が削り取られてきました。"
+      },
+      supplier: {
+        tag: "サプライチェーンの基盤",
+        title: "🤝 取引先・下請け中小企業",
+        content: "<strong>求める価値：</strong>公正な取引条件、原材料・エネルギー高騰時の適切な価格転嫁、長期的・安定的な共同開発パートナーシップ。<br><br><span style='color: #be123c;'><strong>株主至上主義の歪み：</strong></span>親会社・元請けの四半期利益確保のため、納入単価の値下げ（買い叩き）を強要され、地方の中小企業や現場労働者に赤字と低賃金が押し付けられています。"
+      },
+      community: {
+        tag: "社会と地球の共通資本",
+        title: "🌍 地域社会・地球環境",
+        content: "<strong>求める価値：</strong>地域の雇用維持、税金による公共サービスへの貢献、脱炭素・省資源、生態系と生活環境の保全。<br><br><span style='color: #be123c;'><strong>株主至上主義の歪み：</strong></span>工場の海外移転による産業の空洞化、公害や二酸化炭素排出などの社会的費用（外部不経済）を社会に押し付けるフリーライドが発生しています。"
+      },
+      customer: {
+        tag: "市場の存在理由",
+        title: "🛒 顧客・消費者",
+        content: "<strong>求める価値：</strong>安全で高品質な製品・サービス、適正で誠実な価格設定、虚偽のない情報開示とアフターケア。<br><br><span style='color: #be123c;'><strong>株主至上主義の歪み：</strong></span>短期利益を絞り出すための品質偽装やコストカット（シュリンクフレーション）、計画的陳腐化により、消費者の信頼と安全が損なわれています。"
+      },
+      shareholder: {
+        tag: "資本の拠出者",
+        title: "📈 株主・投資家",
+        content: "<strong>求める価値：</strong>持続的な事業成長に伴う適正なキャピタルゲインと配当リターン、透明な企業情報開示。<br><br><span style='color: #be123c;'><strong>株主至上主義の歪み：</strong></span>超短期売買を行うヘッジファンドや投機マネーが主導権を握り、将来の設備投資や人件費を削ってでも『自社株買い』や『巨額配当』を強要する独裁的権力へ肥大化しました。"
+      }
+    };
+
+    function selectNode(key) {
+      // remove active classes
+      document.querySelectorAll('.sat-node').forEach(el => el.classList.remove('active'));
+      const activeEl = document.getElementById('node-' + key);
+      if (activeEl) activeEl.classList.add('active');
+
+      const data = nodeData[key];
+      const panel = document.getElementById('detailPanel');
+      panel.innerHTML = `
+        <span class="detail-tag">${data.tag}</span>
+        <div class="detail-heading">${data.title}</div>
+        <div class="detail-content">${data.content}</div>
+      `;
+    }
+
+    // Default select worker
+    selectNode('worker');
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      const targetPane = document.getElementById(tabId);
+      if (targetPane) targetPane.classList.add('active');
+    }
+
+    // Interactive Simulator Logic
+    function applyPreset(type) {
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-preset-' + type).classList.add('active');
+
+      const sWorker = document.getElementById('slide-worker');
+      const sSupplier = document.getElementById('slide-supplier');
+      const sRd = document.getElementById('slide-rd');
+      const sCommunity = document.getElementById('slide-community');
+      const sShareholder = document.getElementById('slide-shareholder');
+
+      if (type === 'current') { // Shareholder Primacy
+        sWorker.value = 35;
+        sSupplier.value = 10;
+        sRd.value = 15;
+        sCommunity.value = 10;
+        sShareholder.value = 30;
+      } else if (type === 'japan') { // Golden age Japan
+        sWorker.value = 52;
+        sSupplier.value = 16;
+        sRd.value = 20;
+        sCommunity.value = 6;
+        sShareholder.value = 6;
+      } else if (type === 'ideal') { // Balanced Stakeholder
+        sWorker.value = 45;
+        sSupplier.value = 15;
+        sRd.value = 18;
+        sCommunity.value = 10;
+        sShareholder.value = 12;
+      }
+
+      updateSim();
+    }
+
+    function updateSim() {
+      const w = parseInt(document.getElementById('slide-worker').value);
+      const s = parseInt(document.getElementById('slide-supplier').value);
+      const rd = parseInt(document.getElementById('slide-rd').value);
+      const c = parseInt(document.getElementById('slide-community').value);
+      const sh = parseInt(document.getElementById('slide-shareholder').value);
+
+      document.getElementById('val-worker').innerText = `${w}%（${w}億円）`;
+      document.getElementById('val-supplier').innerText = `${s}%（${s}億円）`;
+      document.getElementById('val-rd').innerText = `${rd}%（${rd}億円）`;
+      document.getElementById('val-community').innerText = `${c}%（${c}億円）`;
+      document.getElementById('val-shareholder').innerText = `${sh}%（${sh}億円）`;
+
+      const total = w + s + rd + c + sh;
+      const totalEl = document.getElementById('total-percent');
+      totalEl.innerText = `${total}%`;
+      totalEl.style.color = (total === 100) ? 'var(--emerald)' : (total > 100 ? 'var(--rose)' : 'var(--accent)');
+
+      // Metric Calculations
+      // Worker score: based on w (normal 35=55, 50=85, 20=30)
+      const workerScore = Math.min(100, Math.max(15, Math.round(w * 1.7)));
+      const wEl = document.getElementById('res-worker-score');
+      const wEval = document.getElementById('res-worker-eval');
+      wEl.innerText = workerScore;
+      if (workerScore >= 75) {
+        wEval.className = 'metric-eval eval-good';
+        wEval.innerText = '生活安定・高意欲';
+      } else if (workerScore >= 50) {
+        wEval.className = 'metric-eval eval-warn';
+        wEval.innerText = '節約・生活苦';
+      } else {
+        wEval.className = 'metric-eval eval-bad';
+        wEval.innerText = 'ワーキングプア';
+      }
+
+      // Supplier score
+      const supplierScore = Math.min(100, Math.max(10, Math.round(s * 5.0)));
+      const sEl = document.getElementById('res-supplier-score');
+      const sEval = document.getElementById('res-supplier-eval');
+      sEl.innerText = supplierScore;
+      if (supplierScore >= 70) {
+        sEval.className = 'metric-eval eval-good';
+        sEval.innerText = '共存共栄・強靭';
+      } else if (supplierScore >= 45) {
+        sEval.className = 'metric-eval eval-warn';
+        sEval.innerText = '薄利多売';
+      } else {
+        sEval.className = 'metric-eval eval-bad';
+        sEval.innerText = '連鎖倒産危機';
+      }
+
+      // Growth (R&D + worker)
+      const growthScore = Math.min(100, Math.max(20, Math.round(rd * 2.5 + w * 0.4)));
+      const gEl = document.getElementById('res-growth-score');
+      const gEval = document.getElementById('res-growth-eval');
+      gEl.innerText = growthScore;
+      if (growthScore >= 70) {
+        gEval.className = 'metric-eval eval-good';
+        gEval.innerText = '高競争力・革新';
+      } else if (growthScore >= 50) {
+        gEval.className = 'metric-eval eval-warn';
+        gEval.innerText = '現状維持';
+      } else {
+        gEval.className = 'metric-eval eval-bad';
+        gEval.innerText = '技術衰退・人材流出';
+      }
+
+      // ROE & Shareholder Satisfaction
+      const roe = (sh * 0.45).toFixed(1);
+      const roeEl = document.getElementById('res-roe-score');
+      const roeEval = document.getElementById('res-roe-eval');
+      roeEl.innerText = `${roe}%`;
+      if (sh >= 25) {
+        roeEval.className = 'metric-eval eval-good';
+        roeEval.innerText = '大喝采（株価急騰）';
+      } else if (sh >= 12) {
+        roeEval.className = 'metric-eval eval-warn';
+        roeEval.innerText = '及第点（伊藤目標水準）';
+      } else {
+        roeEval.className = 'metric-eval eval-bad';
+        roeEval.innerText = '株主激怒（株価低迷）';
+      }
+
+      // Trickle-Up / Inequality
+      const trickleEl = document.getElementById('res-trickle-score');
+      const trickleEval = document.getElementById('res-trickle-eval');
+      const trickleFactor = sh - (w * 0.5);
+      if (sh >= 25 && w <= 38) {
+        trickleEl.innerText = '激甚（猛烈な吸上げ）';
+        trickleEl.style.color = '#e11d48';
+        trickleEval.className = 'metric-eval eval-bad';
+        trickleEval.innerText = '労働者から富裕層へ逆流';
+      } else if (sh >= 15) {
+        trickleEl.innerText = '中程度（格差固定）';
+        trickleEl.style.color = '#d97706';
+        trickleEval.className = 'metric-eval eval-warn';
+        trickleEval.innerText = '部分的な富の集中';
+      } else {
+        trickleEl.innerText = '低水準（健全循環）';
+        trickleEl.style.color = '#059669';
+        trickleEval.className = 'metric-eval eval-good';
+        trickleEval.innerText = '富が社会へ広く循環';
+      }
+
+      // Dynamic Message
+      const msgBox = document.getElementById('sim-feedback');
+      if (sh >= 28 && w <= 35) {
+        msgBox.innerHTML = `<strong>【現在の診断結果：典型的な株主資本主義・トリクルアップ型】</strong><br>
+        株主還元（配当・自社株買い）に30%以上を注ぎ込んでいるため、短期ROEは13%を超えて金融市場の投資家は大絶賛します。しかしその原資は、従業員の給与抑制（35%）と下請け企業への買い叩き（10%）から捻出されています。働く人々の手取りは目減りし、消費が冷え込むため、マクロ経済の内需は確実に衰退します。`;
+      } else if (w >= 48 && sh <= 10) {
+        msgBox.innerHTML = `<strong>【現在の診断結果：戦後日本型「共同体経営」モデル】</strong><br>
+        人件費に付加価値の約半分（50%超）を配分し、設備投資にも十分な資金を充てています。従業員は安定した暮らしのもとで士気高く働き、下請け企業も安心して技術投資を行えます。ただし、株主への還元が抑えられているため、現代のグローバル機関投資家からは『資本効率が悪い』と批判され、敵対的買収や経営陣解任の標的になりやすいジレンマを抱えます。`;
+      } else if (w >= 40 && s >= 12 && rd >= 15 && sh >= 10 && sh <= 18) {
+        msgBox.innerHTML = `<strong>【現在の診断結果：理想的ステークホルダー共創モデル】</strong><br>
+        従業員（45%）、取引先（15%）、設備投資（18%）に厚く配分しつつ、株主にも適正なリターン（10〜15%）を確保する最も調和のとれた配分です。働く者の購買力と企業の革新力が両立し、社会全体の持続可能性が最大化されます。このモデルを成立させるには、金融市場の短期要求を法的に規制する社会的枠組みが不可欠です。`;
+      } else {
+        msgBox.innerHTML = `<strong>【配分調整中】</strong><br>
+        各ステークホルダーへの配分バランスを調整し、指標の変化をご確認ください（合計が100%になるように調整するとよりリアルな診断になります）。`;
+      }
+    }
+
+    // Init Sim
+    updateSim();
+  </script>
+</body>
+</html>
