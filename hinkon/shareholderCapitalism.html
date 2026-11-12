@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：株主資本主義（株主至上主義）の解剖――フリードマン・ドクトリンから自社株買い、そして実質賃金破壊へのメカニズム</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #311042 50%, #881337 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .badge-sub {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #fed7aa;
+    }
+
+    /* Lead Card */
+    .lead-card {
+      background: #fff1f2;
+      border-left: 5px solid var(--rose);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #881337;
+      line-height: 1.8;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .toc-list a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s;
+    }
+
+    .toc-list a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.75rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+    }
+
+    /* Grid & Cards */
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card.primary { border-top: 4px solid var(--primary); }
+    .info-card.rose { border-top: 4px solid var(--rose); }
+    .info-card.accent { border-top: 4px solid var(--accent); }
+    .info-card.purple { border-top: 4px solid var(--purple); }
+    .info-card.emerald { border-top: 4px solid var(--emerald); }
+
+    .card-header-sm {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      line-height: 1.75;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border-left: 5px solid var(--primary-light);
+      color: #1e3a8a;
+    }
+
+    .callout-warn {
+      background: #fffbeb;
+      border-left: 5px solid var(--accent);
+      color: #78350f;
+    }
+
+    .callout-danger {
+      background: #fef2f2;
+      border-left: 5px solid var(--rose);
+      color: #881337;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Interactive Cycle Diagram */
+    .cycle-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .cycle-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .cycle-card {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .cycle-card:hover, .cycle-card.active {
+      border-color: var(--rose);
+      background: #fff1f2;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .cycle-step-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--rose);
+      letter-spacing: 0.05em;
+    }
+
+    .cycle-step-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0.2rem 0 0.35rem;
+    }
+
+    .cycle-detail-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+      box-shadow: var(--shadow-sm);
+      line-height: 1.7;
+      min-height: 110px;
+    }
+
+    /* Interactive Financial Alchemy Simulator */
+    .sim-card {
+      background: #ffffff;
+      border: 2px solid var(--rose);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--crimson);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+    }
+
+    .sim-toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-btn {
+      padding: 0.65rem 1.25rem;
+      border-radius: 0.6rem;
+      border: 2px solid var(--border);
+      background: #f8fafc;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .sim-btn:hover {
+      border-color: #cbd5e1;
+      background: #e2e8f0;
+    }
+
+    .sim-btn.active {
+      border-color: var(--rose);
+      background: var(--rose);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(225, 29, 72, 0.35);
+    }
+
+    .sim-grid-compare {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .sim-grid-compare {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .sim-metric-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .metric-panel-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 0;
+      font-size: 0.88rem;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-label {
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .metric-val {
+      font-weight: 800;
+      font-family: monospace;
+      font-size: 0.98rem;
+    }
+
+    .val-highlight-red { color: var(--rose); font-size: 1.1rem; }
+    .val-highlight-green { color: var(--emerald); font-size: 1.1rem; }
+    .val-highlight-blue { color: var(--primary); font-size: 1.1rem; }
+
+    .sim-verdict-box {
+      background: #fff1f2;
+      border-left: 4px solid var(--rose);
+      padding: 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-top: 1.5rem;
+      font-size: 0.92rem;
+      color: #881337;
+      line-height: 1.7;
+    }
+
+    /* References */
+    .reference-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+    }
+
+    .reference-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .reference-list {
+      list-style: none;
+    }
+
+    .reference-list li {
+      margin-bottom: 0.65rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .reference-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--rose);
+      font-weight: bold;
+    }
+
+    .reference-list a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 0.75rem 0.5rem; }
+      .container { padding: 1.25rem; }
+      h1 { font-size: 1.45rem; }
+      h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第3章 補論</span>
+        <span class="badge badge-sub">コーポレートガバナンス・金融化</span>
+        <span class="badge badge-primary">株主至上主義と賃金破壊</span>
+      </div>
+      <h1>株主資本主義（株主至上主義）の解剖</h1>
+      <p class="subtitle">フリードマン・ドクトリンから自社株買い、そして実質賃金破壊へのメカニズム</p>
+    </header>
+
+    <!-- Lead Card -->
+    <div class="lead-card">
+      <strong>【エグゼクティブ・サマリー】</strong><br>
+      「企業は株主のものであり、その最大の使命は株主への利益還元（株価上昇と配当）の最大化にある」――。<br>
+      今日、あたかも資本主義の普遍的真理であるかのように信じ込まれている<strong>「株主資本主義（Shareholder Capitalism / 株主至上主義）」</strong>は、人類の歴史上常に存在したわけではありません。1970年のミルトン・フリードマンによる宣言と1980年代のアメリカ金融規制緩和によって人工的に作り出された**「極めて特異なイデオロギー」**にすぎません。<br>
+      このシステムが世界および日本を席巻した結果、何が起きたか。企業は利益を長期的な設備投資や従業員の賃上げに再投資することをやめ、短期的なROE向上と自社株買い・巨額配当に血道を上げるようになりました。本補論では、株主資本主義が誕生した思想的・制度的起源を暴き、それがどのような財務工学のからくりを通じて私たちの給料袋と生活を破壊してきたのかを徹底解剖します。
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        目次・構成
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec1">1. 株主資本主義の思想史的起源（フリードマンとエージェンシー理論）</a></li>
+        <li><a href="#sec2">2. 株主資本主義を駆動する3大財務装置（自社株買い・ROE・四半期開示）</a></li>
+        <li><a href="#sec3">3. ラゾニックの告発：「維持と投資」から「縮小と分配」への堕落</a></li>
+        <li><a href="#sec4">4. 【思考実験】自社株買い＆ストックオプション錬金術シミュレーター</a></li>
+        <li><a href="#sec5">5. 日本への上陸と破壊的帰結：利益剰余金655兆円と実質賃金の死</a></li>
+        <li><a href="#sec6">6. 参考文献・公的資料リンク</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="sec1">
+      <h2><span>1.</span> 株主資本主義の思想史的起源（フリードマンとエージェンシー理論）</h2>
+
+      <p>
+        歴史的に見れば、20世紀半ば（1950〜1970年代）のアメリカや戦後日本の大企業は、株主だけのものではありませんでした。当時の経営学では、アドルフ・バーリとガーディナー・ミーンズが1932年に提唱した**「所有と経営の分離」**に基づき、経営者とは株主・労働者・取引先・地域社会の利害を調停する「中立の信託者（テクノクラート）」であると定義されていました。
+      </p>
+
+      <p>
+        このステークホルダー共生型の産業社会に決定的な一撃を加えたのが、シカゴ学派の経済学者<strong>ミルトン・フリードマン（Milton Friedman）</strong>でした。
+      </p>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">
+          <span>📜</span> 1970年フリードマン・ドクトリン：「企業の社会的責任は利益を増やすことにある」
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          フリードマンは1970年9月、ニューヨーク・タイムズ・マガジンに寄稿した記念碑的論文において、次のように断言しました。<br>
+          <em>「企業の経営者は、株主（株主資本の所有者）の直接の代理人にすぎない。もし経営者が『雇用の創出』や『環境汚染の防止』『貧困の撲滅』といった社会的目標のためにお金を使うならば、それは株主の財産を勝手に盗んで配る背任行為であり、勝手に課税して分配する社会主義的な専断である。」</em><br>
+          この論理によって、「株主利益の極大化こそが経営者の唯一無二の倫理的義務である」という思想的教義（フリードマン・ドクトリン）が打ち立てられました。
+      </div>
+
+      <p>
+        続いて1976年、経済学者の<strong>マイケル・ジェンセン（Michael Jensen）</strong>と<strong>ウィリアム・メックリング（William Meckling）</strong>が発表した**「エージェンシー理論（Agency Theory）」**が、株主至上主義を制度として具現化させました。
+      </p>
+
+      <div class="card-grid-2">
+        <div class="info-card rose">
+          <div class="card-header-sm"><span>⚡</span> エージェンシー問題の「発見」</div>
+          <p style="font-size: 0.9rem;">
+            「経営者は放っておくと、自分の保身や会社の規模拡大（自己満足の帝国建設）を優先し、株主の富を無駄遣いする（エージェンシー・コストの発生）」と仮定しました。
+          </p>
+        </div>
+        <div class="info-card primary">
+          <div class="card-header-sm"><span>🎯</span> 解決策としての「株式連動報酬」</div>
+          <p style="font-size: 0.9rem;">
+            経営者の利害を株主の利害と完全に一致させるため、役員報酬を固定給から<strong>「ストックオプション（自社株購入権）」や「株式連動報酬」</strong>へと切り替えることを提唱しました。
+          </p>
+        </div>
+      </div>
+
+      <p>
+        この結果、経営者たちは「会社の長期的な存続や従業員の幸福」よりも、<strong>「自らのストックオプションの価値を跳ね上がらせるための短期的な株価吊り上げ」</strong>に猛烈なインセンティブを持つモンスターへと変貌していったのです。
+      </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec2">
+      <h2><span>2.</span> 株主資本主義を駆動する3大財務装置</h2>
+
+      <p>
+        株主至上主義は、単なる思想にとどまらず、1980年代以降の法律・会計制度の改変によって**「3つの財務的装置」**として完成しました。
+      </p>
+
+      <div class="card-grid-3">
+        <div class="info-card rose">
+          <div class="card-header-sm"><span>🔄</span> ① 自社株買いの合法化</div>
+          <p style="font-size: 0.88rem;">
+            かつて1934年米証券取引所法のもとで「不当な株価操縦」として禁止されていた自社株買いが、1982年SECルール10b-18の緩和により実質解禁。企業資金で株を買い占めて消却し、株価を人為的に釣り上げるマネーゲームが合法化されました。
+          </p>
+        </div>
+
+        <div class="info-card accent">
+          <div class="card-header-sm"><span>📊</span> ② ROE至上主義の神格化</div>
+          <p style="font-size: 0.88rem;">
+            $$\text{ROE} = \frac{\text{当期純利益}}{\text{自己資本}}$$
+            分母（自己資本）を圧縮する自社株買いと、分子（利益）を捻出する人件費カット（非正規化）を同時に行えば、ROEは見かけ上爆発的に上昇し、機関投資家の歓声を集めます。
+          </p>
+        </div>
+
+        <div class="info-card purple">
+          <div class="card-header-sm"><span>⏱️</span> ③ 四半期開示の暴君</div>
+          <p style="font-size: 0.88rem;">
+            3ヶ月ごとの決算数字で市場予想を下回れば、CEOは解任の危機に直面。10年先を見据えた基礎研究や人材育成、国内工場の設備投資など「今期のコストになり将来の果実になる投資」は真っ先に切り捨てられます。
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Cycle Diagram -->
+      <div class="cycle-container">
+        <h4 style="font-size: 1.1rem; color: var(--crimson); font-weight: 800; margin-bottom: 0.5rem;">
+          【図解】株主至上主義が生み出す「富の吸い上げ・自滅サイクル」
+        </h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          ステップをクリックすると、金融化の因果関係が展開されます。
+        </p>
+
+        <div class="cycle-steps">
+          <div class="cycle-card active" onclick="showCycleStep(1)">
+            <span class="cycle-step-num">STEP 01</span>
+            <div class="cycle-step-title">株主圧力 ＆ 業績報酬</div>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0;">アクティビストが株主還元を要求</p>
+          </div>
+          <div class="cycle-card" onclick="showCycleStep(2)">
+            <span class="cycle-step-num">STEP 02</span>
+            <div class="cycle-step-title">人件費・投資の削減</div>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0;">非正規化・ベア抑制・R&D削減</p>
+          </div>
+          <div class="cycle-card" onclick="showCycleStep(3)">
+            <span class="cycle-step-num">STEP 03</span>
+            <div class="cycle-step-title">自社株買い・巨額配当</div>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0;">利益の9割超を金融空間へ還流</p>
+          </div>
+          <div class="cycle-card" onclick="showCycleStep(4)">
+            <span class="cycle-step-num">STEP 04</span>
+            <div class="cycle-step-title">実体経済の貧困化</div>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0;">内需蒸発・デフレ・格差固定</p>
+          </div>
+        </div>
+
+        <div class="cycle-detail-box" id="cycleDetail">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec3">
+      <h2><span>3.</span> ラゾニックの告発：「維持と投資」から「縮小と分配」への堕落</h2>
+
+      <p>
+        ハーバード大学ビジネススクールの名誉教授<strong>ウィリアム・ラゾニック（William Lazonick）</strong>は、2014年に発表した記念碑的論文『Profits Without Prosperity（繁栄なき利益）』において、株主資本主義がアメリカの製造業と中間層をどのように壊滅させたかを実証的に明らかにしました。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">パラダイム</th>
+              <th style="width: 37.5%;">かつての産業モデル：Retain and Reinvest<br>（維持と再投資）</th>
+              <th style="width: 37.5%;">現代の株主資本主義：Downsize and Distribute<br>（縮小と株主分配）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>利益の基本的使途</strong></td>
+              <td>稼いだキャッシュを社内に<strong>保持（Retain）</strong>し、設備近代化、基礎研究、従業員の技術訓練へと<strong>再投資（Reinvest）</strong>。</td>
+              <td>工場を閉鎖し正規雇用をリストラ（Downsize）してコストを削り、絞り出した利益を株主に<strong>分配（Distribute）</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>労働者の位置づけ</strong></td>
+              <td>企業の競争力を支える最も重要な<strong>「共通資産（人的資本）」</strong>。長期雇用を通じて暗黙知とスキルを蓄積。</td>
+              <td>四半期の数字を整えるための<strong>「調整弁・変動費」</strong>。いつでも非正規や派遣に置き換えて切り捨てる。</td>
+            </tr>
+            <tr>
+              <td><strong>マクロ経済への影響</strong></td>
+              <td>安定した賃金が中間層の購買力（有効需要）を生み、イノベーションが国内産業を強化する<strong>持続的拡大循環</strong>。</td>
+              <td>富が上位1%と機関投資家へ逆流（トリクルアップ）し、国内消費が干上がって産業が空洞化する<strong>ゼロサム収奪循環</strong>。</td>
+            </tr>
+            <tr>
+              <td><strong>米S&P500の実態データ</strong></td>
+              <td>純利益の大部分が国内設備投資と賃上げ原資として社会に循環。</td>
+              <td>純利益の<strong>約54%が自社株買い、約37%が配当</strong>に充当。利益の<strong>91%以上が株主還元として金融空間へ蒸発</strong>。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        ラゾニック教授は、自社株買いについて**「かつては相場操縦として刑法上の犯罪であった行為が、いまや経営陣のボーナス最大化のために公然と推奨されている」**と痛烈に批判しています。ボーイング社が737MAXの墜落事故を起こす以前の数年間に、安全性向上のエンジニアリング投資を怠りながら数百億ドルもの自社株買いを続けていたスキャンダルは、株主至上主義が人命と技術を食い潰す象徴的事件として記録されています。
+      </p>
+    </section>
+
+    <!-- Section 4: Interactive Simulator -->
+    <section id="sec4">
+      <h2><span>4.</span> 【思考実験】自社株買い＆ストックオプション錬金術シミュレーター</h2>
+
+      <p>
+        なぜ大企業のCEOや取締役たちは、従業員のベースアップを断固として拒絶し、巨額の自社株買いに血道を上げるのでしょうか？<br>
+        以下のシミュレーターで、企業経営者の立場から<strong>「① 設備投資・賃上げを行う堅実経営」</strong>と<strong>「② リストラ＋自社株買いを行う株主至上経営」</strong>を切り替えて、財務指標と経営者の個人報酬がどう変化するかを体験してください。
+      </p>
+
+      <div class="sim-card">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>🧪</span> 経営者のインセンティブ実験室：株主至上主義のからくり
+          </div>
+          <p class="sim-desc">
+            年間売上1000億円、初期純利益100億円のモデル企業。経営戦略の選択によって、誰が豊かになり誰が貧しくなるかを観察します。
+          </p>
+        </div>
+
+        <div class="sim-toggle-row">
+          <button class="sim-btn active" id="btn-mode-buyback" onclick="setSimMode('buyback')">
+            🔥 選択A：株主至上主義（リストラ＋巨額自社株買い）
+          </button>
+          <button class="sim-btn" id="btn-mode-reinvest" onclick="setSimMode('reinvest')">
+            🌱 選択B：産業的再投資（ベースアップ＋国内設備投資）
+          </button>
+        </div>
+
+        <div class="sim-grid-compare">
+          <!-- Company & Shareholder Metrics -->
+          <div class="sim-metric-panel">
+            <div class="metric-panel-title">
+              <span>📈 株式市場＆株主の評価指標</span>
+              <span id="badge-shareholder-eval" class="badge" style="background: var(--rose-light); color: var(--rose);">株主大絶賛</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">自己資本（分母）</span>
+              <span class="metric-val" id="val-equity">500 億円（圧縮）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">当期純利益（分子）</span>
+              <span class="metric-val" id="val-net-income">120 億円</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">ROE（自己資本利益率）</span>
+              <span class="metric-val val-highlight-red" id="val-roe">24.0%</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">自社株買い実施額</span>
+              <span class="metric-val" id="val-buyback">80 億円（利益の67%）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">1株当たり純利益 (EPS)</span>
+              <span class="metric-val val-highlight-red" id="val-eps">150 円（+50%）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">推計株価</span>
+              <span class="metric-val val-highlight-red" id="val-stock-price">3,000 円（急騰）</span>
+            </div>
+            <div class="metric-row" style="background: #fff1f2; padding: 0.6rem 0.5rem; margin-top: 0.5rem; border-radius: 0.4rem;">
+              <span class="metric-label" style="color: var(--crimson);">CEOのストックオプション報酬額</span>
+              <span class="metric-val val-highlight-red" id="val-ceo-pay">12.5 億円（大金持ち）</span>
+            </div>
+          </div>
+
+          <!-- Workers & Sustainability Metrics -->
+          <div class="sim-metric-panel">
+            <div class="metric-panel-title">
+              <span>👷 現場の労働者・企業の10年後</span>
+              <span id="badge-worker-eval" class="badge" style="background: var(--rose-light); color: var(--rose);">生活苦・崩壊</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">従業員数（正規雇用）</span>
+              <span class="metric-val" id="val-headcount">4,000 人（1,000人削減）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">非正規雇用比率</span>
+              <span class="metric-val" id="val-nonreg-ratio">42%（大幅増）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">平均年間給与</span>
+              <span class="metric-val" id="val-wage">410 万円（ベア凍結・低下）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">国内設備・研究開発投資</span>
+              <span class="metric-val" id="val-rd-invest">20 億円（最小限に凍結）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">社員エンゲージメント・士気</span>
+              <span class="metric-val" id="val-morale" style="color: var(--rose);">28 点（絶望的低下）</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">10年後の企業存続・競争力</span>
+              <span class="metric-val" id="val-survival" style="color: var(--rose);">35%（技術流出・衰退）</span>
+            </div>
+            <div class="metric-row" style="background: #f1f5f9; padding: 0.6rem 0.5rem; margin-top: 0.5rem; border-radius: 0.4rem;">
+              <span class="metric-label">マクロ経済への影響（有効需要）</span>
+              <span class="metric-val" id="val-macro-demand" style="color: var(--rose);">消費蒸発・貧困拡大</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-verdict-box" id="simVerdict">
+          <!-- Dynamic Text -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec5">
+      <h2><span>5.</span> 日本への上陸と破壊的帰結：利益剰余金655兆円と実質賃金の死</h2>
+
+      <p>
+        日本企業は長い間、アメリカ流の株主至上主義に抵抗していました。「会社は従業員のもの」「株主は安定した配当を受け取る縁の下の力持ち」という認識が共有されていたからです。
+      </p>
+
+      <p>
+        しかし、バブル崩壊後の不良債権処理の中で持ち合い株式が放出され、外国人投資家の比率が30%を超えると、日本政府自身が率先して株主至上主義への構造転換を強力に推進し始めました。
+      </p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">
+          <span>🏛️</span> 2014年「伊藤レポート」と2015年「コーポレートガバナンス・コード」の衝撃
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          経済産業省が2014年にまとめた『伊藤レポート（座長：伊藤邦雄・一橋大教授）』は、**「日本企業はグローバル投資家を引きつけるため、最低限達成すべき目標として『ROE 8%以上』を合言葉とすべきだ」**と明記。翌年には東証が「コーポレートガバナンス・コード」を導入し、社外取締役の増員や持ち合い解消、ROE向上を強く迫りました。<br>
+          これにより、日本企業の経営目標の最上位に「株主利益の極大化」が強制的にインストールされたのです。
+      </div>
+
+      <h3>データが証明する「企業の富の激増」と「働く人の貧困化」の対称性</h3>
+      <p>
+        株主資本主義が日本企業に定着した過去30年間で、何が起きたか。財務省『法人企業統計』の推移を見れば、その結果はあまりにも残酷です。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>1998年（デフレ初期）</th>
+              <th>2025年（最新集計）</th>
+              <th>30年間の変化率</th>
+              <th>分配の帰結</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>企業の経常利益</strong></td>
+              <td>約 28.5 兆円</td>
+              <td>約 105 兆円規模</td>
+              <td style="color: var(--emerald); font-weight: 800;">約 3.7 倍に爆増</td>
+              <td>過去最高益を連続更新</td>
+            </tr>
+            <tr>
+              <td><strong>株主への配当金支払額</strong></td>
+              <td>約 4.6 兆円</td>
+              <td>約 38.5 兆円規模</td>
+              <td style="color: var(--rose); font-weight: 800;">約 8.4 倍に激増</td>
+              <td>金融市場・大株主へ直行</td>
+            </tr>
+            <tr>
+              <td><strong>利益剰余金（内部留保）</strong></td>
+              <td>約 141.2 兆円</td>
+              <td>約 654.8 兆円</td>
+              <td style="color: var(--rose); font-weight: 800;">約 4.6 倍（過去最高）</td>
+              <td>現預金300兆円超が死蔵</td>
+            </tr>
+            <tr>
+              <td><strong>従業員給与（人件費総額）</strong></td>
+              <td>約 161.4 兆円</td>
+              <td>約 170 兆円前後</td>
+              <td style="color: var(--text-muted); font-weight: 800;">ほぼ横ばい（+5%微増）</td>
+              <td>物価上昇分を引けば実質マイナス</td>
+            </tr>
+            <tr>
+              <td><strong>非正規雇用の割合</strong></td>
+              <td>約 23.6%</td>
+              <td>約 37.0%</td>
+              <td style="color: var(--crimson); font-weight: 800;">1.5倍超（2000万人超）</td>
+              <td>ワーキングプア・格差の温床</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">
+          <span>🚨</span> 結論：うちはなぜ貧乏なのか？――その真因としての株主資本主義
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          日本経済が成長しなかったから給料が上がらなかったのではありません。日本企業は過去最高の利益を叩き出し、655兆円もの内部留保を積み上げています。<br>
+          真実は、**「株主資本主義というゲームのルールに従い、経営陣が労働分配率を徹底的に削り取って利益（分子）を捻出し、自社株買い（分母圧縮）と巨額配当によって、その富の果実をそっくりそのまま金融空間へと吸い上げたから」**です。<br>
+          真面目に汗を流すあなたの給料袋が痩せ細り、家族の暮らしが苦しくなり続けている真因は、まさにこの「人間をコストとしか見ない株主資本主義」の完成形にあるのです。
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="sec6" class="reference-box">
+      <div class="reference-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        出典・参考文献・公的資料リンク
+      </div>
+      <ul class="reference-list">
+        <li>
+          <strong>Milton Friedman (1970)</strong>, "The Social Responsibility of Business is to Increase its Profits", <em>The New York Times Magazine</em>, September 13, 1970 (株主至上主義フリードマン・ドクトリンの原典論文).
+        </li>
+        <li>
+          <strong>Michael C. Jensen and William H. Meckling (1976)</strong>, "Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure", <em>Journal of Financial Economics</em>, 3(4), pp. 305-360 (エージェンシー理論・株式連動報酬論の原点).
+        </li>
+        <li>
+          <strong>William Lazonick (2014)</strong>, 
+          <a href="https://hbr.org/2014/09/profits-without-prosperity" target="_blank" rel="noopener noreferrer">"Profits Without Prosperity"</a>, <em>Harvard Business Review</em> (米大企業の自社株買いによる生産性破壊と格差拡大の実証告発).
+        </li>
+        <li>
+          <strong>Adolf A. Berle and Gardiner C. Means (1932)</strong>, <em>The Modern Corporation and Private Property</em>, Macmillan (所有と経営の分離に関する古典的名著).
+        </li>
+        <li>
+          <strong>経済産業省 (2014)</strong>, 
+          <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/pdf/report20140806.pdf" target="_blank" rel="noopener noreferrer">『『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～』プロジェクト（伊藤レポート）』</a>.
+        </li>
+        <li>
+          <strong>財務省</strong>, 『法人企業統計調査（年報・四半期報）』 (日本企業の利益剰余金・配当金・現預金推移公式データ).
+        </li>
+        <li>
+          <strong>内閣府 (2025)</strong>, 『令和7年度 年次経済財政報告（経済財政白書）』 (1985〜2025年における日本企業の利益、国内設備投資、人件費配分の長期的実証分析).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>『現代貧困の解体新書』オープンナレッジ・プロジェクト 補論シリーズ</p>
+      <p style="font-size: 0.78rem; margin-top: 0.25rem;">© 2026 mb_cho. All rights reserved. Web版リファレンス</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Cycle Detail Content
+    const cycleData = {
+      1: `<strong>【STEP 01：株主圧力と経営陣の報酬インセンティブ】</strong><br>
+          外国人機関投資家や物言う株主（アクティビスト）が『ROE 8%以上』や配当性向の向上を要求。同時に、役員報酬がストックオプション化されているため、経営陣は『株価を上げれば自分の報酬が数億円跳ね上がる』という強烈な個人的利害に突き動かされます。`,
+      2: `<strong>【STEP 02：現場の人件費カットと未来への投資の凍結】</strong><br>
+          四半期決算で手っ取り早く利益（分子）を出すため、正社員採用を絞って非正規雇用へと置き換え、定期昇給やベースアップを抑制。さらに、10年先を見据えた基礎研究開発や国内工場の設備投資を『今期の無駄なコスト』として次々に凍結します。`,
+      3: `<strong>【STEP 03：絞り出した利益を自社株買い・巨額配当へ全振り】</strong><br>
+          人件費削減で叩き出した純利益を、従業員の賃金や再投資には回さず、巨額の配当金と自社株買い（年間数十兆円）に注ぎ込みます。自社株買いによって発行済株式数が減少し、EPS（1株利益）が急上昇して株価が高騰。経営陣はストックオプションを換金して巨万の富を手にします。`,
+      4: `<strong>【STEP 04：マクロ経済の破壊・有効需要の蒸発と貧困化】</strong><br>
+          国民の8割を占める勤労者の実質賃金が低下するため、個人消費が冷え込み、国内市場の内需が蒸発。企業は『国内需要がないから国内投資しない』と言い訳して海外や金融投機へ資金を逃避させ、労働者はさらに貧困化するという『トリクルアップの地獄』が完成します。`
+    };
+
+    function showCycleStep(step) {
+      document.querySelectorAll('.cycle-card').forEach((el, idx) => {
+        if (idx + 1 === step) el.classList.add('active');
+        else el.classList.remove('active');
+      });
+      document.getElementById('cycleDetail').innerHTML = cycleData[step];
+    }
+    showCycleStep(1);
+
+    // Simulator Logic
+    function setSimMode(mode) {
+      document.querySelectorAll('.sim-btn').forEach(btn => btn.classList.remove('active'));
+
+      if (mode === 'buyback') {
+        document.getElementById('btn-mode-buyback').classList.add('active');
+
+        // Shareholder Metrics
+        document.getElementById('badge-shareholder-eval').innerText = "株主大絶賛";
+        document.getElementById('badge-shareholder-eval').style.background = "var(--rose-light)";
+        document.getElementById('badge-shareholder-eval').style.color = "var(--rose)";
+
+        document.getElementById('val-equity').innerText = "500 億円（自社株買いで圧縮）";
+        document.getElementById('val-net-income').innerText = "120 億円（人件費カット分増）";
+        document.getElementById('val-roe').innerText = "24.0%（激増）";
+        document.getElementById('val-roe').className = "metric-val val-highlight-red";
+        document.getElementById('val-buyback').innerText = "80 億円（純利益の67%）";
+        document.getElementById('val-eps').innerText = "150 円（+50%急増）";
+        document.getElementById('val-eps').className = "metric-val val-highlight-red";
+        document.getElementById('val-stock-price').innerText = "3,000 円（急騰）";
+        document.getElementById('val-stock-price').className = "metric-val val-highlight-red";
+        document.getElementById('val-ceo-pay').innerText = "12.5 億円（大金持ち）";
+        document.getElementById('val-ceo-pay').className = "metric-val val-highlight-red";
+
+        // Worker Metrics
+        document.getElementById('badge-worker-eval').innerText = "生活苦・崩壊";
+        document.getElementById('badge-worker-eval').style.background = "var(--rose-light)";
+        document.getElementById('badge-worker-eval').style.color = "var(--rose)";
+
+        document.getElementById('val-headcount').innerText = "4,000 人（1,000人リストラ）";
+        document.getElementById('val-nonreg-ratio').innerText = "42%（大幅増）";
+        document.getElementById('val-wage').innerText = "410 万円（ベア凍結・低下）";
+        document.getElementById('val-rd-invest').innerText = "20 億円（最小限に凍結）";
+        document.getElementById('val-morale').innerText = "28 点（絶望的低下）";
+        document.getElementById('val-morale').style.color = "var(--rose)";
+        document.getElementById('val-survival').innerText = "35%（技術流出・衰退）";
+        document.getElementById('val-survival').style.color = "var(--rose)";
+        document.getElementById('val-macro-demand').innerText = "消費蒸発・貧困拡大";
+        document.getElementById('val-macro-demand').style.color = "var(--rose)";
+
+        // Verdict
+        document.getElementById('simVerdict').innerHTML = `
+          <strong>【診断結果：株主資本主義の完全体（縮小と分配モデル）】</strong><br>
+          純利益の67%を自社株買いに充当し、分母（自己資本）を圧縮したことで、ROEは驚異の24%を記録。株価は跳ね上がり、CEOは12.5億円のストックオプション報酬を手に入れました。<br>
+          しかしその裏で、従業員1000人が解雇され、残った従業員の給料は据え置き、非正規雇用が急増。研究開発が凍結されたため、10年後の企業存続率はわずか35%に急落しています。経営エリートと株主だけが逃げ切り、労働者と社会がツケを払わされる構造です。
+        `;
+      } else {
+        document.getElementById('btn-mode-reinvest').classList.add('active');
+
+        // Shareholder Metrics
+        document.getElementById('badge-shareholder-eval').innerText = "株主から不満の声";
+        document.getElementById('badge-shareholder-eval').style.background = "var(--accent-light)";
+        document.getElementById('badge-shareholder-eval').style.color = "var(--accent-dark)";
+
+        document.getElementById('val-equity').innerText = "800 億円（内部留保で健全）";
+        document.getElementById('val-net-income').innerText = "65 億円（賃金・R&D計上後）";
+        document.getElementById('val-roe').innerText = "8.1%（伊藤目標水準）";
+        document.getElementById('val-roe').className = "metric-val val-highlight-blue";
+        document.getElementById('val-buyback').innerText = "0 億円（実施せず実体へ）";
+        document.getElementById('val-eps').innerText = "65 円（安定的）";
+        document.getElementById('val-eps').className = "metric-val val-highlight-blue";
+        document.getElementById('val-stock-price').innerText = "1,600 円（堅実推移）";
+        document.getElementById('val-stock-price').className = "metric-val val-highlight-blue";
+        document.getElementById('val-ceo-pay').innerText = "1.2 億円（適正水準）";
+        document.getElementById('val-ceo-pay').className = "metric-val val-highlight-blue";
+
+        // Worker Metrics
+        document.getElementById('badge-worker-eval').innerText = "生活安定・高士気";
+        document.getElementById('badge-worker-eval').style.background = "var(--emerald-light)";
+        document.getElementById('badge-worker-eval').style.color = "var(--emerald)";
+
+        document.getElementById('val-headcount').innerText = "5,200 人（正規採用拡大）";
+        document.getElementById('val-nonreg-ratio').innerText = "12%（正規登用進む）";
+        document.getElementById('val-wage').innerText = "560 万円（年5%ベースアップ）";
+        document.getElementById('val-rd-invest').innerText = "55 億円（次世代技術開発）";
+        document.getElementById('val-morale').innerText = "88 点（極めて高い熱意）";
+        document.getElementById('val-morale').style.color = "var(--emerald)";
+        document.getElementById('val-survival').innerText = "92%（世界トップ技術確立）";
+        document.getElementById('val-survival').style.color = "var(--emerald)";
+        document.getElementById('val-macro-demand').innerText = "旺盛な個人消費・内需好循環";
+        document.getElementById('val-macro-demand').style.color = "var(--emerald)";
+
+        // Verdict
+        document.getElementById('simVerdict').innerHTML = `
+          <strong>【診断結果：産業的再投資モデル（維持と投資モデル）】</strong><br>
+          利益を自社株買いに浪費せず、従業員のベースアップ（平均給与560万円）と国内の次世代R&D（55億円）に積極投資しました。ROEは8.1%と派手さはありませんが、社員の士気と技術力は世界最高水準を誇り、10年後の企業存続率は92%に達します。<br>
+          働く人々の購買力が維持されるため、地域社会の消費も潤う『実体経済の好循環』が実現しています。
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
