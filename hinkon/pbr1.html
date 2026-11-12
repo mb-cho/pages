@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：東証「PBR1倍割れ是正要請」の数理と実体経済への波及――解散価値割れのからくり、自社株買いバブル、そして労働分配率への圧迫</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background-color: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      background: #ffffff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #091e3a 0%, #1e3a8a 50%, #9a3412 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .badge-sub {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border: 1px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #fde68a;
+    }
+
+    /* Lead Card */
+    .lead-card {
+      background: #fffbeb;
+      border-left: 5px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+      color: #78350f;
+      line-height: 1.8;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .toc-list a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.15s;
+    }
+
+    .toc-list a:hover {
+      color: #1e3a8a;
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 1.75rem 0 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+    }
+
+    /* Grid & Cards */
+    .card-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .card-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card.primary { border-top: 4px solid var(--primary); }
+    .info-card.accent { border-top: 4px solid var(--accent); }
+    .info-card.rose { border-top: 4px solid var(--rose); }
+    .info-card.emerald { border-top: 4px solid var(--emerald); }
+    .info-card.purple { border-top: 4px solid var(--purple); }
+
+    .card-header-sm {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      line-height: 1.75;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border-left: 5px solid var(--primary-light);
+      color: #1e3a8a;
+    }
+
+    .callout-warn {
+      background: #fffbeb;
+      border-left: 5px solid var(--accent);
+      color: #78350f;
+    }
+
+    .callout-danger {
+      background: #fef2f2;
+      border-left: 5px solid var(--rose);
+      color: #881337;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Interactive Simulator */
+    .sim-card {
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      margin-bottom: 0;
+    }
+
+    .sim-preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sim-preset-btn {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .sim-preset-btn:hover {
+      background: #e2e8f0;
+      border-color: #cbd5e1;
+    }
+
+    .sim-preset-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .slider-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .slider-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.35rem;
+    }
+
+    .slider-val {
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 7px;
+      border-radius: 5px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: background 0.15s;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--primary);
+    }
+
+    .sim-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .sim-metric-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .metric-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+      font-family: monospace;
+    }
+
+    .metric-eval {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+
+    .eval-good { background: var(--emerald-light); color: var(--emerald); }
+    .eval-warn { background: var(--accent-light); color: var(--accent-dark); }
+    .eval-bad { background: var(--rose-light); color: var(--rose); }
+
+    .sim-verdict-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: #78350f;
+      line-height: 1.6;
+    }
+
+    /* Process Flow */
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .flow-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.2rem;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .flow-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--primary-light);
+      color: #ffffff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .flow-desc {
+      font-size: 0.85rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    /* References */
+    .reference-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.88rem;
+    }
+
+    .reference-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .reference-list {
+      list-style: none;
+    }
+
+    .reference-list li {
+      margin-bottom: 0.65rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+      color: #334155;
+    }
+
+    .reference-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.35rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .reference-list a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 0.75rem 0.5rem; }
+      .container { padding: 1.25rem; }
+      h1 { font-size: 1.45rem; }
+      h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第3章 補論</span>
+        <span class="badge badge-sub">資本市場改革・コーポレートガバナンス</span>
+        <span class="badge badge-primary">東証PBR改革と労働分配率</span>
+      </div>
+      <h1>東証「PBR1倍割れ是正要請」の数理と実体経済への波及</h1>
+      <p class="subtitle">解散価値割れのからくり、自社株買いバブル、そして労働分配率への圧迫</p>
+    </header>
+
+    <!-- Lead Box -->
+    <div class="lead-card">
+      <strong>【エグゼクティブ・サマリー】</strong><br>
+      2023年3月、東京証券取引所（東証）がプライム・スタンダード市場の全上場企業に突きつけた「資本コストや株価を意識した経営の実現に向けた対応（通称：PBR1倍割れ是正要請）」は、日本の株式市場を熱狂させ、日経平均株価をバブル期以来の最高値へと押し上げました。<br>
+      しかし、なぜ上場企業の約半数が「今すぐ会社を解散して現金を株主に配った方がマシ」とされる「PBR1倍割れ」に沈んでいたのでしょうか？ そして、東証の号令に怯えた企業経営陣が選んだ解決策とは何だったのか――。それは国内の賃上げや設備投資ではなく、手元資金を吐き出して自社株を買い占める「自社株買い狂乱」でした。本補論では、PBRの決定数式を解剖し、この市場改革がどのようにして「株価バブルと生活苦の二極化」をもたらしたのかを明らかにします。
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card">
+      <div class="toc-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        目次・構成
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec1">1. PBR（株価純資産倍率）の定義と「解散価値割れ」の数理</a></li>
+        <li><a href="#sec2">2. なぜ日本企業の半数はPBR1倍割れだったのか？（Cash Hoardingの病理）</a></li>
+        <li><a href="#sec3">3. 2023年東証「PBR革命」の要請内容とプレッシャー</a></li>
+        <li><a href="#sec4">4. 【体験型】PBR感応度＆資本配分シミュレーター</a></li>
+        <li><a href="#sec5">5. 自社株買いバブルの狂乱と労働分配率へのしわ寄せ</a></li>
+        <li><a href="#sec6">6. 参考文献・公的資料リンク</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="sec1">
+      <h2><span>1.</span> PBR（株価純資産倍率）の定義と「解散価値割れ」の数理</h2>
+
+      <p>
+        <strong>PBR（Price Book-value Ratio：株価純資産倍率）</strong>とは、企業の「株価（時価総額）」が、貸借対照表（B/S）上の「純資産（株主資本）」に対して何倍で評価されているかを示す株価指標です。
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">
+          <span>📐</span> PBRの定義式と分解方程式
+        </div>
+        $$\text{PBR} = \frac{\text{株価}}{\text{1株当たり純資産（BPS）}} = \frac{\text{時価総額}}{\text{自己資本（純資産）}}$$
+        <p style="margin-top: 0.8rem; font-size: 0.92rem;">
+          さらに、PBRは<strong>「ROE（自己資本利益率）」</strong>と<strong>「PER（株価収益率）」</strong>の積に分解できます。
+        </p>
+        $$\text{PBR} = \text{ROE} \times \text{PER} = \left(\frac{\text{当期純利益}}{\text{自己資本}}\right) \times \left(\frac{\text{時価総額}}{\text{当期純利益}}\right)$$
+        <p style="margin-top: 0.8rem; font-size: 0.92rem;">
+          また、企業価値評価理論（残余利益モデル：Residual Income Model）によれば、PBRは以下の均衡式で表されます。
+        </p>
+        $$\text{PBR} = 1 + \frac{\text{ROE} - r_e}{r_e - g}$$
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #475569;">
+          ※ $r_e$：株主資本コスト（株主が要求する期待収益率：通常7〜8%程度）、$g$：長期期待利益成長率
+        </p>
+      </div>
+
+      <h3>「PBR 1倍割れ」が意味する冷酷な市場の宣告</h3>
+      <p>
+        純資産（自己資本）とは、企業が保有する資産から負債をすべて返済した後に残る「株主の取り分（解散価値）」です。したがって、**PBR = 1倍**とは、「市場の株式時価総額が、企業の帳簿上の解散価値とちょうど等しい状態」を指します。
+      </p>
+
+      <div class="card-grid-2">
+        <div class="info-card emerald">
+          <div class="card-header-sm"><span>🟢</span> PBR ＞ 1倍（価値創造企業）</div>
+          <p style="font-size: 0.88rem;">
+            $\text{ROE} > r_e$ の状態。企業が投下資本コストを上回る利益を生み出しており、特許、技術力、ブランド、人材といった**「目に見えない無形資産（のれん）」**が将来の付加価値を生むと市場から高く信認されている。
+          </p>
+        </div>
+        <div class="info-card rose">
+          <div class="card-header-sm"><span>🔴</span> PBR ＜ 1倍（価値破壊企業）</div>
+          <p style="font-size: 0.88rem;">
+            $\text{ROE} < r_e$ の状態。資本コスト以下の利回りしか生み出せておらず、「この企業が事業を続ければ続けるほど富が失われるため、**今すぐ会社を解散して純資産を株主に配った方がマシである**」という極めて不名誉な市場評価。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec2">
+      <h2><span>2.</span> なぜ日本企業の半数はPBR1倍割れだったのか？（Cash Hoardingの病理）</h2>
+
+      <p>
+        2023年初頭時点において、東京証券取引所の最上位市場である**「プライム市場」上場企業の約50%（約900社）**、スタンダード市場の約60%がPBR1倍を割り込んでいました。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>市場（インデックス）</th>
+              <th>PBR 1倍割れ企業の比率</th>
+              <th>PBR 中央値</th>
+              <th>ROE 中央値</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>日本（東証プライム市場）</strong></td>
+              <td style="color: var(--rose); font-weight: 800;">約 48 %（約半数）</td>
+              <td>約 1.0 〜 1.1 倍</td>
+              <td style="color: var(--rose); font-weight: 800;">約 8.0 %</td>
+            </tr>
+            <tr>
+              <td><strong>米国（S&P 500）</strong></td>
+              <td style="color: var(--emerald); font-weight: 800;">約 3 〜 5 %</td>
+              <td>約 3.5 〜 4.0 倍</td>
+              <td style="color: var(--emerald); font-weight: 800;">約 18 〜 20 %</td>
+            </tr>
+            <tr>
+              <td><strong>欧州（STOXX 600）</strong></td>
+              <td>約 20 %</td>
+              <td>約 1.8 〜 2.0 倍</td>
+              <td>約 12 〜 13 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>日本企業がPBR1倍を割り続けた3大要因</h3>
+      <div class="card-grid-3">
+        <div class="info-card accent">
+          <div class="card-header-sm"><span>🏦</span> ① 巨額の現預金死蔵</div>
+          <p style="font-size: 0.88rem;">
+            バブル崩壊と金融危機のトラウマから、稼いだ利益を賃上げや国内設備投資に使わず、金庫に無利息の現預金（Cash Hoarding：300兆円超）として積み上げ、自己資本（分母）を不健全に肥満化させた。
+          </p>
+        </div>
+        <div class="info-card purple">
+          <div class="card-header-sm"><span>🤝</span> ② 政策保有株式（持ち合い）</div>
+          <p style="font-size: 0.88rem;">
+            取引先やメインバンクとの義理で他社株を持ち合い、資本効率の低い資産をB/Sに抱え続けた。これがモノ言う株主からの規律を遠ざけ、経営の緊張感を奪った。
+          </p>
+        </div>
+        <div class="info-card rose">
+          <div class="card-header-sm"><span>📉</span> ③ 成長期待（PER）の低迷</div>
+          <p style="font-size: 0.88rem;">
+            国内市場の少子高齢化とデフレ予想を理由に、将来の成長戦略を示せず、海外投資家から「この会社には将来性（イノベーション）がない」と見放された。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec3">
+      <h2><span>3.</span> 2023年東証「PBR革命」の要請内容とプレッシャー</h2>
+
+      <p>
+        国際的な投資マネーの日本離れに強い危機感を抱いた東京証券取引所は、2023年3月31日、全上場企業に向けて前代未聞の通知を発出しました。
+      </p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">
+          <span>📢</span> 東証通知：「資本コストや株価を意識した経営の実現に向けた対応について」
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          東証は、特に<strong>「PBRが継続して1倍を割っている企業」</strong>を名指しし、以下の3ステップを強く要請しました。<br>
+          1. <strong>現状分析・評価</strong>：自社の資本コスト（株主の要求利回り）と資本収益性（ROE等）を的確に把握し、なぜ株価が低迷しているのか原因を分析すること。<br>
+          2. <strong>改善計画の策定・開示</strong>：PBR1倍超に向けた具体的な数値目標、成長投資、株主還元方針を取締役会で議論し公表すること。<br>
+          3. <strong>投資家との積極的対話</strong>：外国人機関投資家やアクティビストとのエンゲージメント（対話）を進捗状況とともに毎年アップデートすること。
+      </div>
+
+      <h3>「ネーム・アンド・シェイム（名指しと晒し上げ）」戦略</h3>
+      <p>
+        さらに東証は2024年1月より、**「要請に基づき開示を行った企業の一覧表」を毎月ウェブサイトで公表**し始めました。「開示していない企業」が白日の下に晒されることで、日本企業の最も恐れる「同調圧力（他社がやっているのに自社だけやっていない恥）」を巧妙に刺激し、改善計画の開示率は瞬く間に7〜8割を超えました。
+      </p>
+
+      <div class="flow-steps">
+        <div class="flow-card">
+          <span class="flow-badge">STEP 1</span>
+          <div class="flow-title">東証による異例の要請</div>
+          <div class="flow-desc">PBR1倍割れ企業に対し、取締役会での改善議論と計画開示を要請（2023年3月）。</div>
+        </div>
+        <div class="flow-card">
+          <span class="flow-badge">STEP 2</span>
+          <div class="flow-title">開示企業リストの月次公表</div>
+          <div class="flow-desc">取組状況を公開してピアプレッシャーを強化。「未開示＝怠慢」の烙印（2024年1月）。</div>
+        </div>
+        <div class="flow-card">
+          <span class="flow-badge">STEP 3</span>
+          <div class="flow-title">アクティビストの猛攻</div>
+          <div class="flow-desc">外資系ファンドが低PBR企業に狙いを定め、増配・自社株買い・社外取締役派遣を強硬要求。</div>
+        </div>
+        <div class="flow-card">
+          <span class="flow-badge">STEP 4</span>
+          <div class="flow-title">自社株買いバブルの到来</div>
+          <div class="flow-desc">経営陣が手元資金を放出し、自社株買い・配当総額が過去最高（年間数十兆円）へ激増。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Interactive Simulator -->
+    <section id="sec4">
+      <h2><span>4.</span> 【体験型】PBR感応度＆資本配分シミュレーター</h2>
+
+      <p>
+        PBRを1倍以上に引き上げるための道筋には、<strong>「A：本質的な成長投資（R&Dや賃上げ）で将来のPERを高める王道」</strong>と、<strong>「B：手元資金で自社株を買い占めて自己資本を削る安易な近道」</strong>の2つが存在します。<br>
+        スライダーを動かして、各施策がPBRと企業・労働者に与える影響を実験してください。
+      </p>
+
+      <div class="sim-card">
+        <div class="sim-header">
+          <div class="sim-title">
+            <span>⚙️</span> PBR改革の感応度実験室
+          </div>
+          <p class="sim-desc">
+            自己資本1,000億円、当期純利益60億円（初期ROE=6.0%、初期PBR=0.72倍）の低PBR上場企業を操作します。
+          </p>
+        </div>
+
+        <div class="sim-preset-row">
+          <span style="font-size: 0.85rem; font-weight: 700; align-self: center; margin-right: 0.5rem; color: var(--text-muted);">プリセット：</span>
+          <button class="sim-preset-btn active" id="btn-pre-default" onclick="applyPbrPreset('default')">⚠️ 現状放置（PBR 0.72倍割れ）</button>
+          <button class="sim-preset-btn" id="btn-pre-buyback" onclick="applyPbrPreset('buyback')">🔥 自社株買い特化型（分母圧縮で1倍超え）</button>
+          <button class="sim-preset-btn" id="btn-pre-growth" onclick="applyPbrPreset('growth')">🌱 人的資本・賃上げ投資型（高成長期待）</button>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>① 当期純利益（分子：収益力向上・コスト削減）</span>
+            <span class="slider-val" id="disp-profit">60 億円（ROE 6.0%）</span>
+          </div>
+          <input type="range" id="slider-profit" min="30" max="120" value="60" oninput="recalcPBR()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>② 自社株買い規模（分母圧縮：手元現金を吐き出し自己資本を消却）</span>
+            <span class="slider-val" id="disp-buyback">0 億円（自己資本 1,000億円）</span>
+          </div>
+          <input type="range" id="slider-buyback" min="0" max="400" step="20" value="0" oninput="recalcPBR()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>③ 市場の成長期待度（PER：将来成長率・ガバナンス評価）</span>
+            <span class="slider-val" id="disp-per">12.0 倍（成熟企業平均）</span>
+          </div>
+          <input type="range" id="slider-per" min="8" max="25" step="0.5" value="12" oninput="recalcPBR()">
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-label-row">
+            <span>④ 従業員への還元配分（ベースアップ・人的投資額）</span>
+            <span class="slider-val" id="disp-wage">0 億円（ベア見送り・現状維持）</span>
+          </div>
+          <input type="range" id="slider-wage" min="0" max="40" step="5" value="0" oninput="recalcPBR()">
+        </div>
+
+        <!-- Metric Outputs -->
+        <div class="sim-results-grid">
+          <div class="sim-metric-card">
+            <div class="metric-name">PBR（株価純資産倍率）</div>
+            <div class="metric-value" id="res-pbr" style="color: var(--accent-dark);">0.72 倍</div>
+            <span class="metric-eval eval-bad" id="eval-pbr">解散価値割れ</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">ROE（自己資本利益率）</div>
+            <div class="metric-value" id="res-roe" style="color: var(--primary);">6.0 %</div>
+            <span class="metric-eval eval-warn" id="eval-roe">伊藤目標未達</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">推計時価総額</div>
+            <div class="metric-value" id="res-marketcap" style="color: var(--emerald);">720 億円</div>
+            <span class="metric-eval eval-warn" id="eval-marketcap">割安放置</span>
+          </div>
+
+          <div class="sim-metric-card">
+            <div class="metric-name">労働分配率・生活防衛</div>
+            <div class="metric-value" id="res-labor" style="color: var(--rose);">42 点</div>
+            <span class="metric-eval eval-warn" id="eval-labor">賃金停滞</span>
+          </div>
+        </div>
+
+        <div class="sim-verdict-box" id="pbrVerdict">
+          <!-- Dynamic Message -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec5">
+      <h2><span>5.</span> 自社株買いバブルの狂乱と労働分配率へのしわ寄せ</h2>
+
+      <p>
+        東証のPBR是正要請に対し、日本企業が実際に選択した行動は何だったでしょうか。
+        本来、東証が意図していたのは「次世代の研究開発やDX、そして人的資本（従業員教育や賃上げ）に積極的に資金を投じ、将来の稼ぐ力を高めてPERを引き上げる」という**王道の成長戦略**でした。
+      </p>
+
+      <p>
+        しかし、国内需要が停滞し、四半期ごとの市場プレッシャーに怯える経営陣にとって、研究開発や賃上げは「今期の利益（分子）を削るリスク」でしかありませんでした。結果として、最も安易で即効性のある**「手元現金を放出して自社の株を買い漁る（自社株買い）」という財務的近道**に全上場企業が一斉に雪崩を打ったのです。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>指標</th>
+              <th>東証要請前（2022年度）</th>
+              <th>東証要請後（2024〜2025年度）</th>
+              <th>実体経済への影響</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>日本企業の自社株買い総額</strong></td>
+              <td>約 9.6 兆円</td>
+              <td style="color: var(--rose); font-weight: 800;">約 14 〜 16 兆円規模（歴史的最高）</td>
+              <td>自己資本を圧縮しPBR見かけを改善</td>
+            </tr>
+            <tr>
+              <td><strong>年間配当金総額</strong></td>
+              <td>約 28.5 兆円</td>
+              <td style="color: var(--rose); font-weight: 800;">約 38.5 兆円（過去最高更新）</td>
+              <td>利益の社外流出・株主へ集中還元</td>
+            </tr>
+            <tr>
+              <td><strong>日経平均株価</strong></td>
+              <td>約 27,000 〜 28,000 円</td>
+              <td style="color: var(--emerald); font-weight: 800;">40,000 円超（史上最高値）</td>
+              <td>外国人投資家・資産層の含み益爆発</td>
+            </tr>
+            <tr>
+              <td><strong>実質賃金（厚生労働省統計）</strong></td>
+              <td>マイナス基調</td>
+              <td style="color: var(--crimson); font-weight: 800;">2年超連続の歴史的マイナス</td>
+              <td>物価高に賃上げが追いつかず生活困窮</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-danger">
+        <div class="callout-title">
+          <span>🚨</span> 株価は歴史的高値、国民の暮らしは歴史的困窮というディストピア
+        </div>
+        <p style="margin: 0; font-size: 0.92rem;">
+          東証PBR改革は、株式市場の視点からは「世界が称賛する大成功」として喧伝されています。外国人投資家は日本株に殺到し、東京証券取引所は活況に沸き返りました。<br>
+          しかし、その巨額の株主還元の原資はどこから絞り出されたのか。それは、従業員のベースアップを物価上昇率以下に抑え込み、下請け中小企業への価格転嫁を渋り、国内の長期再投資を削り落とすことによって維持された「利益（分子）」でした。<br>
+          <strong>「解散価値割れを解消する」という金融工学の要請が、実体経済で汗を流す労働者から富を吸い上げる巨大なトリクルアップ装置として機能した</strong>――これこそが、現代日本における格差拡大と生活苦の決定的な構造的からくりなのです。
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="sec6" class="reference-box">
+      <div class="reference-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        出典・参考文献・公的資料リンク
+      </div>
+      <ul class="reference-list">
+        <li>
+          <strong>株式会社東京証券取引所 (2023)</strong>, 
+          <a href="https://www.jpx.co.jp/news/1020/20230331-01.html" target="_blank" rel="noopener noreferrer">「資本コストや株価を意識した経営の実現に向けた対応について」</a> (2023年3月31日公表・東証公式通知文書).
+        </li>
+        <li>
+          <strong>日本経済新聞 (2023)</strong>, 「東証、PBR1倍割れ改善要請　プライムの過半が対象」 (2023年3月31日報道).
+        </li>
+        <li>
+          <strong>経済産業省 (2014)</strong>, 
+          <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/pdf/report20140806.pdf" target="_blank" rel="noopener noreferrer">『『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～』プロジェクト（伊藤レポート）』</a>.
+        </li>
+        <li>
+          <strong>財務省</strong>, 『法人企業統計調査』 (日本企業の内部留保・配当金・設備投資動向データ).
+        </li>
+        <li>
+          <strong>厚生労働省</strong>, 『毎月勤労統計調査』 (日本の名目・実質賃金推移公式データ).
+        </li>
+        <li>
+          <strong>野村アセットマネジメント (2023)</strong>, 『東証のPBR1倍割れ是正要請と日本企業の資本政策の行方』 (機関投資家向けレポート).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>『現代貧困の解体新書』オープンナレッジ・プロジェクト 補論シリーズ</p>
+      <p style="font-size: 0.78rem; margin-top: 0.25rem;">© 2026 mb_cho. All rights reserved. Web版リファレンス</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function applyPbrPreset(type) {
+      document.querySelectorAll('.sim-preset-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-pre-' + type).classList.add('active');
+
+      const sProfit = document.getElementById('slider-profit');
+      const sBuyback = document.getElementById('slider-buyback');
+      const sPer = document.getElementById('slider-per');
+      const sWage = document.getElementById('slider-wage');
+
+      if (type === 'default') {
+        sProfit.value = 60;
+        sBuyback.value = 0;
+        sPer.value = 12;
+        sWage.value = 0;
+      } else if (type === 'buyback') {
+        sProfit.value = 75; // 人件費削って利益増
+        sBuyback.value = 300; // 300億円自社株買い（分母圧縮）
+        sPer.value = 11; // 成長期待は上がらず
+        sWage.value = 0; // ベアゼロ
+      } else if (type === 'growth') {
+        sProfit.value = 55; // 賃上げで当期利益は微減
+        sBuyback.value = 50; // 適度な自社株買い
+        sPer.value = 20; // 人的投資と成長戦略でPER急騰
+        sWage.value = 30; // 年間30億円ベースアップ
+      }
+
+      recalcPBR();
+    }
+
+    function recalcPBR() {
+      const profit = parseFloat(document.getElementById('slider-profit').value);
+      const buyback = parseFloat(document.getElementById('slider-buyback').value);
+      const per = parseFloat(document.getElementById('slider-per').value);
+      const wage = parseFloat(document.getElementById('slider-wage').value);
+
+      document.getElementById('disp-profit').innerText = `${profit} 億円`;
+      document.getElementById('disp-buyback').innerText = `${buyback} 億円`;
+      document.getElementById('disp-per').innerText = `${per.toFixed(1)} 倍`;
+      document.getElementById('disp-wage').innerText = `${wage} 億円`;
+
+      // Base Equity = 1000 - buyback
+      const equity = Math.max(200, 1000 - buyback);
+      const roe = (profit / equity) * 100;
+      const marketCap = profit * per;
+      const pbr = marketCap / equity;
+
+      // Update Displays
+      document.getElementById('res-pbr').innerText = `${pbr.toFixed(2)} 倍`;
+      document.getElementById('res-roe').innerText = `${roe.toFixed(1)} %`;
+      document.getElementById('res-marketcap').innerText = `${Math.round(marketCap)} 億円`;
+
+      // PBR Eval
+      const evalPbr = document.getElementById('eval-pbr');
+      if (pbr >= 1.2) {
+        evalPbr.className = "metric-eval eval-good";
+        evalPbr.innerText = "プレミアム評価（合格）";
+      } else if (pbr >= 1.0) {
+        evalPbr.className = "metric-eval eval-good";
+        evalPbr.innerText = "1倍クリア（東証合格）";
+      } else if (pbr >= 0.8) {
+        evalPbr.className = "metric-eval eval-warn";
+        evalPbr.innerText = "1倍割れ（要改善）";
+      } else {
+        evalPbr.className = "metric-eval eval-bad";
+        evalPbr.innerText = "解散価値割れ（深刻）";
+      }
+
+      // ROE Eval
+      const evalRoe = document.getElementById('eval-roe');
+      if (roe >= 10.0) {
+        evalRoe.className = "metric-eval eval-good";
+        evalRoe.innerText = "高収益（グローバル水準）";
+      } else if (roe >= 8.0) {
+        evalRoe.className = "metric-eval eval-good";
+        evalRoe.innerText = "伊藤目標8%達成";
+      } else {
+        evalRoe.className = "metric-eval eval-warn";
+        evalRoe.innerText = "伊藤目標未達";
+      }
+
+      // Labor / Living Score
+      const laborScore = Math.min(100, Math.max(10, Math.round(35 + (wage * 1.8) - (buyback * 0.08))));
+      const resLabor = document.getElementById('res-labor');
+      const evalLabor = document.getElementById('eval-labor');
+      resLabor.innerText = `${laborScore} 点`;
+      if (laborScore >= 70) {
+        evalLabor.className = "metric-eval eval-good";
+        evalLabor.innerText = "生活安定・賃上げ実感";
+      } else if (laborScore >= 45) {
+        evalLabor.className = "metric-eval eval-warn";
+        evalLabor.innerText = "生活防衛・節約志向";
+      } else {
+        evalLabor.className = "metric-eval eval-bad";
+        evalLabor.innerText = "賃金破壊・貧困深刻";
+      }
+
+      // Dynamic Verdict Box
+      const verdict = document.getElementById('pbrVerdict');
+      if (pbr >= 1.0 && buyback >= 200 && wage <= 5) {
+        verdict.innerHTML = `<strong>【現在の診断結果：自社株買いによる「見せかけのPBR1倍クリア」】</strong><br>
+        手元現金を300億円放出して自己資本を削り落としたことで、自己資本は1,000億円から700億円へ圧縮され、ROE（${roe.toFixed(1)}%）とPBR（${pbr.toFixed(2)}倍）は東証の合格基準を突破しました。<br>
+        しかし、従業員の賃上げはゼロ（${wage}億円）。稼いだキャッシュがそのまま金融市場へと吸い上げられただけであり、実体経済の労働者には1円も恩恵が届かない典型的な「株価バブルと生活苦の二重構造」が生み出されています。`;
+      } else if (pbr >= 1.0 && wage >= 20 && per >= 16) {
+        verdict.innerHTML = `<strong>【現在の診断結果：人的投資・本質的成長による「王道のPBR1倍達成」】</strong><br>
+        年間${wage}億円のベースアップと人材投資を実行したため短期利益はやや抑えられていますが、市場が将来のイノベーションと持続可能性を評価し、PERが${per.toFixed(1)}倍へと跳ね上がったことで、見事にPBR ${pbr.toFixed(2)}倍を達成しました。<br>
+        従業員の生活防衛スコアは${laborScore}点と高く、企業と労働者が共に豊かになる本来あるべき資本循環が成立しています。`;
+      } else if (pbr < 1.0) {
+        verdict.innerHTML = `<strong>【現在の診断結果：PBR 1倍割れの解散価値割れ状態】</strong><br>
+        現在のPBRは${pbr.toFixed(2)}倍。時価総額（${Math.round(marketCap)}億円）が純資産（${Math.round(equity)}億円）を下回っており、東証やアクティビストから「資本効率が悪い」と猛烈な改善圧力を受けている状態です。スライダーで自社株買いや利益改善、賃上げ投資を試してみてください。`;
+      } else {
+        verdict.innerHTML = `<strong>【現在の診断結果：複合的な改善状態】</strong><br>
+        PBRは${pbr.toFixed(2)}倍。バランスの取れた改善が進んでいます。自社株買いの規模や賃金還元の配分比率を調整して、各指標のトレードオフを体感してください。`;
+      }
+    }
+
+    // Initialize Simulator
+    recalcPBR();
+  </script>
+</body>
+</html>
