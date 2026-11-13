@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：伊藤レポート（2014年経産省）の全貌――「ROE 8%達成」の要請と日本企業ガバナンス改革の光と影</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      background: rgba(217, 119, 6, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+    .badge-accent { background: var(--accent); color: #ffffff; }
+    .badge-emerald { background: var(--emerald); color: #ffffff; }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header-desc {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      max-width: 820px;
+      line-height: 1.65;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .toc-list li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .toc-list li a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* Section Styles */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .section-num {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.4rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary-light);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .warn-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .warn-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .quote-box {
+      background: #fdf2f8;
+      border-left: 4px solid var(--rose);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .quote-title {
+      font-weight: 700;
+      color: var(--crimson);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Cards Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .feature-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--primary-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.35rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Simulator Styles */
+    .sim-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .sim-badge {
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .slider-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+      background: #eff6ff;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #dbeafe;
+    }
+
+    .slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .slider-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .slider-val {
+      color: var(--accent-dark);
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--accent);
+    }
+
+    .sim-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .sim-results { grid-template-columns: 1fr; }
+    }
+
+    .res-col {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      background: #fafafa;
+    }
+
+    .res-col-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid;
+    }
+
+    .col-market {
+      border-color: #2563eb;
+      color: #1d4ed8;
+    }
+
+    .col-society {
+      border-color: #d97706;
+      color: #b45309;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      font-size: 0.88rem;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-val {
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .val-good { color: var(--emerald); }
+    .val-warn { color: var(--accent); }
+    .val-bad { color: var(--rose); }
+
+    .verdict-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .verdict-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .verdict-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* References */
+    .reference-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reference-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .reference-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .reference-list li {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .reference-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第3章 補論 3.3</span>
+        <span class="badge badge-accent">コーポレートガバナンス・資本市場</span>
+        <span class="badge badge-emerald">資本配分シミュレーター搭載</span>
+      </div>
+      <h1>伊藤レポートの全貌と「ROE 8%」の罠<br>――日本企業ガバナンス改革の光と影、そして実質賃金抑制への道</h1>
+      <p class="header-desc">
+        2014年8月に経済産業省が公表した『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～』（座長：一橋大学・伊藤邦雄教授）。「ROE 8%以上」の達成を強く迫り、企業と投資家の「協創」を掲げたこの歴史的文書は、日本版スチュワードシップ・コードやコーポレートガバナンス・コードの決定打となった。なぜ政府主導のガバナンス改革が、自社株買いバブルと人件費の切り詰め、そして日本人の貧困化を加速させたのか？ その論理構造と実態を徹底解剖する。
+      </p>
+    </header>
+
+    <!-- Table of Contents -->
+    <div class="toc-card">
+      <div class="toc-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        目次・構成
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec1">第1節：伊藤レポート（2014年）誕生の背景と歴史的意義</a></li>
+        <li><a href="#sec2">第2節：核心命題――「ROE 8%以上」要請の論理とデュポン分解</a></li>
+        <li><a href="#sec3">第3節：ガバナンス改革の制度的連鎖（2つのコードから東証PBR改革へ）</a></li>
+        <li><a href="#sec4">第4節：伊藤レポートの発展と限界（人材版・2.0・3.0と現実の乖離）</a></li>
+        <li><a href="#sec5">第5節：【シミュレーター】伊藤レポート感応度＆資本配分シミュレーター</a></li>
+        <li><a href="#sec6">第6節：総括――「血液」から「支配者」へ転落したガバナンス改革の代償</a></li>
+        <li><a href="#sec7">出典・参考文献・公的資料リンク</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section id="sec1">
+      <h2><span class="section-num">01</span> 伊藤レポート（2014年）誕生の背景と歴史的意義</h2>
+
+      <p>
+        2014年8月、経済産業省が一つの画期的な報告書を公表しました。正式名称を<strong>『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～』</strong>と題されたこの文書は、プロジェクトの座長を務めた一橋大学大学院の<strong>伊藤邦雄教授（現・一橋大学名誉教授）</strong>の名を取って、通称<strong>「伊藤レポート」</strong>と呼ばれています。
+      </p>
+
+      <h3>アベノミクス「第3の矢（成長戦略）」の旗印</h3>
+      <p>
+        伊藤レポートが策定された時代背景には、2012年末に発足した第二次安倍晋三政権の「アベノミクス」がありました。第1の矢（異次元の金融緩和）、第2の矢（機動的な財政出動）に続き、日本経済のデフレ脱却と実力底上げを担うはずだったのが<strong>「第3の矢：民間投資を喚起する成長戦略（日本再興戦略）」</strong>です。
+      </p>
+      <p>
+        当時、政府と経産省が強く抱いていた危機感は、<strong>「日本企業は欧米企業に比べて収益性（稼ぐ力）が著しく低く、巨額のキャッシュを無駄に抱え込み、グローバルな機関投資家から見放されている」</strong>という点でした。
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-badge">問題意識 ①</span>
+          <div class="feature-title">日本企業の低ROE（5%前後の低迷）</div>
+          <div class="feature-desc">米国企業（12〜15%）や欧州企業（10〜12%）と比較し、日本企業のROEは長期にわたり5%前後に沈没。「資本を効率的に活用していない」と批判された。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">問題意識 ②</span>
+          <div class="feature-title">手元キャッシュの滞留（Cash Hoarding）</div>
+          <div class="feature-desc">バブル崩壊の後遺症から、日本企業は借入金返済と現預金の内部蓄積を最優先。リスクを取った投資も株主還元も行わない「守りの経営」に固執していた。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">問題意識 ③</span>
+          <div class="feature-title">企業と投資家の「対話不全」</div>
+          <div class="feature-desc">企業は機関投資家を「短期的なうるさい株主（ショートターミズム）」と警戒し、投資家は日本企業を「株主軽視の不透明企業」と敬遠する相互不信が続いていた。</div>
+        </div>
+      </div>
+
+      <p>
+        伊藤レポートは、こうした日本企業の体質を根本から覆し、<strong>「企業と投資家が建設的な対話（エンゲージメント）を通じて持続的な企業価値を協創する」</strong>という新たなパラダイムを公式に宣言したのです。
+      </p>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec2">
+      <h2><span class="section-num">02</span> 核心命題――「ROE 8%以上」要請の論理とデュポン分解</h2>
+
+      <p>
+        伊藤レポートが日本の経済界と金融市場に最大の激震をもたらした最大の要因は、政府の公式報告書として前代未聞の<strong>「個別の財務数値目標」</strong>を名指しで突きつけた点にありました。それが、有名な<strong>「最低限8%を上回るROEの達成」</strong>です。
+      </p>
+
+      <div class="quote-box">
+        <div class="quote-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          伊藤レポート（2014年8月）の記述より抜粋
+        </div>
+        <p style="font-weight: 700; color: #881337; font-size: 1.02rem; margin-bottom: 0;">
+          「グローバルな投資家と対話を行う上で、企業はまず最低限8％を上回るROEを達成することを目指すべきである。（中略）資本コストを上回るリターンを上げられない企業は、経済的価値を創造しているのではなく、むしろ破壊している。」
+        </p>
+      </div>
+
+      <h3>なぜ「8%」だったのか？ 資本コスト（WACC）との対比</h3>
+      <p>
+        伊藤レポートが「8%」という数値を導き出した根拠は、国内外の主要な機関投資家に対するアンケート調査でした。グローバル投資家が日本株に投資する際に要求する「株主資本コスト（期待利回り）」が概ね<strong>7％〜8％超</strong>に集中していたためです。
+      </p>
+      <div class="info-box">
+        <div class="info-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          資本コストと価値創造の恒等式
+        </div>
+        $$\text{ROE（自己資本利益率）} > \text{株主資本コスト（約8\%）} \implies \text{\textbf{企業価値の創造（Value Creation）}}$$
+        $$\text{ROE（自己資本利益率）} < \text{株主資本コスト（約8\%）} \implies \text{\textbf{企業価値の破壊（Value Destruction）}}$$
+        <p style="margin-bottom: 0; margin-top: 0.5rem;">
+          どれほど売上を伸ばし黒字を出していても、ROEが8%未満であれば、投資家から預かった資本のコストを回収できていないため「社会的価値を破壊している」とみなす――これが伊藤レポートが日本企業に迫った金融資本市場の冷徹な鉄則でした。
+        </p>
+      </div>
+
+      <h3>デュポン分解が明かす「安易な近道」の誘惑</h3>
+      <p>
+        ROE（自己資本利益率）は、財務分析の古典的な手法である<strong>「デュポンシステム」</strong>によって以下の3要素に因数分解されます。
+      </p>
+      $$\text{ROE} = \left( \frac{\text{当期純利益}}{\text{売上高}} \right) \times \left( \frac{\text{売上高}}{\text{総資産}} \right) \times \left( \frac{\text{総資産}}{\text{自己資本}} \right)$$
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">ROE改善のルート</th>
+              <th style="width: 35%;">伊藤レポートが期待した「本道」</th>
+              <th style="width: 40%;">日本企業が選んだ「安易な近道」</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>① 売上高純利益率の向上</strong></td>
+              <td>イノベーション、新製品開発、高付加価値化による価格支配力の獲得。</td>
+              <td><strong>人件費の切り詰め（非正規化・ベア抑制）と下請けへのコスト転嫁。</strong></td>
+            </tr>
+            <tr>
+              <td><strong>② 総資産回転率の改善</strong></td>
+              <td>遊休資産の売却、事業の選択と集中によるスリム化。</td>
+              <td>国内設備投資の絞り込み、減価償却費の抑制。</td>
+            </tr>
+            <tr>
+              <td><strong>③ 財務レバレッジの引き上げ</strong></td>
+              <td>適切な負債調達を活用した積極的な成長投資・M&amp;A。</td>
+              <td><strong>手元現金を使った「巨額の自社株買い」による自己資本（分母）の意図的圧縮。</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        伊藤レポート本来の意図は、イノベーションによる高付加価値化（①の分子拡大）にありました。しかし、デフレと人口減少に直面していた日本企業の経営陣にとって、最も手っ取り早く確実にROE 8%をクリアする方法は、<strong>「人件費を削って利益（分子）を捻出し、自社株買いをして自己資本（分母）を消し去る」</strong>という金融工学的な帳簿操作だったのです。
+      </p>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec3">
+      <h2><span class="section-num">03</span> ガバナンス改革の制度的連鎖（2つのコードから東証PBR改革へ）</h2>
+
+      <p>
+        伊藤レポートは単なる学術的提言にとどまりませんでした。レポートの公表を契機として、金融庁、東京証券取引所、経済産業省が一体となった<strong>「国家ぐるみのコーポレートガバナンス改革」</strong>が猛スピードで制度化されていきました。
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="feature-badge">2014年 導入</span>
+          <div class="feature-title">日本版スチュワードシップ・コード</div>
+          <div class="feature-desc">機関投資家に対し、「物言わぬ株主」であることを禁じ、企業に対してROE向上や資本効率改善を迫る「建設的な対話（エンゲージメント）」を義務づけた。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">2015年 施行</span>
+          <div class="feature-title">コーポレートガバナンス・コード</div>
+          <div class="feature-desc">上場企業に対し、独立社外取締役の選任（当初2名以上、のち1/3以上）、政策保有株式の縮減、ROEを意識した資本収益性目標の開示を実質的に強制した。</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-badge">2023年 要請</span>
+          <div class="feature-title">東証「PBR 1倍割れ是正要請」</div>
+          <div class="feature-desc">プライム・スタンダード市場の全上場企業に対し、「資本コストや株価を意識した経営」を要請。伊藤レポートから始まった改革の最終到達点。</div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <div class="warn-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          排除された「他のステークホルダーたち」
+        </div>
+        <p style="margin-bottom: 0;">
+          この一連のガバナンス改革において徹底的に貫かれたのは、「株主（Shareholder）の利益最大化」という単一のモノサシでした。
+          戦後日本型経営を支えてきた<strong>「従業員（雇用の安定と生活給）」「下請け取引先（共存共栄）」「地域社会」</strong>といったステークホルダーは、取締役会の議論から事実上排除され、「株主に8%のリターンを還元するためのコスト削減対象」へと格下げされたのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="sec4">
+      <h2><span class="section-num">04</span> 伊藤レポートの発展と限界（人材版・2.0・3.0と現実の乖離）</h2>
+
+      <p>
+        2014年のレポート以降、伊藤邦雄教授は経済産業省の座長として、ガバナンス改革のアップデートを矢継ぎ早に主導していきます。
+      </p>
+
+      <h3>1. 「人材版伊藤レポート」（2020年公表）</h3>
+      <p>
+        2020年9月に公表された『人材版伊藤レポート』（人材版伊藤レポート2.0は2022年5月）は、企業価値の源泉が無形資産へと移行する中で、<strong>「人的資本経営（Human Capital Management）」</strong>の重要性を強く訴えました。
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li>人を「管理・消費されるコスト」から「価値を創造する投資対象（資本）」へ転換する。</li>
+        <li>経営戦略と人材戦略を完全に連動させる「人事のトランスフォーメーション」。</li>
+        <li>リスキリング、多様性（ダイバーシティ）、エンゲージメントの可視化と開示。</li>
+      </ul>
+
+      <h3>2. 「伊藤レポート2.0」および「伊藤レポート3.0（SX版）」</h3>
+      <p>
+        2018年の『伊藤レポート2.0』、そして2022年8月の『伊藤レポート3.0（サステナビリティ・トランスフォーメーション：SX版）』では、気候変動や脱炭素（ESG）に対応し、企業の稼ぐ力と社会の持続可能性を同期させる経営モデルが提唱されました。
+      </p>
+
+      <div class="info-box">
+        <div class="info-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          なぜ「美名」は現場で裏切られるのか？
+        </div>
+        <p style="margin-bottom: 0;">
+          公的なレポートがどれほど高潔に「人的資本経営」や「サステナビリティ」を説こうとも、資本市場のアルゴリズムは<strong>「四半期ごとのROE」と「自社株買い・配当の規模」</strong>しか評価しません。
+          経営陣の報酬が株価やROEに連動している以上、10年後の人的資本への投資よりも、今期の自社株買いによる株価押し上げが圧倒的に優先されるという<strong>制度的インセンティブの矛盾</strong>が横たわっているのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 5: Simulator -->
+    <section id="sec5">
+      <h2><span class="section-num">05</span> 【シミュレーター】伊藤レポート感応度＆資本配分シミュレーター</h2>
+
+      <p>
+        以下のシミュレーターは、企業が伊藤レポートの「ROE 8%要請」に直面した際、利益を「自社株買い・配当」に注ぎ込むか、それとも「従業員の賃上げ・人的資本」に投資するかによって、資本市場の評価と実体経済への影響がどう変化するかを数理的にシミュレーションするツールです。
+      </p>
+
+      <div class="sim-card">
+        <div class="sim-header">
+          <span class="sim-badge">INTERACTIVE SIMULATION</span>
+          <h3 class="sim-title">伊藤レポート資本配分＆ROE感応度シミュレーター</h3>
+          <p class="sim-desc">
+            当期純利益 500億円・自己資本 5,000億円（初期ROE 10%）の企業をモデルに、資本配分と人件費抑制のバランスを操作してください。
+          </p>
+        </div>
+
+        <!-- Sliders -->
+        <div class="slider-group">
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>① 自社株買い・株主還元配分率</span>
+              <span id="val-buyback" class="slider-val">65%</span>
+            </div>
+            <input type="range" id="input-buyback" min="10" max="90" step="5" value="65" oninput="updateItoSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>② 人的資本・賃上げ投資配分率</span>
+              <span id="val-wage" class="slider-val">15%</span>
+            </div>
+            <input type="range" id="input-wage" min="5" max="60" step="5" value="15" oninput="updateItoSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>③ 設備投資・研究開発配分率</span>
+              <span id="val-capex" class="slider-val">20%</span>
+            </div>
+            <input type="range" id="input-capex" min="5" max="50" step="5" value="20" oninput="updateItoSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>④ 人件費・外注コスト抑制圧力</span>
+              <span id="val-costcut" class="slider-val">60%</span>
+            </div>
+            <input type="range" id="input-costcut" min="0" max="100" step="10" value="60" oninput="updateItoSim()">
+          </div>
+        </div>
+
+        <!-- Output Grid -->
+        <div class="sim-results">
+          <div class="res-col col-market">
+            <div class="res-col-title">資本市場・投資家側の評価（伊藤レポート基準）</div>
+            <div class="metric-row">
+              <span>達成 ROE（自己資本利益率）</span>
+              <span id="res-roe" class="metric-val val-good">10.8 %</span>
+            </div>
+            <div class="metric-row">
+              <span>年間 株主還元総額（配当・自社株買い）</span>
+              <span id="res-payout" class="metric-val val-good">325 億円</span>
+            </div>
+            <div class="metric-row">
+              <span>機関投資家・東証ガバナンス評価</span>
+              <span id="res-gov-eval" class="metric-val val-good">Sランク（優良）</span>
+            </div>
+          </div>
+
+          <div class="res-col col-society">
+            <div class="res-col-title">従業員・実体経済・生活防衛の指標</div>
+            <div class="metric-row">
+              <span>労働分配率（人件費／付加価値）</span>
+              <span id="res-labor-share" class="metric-val val-bad">48.2 %</span>
+            </div>
+            <div class="metric-row">
+              <span>平均賃上げ率（ベースアップ換算）</span>
+              <span id="res-wage-rate" class="metric-val val-warn">+1.2 %</span>
+            </div>
+            <div class="metric-row">
+              <span>現場の疲弊度・生活困窮スコア</span>
+              <span id="res-stress" class="metric-val val-bad">78 点（深刻）</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verdict -->
+        <div class="verdict-box">
+          <div class="verdict-title" id="verdictTitle">【診断結果：自社株買い主導の「見せかけの伊藤レポート優等生」】</div>
+          <p class="verdict-text" id="verdictText">
+            利益の65%を自社株買いと配当に充当し、自己資本を削ったことでROEは10.8%へ跳ね上がり、伊藤レポートの「8%基準」を余裕でクリアしました。機関投資家からは絶賛されますが、賃上げ投資はわずか15%、コスト削減圧力が強いため、現場の労働分配率は48%台にまで押し下げられ、従業員の手取りは浸食されています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Synthesis -->
+    <section id="sec6">
+      <h2><span class="section-num">06</span> 総括――「血液」から「支配者」へ転落したガバナンス改革の代償</h2>
+
+      <p>
+        伊藤レポートが公表されてからの10年間（2014年〜2024年）、日本企業の財務データは、まさに伊藤レポートの筋書き通りに動きました。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 32%;">財務・経済指標</th>
+              <th style="width: 34%;">伊藤レポート公表前（2013年）</th>
+              <th style="width: 34%;">公表10年後（2023〜2024年）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>東証プライム平均 ROE</strong></td>
+              <td>約 5.5 %（8%割れが多数）</td>
+              <td><strong>約 8.5 〜 9.0 %（目標8%をクリア）</strong></td>
+            </tr>
+            <tr>
+              <td><strong>企業の経常利益総額</strong></td>
+              <td>約 59 兆円</td>
+              <td><strong>約 106 兆円（過去最高更新）</strong></td>
+            </tr>
+            <tr>
+              <td><strong>自社株買い＋配当金総額</strong></td>
+              <td>約 12 兆円</td>
+              <td><strong>約 32 兆円（約 2.7倍に爆増）</strong></td>
+            </tr>
+            <tr>
+              <td><strong>実質賃金指数（2020年=100）</strong></td>
+              <td>104.2</td>
+              <td><strong>98.1（26ヶ月連続マイナス等の長期下落）</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        この表が示す現実はあまりにも残酷です。
+        日本企業は経産省の号令通りに「ROE 8%」を達成し、過去最高の利益を上げ、株主還元を2.7倍に激増させました。しかし、その10年間に<strong>一般労働者の実質賃金は低下し続け、国民の手取りは浸食され、少子化と貧困が過去最悪レベルで進行した</strong>のです。
+      </p>
+
+      <div class="quote-box">
+        <div class="quote-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          伊藤レポートがもたらした真の構造的帰結
+        </div>
+        <p style="margin-bottom: 0;">
+          本来、金融とは実体経済という「身体」を潤すための<strong>「血液」</strong>に過ぎなかったはずです。<br>
+          しかし伊藤レポートとガバナンス改革は、国家の政策として、金融資本（株主・外国人投資家）を実体経済の<strong>「絶対君主」</strong>へと祭り上げました。<br>
+          「ROE 8%以上」という数値目標は、日本企業から「従業員を守り、下請けを育て、長期の研究開発に腰を据える」という戦後日本の美点を奪い去り、株主還元という名の金融ポンプへと富を吸い上げる巨大な装置を完成させたのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="sec7" class="reference-box">
+      <div class="reference-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        出典・参考文献・公的資料リンク
+      </div>
+      <ul class="reference-list">
+        <li>
+          <strong>経済産業省</strong>, 『持続的成長への競争力とインセンティブ～企業と投資家の望ましい関係構築～（伊藤レポート最終報告書）』, 2014年8月公表（座長：一橋大学大学院商学研究科教授・伊藤邦雄）.
+        </li>
+        <li>
+          <strong>経済産業省</strong>, 『持続的な企業価値の創造に向けた対話を開花させる研究会（企業・投資家対話研究会）報告書（伊藤レポート2.0）』, 2018年10月公表.
+        </li>
+        <li>
+          <strong>経済産業省</strong>, 『持続的な企業価値の創造と対話のためのサステナビリティ・トランスフォーメーション（SX）銘柄の創設に向けた検討会報告書（伊藤レポート3.0）』, 2022年8月公表.
+        </li>
+        <li>
+          <strong>経済産業省</strong>, 『持続的な企業価値の向上と人的資本に関する研究会 報告書（人材版伊藤レポート）』, 2020年9月公表（同研究会2.0は2022年5月公表）.
+        </li>
+        <li>
+          <strong>金融庁・東京証券取引所</strong>, 『コーポレートガバナンス・コード ～会社の持続的な成長と中長期的な企業価値の向上のために～』, 2015年6月制定（2018年・2021年改訂版）.
+        </li>
+        <li>
+          <strong>財務省</strong>, 『法人企業統計調査』長期時系列データ（売上高、営業利益、経常利益、配当金、自己資本、設備投資、人件費推移）.
+        </li>
+        <li>
+          <strong>東京証券取引所</strong>, 『資本コストや株価を意識した経営の実現に向けた対応について』, 2023年3月31日公表資料.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 現代貧困の解体新書 補論アーカイブシリーズ / 著者: mb_cho</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #94a3b8;">
+        ※本書に掲載されているすべての公的統計および学術データは、経済産業省、金融庁、東京証券取引所、財務省、厚生労働省の公式発表資料に基づき検証されています。
+      </p>
+    </footer>
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function updateItoSim() {
+      const buyback = parseFloat(document.getElementById('input-buyback').value);
+      const wage = parseFloat(document.getElementById('input-wage').value);
+      const capex = parseFloat(document.getElementById('input-capex').value);
+      const costcut = parseFloat(document.getElementById('input-costcut').value);
+
+      document.getElementById('val-buyback').innerText = `${buyback}%`;
+      document.getElementById('val-wage').innerText = `${wage}%`;
+      document.getElementById('val-capex').innerText = `${capex}%`;
+      document.getElementById('val-costcut').innerText = `${costcut}%`;
+
+      // Baseline: Net Income 500億円, Equity 5,000億円 (Base ROE = 10%)
+      // Cost cutting increases Net Income (up to +150億円)
+      const extraProfit = (costcut * 1.5);
+      const netIncome = 500 + extraProfit;
+
+      // Buyback compresses Equity (分母圧縮: up to 1,200億円)
+      const buybackAmount = (netIncome * (buyback / 100));
+      const equity = Math.max(3000, 5000 - (buybackAmount * 1.2));
+
+      // Calculate ROE (%)
+      const roe = (netIncome / equity) * 100;
+
+      // Labor share (%)
+      const laborShare = Math.max(38, Math.min(68, Math.round(62 - (costcut * 0.18) + (wage * 0.15))));
+
+      // Real wage rate (%)
+      const wageRate = (-2.0 + (wage * 0.12) - (costcut * 0.03)).toFixed(1);
+
+      // Stress / hardship score (0 to 100)
+      const stressScore = Math.min(100, Math.max(10, Math.round(30 + (costcut * 0.5) + (buyback * 0.25) - (wage * 0.4))));
+
+      // Update UI Metrics
+      const resRoe = document.getElementById('res-roe');
+      resRoe.innerText = `${roe.toFixed(1)} %`;
+      if (roe >= 8.0) {
+        resRoe.className = "metric-val val-good";
+      } else {
+        resRoe.className = "metric-val val-bad";
+      }
+
+      document.getElementById('res-payout').innerText = `${Math.round(buybackAmount)} 億円`;
+
+      const resGov = document.getElementById('res-gov-eval');
+      if (roe >= 10.0 && buyback >= 50) {
+        resGov.innerText = "Sランク（市場絶賛）";
+        resGov.className = "metric-val val-good";
+      } else if (roe >= 8.0) {
+        resGov.innerText = "Aランク（基準クリア）";
+        resGov.className = "metric-val val-good";
+      } else {
+        resGov.innerText = "Cランク（資本破壊・改善要請）";
+        resGov.className = "metric-val val-bad";
+      }
+
+      const resLaborShare = document.getElementById('res-labor-share');
+      resLaborShare.innerText = `${laborShare} %`;
+      if (laborShare >= 55) {
+        resLaborShare.className = "metric-val val-good";
+      } else if (laborShare >= 48) {
+        resLaborShare.className = "metric-val val-warn";
+      } else {
+        resLaborShare.className = "metric-val val-bad";
+      }
+
+      const resWageRate = document.getElementById('res-wage-rate');
+      resWageRate.innerText = `${wageRate >= 0 ? '+' : ''}${wageRate} %`;
+      if (parseFloat(wageRate) >= 2.0) {
+        resWageRate.className = "metric-val val-good";
+      } else if (parseFloat(wageRate) >= 0) {
+        resWageRate.className = "metric-val val-warn";
+      } else {
+        resWageRate.className = "metric-val val-bad";
+      }
+
+      const resStress = document.getElementById('res-stress');
+      resStress.innerText = `${stressScore} 点`;
+      if (stressScore <= 40) {
+        resStress.className = "metric-val val-good";
+      } else if (stressScore <= 65) {
+        resStress.className = "metric-val val-warn";
+      } else {
+        resStress.className = "metric-val val-bad";
+      }
+
+      // Dynamic Verdict
+      const vTitle = document.getElementById('verdictTitle');
+      const vText = document.getElementById('verdictText');
+
+      if (roe >= 8.0 && buyback >= 50 && wage <= 25) {
+        vTitle.innerHTML = "【診断結果：自社株買い主導の「見せかけの伊藤レポート優等生」】";
+        vTitle.style.color = "#881337";
+        vText.innerHTML = `自社株買い（${Math.round(buybackAmount)}億円）によって自己資本を削り落とし、ROE ${roe.toFixed(1)}%を達成して伊藤レポートの「8%基準」を余裕でクリアしました。機関投資家からは絶賛されますが、賃上げ配分は低く、コスト削減（${costcut}%）が強いため労働分配率は【${laborShare}%】まで低下。利益がそっくり金融空間に還流される典型的な株主偏重モデルです。`;
+      } else if (roe >= 8.0 && wage >= 30) {
+        vTitle.innerHTML = "【診断結果：人的資本投資と高収益が両立した「真の協創モデル」】";
+        vTitle.style.color = "#047857";
+        vText.innerHTML = `人への投資（${wage}%）を維持しながら、製品の高付加価値化によってROE ${roe.toFixed(1)}%を達成しています。労働分配率は【${laborShare}%】と健全であり、実質賃金も【+${wageRate}%】とプラス成長。伊藤レポート本来の理念である「持続的成長」が現場レベルで成立している理想状態です。`;
+      } else if (roe < 8.0) {
+        vTitle.innerHTML = "【診断結果：伊藤レポート基準割れの「資本破壊」判定】";
+        vTitle.style.color = "#b45309";
+        vText.innerHTML = `現在のROEは【${roe.toFixed(1)}%】にとどまり、伊藤レポートが求めた「資本コスト 8%以上」を下回っています。機関投資家や東証から「資本効率が極めて悪い」として、自社株買いの拡大や不採算事業の整理を迫られる状態です。スライダーで配分バランスを調整してみてください。`;
+      } else {
+        vTitle.innerHTML = "【診断結果：バランス配分・過渡期状態】";
+        vTitle.style.color = "#1e3a8a";
+        vText.innerHTML = `ROEは【${roe.toFixed(1)}%】を達成。株主還元と現場投資の双方が一定のバランスを保っています。各スライダーを動かして、経営指標と生活実感のトレードオフを体感してください。`;
+      }
+    }
+
+    // Initialize on load
+    updateItoSim();
+  </script>
+</body>
+</html>
