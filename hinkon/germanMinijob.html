@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ドイツのミニジョブ（Minijob）と「低賃金セクター」の全貌――ハルツ改革の光と影・「ミニジョブの罠」と日本の年収の壁</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+    .badge-accent { background: var(--accent); color: #ffffff; }
+    .badge-emerald { background: var(--emerald); color: #ffffff; }
+    .badge-purple { background: var(--purple); color: #ffffff; }
+
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      max-width: 820px;
+    }
+
+    /* Main Content Layout */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2 .section-num {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.375rem;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Highlight Boxes */
+    .callout {
+      border-left: 4px solid var(--primary-light);
+      background: #f0fdf4;
+      padding: 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.25rem 0;
+    }
+
+    .callout.danger {
+      border-left-color: var(--rose);
+      background: #fff1f2;
+    }
+
+    .callout.warning {
+      border-left-color: var(--accent);
+      background: #fffbeb;
+    }
+
+    .callout.info {
+      border-left-color: var(--primary-light);
+      background: #eff6ff;
+    }
+
+    .callout.purple {
+      border-left-color: var(--purple);
+      background: #faf5ff;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .callout.danger .callout-title { color: var(--rose); }
+    .callout.warning .callout-title { color: var(--accent-dark); }
+    .callout.info .callout-title { color: var(--primary); }
+    .callout.purple .callout-title { color: var(--purple); }
+
+    /* Tables */
+    .data-table-container {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    thead {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    /* Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .compare-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .compare-card.card-de {
+      border-top: 4px solid var(--primary);
+    }
+
+    .compare-card.card-jp {
+      border-top: 4px solid var(--rose);
+    }
+
+    .compare-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Math Box */
+    .math-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* Interactive Simulator */
+    .sim-card {
+      background: #ffffff;
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+
+    .sim-badge {
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 0.25rem 0;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Preset Buttons */
+    .preset-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .preset-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #eff6ff;
+      border-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Slider Group */
+    .slider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .slider-val {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Simulator Results */
+    .sim-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .res-col {
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+    }
+
+    .res-col.col-main {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .res-col.col-sub {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .res-col.col-diag {
+      background: #faf5ff;
+      border-color: #d8b4fe;
+    }
+
+    .res-col-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .metric-hero {
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    .metric-hero-val {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-hero-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed #cbd5e1;
+      font-size: 0.88rem;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-val {
+      font-weight: 700;
+    }
+
+    .val-good { color: var(--emerald); }
+    .val-warn { color: var(--accent-dark); }
+    .val-bad { color: var(--rose); }
+
+    /* Meter Bar */
+    .meter-container {
+      margin-top: 0.75rem;
+    }
+
+    .meter-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 50%;
+      background: var(--emerald);
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Diagnosis Box */
+    .diag-box {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Reference Box */
+    .reference-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .ref-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .ref-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-light);
+      font-weight: bold;
+    }
+
+    .ref-item a {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    .ref-item a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      section {
+        padding: 1.25rem;
+      }
+      header {
+        padding: 1.75rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation (Condition 1: Only Portal TOP link) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-purple">労働経済学・国際比較</span>
+        <span class="badge badge-accent">インタラクティブ図解＆シミュレーター</span>
+      </div>
+      <h1>補論：ドイツのミニジョブ（Minijob）と「低賃金セクター」の全貌</h1>
+      <p>
+        「失業大国」から「低賃金大国」へ――。2003年ハルツ改革がもたらした少額雇用の爆発的普及、月603ユーロの壁が生み出す「ミニジョブの罠」、そして日本の「年収の壁」や非正規雇用問題と完全に酷似する構造的搾取を完全解剖。
+      </p>
+    </header>
+
+    <main>
+      <!-- Section 1: 定義と基本仕組み -->
+      <section id="sec1">
+        <h2><span class="section-num">01</span> ドイツのミニジョブ（Minijob）とは何か――制度の基本と最新基準</h2>
+        <p>
+          <strong>ミニジョブ（Minijob）</strong>とは、ドイツにおける少額雇用（Geringfügige Beschäftigung）の通称であり、月額給与が一定の上限（**2026年現在は月額603ユーロ以下**）に制限される低所得・短時間労働の雇用形態です。
+        </p>
+
+        <p>
+          かつては上限400ユーロ（後に450ユーロ、520ユーロ、538ユーロ）と固定されていましたが、現在は**「法定最低賃金で週10時間働いた場合の月額（法定最低賃金 $\times 130$ 時間 $\div 3$ ヶ月）」**に連動して自動改定される仕組みとなっています。
+        </p>
+
+        <div class="callout info">
+          <div class="callout-title">💡 ミニジョブの最大の特徴：労働者側の「税・社会保険料免除」</div>
+          <p>
+            ミニジョブで働く労働者は、**原則として所得税が非課税であり、健康保険料、介護保険料、失業保険料の労働者負担が完全に免除**されます（額面＝ほぼ手取り）。年金保険料（3.6%）のみ原則加入ですが、本人が希望すれば免除申請（オプトアウト）が可能です。
+          </p>
+        </div>
+
+        <h3>誰がミニジョブで働いているのか？</h3>
+        <p>
+          現在、ドイツ全土で**約700万人超**（全就業者数の約15〜18%）がミニジョブに従事しています。主な構成は以下の4グループです。
+        </p>
+        <ul style="padding-left: 1.5rem; margin-bottom: 1rem; font-size: 0.92rem; color: #334155;">
+          <li><strong>主婦・配偶者（世帯の第2稼ぎ手）</strong>：夫の社会保険の扶養に入りながら、非課税枠内でお小遣いや家計補填を稼ぐ層。</li>
+          <li><strong>学生・若年層</strong>：大学や職業訓練に通いながら、学業と両立して生活費を稼ぐアルバイト。</li>
+          <li><strong>退職者・年金生活高齢者</strong>：受給年金額だけでは物価高騰に追いつかず、生活防衛のためにスーパーや清掃で働く高齢者。</li>
+          <li><strong>副業（Nebentätigkeit）労働者</strong>：本業（正社員等）の給料だけでは生活費が足りず、夜間や週末にミニジョブを掛け持ちするダブルワーカー。</li>
+        </ul>
+
+        <h3>雇用主（企業）側の負担と優遇措置</h3>
+        <p>
+          労働者側が無税・保険料免除である一方、雇用主（企業）は定率の包括保険料・税金（**約31%強**：健康保険13%、公的年金15%、包括税2%、労働保険等）を連邦ミニジョブセンター（Minijob-Zentrale）へ一括納付します。企業にとっては、正社員のように手厚い解雇規制や複雑な労使交渉を回避し、必要な時間だけ安価に労働力を調達できる「便利な調整弁」として機能しています。
+        </p>
+      </section>
+
+      <!-- Section 2: ハルツ改革の歴史的背景 -->
+      <section id="sec2">
+        <h2><span class="section-num">02</span> 導入の歴史的背景――2003年「ハルツ改革」と低賃金化の軌跡</h2>
+        <p>
+          ミニジョブがドイツ社会に決定的な変革をもたらしたのは、2003年から2005年にかけて実施されたシュレーダー政権（社会民主党・緑の党連立）による大改革**「ハルツ改革（Hartz-Reformen）」**でした。
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card card-de">
+            <div class="compare-title">
+              <span>【改革前：1990年代後半〜2000年代初頭】</span>
+              <span class="badge badge-accent">「ヨーロッパの病人」</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #475569;">
+              東西ドイツ統一の後遺症と重い社会保障負担により、失業率が10%〜12%（約500万人）に達し、「手厚い福祉が人々の就労意欲を奪っている」と財界から激しく非難されていました。
+            </p>
+          </div>
+
+          <div class="compare-card card-jp">
+            <div class="compare-title">
+              <span>【ハルツ改革後：2005年以降〜現在】</span>
+              <span class="badge badge-emerald">「雇用奇跡」の裏の低賃金化</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #475569;">
+              失業保険給付を大幅に削減（ハルツIV）して失業者を市場へ追い立てるとともに、ミニジョブの上限を引き上げ、派遣労働を原則自由化。失業率は半減したものの、欧州最大の「低賃金セクター」が誕生しました。
+            </p>
+          </div>
+        </div>
+
+        <p>
+          フォルクスワーゲンの人事部長ペーター・ハルツが率いる委員会が立案したこの改革は、ドイツ経済の国際競争力を劇的に回復させ、後の「一人勝ち」をもたらしました。しかしその本質は、**「失業者を、極めて低賃金で不安定な少額雇用（ミニジョブ）へと強制的に吸収する」という社会契約の解体**であったのです。
+        </p>
+      </section>
+
+      <!-- Section 3: ミニジョブの罠と副作用 -->
+      <section id="sec3">
+        <h2><span class="section-num">03</span> ミニジョブがもたらした深刻な副作用――「ミニジョブの罠」と将来貧困</h2>
+        <p>
+          当初は「失業者が通常のフルタイム正規雇用へステップアップするための踏み台（Brücke）」として構想されたミニジョブでしたが、現実には労働者を底辺に縛り付ける**「3大副作用」**を生み出しました。
+        </p>
+
+        <div class="callout danger">
+          <div class="callout-title">⚠️ 副作用①：「ミニジョブの罠（Minijob-Falle）」と手取りの逆転</div>
+          <p>
+            ミニジョブの最大の問題は、月額上限（603ユーロ）をわずか1ユーロでも超えた瞬間に、通常の社会保険料と所得税の負担がフルに発生することです。
+          </p>
+          <p>
+            労働時間を増やして月収700ユーロに増額しても、税金と保険料が差し引かれて手取りが600ユーロを下回るという「手取りの崖（逆転現象）」が発生します。このため、労働者は自ら**「これ以上働くと損をするから」とシフトを抑制**し、企業も正規化を避けるという悪循環が固定化されました。
+          </p>
+        </div>
+
+        <h3>副作用②：正規雇用の浸食と「雇用の置き換え」</h3>
+        <p>
+          多くの企業が、本来なら社会保険付きのフルタイムや通常のパートを雇うべき業務を、複数のミニジョブ労働者（清掃、レジ打ち、物流倉庫、飲食調理など）に細切れに分割して外注・雇用するようになりました。これにより、正社員の雇用枠が奪われ、労働市場の二極化が急速に進みました。
+        </p>
+
+        <h3>副作用③：将来の「年金貧困・老後貧困（Altersarmut）」の時限爆弾</h3>
+        <p>
+          ミニジョブ労働者の多くは、手取りを最大化するために年金保険料の免除申請を行っています。しかし、これは**「将来の公的年金受給資格を自ら放棄している」**ことに他なりません。
+        </p>
+        <p>
+          何十年もミニジョブを続けた女性や高齢者は、引退期に達した際に十分な年金を受け取れず、国の基礎保障（生活保護に相当）に頼らざるを得ない「老後年金貧困」へと直行します。目先の手取り無税の甘い罠が、将来の貧困を構造的に再生産しているのです。
+        </p>
+      </section>
+
+      <!-- Section 4: 日本の「年収の壁」との酷似 -->
+      <section id="sec4">
+        <h2><span class="section-num">04</span> 日本の「年収の壁（103万・106万・130万）」と酷似する搾取の構造</h2>
+        <p>
+          ドイツのミニジョブ問題を学ぶことは、まさに現代日本が直面している「年収の壁」と「非正規雇用の二重構造」の本質を直視することに他なりません。日独両国の制度は、驚くほど瓜二つの病理を共有しています。
+        </p>
+
+        <div class="data-table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>ドイツの「ミニジョブ」</th>
+                <th>日本の「年収の壁（扶養枠）」</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>制度の閾値</strong></td>
+                <td>月額 603ユーロ（年間約 7,236ユーロ）</td>
+                <td>年収 103万・106万・130万円（税・社保の壁）</td>
+              </tr>
+              <tr>
+                <td><strong>優遇の内容</strong></td>
+                <td>所得税非課税・健康/失業保険料が完全免除</td>
+                <td>所得税非課税・配偶者控除・社保扶養（第3号被保険者）</td>
+              </tr>
+              <tr>
+                <td><strong>現場で起きる現象</strong></td>
+                <td><strong>「ミニジョブの罠」</strong><br>上限を超えると手取り激減のためシフト抑制</td>
+                <td><strong>「働き控え・就労調整」</strong><br>年末に人手不足が激化し時給上昇が阻害される</td>
+              </tr>
+              <tr>
+                <td><strong>企業の経営戦略</strong></td>
+                <td>正社員を解体し、安価な調整弁として細切れ雇用</td>
+                <td>人件費を「固定費」から「いつでも切れる変動費」へ</td>
+              </tr>
+              <tr>
+                <td><strong>将来の社会的ツケ</strong></td>
+                <td>老後の年金貧困（Altersarmut）の激増</td>
+                <td>単身女性・就職氷河期・高齢者の貧困と無年金・低年金</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          ドイツでは、ミニジョブの罠を緩和するために**「ミディジョブ（Midijob：月額603.01〜2,000ユーロの移行ゾーン）」**を設け、保険料負担を緩やかに上昇させる激変緩和措置を導入しました。日本においても社会保険の適用拡大が進められていますが、根本的な問題である「低賃金セクターへの依存」と「企業の社会保険料逃れ」を根絶しない限り、この二重構造は解消しません。
+        </p>
+      </section>
+
+      <!-- Section 5: インタラクティブ・シミュレーター -->
+      <section id="sec5">
+        <h2><span class="section-num">05</span> 【シミュレーター】ドイツ・ミニジョブ＆手取り逆転シミュレーター</h2>
+        <p>
+          以下のシミュレーターは、ドイツの時給と週間労働時間を操作することで、月額総支給額、労働者側の税・社会保険料、実際の手取り額、そして「ミニジョブの罠（手取りの崖）」がどこで発生するかをリアルタイムに体験できるツールです。
+        </p>
+
+        <div class="sim-card">
+          <div class="sim-header">
+            <span class="sim-badge">INTERACTIVE SIMULATION</span>
+            <h3 class="sim-title">ドイツ・ミニジョブ＆手取り逆転シミュレーター</h3>
+            <p class="sim-desc">
+              時給と週あたり労働時間を動かして、月額603ユーロの境界線で手取りがどう逆転するか確認してください。
+            </p>
+          </div>
+
+          <!-- Preset Buttons -->
+          <div class="preset-container">
+            <span class="preset-label">🇩🇪 雇用モデル：</span>
+            <button class="preset-btn active" onclick="applyMinijobPreset('minijob_safe', this)">① ミニジョブ上限内（週9.5時間）</button>
+            <button class="preset-btn" onclick="applyMinijobPreset('minijob_cliff', this)">② 罠の直撃（週11時間・上限微超え）</button>
+            <button class="preset-btn" onclick="applyMinijobPreset('midijob_zone', this)">③ ミディジョブ（週20時間・移行帯）</button>
+            <button class="preset-btn" onclick="applyMinijobPreset('fulltime', this)">④ フルタイム一般雇用（週38時間）</button>
+          </div>
+
+          <!-- Sliders Grid -->
+          <div class="slider-grid">
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>① 時給（法定最低賃金水準）</span>
+                <span id="lbl-wage" class="slider-val">14.00 €</span>
+              </div>
+              <input type="range" id="input-wage" min="12.41" max="25.00" step="0.5" value="14.00" oninput="updateMinijobSim()">
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>② 週間労働時間</span>
+                <span id="lbl-hours" class="slider-val">9.5 時間/週</span>
+              </div>
+              <input type="range" id="input-hours" min="2" max="40" step="0.5" value="9.5" oninput="updateMinijobSim()">
+            </div>
+          </div>
+
+          <!-- Simulation Results -->
+          <div class="sim-results">
+            <!-- 手取り Hero -->
+            <div class="res-col col-main">
+              <div class="res-col-title">💶 労働者の実際の手取り月額（Net）</div>
+              <div class="metric-hero">
+                <div id="res-net-val" class="metric-hero-val val-good">577 €</div>
+                <div id="res-status-lbl" class="metric-hero-lbl" style="font-weight: 700; color: var(--emerald);">ミニジョブ枠内（税・社保免除）</div>
+              </div>
+              <div class="meter-container">
+                <div class="meter-bar">
+                  <div id="meter-fill" class="meter-fill" style="width: 28%; background: var(--emerald);"></div>
+                </div>
+                <div class="meter-labels">
+                  <span>0 €</span>
+                  <span>603 €（境界）</span>
+                  <span>1,200 €</span>
+                  <span>2,000 €超</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 内訳メトリクス -->
+            <div class="res-col col-sub">
+              <div class="res-col-title">📊 支給額と控除額の内訳</div>
+              <div class="metric-row">
+                <span>月額総支給額（Gross）</span>
+                <span id="res-gross" class="metric-val">577 €</span>
+              </div>
+              <div class="metric-row">
+                <span>労働者負担（税・社会保険料）</span>
+                <span id="res-deduct" class="metric-val val-good">0 €（0%）</span>
+              </div>
+              <div class="metric-row">
+                <span>雇用主負担コスト（約31%）</span>
+                <span id="res-employer" class="metric-val">179 €</span>
+              </div>
+              <div class="metric-row">
+                <span>日本円換算 手取り（1€=160円）</span>
+                <span id="res-jpy" class="metric-val">約 92,300 円</span>
+              </div>
+            </div>
+
+            <!-- 診断 -->
+            <div class="res-col col-diag">
+              <div class="res-col-title">🔍 労働市場・生活リスク診断</div>
+              <div id="res-diagnosis" class="diag-box">
+                <strong>【ミニジョブ枠内】</strong><br>
+                総支給額が上限603€以内に収まっており、手取り率は100%です。しかし将来の公的年金受給権はほぼ蓄積されず、老後貧困リスクを抱えています。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: 本書第4章との連動解説 -->
+      <section id="sec6">
+        <h2><span class="section-num">06</span> 本書『現代貧困の解体新書』第4章との連動解説</h2>
+        <p>
+          本書『第1巻 構造編』の第4章「労働市場の二重構造と『労働分配率』低下のメカニズム」では、先進国共通で見られる「雇用の二極化と労働分配率の下落」の象徴的事例としてドイツのハルツ改革とミニジョブを取り上げています。
+        </p>
+
+        <div class="callout purple">
+          <div class="callout-title">📖 本書第4章の核心的メッセージ</div>
+          <p>
+            「ドイツはハルツ改革によって失業率を半減させ、『経済の優等生』と称賛された。だがその実態は、全労働者の2割以上をミニジョブなどの低賃金セクターへ叩き落とし、労働分配率を急激に引き下げることによって達成された欺瞞の繁栄であった」。
+          </p>
+          <p>
+            日本が派遣法緩和によって非正規雇用を全体の36.5%（2,128万人）まで膨張させ、年収の壁によってパート労働者の時給と手取りを抑え込んできた構造は、まさにドイツのミニジョブと完全に同一の「新自由主義的搾取の青写真」なのです。
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: 出典・参考文献・公的資料リンク (Condition 2: Dead links avoided) -->
+      <section id="sec7" class="reference-box">
+        <h2><span class="section-num">07</span> 出典・参考文献・公的資料リンク</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          ※確実なアクセスが確認された公式機関、公的統計、および主要解説資料を掲載しています。
+        </p>
+        <ul class="ref-list">
+          <li class="ref-item">
+            <strong>ドイツ連邦ミニジョブセンター（Minijob-Zentrale）公式</strong>：ミニジョブの上限額、社会保険料率、税制上の優遇措置公式ガイド。<br>
+            <a href="https://www.minijob-zentrale.de/DE/home/home_node.html" target="_blank" rel="noopener noreferrer">Minijob-Zentrale (Offizielle Website)</a>
+          </li>
+          <li class="ref-item">
+            <strong>独立行政法人 労働政策研究・研修機構（JILPT）</strong>：ドイツにおける最低賃金引き上げとミニジョブ上限額の改定に関する詳細報告。<br>
+            <a href="https://www.jil.go.jp/foreign/jihou/2024/02/germany_01.html" target="_blank" rel="noopener noreferrer">JILPT：ドイツ最低賃金とミニジョブ動向レポート</a>
+          </li>
+          <li class="ref-item">
+            <strong>ドイツ連邦統計局（Destatis）</strong>：ドイツの雇用形態別就業者数、低賃金セクター比率の公式統計。<br>
+            <a href="https://www.destatis.de/EN/Home/_node.html" target="_blank" rel="noopener noreferrer">Statistisches Bundesamt (Destatis)</a>
+          </li>
+          <li class="ref-item">
+            <strong>Wikipedia（日本語版）</strong>：ミニジョブの制度概要、ハルツ改革との歴史的連関、制度的批判。<br>
+            <a href="https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%8B%E3%82%B8%E3%83%A7%E3%83%96" target="_blank" rel="noopener noreferrer">ミニジョブ - Wikipedia</a>
+          </li>
+          <li class="ref-item">
+            <strong>スマートハビット グローバル人材メディア</strong>：ドイツにおけるミニジョブ制度と外国人労働者の雇用実態。<br>
+            <a href="https://www.smarthabit.net/enterprise/blog/jinzaiglobal0015" target="_blank" rel="noopener noreferrer">Smart Habit：ドイツのミニジョブ制度とは</a>
+          </li>
+          <li class="ref-item">
+            <strong>GoGermany 現地情報ポータル</strong>：ドイツでアルバイト・ミニジョブを探す際の具体的留意点と所得制限。<br>
+            <a href="https://gogermany.jp/doitsu-arubaito/" target="_blank" rel="noopener noreferrer">GoGermany：ドイツのアルバイト・ミニジョブ完全ガイド</a>
+          </li>
+          <li class="ref-item">
+            <strong>Peter Hartz et al. (2002)</strong>：『Moderne Dienstleistungen am Arbeitsmarkt』（ハルツ委員会最終報告書・ドイツ労働市場改革青写真）［歴史的公的文書］
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="badge-row" style="justify-content: center; margin-bottom: 0.75rem;">
+        <span class="badge badge-primary">現代貧困の解体新書 公式Web補論</span>
+      </div>
+      <p style="margin-bottom: 0.5rem;">
+        『現代貧困の解体新書――見えない搾取の構造と処方箋』 著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)
+      </p>
+      <p>
+        <a href="indexHinkon.html">← 補論ポータルTOPへ戻る</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- JavaScript: ミニジョブシミュレーター動的計算スクリプト -->
+  <script>
+    const minijobPresets = {
+      minijob_safe: { wage: 14.0, hours: 9.5 },
+      minijob_cliff: { wage: 14.0, hours: 11.0 },
+      midijob_zone: { wage: 15.0, hours: 20.0 },
+      fulltime: { wage: 16.0, hours: 38.0 }
+    };
+
+    function applyMinijobPreset(key, btnElem) {
+      const p = minijobPresets[key];
+      if (!p) return;
+
+      document.getElementById('input-wage').value = p.wage;
+      document.getElementById('input-hours').value = p.hours;
+
+      const btns = document.querySelectorAll('.preset-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (btnElem) {
+        btnElem.classList.add('active');
+      }
+
+      updateMinijobSim();
+    }
+
+    function updateMinijobSim() {
+      const wage = parseFloat(document.getElementById('input-wage').value);
+      const hours = parseFloat(document.getElementById('input-hours').value);
+
+      document.getElementById('lbl-wage').innerText = wage.toFixed(2) + ' €';
+      document.getElementById('lbl-hours').innerText = hours.toFixed(1) + ' 時間/週';
+
+      // 月額総支給額 (週時間 * 4.33週)
+      const gross = wage * hours * 4.3333;
+      const limit = 603.0; // 2026年最新ミニジョブ上限
+      const midiLimit = 2000.0; // ミディジョブ上限
+
+      let net = gross;
+      let deductRate = 0;
+      let deduct = 0;
+      let employerCost = 0;
+      let statusText = '';
+      let statusColor = 'var(--emerald)';
+      let heroClass = 'metric-hero-val val-good';
+      let diagHtml = '';
+
+      if (gross <= limit) {
+        // ミニジョブ枠内 (労働者免除・雇用主約31.2%)
+        deduct = 0;
+        net = gross;
+        deductRate = 0;
+        employerCost = gross * 0.312;
+        statusText = 'ミニジョブ枠内（税・社保免除）';
+        statusColor = 'var(--emerald)';
+        heroClass = 'metric-hero-val val-good';
+        diagHtml = `<strong>【ミニジョブ枠内】</strong><br>総支給額（${Math.round(gross)}€）が上限603€以内に収まっており、税金・保険料が免除されて額面がほぼ100%手取りになります。しかし、将来の公的年金受給権はほぼ形成されず、老後貧困リスクを内包しています。`;
+      } else if (gross <= midiLimit) {
+        // ミディジョブ (移行帯: 段階的保険料負担 約11%〜20%)
+        // 簡易線形スライディングスケール
+        const factor = (gross - limit) / (midiLimit - limit);
+        deductRate = 0.12 + (factor * 0.08); // 12%〜20%
+        deduct = gross * deductRate;
+        net = gross - deduct;
+        employerCost = gross * 0.20; // 雇用主約20%
+
+        if (gross < 680) {
+          // ミニジョブの罠（手取り逆転）
+          statusText = '⚠️ ミニジョブの罠（手取り激減エリア）';
+          statusColor = 'var(--rose)';
+          heroClass = 'metric-hero-val val-bad';
+          diagHtml = `<strong>【ミニジョブの罠 直撃！】</strong><br>総支給額が上限603€をわずかに超えた（${Math.round(gross)}€）ため、社会保険料の負担（${Math.round(deduct)}€）が一気に発生！ その結果、手取り（${Math.round(net)}€）がミニジョブ上限時（603€）を下回る「手取り逆転の崖」が発生しています。労働者が就労調整（シフト抑制）を行う最大の元凶です。`;
+        } else {
+          statusText = 'ミディジョブ（移行帯・一部保険適用）';
+          statusColor = 'var(--accent-dark)';
+          heroClass = 'metric-hero-val val-warn';
+          diagHtml = `<strong>【ミディジョブ移行ゾーン】</strong><br>社会保険に正規加入しつつ、労働者負担が軽減されているゾーンです。将来の年金受給権はフルに発生するため、キャリア形成と生活保障の観点からはミニジョブより健全です。`;
+        }
+      } else {
+        // フルタイム一般雇用 (標準税社保負担 約20%〜30%)
+        deductRate = 0.21;
+        deduct = gross * deductRate;
+        net = gross - deduct;
+        employerCost = gross * 0.20;
+        statusText = '一般雇用（正規社会保険フル適用）';
+        statusColor = 'var(--primary)';
+        heroClass = 'metric-hero-val val-good';
+        diagHtml = `<strong>【一般雇用・自立生計】</strong><br>フルタイム水準の就労です。社会保険料はフル負担となりますが、自立した生活を営み、十分な失業保障・年金受給資格を獲得できます。`;
+      }
+
+      // UI Outputs
+      document.getElementById('res-gross').innerText = Math.round(gross).toLocaleString() + ' €';
+      document.getElementById('res-net-val').innerText = Math.round(net).toLocaleString() + ' €';
+      document.getElementById('res-net-val').className = heroClass;
+      document.getElementById('res-deduct').innerText = Math.round(deduct).toLocaleString() + ' € (' + (deductRate * 100).toFixed(1) + '%)';
+      document.getElementById('res-employer').innerText = Math.round(employerCost).toLocaleString() + ' €';
+      document.getElementById('res-jpy').innerText = '約 ' + Math.round(net * 160).toLocaleString() + ' 円';
+
+      const statusLbl = document.getElementById('res-status-lbl');
+      statusLbl.innerText = statusText;
+      statusLbl.style.color = statusColor;
+
+      const meterFill = document.getElementById('meter-fill');
+      const meterPercent = Math.min(Math.max((gross / 2200) * 100, 0), 100);
+      meterFill.style.width = meterPercent + '%';
+      meterFill.style.background = statusColor;
+
+      document.getElementById('res-diagnosis').innerHTML = diagHtml;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateMinijobSim();
+    });
+  </script>
+</body>
+</html>
