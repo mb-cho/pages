@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ボーリーの法則（Bowley's Law）の全貌と崩壊の軌跡――「労働分配率一定の神話」から格差拡大の現代へ</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+    .badge-accent { background: var(--accent); color: #ffffff; }
+    .badge-emerald { background: var(--emerald); color: #ffffff; }
+    .badge-purple { background: var(--purple); color: #ffffff; }
+
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      max-width: 820px;
+    }
+
+    /* Main Content Layout */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2 .section-num {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.375rem;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Highlight Boxes */
+    .callout {
+      border-left: 4px solid var(--primary-light);
+      background: #f0fdf4;
+      padding: 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.25rem 0;
+    }
+
+    .callout.danger {
+      border-left-color: var(--rose);
+      background: #fff1f2;
+    }
+
+    .callout.warning {
+      border-left-color: var(--accent);
+      background: #fffbeb;
+    }
+
+    .callout.info {
+      border-left-color: var(--primary-light);
+      background: #eff6ff;
+    }
+
+    .callout.purple {
+      border-left-color: var(--purple);
+      background: #faf5ff;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .callout.danger .callout-title { color: var(--rose); }
+    .callout.warning .callout-title { color: var(--accent-dark); }
+    .callout.info .callout-title { color: var(--primary); }
+    .callout.purple .callout-title { color: var(--purple); }
+
+    /* Tables */
+    .data-table-container {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    thead {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    /* Comparison Grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .compare-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .compare-card.card-era1 {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .compare-card.card-era2 {
+      border-top: 4px solid var(--rose);
+    }
+
+    .compare-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Math Box */
+    .math-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* Interactive Simulator */
+    .sim-card {
+      background: #ffffff;
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+
+    .sim-badge {
+      background: #dbeafe;
+      color: #1e40af;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      display: inline-block;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 0.25rem 0;
+    }
+
+    .sim-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Preset Buttons */
+    .preset-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding: 0.75rem;
+      background: #f8fafc;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .preset-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+
+    .preset-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #eff6ff;
+      border-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Slider Group */
+    .slider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .slider-val {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Simulator Results */
+    .sim-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .res-col {
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+    }
+
+    .res-col.col-main {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .res-col.col-sub {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .res-col.col-diag {
+      background: #faf5ff;
+      border-color: #d8b4fe;
+    }
+
+    .res-col-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .metric-hero {
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    .metric-hero-val {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-hero-lbl {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed #cbd5e1;
+      font-size: 0.88rem;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-val {
+      font-weight: 700;
+    }
+
+    .val-good { color: var(--emerald); }
+    .val-warn { color: var(--accent-dark); }
+    .val-bad { color: var(--rose); }
+
+    /* Meter Bar */
+    .meter-container {
+      margin-top: 0.75rem;
+    }
+
+    .meter-bar {
+      height: 12px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 66.7%;
+      background: var(--emerald);
+      transition: width 0.3s ease, background 0.3s ease;
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Diagnosis Box */
+    .diag-box {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Reference Box */
+    .reference-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .ref-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ref-item {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .ref-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-light);
+      font-weight: bold;
+    }
+
+    .ref-item a {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    .ref-item a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      section {
+        padding: 1.25rem;
+      }
+      header {
+        padding: 1.75rem 1.25rem;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation (Condition 1: Only Portal TOP link) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-purple">マクロ経済学・分配理論</span>
+        <span class="badge badge-accent">インタラクティブ図解＆シミュレーター</span>
+      </div>
+      <h1>補論：ボーリーの法則（Bowley's Law）の全貌と崩壊の軌跡</h1>
+      <p>
+        「国民所得に占める労働分配率は、長期的に一定（約3分の2）に保たれる」――。20世紀マクロ経済学を支配した経験則の数理的背景、コブ＝ダグラス型生産関数との関係、そして1980年代以降の新自由主義とAI・デジタル寡占による劇的崩壊を完全解読。
+      </p>
+    </header>
+
+    <main>
+      <!-- Section 1: 定義と本質 -->
+      <section id="sec1">
+        <h2><span class="section-num">01</span> ボーリーの法則とは何か――「労働分配率一定」という20世紀のドグマ</h2>
+        <p>
+          <strong>ボーリーの法則（Bowley's Law）</strong>とは、一国の経済において、技術革新が進み、経済規模がどれほど拡大しても、**「国民所得に占める労働者の取り分（労働分配率）は、長期間にわたってほぼ一定（約3分の2、65%〜70%前後）に保たれる」**という経済学の経験則です。
+        </p>
+
+        <p>
+          イギリスの著名な統計学者・経済学者である<strong>アーサー・ボーリー（Arthur Lyon Bowley, 1869–1957）</strong>が、19世紀末から1920年代にかけての英国の賃金・国民所得統計を分析し、社会全体の富が増加しても賃金のシェアが驚くほど安定していることを発見しました。後にノーベル経済学賞受賞者の<strong>ポール・サミュエルソン</strong>がこれを「ボーリーの法則」と命名し、広く世界に定着しました。
+        </p>
+
+        <div class="callout info">
+          <div class="callout-title">💡 ジョン・メイナード・ケインズの驚嘆――「説明のつかない奇跡」</div>
+          <p>
+            20世紀を代表する大経済学者ケインズは、1939年の論文『相対的所得分配の安定性』において、この労働分配率の不変性を次のように評しました。<br>
+            <em>「激動する経済環境、価格変動、景気循環、労使の力関係の変動にもかかわらず、労働分配率がほぼ一定に保たれているという事実は、最も驚くべき経験的法則の一つであり、正当な説明のつかない奇跡（an unexplained anomaly）である」。</em>
+          </p>
+        </div>
+
+        <p>
+          ボーリーの法則が意味していたのは、**「経済が成長すれば、労働者は何もしなくても成長率と同じペースで給料が自然に増えていく」**という楽観的な調和の世界でした。資本家と労働者の間で血みどろの階級闘争をしなくとも、パイ全体を拡大しさえすれば、労働者には常に「全体の約3分の2」という決まった分け前が保証される――。この前提こそが、戦後中流階級社会（一億総中流）の思想的土台となっていたのです。
+        </p>
+      </section>
+
+      <!-- Section 2: 数理的背景 -->
+      <section id="sec2">
+        <h2><span class="section-num">02</span> 数理的背景――コブ＝ダグラス型生産関数との美しい整合</h2>
+        <p>
+          ボーリーの発見した経験的安定性は、近代マクロ経済学における標準的な生産理論である<strong>「コブ＝ダグラス型生産関数（Cobb-Douglas Production Function）」</strong>の数学的基礎として採用されました。
+        </p>
+
+        <p>
+          1928年、数学者チャールズ・コブと経済学者ポール・ダグラスは、アメリカ製造業のデータから、産出量（GDP $Y$）が「資本ストック $K$」と「労働投入量 $L$」によって次のように決定される数式モデルを提示しました。
+        </p>
+
+        <div class="math-box">
+          $$Y = A K^\alpha L^{1-\alpha} \quad (0 < \alpha < 1)$$
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center;">
+          （$A$：全要素生産性 / 技術進歩水準、$\alpha$：資本の産出弾力性、$1-\alpha$：労働の産出弾力性）
+        </p>
+
+        <h3>完全競争とオイラーの定理による分配率の導出</h3>
+        <p>
+          新古典派経済学の完全競争市場のもとでは、労働者には「労働の限界生産力（労働者を1人増やしたときに増える生産量）」に等しい実質賃金 $w$ が支払われます。
+        </p>
+
+        <div class="math-box" style="text-align: left; font-size: 0.95rem;">
+          $$\text{実質賃金 } w = \frac{\partial Y}{\partial L} = (1-\alpha) A K^\alpha L^{-\alpha} = (1-\alpha) \frac{Y}{L}$$
+        </div>
+
+        <p>
+          この両辺に労働投入量 $L$ を掛けると、労働者全員に支払われる「雇用者報酬総額（総人件費）」が求まります。
+        </p>
+
+        <div class="math-box" style="text-align: left; font-size: 0.95rem;">
+          $$\text{総人件費} = w \cdot L = (1-\alpha) Y$$
+        </div>
+
+        <p>
+          したがって、国民所得 $Y$ に占める労働分配率は、以下のように**パラメータ $(1-\alpha)$ そのものとなり、資本や労働の量に関係なく完全に一定**になります。
+        </p>
+
+        <div class="callout purple">
+          <div class="callout-title">📐 数理的帰結：コブ＝ダグラス関数における労働分配率</div>
+          $$\text{労働分配率} = \frac{w \cdot L}{Y} = 1 - \alpha \quad (\text{定数})$$
+          $$\text{資本分配率} = \frac{r \cdot K}{Y} = \alpha \quad (\text{定数})$$
+        </div>
+
+        <p>
+          もし $\alpha \approx 0.33$（約3分の1）であれば、労働分配率は $1 - \alpha \approx 0.67$（約3分の2＝67%）となります。新古典派経済学は、この数式を用いて「技術構造によって分配率は自然に一定に決まるのだから、政策的に賃金を無理に引き上げたり労働組合が闘争したりする必要はない」と主張したのです。
+        </p>
+      </section>
+
+      <!-- Section 3: 歴史的検証 -->
+      <section id="sec3">
+        <h2><span class="section-num">03</span> 歴史的検証――「資本主義の黄金時代」における安定と労使妥協</h2>
+        <p>
+          第二次世界大戦後から1970年代初頭にかけてのいわゆる**「資本主義の黄金時代（Golden Age of Capitalism）」**において、アメリカ、イギリス、西ドイツ、日本などの先進国では、実際にボーリーの法則が驚くほどの精度で成立していました。
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card card-era1">
+            <div class="compare-title">
+              <span>【黄金時代：1950〜1970年代】</span>
+              <span class="badge badge-emerald">ボーリーの法則成立期</span>
+            </div>
+            <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #334155;">
+              <li><strong>労働分配率</strong>：各先進国で65%〜70%の高水準で安定推移。</li>
+              <li><strong>実質賃金と生産性の関係</strong>：労働生産性が年率3%伸びれば、実質賃金も完全に同じ年率3%で上昇（完全な連動）。</li>
+              <li><strong>制度的背景</strong>：ケインズ主義的完全雇用政策、手厚い福祉国家、強力な労働組合による春闘や産業別労働協約（フォーディズム型労使妥協）。</li>
+            </ul>
+          </div>
+
+          <div class="compare-card card-era2">
+            <div class="compare-title">
+              <span>【新自由主義期：1980年代〜現在】</span>
+              <span class="badge badge-accent">ボーリーの法則崩壊期</span>
+            </div>
+            <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #334155;">
+              <li><strong>労働分配率</strong>：日米欧の主要先進国で長期下落トレンドへ突入（50%台へ）。</li>
+              <li><strong>実質賃金と生産性の関係</strong>：生産性が上がっても賃金が伸びない「グレート・デカップリング（大乖離）」の発生。</li>
+              <li><strong>制度的背景</strong>：サッチャリズム・レーガノミクス、労働市場の規制緩和、グローバル化、株主至上主義（ROE至上命令）。</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          しかし、経済史家や制度派経済学者（SSA理論等）が指摘するように、黄金時代において労働分配率が一定であったのは、コブ＝ダグラス関数の神秘的な力によるものではありませんでした。それは、**「強力な労働組合と福祉国家が、資本家による労働分配率の切り下げを制度的に阻止していた」**という政治的・社会的な力関係の産物だったのです。
+        </p>
+      </section>
+
+      <!-- Section 4: 1980年代以降の劇的崩壊 -->
+      <section id="sec4">
+        <h2><span class="section-num">04</span> 1980年代以降の劇的崩壊――なぜ「鉄則」は破られたのか？</h2>
+        <p>
+          1980年代以降、世界の経済学界を揺るがしたのは、**「ボーリーの法則の完全な崩壊」**でした。
+        </p>
+
+        <p>
+          OECD（2018, 2026）やILO、IMFの包括的な実証調査が明らかにしたように、アメリカ、ドイツ、日本をはじめとする主要先進国において、1980年代を境に労働分配率は持続的な下落トレンドへと転じました。コブ＝ダグラス関数が前提とした「分配率不変」の仮説は完全に破綻したのです。
+        </p>
+
+        <div class="data-table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>崩壊をもたらした4大構造要因</th>
+                <th>メカニズムと具体的影響</th>
+                <th>労働分配率への押し下げ圧力</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>① グローバル化と資本移動の非対称性</strong></td>
+                <td>冷戦終結と中国・東欧の市場参入により、多国籍企業は工場を低賃金国へ自由に脱出可能に。生身の労働者は国境を越えられず「底辺への競争（賃下げ）」を強要された。</td>
+                <td>極めて大<br><span style="font-size: 0.75rem; color: var(--rose);">（国内労働者の交渉力剥奪）</span></td>
+              </tr>
+              <tr>
+                <td><strong>② 資本偏向的技術進歩（ICT・自動化・AI）</strong></td>
+                <td>従来の定型業務（製造ラインや事務・経理）が産業用ロボットやソフトウェアに代替。付加価値の配分が「人間の労働」から「特許やアルゴリズムを持つ資本」へシフト。</td>
+                <td>極めて大<br><span style="font-size: 0.75rem; color: var(--rose);">（資本と労働の代替弾力性 > 1）</span></td>
+              </tr>
+              <tr>
+                <td><strong>③ スーパースター企業の台頭と市場独占</strong></td>
+                <td>GAFAに代表される巨大プラットフォーマーが市場を寡占化。限界費用ゼロで巨大な超過利潤（マークアップ）を獲得し、付加価値の大部分が企業利益に吸収された。</td>
+                <td>大<br><span style="font-size: 0.75rem; color: var(--rose);">（利潤シェア拡大の裏返し）</span></td>
+              </tr>
+              <tr>
+                <td><strong>④ 株主資本主義と労働規制緩和</strong></td>
+                <td>「伊藤レポート（ROE 8%要請）」や四半期決算主義のもと、人件費が「固定費」から「いつでも切れる調整弁（非正規化）」へ転落。配当・自社株買いが最優先された。</td>
+                <td>極めて大<br><span style="font-size: 0.75rem; color: var(--rose);">（制度的分配歪曲）</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout danger">
+          <div class="callout-title">⚠️ トマ・ピケティの指摘：資本・労働の代替弾力性が1を超えるとき</div>
+          <p>
+            トマ・ピケティは『21世紀の資本』において、コブ＝ダグラス関数が前提とする「資本と労働の代替弾力性 $\sigma = 1$（一定）」という仮定を統計的に批判しました。
+          </p>
+          <p>
+            自動化やデジタル化が進んだ現代社会では、代替弾力性は**「$\sigma > 1$」**となっています。このとき、資本蓄積が進み資本収益率 $r$ が成長率 $g$ を上回り続けると（$r > g$）、資本分配率 $\alpha$ が必然的に跳ね上がり、その数学的裏返しとして**労働分配率（$1-\alpha$）は恒久的に低下し続ける**ことになります。ボーリーの法則は、技術構造的にも制度的にも歴史の彼方へと葬り去られたのです。
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5: インタラクティブ・シミュレーター -->
+      <section id="sec5">
+        <h2><span class="section-num">05</span> 【シミュレーター】ボーリーの法則 vs 崩壊シミュレーター</h2>
+        <p>
+          以下のシミュレーターは、コブ＝ダグラス型生産関数をベースに、資本ストック $K$、労働投入 $L$、技術水準 $A$、そして現代的な「資本偏向バイアス（自動化・株主還元・非正規化の歪み）」を操作することで、GDPと労働分配率がどのように変化するかを体験できるツールです。
+        </p>
+
+        <div class="sim-card">
+          <div class="sim-header">
+            <span class="sim-badge">INTERACTIVE SIMULATION</span>
+            <h3 class="sim-title">ボーリーの法則 vs 現代の分配崩壊シミュレーター</h3>
+            <p class="sim-desc">
+              時代プリセットを選択するか、スライダーを動かして分配構造の劇的変化を確認してください。
+            </p>
+          </div>
+
+          <!-- Preset Buttons -->
+          <div class="preset-container">
+            <span class="preset-label">⏳ 時代プリセット：</span>
+            <button class="preset-btn active" onclick="applyBowleyPreset('golden', this)">① 黄金時代（ボーリーの法則成立期）</button>
+            <button class="preset-btn" onclick="applyBowleyPreset('neolib', this)">② 現代・新自由主義期（崩壊進行中）</button>
+            <button class="preset-btn" onclick="applyBowleyPreset('ai_future', this)">③ 近未来・AI完全寡占期（超格差社会）</button>
+          </div>
+
+          <!-- Sliders Grid -->
+          <div class="slider-grid">
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>① 技術水準（全要素生産性 A）</span>
+                <span id="lbl-tech" class="slider-val">100</span>
+              </div>
+              <input type="range" id="input-tech" min="50" max="300" step="5" value="100" oninput="updateBowleySim()">
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>② 資本ストック（K：機械・サーバー）</span>
+                <span id="lbl-capital" class="slider-val">100</span>
+              </div>
+              <input type="range" id="input-capital" min="50" max="400" step="10" value="100" oninput="updateBowleySim()">
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>③ 労働投入量（L：雇用者数）</span>
+                <span id="lbl-labor" class="slider-val">100</span>
+              </div>
+              <input type="range" id="input-labor" min="50" max="200" step="5" value="100" oninput="updateBowleySim()">
+            </div>
+
+            <div class="slider-item">
+              <div class="slider-label">
+                <span>④ 資本偏向バイアス（AI代替・株主至上主義圧力）</span>
+                <span id="lbl-bias" class="slider-val">0 %（中立）</span>
+              </div>
+              <input type="range" id="input-bias" min="0" max="80" step="5" value="0" oninput="updateBowleySim()">
+            </div>
+          </div>
+
+          <!-- Simulation Results -->
+          <div class="sim-results">
+            <!-- 労働分配率 Hero -->
+            <div class="res-col col-main">
+              <div class="res-col-title">⚖️ 労働分配率（Labor Share）</div>
+              <div class="metric-hero">
+                <div id="res-share-val" class="metric-hero-val val-good">66.7 %</div>
+                <div id="res-share-status" class="metric-hero-lbl" style="font-weight: 700; color: var(--emerald);">ボーリーの法則 成立水準（約2/3）</div>
+              </div>
+              <div class="meter-container">
+                <div class="meter-bar">
+                  <div id="meter-fill" class="meter-fill" style="width: 66.7%; background: var(--emerald);"></div>
+                </div>
+                <div class="meter-labels">
+                  <span>0%（完全資本独占）</span>
+                  <span>50%</span>
+                  <span>66.7%（ボーリー水準）</span>
+                  <span>100%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- マクロ指標 -->
+            <div class="res-col col-sub">
+              <div class="res-col-title">📈 マクロ経済・生産指標</div>
+              <div class="metric-row">
+                <span>総実質GDP（産出量 Y）</span>
+                <span id="res-gdp" class="metric-val">100.0</span>
+              </div>
+              <div class="metric-row">
+                <span>資本分配率（利潤シェア）</span>
+                <span id="res-cap-share" class="metric-val">33.3 %</span>
+              </div>
+              <div class="metric-row">
+                <span>1人当たり実質賃金指数</span>
+                <span id="res-wage" class="metric-val val-good">66.7</span>
+              </div>
+              <div class="metric-row">
+                <span>資本収益率（利潤率 r）指数</span>
+                <span id="res-rate-r" class="metric-val">33.3 %</span>
+              </div>
+            </div>
+
+            <!-- 診断 -->
+            <div class="res-col col-diag">
+              <div class="res-col-title">🔍 経済社会の構造診断</div>
+              <div id="res-diagnosis" class="diag-box">
+                <strong>【ボーリーの法則 成立状態】</strong><br>
+                生産性向上と実質賃金が完全に連動しています。生み出された富の約3分の2が働く人々に還元され、中間層が強固に維持される理想的な福祉資本主義のモデルです。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: 本書第4章との連動解説 -->
+      <section id="sec6">
+        <h2><span class="section-num">06</span> 本書『現代貧困の解体新書』第4章との連動解説</h2>
+        <p>
+          本書『第1巻 構造編』の第4章「労働市場の二重構造と『労働分配率』低下のメカニズム」では、このボーリーの法則の崩壊が、現代日本の労働者からいかにして富を収奪しているかを克明に描いています。
+        </p>
+
+        <div class="callout purple">
+          <div class="callout-title">📖 本書第4章における位置づけ</div>
+          <p>
+            「かつて信じられていたボーリーの法則は、日本において最も無残に打ち砕かれた。財務省の法人企業統計を見れば、企業の経常利益は過去最高（約124.8兆円）を更新し、利益剰余金は654.8兆円へと膨張した。しかし、法人企業の労働分配率は2021年度の68.9%から2025年度には63.0%へ、大企業に至っては50%前後へと急落した」。
+          </p>
+          <p>
+            「ボーリーの法則の崩壊」とは、経済学の教科書の一行が変わったという話ではありません。それは、**「真面目に働いて生産性を上げても、その果実は労働者には一滴も滴り落ちず、丸ごと企業の内部留保と株主への巨額配当へと吸い上げられる社会」**へと日本が変貌してしまった決定的な証拠なのです。
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: 出典・参考文献・公的資料リンク (Condition 2: Dead links avoided) -->
+      <section id="sec7" class="reference-box">
+        <h2><span class="section-num">07</span> 出典・参考文献・公的資料リンク</h2>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+          ※確認済みの主要な公的統計、公式解説、および代表的学術文献を掲載しています。
+        </p>
+        <ul class="ref-list">
+          <li class="ref-item">
+            <strong>Wikipedia (English)</strong>：Bowley's law の歴史的背景と現代マクロ経済学における議論。<br>
+            <a href="https://en.wikipedia.org/wiki/Bowley%27s_law" target="_blank" rel="noopener noreferrer">Bowley's law - Wikipedia</a>
+          </li>
+          <li class="ref-item">
+            <strong>日本経済新聞</strong>：労働分配率とボーリーの法則の現代的検証に関する経済解説記事。<br>
+            <a href="https://www.nikkei.com/article/DGXZQOCD224650S6A620C2000000/" target="_blank" rel="noopener noreferrer">日本経済新聞：労働分配率をめぐる経済学的論点</a>
+          </li>
+          <li class="ref-item">
+            <strong>note 会計士解説</strong>：ボーリーの法則とコブ＝ダグラス型生産関数の分かりやすい実務解説。<br>
+            <a href="https://note.com/rara_kaikeishi/n/nee0c40dfe8d0" target="_blank" rel="noopener noreferrer">note：ボーリーの法則と労働分配率</a>
+          </li>
+          <li class="ref-item">
+            <strong>財務省『法人企業統計調査』</strong>：日本企業における付加価値額と人件費、労働分配率の長期的推移データ。<br>
+            <a href="https://www.mof.go.jp/pri/reference/ssc/index.htm" target="_blank" rel="noopener noreferrer">財務省：法人企業統計調査</a>
+          </li>
+          <li class="ref-item">
+            <strong>内閣府『国民経済計算（SNA）』</strong>：国民所得に占める雇用者報酬のシェア（マクロ労働分配率）公式統計。<br>
+            <a href="https://www.esri.cao.go.jp/jp/sna/menu.html" target="_blank" rel="noopener noreferrer">内閣府：国民経済計算</a>
+          </li>
+          <li class="ref-item">
+            <strong>Arthur L. Bowley (1937)</strong>：『Wages and Income in the United Kingdom since 1860』（ケンブリッジ大学出版局、ボーリーの主著・英国長期統計分析）［学術原典］
+          </li>
+          <li class="ref-item">
+            <strong>John Maynard Keynes (1939)</strong>：『The Relative Movements of Real Wages and Output』, The Economic Journal, Vol. 49, No. 193.［学術原典］
+          </li>
+          <li class="ref-item">
+            <strong>OECD (2026)</strong>：『Financing of Social Protection: Challenges and Options in an Age of Shifting Factor Shares』［OECD包括報告書］
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="badge-row" style="justify-content: center; margin-bottom: 0.75rem;">
+        <span class="badge badge-primary">現代貧困の解体新書 公式Web補論</span>
+      </div>
+      <p style="margin-bottom: 0.5rem;">
+        『現代貧困の解体新書――見えない搾取の構造と処方箋』 著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)
+      </p>
+      <p>
+        <a href="indexHinkon.html">← 補論ポータルTOPへ戻る</a>
+      </p>
+    </footer>
+  </div>
+
+  <!-- JavaScript: ボーリーシミュレーター計算スクリプト -->
+  <script>
+    const bowleyPresets = {
+      golden: { tech: 100, capital: 100, labor: 100, bias: 0 },
+      neolib: { tech: 160, capital: 220, labor: 100, bias: 25 },
+      ai_future: { tech: 240, capital: 350, labor: 80, bias: 55 }
+    };
+
+    function applyBowleyPreset(key, btnElem) {
+      const p = bowleyPresets[key];
+      if (!p) return;
+
+      document.getElementById('input-tech').value = p.tech;
+      document.getElementById('input-capital').value = p.capital;
+      document.getElementById('input-labor').value = p.labor;
+      document.getElementById('input-bias').value = p.bias;
+
+      const btns = document.querySelectorAll('.preset-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      if (btnElem) {
+        btnElem.classList.add('active');
+      }
+
+      updateBowleySim();
+    }
+
+    function updateBowleySim() {
+      const A = parseFloat(document.getElementById('input-tech').value);
+      const K = parseFloat(document.getElementById('input-capital').value);
+      const L = parseFloat(document.getElementById('input-labor').value);
+      const bias = parseFloat(document.getElementById('input-bias').value); // 0〜80%
+
+      document.getElementById('lbl-tech').innerText = A;
+      document.getElementById('lbl-capital').innerText = K;
+      document.getElementById('lbl-labor').innerText = L;
+      document.getElementById('lbl-bias').innerText = bias + ' %（歪み）';
+
+      // 基本コブ＝ダグラス: Y = A * K^alpha * L^(1-alpha)
+      // 基準の資本弾力性 alpha_base = 0.333 (労働分配率 66.7%)
+      // 現代のバイアスにより実質資本分配率 alpha_eff が上昇
+      const alpha_base = 0.3333;
+      const alpha_eff = Math.min(alpha_base + (bias / 100) * 0.45, 0.85); // 最大85%まで
+      const labor_share = (1 - alpha_eff) * 100;
+      const cap_share = alpha_eff * 100;
+
+      // GDP算出 (基準点: A=100, K=100, L=100 -> Y=100)
+      const Y = (A / 100) * Math.pow(K / 100, alpha_base) * Math.pow(L / 100, 1 - alpha_base) * 100;
+
+      // 1人当たり実質賃金 w = (Labor Share * Y) / L
+      const totalWageBill = (labor_share / 100) * Y;
+      const wagePerCap = (totalWageBill / (L / 100));
+
+      // 資本収益率 r = (Capital Share * Y) / K
+      const totalProfits = (cap_share / 100) * Y;
+      const rateOfReturn = (totalProfits / (K / 100));
+
+      // UI Outputs
+      document.getElementById('res-gdp').innerText = Y.toFixed(1);
+      document.getElementById('res-cap-share').innerText = cap_share.toFixed(1) + ' %';
+      document.getElementById('res-wage').innerText = wagePerCap.toFixed(1);
+      document.getElementById('res-rate-r').innerText = rateOfReturn.toFixed(1) + ' %';
+
+      const shareValElem = document.getElementById('res-share-val');
+      const shareStatusElem = document.getElementById('res-share-status');
+      const meterFill = document.getElementById('meter-fill');
+      const diagElem = document.getElementById('res-diagnosis');
+
+      shareValElem.innerText = labor_share.toFixed(1) + ' %';
+      meterFill.style.width = labor_share + '%';
+
+      if (bias === 0 && Math.abs(labor_share - 66.7) < 1.0) {
+        shareValElem.className = 'metric-hero-val val-good';
+        shareStatusElem.innerText = 'ボーリーの法則 成立水準（約2/3＝66.7%）';
+        shareStatusElem.style.color = 'var(--emerald)';
+        meterFill.style.background = 'var(--emerald)';
+        diagElem.innerHTML = '<strong>【ボーリーの法則 成立状態】</strong><br>生産性向上と実質賃金が完全に連動しています。生み出された富の約3分の2が働く人々に還元され、中間層が強固に維持される理想的な福祉資本主義のモデルです。';
+      } else if (labor_share >= 55) {
+        shareValElem.className = 'metric-hero-val val-warn';
+        shareStatusElem.innerText = '緩やかな分配低下期（注意水準）';
+        shareStatusElem.style.color = 'var(--accent-dark)';
+        meterFill.style.background = 'var(--accent)';
+        diagElem.innerHTML = `<strong>【分配率低下の兆候】</strong><br>資本偏向バイアスにより、労働分配率が${labor_share.toFixed(1)}%へ低下。GDPは伸びていますが、実質賃金の伸び（${wagePerCap.toFixed(1)}）が資本収益（${rateOfReturn.toFixed(1)}%）に劣後し始めています。`;
+      } else if (labor_share >= 40) {
+        shareValElem.className = 'metric-hero-val val-bad';
+        shareStatusElem.innerText = 'ボーリーの法則 崩壊期（現代日本・米国水準）';
+        shareStatusElem.style.color = 'var(--rose)';
+        meterFill.style.background = 'var(--rose)';
+        diagElem.innerHTML = `<strong>【新自由主義的デカップリングの深刻化】</strong><br>労働分配率が${labor_share.toFixed(1)}%まで落ち込み、ボーリーの法則は完全に破綻。生み出された莫大な付加価値は自社株買いや内部留保、巨大プラットフォーマーの利潤へ吸い上げられ、現場の働く人々は貧困化（ワーキングプア化）しています。`;
+      } else {
+        shareValElem.className = 'metric-hero-val val-bad';
+        shareStatusElem.innerText = '超格差・完全資本独占社会（ディストピア）';
+        shareStatusElem.style.color = 'var(--crimson)';
+        meterFill.style.background = 'var(--crimson)';
+        diagElem.innerHTML = `<strong>【AI完全寡占ディストピア】</strong><br>労働分配率が${labor_share.toFixed(1)}%という極限的低水準です。AIとロボット資本を保有する極少数の資本家階級（上位0.1%）が社会の富を独占し、大半の労働者は生活基盤を奪われています。強力な事前分配・富裕税・ベーシックインカム等の再設計が不可欠です。`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateBowleySim();
+    });
+  </script>
+</body>
+</html>
