@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：ピケティの資本収益率（r）と企業の要求ROE――マクロ国富「4〜5%」とミクロ株主資本「8%以上」の乖離を解読する</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation (Condition 1: Only Portal TOP link) */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header Section */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+      color: #ffffff;
+      border-radius: 1rem;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); }
+    .badge-accent { background: var(--accent); color: #ffffff; }
+    .badge-emerald { background: var(--emerald); color: #ffffff; }
+
+    .main-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .sub-title {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #bfdbfe;
+      line-height: 1.6;
+    }
+
+    /* Card System */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 2px solid #eff6ff;
+      padding-bottom: 0.6rem;
+    }
+
+    .section-title span.icon {
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Highlights & Summary Box */
+    .summary-box {
+      background: #f0fdf4;
+      border-left: 5px solid var(--emerald);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-box h4 {
+      color: var(--emerald);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .alert-box {
+      background: #fef2f2;
+      border-left: 5px solid var(--rose);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-box h4 {
+      color: var(--crimson);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border-left: 5px solid var(--primary-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-box h4 {
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Math Formula Display Box */
+    .math-formula-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .formula-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+      background: #ffffff;
+    }
+
+    th, td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .col-feature {
+      font-weight: 700;
+      background: #fafafa;
+      width: 20%;
+    }
+
+    .col-roe {
+      background: #fffbeb;
+      width: 40%;
+    }
+
+    .col-piketty {
+      background: #eff6ff;
+      width: 40%;
+    }
+
+    /* Comparison Dual Cards */
+    .dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .dual-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .concept-card {
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .concept-card.roe {
+      background: #fffdf5;
+      border-top: 4px solid var(--accent);
+    }
+
+    .concept-card.piketty {
+      background: #f8fbff;
+      border-top: 4px solid var(--primary-light);
+    }
+
+    .concept-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .concept-card.roe h4 { color: var(--accent-dark); }
+    .concept-card.piketty h4 { color: var(--primary); }
+
+    .stat-pill {
+      display: inline-block;
+      font-size: 1.35rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .concept-card.roe .stat-pill {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .concept-card.piketty .stat-pill {
+      background: #dbeafe;
+      color: var(--primary-dark);
+    }
+
+    /* Interactive Simulator */
+    .simulator-container {
+      background: #ffffff;
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .simulator-header {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .simulator-header h4 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      background: #f8fafc;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .control-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .control-val {
+      font-weight: 800;
+      color: var(--primary);
+      font-family: monospace;
+      font-size: 1.05rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .control-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Output Displays */
+    .results-panel {
+      background: #f1f5f9;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #cbd5e1;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .result-box {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-box.piketty-box {
+      border-top: 4px solid var(--primary-light);
+    }
+
+    .result-box.roe-box {
+      border-top: 4px solid var(--accent);
+    }
+
+    .result-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .result-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+      font-family: system-ui, sans-serif;
+    }
+
+    .result-number.piketty-num { color: var(--primary); }
+    .result-number.roe-num { color: var(--accent-dark); }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Dynamic Visual Bar Comparison */
+    .bar-comparison {
+      background: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .bar-row {
+      margin-bottom: 1rem;
+    }
+
+    .bar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .bar-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 24px;
+      background: #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      transition: width 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .bar-fill.piketty { background: linear-gradient(90deg, #3b82f6, #1d4ed8); }
+    .bar-fill.roe { background: linear-gradient(90deg, #f59e0b, #d97706); }
+
+    .dynamic-insight-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      line-height: 1.6;
+    }
+
+    /* Logic Breakdown Steps */
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .step-content {
+      flex: 1;
+      padding-top: 0.15rem;
+    }
+
+    .step-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    /* References Box */
+    .reference-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .reference-list li {
+      margin-bottom: 0.85rem;
+      font-size: 0.9rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .reference-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0.4rem;
+      color: var(--primary);
+    }
+
+    .reference-list a {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+
+    .reference-list a:hover {
+      color: var(--primary);
+    }
+
+    .badge-no-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Portal TOP only) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span> 現代貧困の解体新書 補論アーカイブ
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <span>←</span> 補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="header-card">
+      <div class="badge-container">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-accent">マクロ経済学 × コーポレートファイナンス</span>
+        <span class="badge badge-emerald">数理比較・シミュレーター搭載</span>
+      </div>
+      <h1 class="main-title">ピケティの資本収益率（$r$）と企業の要求ROE</h1>
+      <p class="sub-title">マクロ国富の歴史的利回り「4〜5%」と株式資本コスト「8〜10%」の混同・混乱を解きほぐす</p>
+    </header>
+
+    <!-- Section 0: Executive Summary -->
+    <section class="card">
+      <div class="summary-box">
+        <h4><span>💡</span> 本稿の要約（エグゼクティブ・サマリー）</h4>
+        <p>
+          「トマ・ピケティは資本収益率を<strong>4〜5%</strong>と主張しているのに、なぜ経済産業省（伊藤レポート）や外国人投資家は日本企業に対して<strong>ROE 8%以上</strong>を要求するのか？ どちらかが誤りなのか？」という疑問がしばしば生じます。
+        </p>
+        <p>
+          結論から言えば、<strong>どちらもそれぞれの定義において正当なデータ</strong>に基づいています。違いの本質は、見ている<strong>「分子・分母の範囲（マクロ国富全体か、企業の株主資本のみか）」</strong>と、<strong>「リスクプレミアム及び財務レバレッジの有無」</strong>にあります。
+        </p>
+        <p style="margin-bottom: 0;">
+          しかし重大なのは、<strong>「低成長（経済成長率 $g \approx 0\%$）の実体経済」において「欧米流の要求ROE（8%以上）」を義務付けたこと</strong>です。マクロ全体のパイが広がらない中で株主への高いリターンを捻出するため、日本企業は<strong>人件費の徹底抑制（労働分配率の切り下げ）と自社株買い・内部留保の積み増し</strong>へと突き進むことになりました。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: 疑問の出発点 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🔍</span> 01. 疑問の出発点：2つの数字が招く混乱</h2>
+      <p>
+        フランスの経済学者トマ・ピケティは、世界的ベストセラーとなった『21世紀の資本』（2013年）において、過去数世紀に及ぶ膨大な歴史的税務データを分析し、資本主義の根底に潜む不等式を提示しました。
+      </p>
+      
+      <div class="math-formula-box">
+        $$r > g$$
+        <div class="formula-desc">
+          <strong>$r$（資本収益率）</strong>：利子、配当、不動産賃料、利潤、キャピタルゲインなどを合わせた資本の平均利回り（<strong>歴史的におよそ 4% 〜 5%</strong>）。<br>
+          <strong>$g$（経済成長率）</strong>：国民所得や実体経済の拡大ペース（先進国では歴史的におよそ 1% 〜 2%）。
+        </div>
+      </div>
+
+      <p>
+        ピケティはこの不等式に基づき、「資本の利回り（4〜5%）は、実体経済の成長率（1〜2%）を構造的に上回り続けるため、富の集中と格差の拡大は必然である」と結論づけました。
+      </p>
+      <p>
+        ところが、日本のビジネス界や株式市場に目を向けると、全く異なる「8%」という数値が金科玉条として語られています。2014年8月、経済産業省が主導した『伊藤レポート（持続的成長への競争力とインセンティブ〜企業と投資家の望ましい関係構築〜）』は、以下のように提言しました。
+      </p>
+
+      <div class="alert-box">
+        <h4><span>📑</span> 伊藤レポート（2014年）による「ROE 8%」の要請</h4>
+        <p>
+          「日本企業はグローバルな機関投資家から資本コスト（株主が期待する最低限の利回り）を下回っているとみなされている。企業が持続的価値を創造し、グローバル投資家と建設的な対話を行うためには、<strong>最低限クリアすべき目標としてROE 8%を上回る水準を目指すべきである</strong>。」
+        </p>
+      </div>
+
+      <p>
+        「ピケティの言う資本収益率は4〜5%なのに、なぜ企業は8%以上もの高利回りを要求されるのか？」「ピケティが低めに見積もっているのか、それとも株式市場の要求が法外なのか？」という混乱は、マクロ経済学とミクロの企業財務（コーポレートファイナンス）が扱う「概念の断絶」から生じています。
+      </p>
+    </section>
+
+    <!-- Section 2: スコープ（分子と分母）の決定的相違 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📊</span> 02. スコープの決定的相違：マクロ国富 vs ミクロ株主資本</h2>
+      <p>
+        両者の数字が倍近く異なる最大の理由は、<strong>「分母（何に対するリターンか）」</strong>と<strong>「分子（どの利益を見ているか）」</strong>の範囲（スコープ）が完全に異なるためです。
+      </p>
+
+      <div class="dual-grid">
+        <div class="concept-card roe">
+          <h4><span>🏢</span> 企業財務のROE（自己資本利益率）</h4>
+          <div class="stat-pill">8% 〜 10% 前後</div>
+          <p><strong>【分母】</strong>上場企業などの「自己資本（株主資本・純資産）」のみ。</p>
+          <p><strong>【分子】</strong>税金を支払い、負債の利息も払った後の「税引後当期純利益」。</p>
+          <p><strong>【視点】</strong>企業のオーナーである「株主」という単一ステークホルダーの投資利回り。</p>
+        </div>
+
+        <div class="concept-card piketty">
+          <h4><span>🌍</span> ピケティの資本収益率 $r$（マクロ経済）</h4>
+          <div class="stat-pill">4% 〜 5% 前後</div>
+          <p><strong>【分母】</strong>住宅・宅地、預金、国債、社債、株式、工場、機械など「国全体のあらゆる純資産（国富ストック）」。</p>
+          <p><strong>【分子】</strong>社会全体で生み出された「家賃・帰属家賃、利子、配当、事業利益、キャピタルゲイン」。</p>
+          <p><strong>【視点】</strong>国民経済計算（SNA）に基づく社会全体の総資本利回り。</p>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="col-feature">比較項目</th>
+              <th class="col-roe">企業のROE（自己資本利益率）</th>
+              <th class="col-piketty">ピケティの $r$（資本収益率）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-feature">対象範囲（分母）</td>
+              <td><strong>極めて狭い</strong>：企業の自己資本（純資産・株主出資分）のみ</td>
+              <td><strong>極めて広い</strong>：一国・世界全体のあらゆる富（不動産、国債、預金、全事業資産）</td>
+            </tr>
+            <tr>
+              <td class="col-feature">リターンの種類（分子）</td>
+              <td><strong>税引後当期純利益</strong>（法人税・支払利息をすべて控除した後の最終余剰）</td>
+              <td><strong>資本所得の総和</strong>（家賃・帰属家賃、利子、配当、事業利潤、キャピタルゲイン等の平均）</td>
+            </tr>
+            <tr>
+              <td class="col-feature">リスクの度合い</td>
+              <td><strong>超ハイリスク</strong>：会社倒産時には一銭も返還されない「劣後資産」</td>
+              <td><strong>加重平均リスク</strong>：ローリスク（国債・預金）からハイリスク（株式）までの平均</td>
+            </tr>
+            <tr>
+              <td class="col-feature">財務レバレッジ（負債）</td>
+              <td><strong>フルに活用</strong>：低金利の借入金（他人の資本）をテコにして利回りを増幅</td>
+              <td><strong>相殺されてゼロ</strong>：マクロ経済では「誰かの負債＝誰かの債権（資産）」として消滅</td>
+            </tr>
+            <tr>
+              <td class="col-feature">税金の取り扱い</td>
+              <td>法人税等を支払った後の「税引後」が基準</td>
+              <td>国民経済計算に基づく「税引前（または税・再分配前）」が基準</td>
+            </tr>
+            <tr>
+              <td class="col-feature">分析の目的</td>
+              <td>個別企業に対する株主投資の「資本効率」の測定</td>
+              <td>数世紀にわたる社会全体の「富の偏り・格差拡大傾向」の解明</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: なぜ倍近く差が出るのか？ 数理的メカニズム -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📐</span> 03. なぜ倍近くの差が出るのか？――2つの数理的要因</h2>
+      <p>
+        ピケティの $4\sim 5\%$ と企業のROE $8\sim 10\%$ の間にある「約2倍のギャップ」は、主としてコーポレートファイナンスにおける以下の2つの数理メカニズムによって生み出されます。
+      </p>
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">株式リスクプレミアム（Equity Risk Premium）による上乗せ</div>
+            <p>
+              株式は、社債や銀行預金と違って「元本保証」がなく、企業が破綻した場合には残余財産の分配順位が最も低い「劣後資産（Residual Claim）」です。倒産すれば投じた資金はゼロになります。
+            </p>
+            <p>
+              現代投資理論（CAPM：資本資産価格モデル）において、株主が要求する期待利回り（株主資本コスト $R_e$）は以下のように定式化されます。
+            </p>
+            <div class="math-formula-box">
+              $$R_e = R_f + \beta \times (R_m - R_f)$$
+              <div class="formula-desc">
+                $R_f$：無リスク金利（安全な10年国債の利回り：0.5%〜2%程度）<br>
+                $(R_m - R_f)$：株式リスクプレミアム（ERP：不確実性を引き受ける見返りとして要求される上乗せ分、通常5%〜6%程度）<br>
+                $\beta$：市場全体に対する個別株の感応度（平均的な企業で $\beta = 1.0$）
+              </div>
+            </div>
+            <p>
+              安全な国債金利が $1\%$ であっても、投資家はリスクプレミアム $5\sim 6\%$ を上乗せするため、株主資本コスト（要求ROE）は<strong>「$1\% + 6\% = 7\% \sim 8\%$ 以上」</strong>へと跳ね上がります。
+            </p>
+            <p>
+              これに対し、ピケティの $r$ には、元本が極めて安全な先進国国債（利回り1〜2%）や銀行預金（0〜1%）、比較的安定した賃貸住宅（3〜5%）が国富の過半を占めています。国全体のあらゆる富を集計すると、安全資産の低利回りと株式の高利回りが加重平均されるため、<strong>自然と $4\sim 5\%$ に収れんする</strong>のです。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">財務レバレッジ（負債）による利回り増幅とデュポン分解</div>
+            <p>
+              企業は自前の資金（自己資本）だけでビジネスを行っているわけではありません。銀行からの借入金や社債といった「負債（他人資本）」を低金利で調達し、事業規模を拡大しています。
+            </p>
+            <p>
+              企業の収益構造は、以下の「デュポン分解（DuPont Analysis）」で表されます。
+            </p>
+            <div class="math-formula-box">
+              $$\text{ROE} = \underbrace{\frac{\text{当期純利益}}{\text{売上高}}}_{\text{売上高純利益率}} \times \underbrace{\frac{\text{売上高}}{\text{総資産}}}_{\text{総資産回転率}} \times \underbrace{\frac{\text{総資産}}{\text{自己資本}}}_{\text{財務レバレッジ}}$$
+              <div class="formula-desc">
+                前半2つの積（$\text{売上高純利益率} \times \text{総資産回転率}$）は、会社全体の事業利回りである<strong>ROA（総資産利益率）</strong>を表します。<br>
+                第3項の<strong>「財務レバレッジ（$\text{総資産} \div \text{自己資本}$）」</strong>こそが、ROEを何倍にも増幅させるテコの役割を果たします。
+              </div>
+            </div>
+            <p>
+              たとえば、総資産が100億円（自己資本40億円、負債60億円）の企業を考えます。
+            </p>
+            <div class="info-box">
+              <h4><span>💡</span> レバレッジによるROE増幅の実例</h4>
+              <p>
+                ・総資産100億円を使って、総資産利益率（ROA）<strong>4%</strong>（営業利益4億円）を稼ぎ出したとします（これはピケティの $r=4\%$ と同じ水準です）。<br>
+                ・銀行借入金60億円に対する利息が年利<strong>1%</strong>（6,000万円）だったとすると、税引後の純利益は約2.4億円残ります。<br>
+                ・このとき、株主の元手（自己資本40億円）に対する利回りであるROEは、<br>
+                $$\text{ROE} = \frac{2.4\text{億円}}{40\text{億円}} = \mathbf{6.0\%}$$
+                となり、事業自体の利回り4%よりも大幅に高まります（自己資本比率を30%まで下げて自社株買いを行えば、ROEは容易に8%〜9%へ跳ね上がります）。
+              </p>
+            </div>
+            <p>
+              <strong>なぜマクロ経済全体（ピケティの $r$）ではレバレッジが効かないのか？</strong><br>
+              個別の企業にとっては「借入金（負債）」は利回りを増幅するテコになりますが、<strong>マクロ経済全体（国全体）を鳥瞰すると、「企業Aの借金」は「銀行や国民の預金・債権（資産）」と完全に裏表で相殺されます</strong>。社会全体で見れば「純負債」など存在しないため、マクロの資本収益率 $r$ はレバレッジで増幅される前の「実体経済の総資産利回り（ROA相当）」に落ち着かざるを得ないのです。
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 4: 学術的論争 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🏛️</span> 04. 学術的論争：ピケティの $r$ に対する修正と議論</h2>
+      <p>
+        ピケティの「歴史的資本収益率は4〜5%で推移してきた」という実証は、経済学界に巨大な衝撃を与えましたが、その後の精緻な追試によっていくつかの重大な補足と批判がなされています。
+      </p>
+
+      <div class="dual-grid">
+        <div class="concept-card" style="border-top: 4px solid var(--purple); background: #faf5ff;">
+          <h4 style="color: var(--purple);"><span>🏙️</span> マシュー・ログリーの住宅資本批判（2015年）</h4>
+          <p>
+            米ブルッキングス研究所の経済学者マシュー・ログリー（Matthew Rognlie）は、ピケティのデータを再検証し、決定的な論文を発表しました。
+          </p>
+          <p>
+            戦後先進国における「資本所得比率 $\beta$」や「資本分配率 $\alpha$」の上昇の大部分は、企業の工場や機械、知的財産といった<strong>「純粋な生産資本」によるものではなく、都市部を中心とした「住宅・地価の高騰（Housing Capital）」によってもたらされた</strong>という事実を証明しました。
+          </p>
+          <p>
+            住宅セクターを除外した純粋な事業資本の取り分は、ピケティが主張したほど劇的には拡大しておらず、土地利用規制や住宅供給不足による「地代（レント）」の膨張こそが富の偏在の主因であると指摘されています。
+          </p>
+        </div>
+
+        <div class="concept-card" style="border-top: 4px solid var(--teal); background: #f0fdfa;">
+          <h4 style="color: var(--teal);"><span>📉</span> 減価償却費（Depreciation）の控除論争</h4>
+          <p>
+            資本は時間の経過とともに摩耗・陳腐化するため、維持・更新のための<strong>減価償却費</strong>を差し引かなければ、真の純投資リターン（Net Capital Share）は分かりません。
+          </p>
+          <p>
+            近年、ソフトウェアやIT設備など「耐用年数が短く減価償却が激しい資本」の割合が急速に高まっています。
+          </p>
+          <p>
+            減価償却費と各種税金を厳密に控除した「純・実質資本収益率」を計算すると、ピケティが提示したグロス（総額）ベースの4〜5%よりも、実質的な利回りは低くなるという試算も提示されています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: インタラクティブ・シミュレーター -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">⚙️</span> 05. 【シミュレーター】ピケティ $r$ vs 企業ROE・レバレッジ感応度</h2>
+      <p>
+        マクロ経済の資本収益率 $r$（国富の加重平均）と、個別企業の要求ROE・達成ROEが、リスクプレミアムや財務レバレッジによってどのように分岐するのかをリアルタイムに体験できます。
+      </p>
+
+      <div class="simulator-container">
+        <div class="simulator-header">
+          <h4><span>🎛️</span> パラメータ設定スライダー</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">
+            各スライダーを操作すると、マクロの $r$ とミクロのROEの計算結果、および乖離の要因が瞬時に再計算されます。
+          </p>
+        </div>
+
+        <div class="sim-grid">
+          <!-- Left: Macro & Financial Environment -->
+          <div>
+            <div style="font-weight: 700; color: var(--primary); font-size: 0.95rem; margin-bottom: 0.75rem;">
+              ① 資本市場・マクロ環境パラメータ
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>無リスク金利（国債利回り $R_f$）</span>
+                <span class="control-val" id="valRf">1.0%</span>
+              </div>
+              <input type="range" id="sliderRf" min="0.0" max="3.0" step="0.1" value="1.0">
+              <div class="control-hint">安全資産（10年物国債や優良債券）のベース金利</div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>株式リスクプレミアム（ERP）</span>
+                <span class="control-val" id="valErp">5.5%</span>
+              </div>
+              <input type="range" id="sliderErp" min="3.0" max="8.0" step="0.1" value="5.5">
+              <div class="control-hint">株式投資家が不確実性に対して要求する上乗せ利回り</div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>不動産・実物資産利回り</span>
+                <span class="control-val" id="valRealEstate">4.0%</span>
+              </div>
+              <input type="range" id="sliderRealEstate" min="2.0" max="6.0" step="0.1" value="4.0">
+              <div class="control-hint">住宅賃料や商業用不動産の平均利回り</div>
+            </div>
+          </div>
+
+          <!-- Right: Corporate & Leverage Parameters -->
+          <div>
+            <div style="font-weight: 700; color: var(--accent-dark); font-size: 0.95rem; margin-bottom: 0.75rem;">
+              ② 企業財務・レバレッジパラメータ
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>企業の総資産利益率（ROA）</span>
+                <span class="control-val" id="valRoa">4.5%</span>
+              </div>
+              <input type="range" id="sliderRoa" min="2.0" max="8.0" step="0.1" value="4.5">
+              <div class="control-hint">会社全体の資産を投じて稼ぎ出す税引後事業利回り</div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>自己資本比率（財務レバレッジ）</span>
+                <span class="control-val" id="valEquityRatio">40%</span>
+              </div>
+              <input type="range" id="sliderEquityRatio" min="15" max="80" step="1" value="40">
+              <div class="control-hint" id="hintLeverage">自己資本比率40% ＝ 財務レバレッジ 2.50倍</div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <span>企業の負債調達コスト（借入金利）</span>
+                <span class="control-val" id="valDebtCost">1.2%</span>
+              </div>
+              <input type="range" id="sliderDebtCost" min="0.5" max="4.0" step="0.1" value="1.2">
+              <div class="control-hint">銀行借入金や社債の税引後実質利息コスト</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Outputs -->
+        <div class="results-panel">
+          <div class="results-grid">
+            <div class="result-box piketty-box">
+              <div class="result-label">ピケティのマクロ資本収益率 $r$</div>
+              <div class="result-number piketty-num" id="outPikettyR">4.3%</div>
+              <div class="result-sub">国富全体の加重平均利回り（安全資産＋不動産＋株式）</div>
+            </div>
+
+            <div class="result-box roe-box">
+              <div class="result-label">企業の達成ROE（自己資本利益率）</div>
+              <div class="result-number roe-num" id="outAchievedRoe">9.5%</div>
+              <div class="result-sub">財務レバレッジによる増幅後の株主利益率</div>
+            </div>
+          </div>
+
+          <!-- Bar Visualizer -->
+          <div class="bar-comparison">
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span style="color: var(--primary);">ピケティのマクロ資本収益率 $r$</span>
+                <span id="barValPiketty">4.3%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill piketty" id="barFillPiketty" style="width: 28.6%;"></div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span style="color: var(--accent-dark);">投資家の要求ROE（株主資本コスト $R_e$）</span>
+                <span id="barValCostOfEquity">6.5%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" id="barFillCostOfEquity" style="width: 43.3%; background: #94a3b8;"></div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span style="color: var(--accent-dark);">企業の達成ROE（レバレッジ効果後）</span>
+                <span id="barValRoe">9.5%</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill roe" id="barFillRoe" style="width: 63.3%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dynamic-insight-card" id="simInsight">
+            <!-- Dynamic calculation commentary -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: 本書『現代貧困の解体新書』第4章との連動 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📖</span> 06. 本書『現代貧困の解体新書』第4章との連動――低成長国における「ROE 8%」の罠</h2>
+      <p>
+        ここまでの分析で、ピケティの言う「4〜5%」と企業に求められる「8%以上」の数字の出処が論理的に整理されました。しかし、本シリーズ『現代貧困の解体新書』第1巻が告発する核心的な問題は、<strong>「経済がほとんど成長していない日本で、欧米流の『ROE 8%以上』を至上命題として企業に強要したことの残酷な代償」</strong>にあります。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{ROE} = \frac{\text{当期純利益}}{\text{自己資本}}$$
+      </div>
+
+      <p>
+        米国のように実質経済成長率が $2\sim 3\%$、名目成長率が $4\sim 5\%$ ある経済では、イノベーションや市場拡大によって売上高（トップライン）を伸ばし、利益のパイを拡大することで健全に「ROE 8%〜10%」を達成することができます。
+      </p>
+      <p>
+        しかし、バブル崩壊後の日本は、名目GDP成長率がほぼゼロ近傍（$g \approx 0\%$）で推移する長期デフレ下にありました。<strong>「パイ全体が全く大きくならない経済環境」で、株主への利回り（ROE）だけを「4%から8%へ倍増させろ」と命令された経営陣はどう行動したでしょうか？</strong>
+      </p>
+
+      <div class="dual-grid">
+        <div class="concept-card" style="border-top: 4px solid var(--rose); background: #fff5f5;">
+          <h4 style="color: var(--crimson);"><span>✂️</span> ① 分子（利益）を絞り出す：人件費の切り捨て</h4>
+          <p>
+            売上が伸びない状況で純利益を強引に増やすには、最大の固定費である<strong>「人件費」を徹底的に削る</strong>しかありません。
+          </p>
+          <p>
+            ・正規雇用から低賃金・無権利な非正規雇用（派遣・パート）への大転換<br>
+            ・定期昇給の廃止やベースアップの完全凍結<br>
+            ・下請け企業への苛烈な単価切り下げ（労務費の買いたたき）
+          </p>
+          <p>
+            これにより、企業が生み出した付加価値のうち労働者に支払われる割合である<strong>「労働分配率」は劇的に切り下げられました</strong>。
+          </p>
+        </div>
+
+        <div class="concept-card" style="border-top: 4px solid var(--accent); background: #fffdf5;">
+          <h4 style="color: var(--accent-dark);"><span>📉</span> ② 分母（自己資本）を削る：自社株買いバブル</h4>
+          <p>
+            ROEの算式を見れば明らかなように、利益を増やせなくても<strong>「分母（自己資本）」を減らせば、計算上のROEは自動的に上昇します</strong>。
+          </p>
+          <p>
+            ・稼いだ利益を国内の設備投資や従業員の賃上げに回さず、<strong>「自社株買い」</strong>に注ぎ込んで発行済株式を消却<br>
+            ・配当性向を40%〜50%超へと引き上げ、外国人投資家や富裕層へキャッシュを還元
+          </p>
+          <p>
+            こうして、株価とROEは見かけ上美しく演出されましたが、実体経済の生産力や家計の所得基盤は完全に痩せ細りました。
+          </p>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <h4><span>⚠️</span> 構造改革・伊藤レポートがもたらした「トリクルアップ」の完成</h4>
+        <p>
+          日本におけるコーポレートガバナンス改革（伊藤レポート、スチュワードシップ・コード、JPX日経400）は、「日本企業を再び強くする」という美名のもとに導入されました。
+        </p>
+        <p>
+          しかしその実態は、<strong>低成長社会（低 $g$）において、金融資本が要求する高い資本収益率（高 $r$・高ROE）を強引に達成させるための「人件費収奪システム」</strong>として機能しました。その結果、過去20年間で企業の配当金は5倍、内部留保は500兆円を突破する一方で、実質賃金は下落し続け、中間層の崩壊と貧困の固定化が完成したのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 7: 出典・参考文献・公的資料リンク -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📚</span> 07. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        ※各機関のウェブサイト方針や改変等によりリンク切れが発生するリスクを避けるため、公式一次資料名および書誌情報を明記しています。
+      </p>
+
+      <ul class="reference-list">
+        <li>
+          トマ・ピケティ著、山形浩生・守岡桜・森本正史 訳『21世紀の資本』（みすず書房、2014年）
+          <span class="badge-no-link">書籍文献</span>
+        </li>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Capital_in_the_Twenty-First_Century" target="_blank" rel="noopener">Wikipedia: Capital in the Twenty-First Century</a>
+          ―― ピケティ『21世紀の資本』の受容と基本命題（$r > g$、第1・第2基本法則）に関する解説。
+        </li>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Return_on_equity" target="_blank" rel="noopener">Wikipedia: Return on equity</a>
+          ―― 企業財務におけるROEの定義、デュポン分析、資本コストとの関係。
+        </li>
+        <li>
+          <a href="https://www.brookings.edu/articles/deciphering-the-fall-and-rise-in-the-net-capital-share/" target="_blank" rel="noopener">Matthew Rognlie (2015), "Deciphering the Fall and Rise in the Net Capital Share", Brookings Papers on Economic Activity</a>
+          ―― ピケティの資本所得比率上昇が主として住宅資本（地価）に起因することを示した画期的論文。
+        </li>
+        <li>
+          経済産業省『持続的成長への競争力とインセンティブ〜企業と投資家の望ましい関係構築〜（伊藤レポート）』（座長：伊藤邦雄 一橋大学大学院教授、2014年8月）
+          <span class="badge-no-link">公的報告書</span>
+          ―― 「ROE 8%以上」のコミットメントを日本企業に求めたコーポレートガバナンス改革の起点。
+        </li>
+        <li>
+          <a href="https://www.mof.go.jp/pri/reference/ssc/index.htm" target="_blank" rel="noopener">財務省：法人企業統計調査</a>
+          ―― 日本企業の利益剰余金（内部留保）、配当金、役員報酬、従業員給与の推移データ。
+        </li>
+        <li>
+          <a href="https://www.esri.cao.go.jp/jp/sna/menu.html" target="_blank" rel="noopener">内閣府経済社会総合研究所：国民経済計算（SNA）</a>
+          ―― 国富（国民純資産）ストック、資本所得、雇用者報酬の統計データ。
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p style="font-weight: 700; margin-bottom: 0.25rem;">
+        『現代貧困の解体新書――見えない搾取の構造と処方箋』公式Web補論アーカイブ
+      </p>
+      <p>著者：mb_cho ｜ Amazon Kindle Direct Publishing (KDP)</p>
+    </footer>
+
+  </div>
+
+  <!-- JavaScript: Interactive Sensitivity Simulator -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const sliderRf = document.getElementById('sliderRf');
+      const sliderErp = document.getElementById('sliderErp');
+      const sliderRealEstate = document.getElementById('sliderRealEstate');
+      const sliderRoa = document.getElementById('sliderRoa');
+      const sliderEquityRatio = document.getElementById('sliderEquityRatio');
+      const sliderDebtCost = document.getElementById('sliderDebtCost');
+
+      const valRf = document.getElementById('valRf');
+      const valErp = document.getElementById('valErp');
+      const valRealEstate = document.getElementById('valRealEstate');
+      const valRoa = document.getElementById('valRoa');
+      const valEquityRatio = document.getElementById('valEquityRatio');
+      const valDebtCost = document.getElementById('valDebtCost');
+      const hintLeverage = document.getElementById('hintLeverage');
+
+      const outPikettyR = document.getElementById('outPikettyR');
+      const outAchievedRoe = document.getElementById('outAchievedRoe');
+
+      const barValPiketty = document.getElementById('barValPiketty');
+      const barValCostOfEquity = document.getElementById('barValCostOfEquity');
+      const barValRoe = document.getElementById('barValRoe');
+
+      const barFillPiketty = document.getElementById('barFillPiketty');
+      const barFillCostOfEquity = document.getElementById('barFillCostOfEquity');
+      const barFillRoe = document.getElementById('barFillRoe');
+
+      const simInsight = document.getElementById('simInsight');
+
+      function calculate() {
+        const rf = parseFloat(sliderRf.value);
+        const erp = parseFloat(sliderErp.value);
+        const rEstate = parseFloat(sliderRealEstate.value);
+        const roa = parseFloat(sliderRoa.value);
+        const eqRatioPercent = parseFloat(sliderEquityRatio.value);
+        const debtCost = parseFloat(sliderDebtCost.value);
+
+        // Update Slider Labels
+        valRf.textContent = rf.toFixed(1) + '%';
+        valErp.textContent = erp.toFixed(1) + '%';
+        valRealEstate.textContent = rEstate.toFixed(1) + '%';
+        valRoa.textContent = roa.toFixed(1) + '%';
+        valEquityRatio.textContent = eqRatioPercent + '%';
+        valDebtCost.textContent = debtCost.toFixed(1) + '%';
+
+        const leverage = 100 / eqRatioPercent;
+        hintLeverage.textContent = `自己資本比率${eqRatioPercent}% ＝ 財務レバレッジ ${leverage.toFixed(2)}倍`;
+
+        // 1. Calculate Cost of Equity (CAPM: Re = Rf + ERP)
+        const costOfEquity = rf + erp;
+
+        // 2. Calculate Piketty's Macro r (Weighted average of National Wealth)
+        // Assume national capital mix: Safe debt/deposits: 35%, Real estate: 40%, Equities/Enterprise capital: 25%
+        const equityReturn = costOfEquity;
+        const pikettyR = (0.35 * rf) + (0.40 * rEstate) + (0.25 * equityReturn);
+
+        // 3. Calculate Achieved ROE with Debt Leverage
+        // ROE = (ROA * TotalAssets - DebtCost * Debt) / Equity
+        // Let TotalAssets = 1, Equity = eqRatio, Debt = 1 - eqRatio
+        const eqRatio = eqRatioPercent / 100.0;
+        const debtRatio = 1.0 - eqRatio;
+        const netIncomeToEquity = ( (roa / 100.0) - (debtCost / 100.0) * debtRatio ) / eqRatio;
+        const achievedRoe = netIncomeToEquity * 100.0;
+
+        // Render Outputs
+        outPikettyR.textContent = pikettyR.toFixed(1) + '%';
+        outAchievedRoe.textContent = achievedRoe.toFixed(1) + '%';
+
+        barValPiketty.textContent = pikettyR.toFixed(1) + '%';
+        barValCostOfEquity.textContent = costOfEquity.toFixed(1) + '%';
+        barValRoe.textContent = achievedRoe.toFixed(1) + '%';
+
+        // Scale bar visual (max scale = 15%)
+        const maxScale = 15.0;
+        const widthPiketty = Math.min(Math.max((pikettyR / maxScale) * 100, 2), 100);
+        const widthCostOfEquity = Math.min(Math.max((costOfEquity / maxScale) * 100, 2), 100);
+        const widthRoe = Math.min(Math.max((achievedRoe / maxScale) * 100, 2), 100);
+
+        barFillPiketty.style.width = widthPiketty.toFixed(1) + '%';
+        barFillCostOfEquity.style.width = widthCostOfEquity.toFixed(1) + '%';
+        barFillRoe.style.width = widthRoe.toFixed(1) + '%';
+
+        // Dynamic Commentary
+        let commentary = `<strong>【分析コメント】</strong><br>`;
+        commentary += `・<strong>マクロの資本収益率（ピケティの $r$）：${pikettyR.toFixed(1)}%</strong><br>`;
+        commentary += `安全な国債（利回り${rf.toFixed(1)}%）や不動産（${rEstate.toFixed(1)}%）が社会全体の資本ストックの大部分を占めるため、ハイリスクな株式利回り（${equityReturn.toFixed(1)}%）と混ざり合い、歴史的平均である<strong>4%台</strong>に収れんしています。<br><br>`;
+        
+        commentary += `・<strong>企業の達成ROE：${achievedRoe.toFixed(1)}%</strong>（要求資本コスト：${costOfEquity.toFixed(1)}%）<br>`;
+        if (achievedRoe >= costOfEquity) {
+          commentary += `企業は総資産利益率（ROA ${roa.toFixed(1)}%）に対し、低金利（${debtCost.toFixed(1)}%）の借入金をテコ（レバレッジ ${leverage.toFixed(2)}倍）にすることで、株主に対して<strong>${achievedRoe.toFixed(1)}%</strong>という高いリターンを実現できています。<br>`;
+          commentary += `しかしマクロ経済全体ではこの借入金は国内の債権（資産）と相殺されるため、一国全体の利回りが8%〜10%に上がることはありません。`;
+        } else {
+          commentary += `企業の事業利益率（ROA ${roa.toFixed(1)}%）に対し、株主の要求利回り（${costOfEquity.toFixed(1)}%）を下回っており、グローバル市場からは「資本コスト割れ（企業価値破壊）」と判定される危険な状態です。`;
+        }
+
+        simInsight.innerHTML = commentary;
+      }
+
+      // Attach Event Listeners
+      [sliderRf, sliderErp, sliderRealEstate, sliderRoa, sliderEquityRatio, sliderDebtCost].forEach(el => {
+        el.addEventListener('input', calculate);
+      });
+
+      // Initial Calculation
+      calculate();
+    });
+  </script>
+</body>
+</html>
