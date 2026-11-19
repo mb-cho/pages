@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：価格転嫁の重層構造と企業の過去最高益――インフレ会計の錯視、海外収益の統計バイアス、そして下請け買い叩きの実態解明</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeX();"></script>
+  <script>
+    function initKaTeX() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+  </script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Navigation Bar */
+    .nav-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .portal-link {
+      background: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .portal-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+      color: #ffffff;
+      padding: 2.75rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge-accent {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .badge-emerald {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .main-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .sub-title {
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title span.icon {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+    }
+
+    /* Summary Box */
+    .summary-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Alert Boxes */
+    .alert-box {
+      padding: 1.1rem 1.35rem;
+      border-radius: 10px;
+      margin: 1.35rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .alert-note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .alert-important {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .alert-warning {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    /* Math Formulas */
+    .math-formula-box {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.35rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+      overflow-x: auto;
+    }
+
+    .formula-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* Step Lists & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+
+    /* Stepper List */
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Preset Button Group */
+    .preset-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .preset-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-right: 0.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
+    }
+
+    /* Simulator Styles */
+    .simulator-container {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .simulator-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .simulator-header h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .simulator-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 820px) {
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .control-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: #1e293b;
+    }
+
+    .control-val {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .control-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .results-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .result-box.profit-box {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .result-box.share-box {
+      border-top: 4px solid var(--rose);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .result-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin: 0.35rem 0;
+    }
+
+    .result-number.profit-num {
+      color: var(--emerald);
+    }
+
+    .result-number.share-num {
+      color: var(--rose);
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Bar Visualizer */
+    .bar-comparison {
+      margin-top: 0.5rem;
+    }
+
+    .bar-row {
+      margin-bottom: 0.85rem;
+    }
+
+    .bar-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .bar-track {
+      background: #e2e8f0;
+      border-radius: 9999px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+      font-size: 0.68rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.4rem;
+    }
+
+    .bar-fill.profit { background: var(--emerald); }
+    .bar-fill.wage { background: var(--primary-light); }
+    .bar-fill.subcontractor { background: var(--accent); }
+
+    .dynamic-insight-card {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Reference List */
+    .reference-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .reference-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.9rem;
+    }
+
+    .badge-no-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Portal TOP only) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span> 現代貧困の解体新書 補論アーカイブ
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <span>←</span> 補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="header-card">
+      <div class="badge-container">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-accent">インフレ会計 × 法人企業統計 × 多国籍企業論</span>
+        <span class="badge badge-emerald">インタラクティブ・シミュレーター搭載</span>
+      </div>
+      <h1 class="main-title">価格転嫁の重層構造と企業の過去最高益</h1>
+      <p class="sub-title">インフレ会計の錯視、円安による海外配当・営業外収益の統計バイアス、そして下請け労務費買い叩き――企業の過去最高益（124.8兆円）と労働分配率急落（63.0%）の真実を解剖する</p>
+    </header>
+
+    <!-- Section 0: Executive Summary -->
+    <section class="card">
+      <div class="summary-box">
+        <h4><span>💡</span> 本稿の要約（エグゼクティブ・サマリー）</h4>
+        <p>
+          2021〜2025年度にかけて、日本企業の経常利益は<strong>124.8兆円</strong>という前人未到の過去最高記録を更新しました。これに伴い、春闘では2024年（5.10%）、2025年（5.25%）、2026年（連合方針5%以上・実績5.01%）と「3年連続5%超の歴史的賃上げ」が華々しく喧伝されています。
+        </p>
+        <p>
+          しかし、マクロ経済の現場では、全産業の労働分配率が<strong>「63.0%」という約半世紀ぶりの歴史的低水準へ崖下り急落</strong>し、実質賃金は2022年4月から2024年5月にかけて過去最長となる「26ヶ月連続マイナス」を記録しました。
+        </p>
+        <p>
+          「原材料高を転嫁しただけなら利益はトントンのはず」「増益はすべて国内での搾取によるもの」という単純な見方は、現代の多角的な企業会計と国際マクロ構造を見落としています。企業の最高益と労働分配率急落の背景には、以下の<strong>4つの重層的メカニズム</strong>が複合的に作用しています。
+        </p>
+        <div class="grid-2" style="margin: 1rem 0 0.5rem 0;">
+          <div class="feature-card">
+            <h4><span>⚖️</span> ① インフレ会計の錯視（定率転嫁）</h4>
+            <p>従来のマークアップ率（粗利率）を維持して価格転嫁を行う「定率転嫁」では、実質的な利幅を広げずとも名目利益額がインフレ率に応じて自然増します。</p>
+          </div>
+          <div class="feature-card">
+            <h4><span>🌏</span> ② 海外収益と統計バイアス</h4>
+            <p>経常利益124.8兆円の主因は円安に伴う「海外子会社からの受取配当金等」の膨張です。これは国内付加価値（分母）を増やしますが、海外人件費は国内分子に入らないため、統計上分配率が押し下げられます。</p>
+          </div>
+          <div class="feature-card">
+            <h4><span>📈</span> ③ 国内マークアップ拡大と便乗値上げ</h4>
+            <p>デフレ脱却ムードに乗じた川下大企業の「実質マークアップ率引き上げ（グリードフレーション）」が、売上高増加率＞原価増加率をもたらし利益率を高めました。</p>
+          </div>
+          <div class="feature-card">
+            <h4><span>🏢</span> ④ 下請け労務費買い叩きと企業の二極化</h4>
+            <p>下請けへの労務費転嫁率はわずか3〜4割にとどまります。春闘5%の恩恵を受けるグローバル大企業と、分配率が70〜80%台で高止まりし賃上げ余力のない内需中小企業が決定的に分断されています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: 疑問の出発点とインフレ会計 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🔍</span> 01. 疑問の出発点：インフレ会計の錯視と「定額転嫁」vs「定率転嫁」</h2>
+      <p>
+        企業の損益計算書（P/L）において、本業の営業利益 $\Pi_{op}$ は以下の会計恒等式で表されます。
+      </p>
+
+      <div class="math-formula-box">
+        $$\Pi_{op} = S - C_{in} - W$$
+        <div class="formula-desc">
+          <strong>$S$</strong>：売上高（販売数量 $Q \times$ 製品価格 $P$）<br>
+          <strong>$C_{in}$</strong>：中間投入コスト（原材料費、燃料・エネルギー費、外注加工費等）<br>
+          <strong>$W$</strong>：人件費（基本給、賞与、諸手当、法定福利費等）
+        </div>
+      </div>
+
+      <p>
+        いま、ウクライナ危機や為替変動により、中間投入コストが $\Delta C_{in} > 0$ だけ高騰したとします。このとき、企業が製品価格にコスト上昇を反映させる「価格転嫁」には、実務上**2つの異なる価格設定行動**が存在します。
+      </p>
+
+      <div class="grid-2">
+        <div class="feature-card">
+          <h4 style="color: var(--primary);">① 定額転嫁（同額転嫁モデル）</h4>
+          <p>
+            原材料コストの上昇額と<strong>「同額（1対1）」</strong>だけ製品価格を引き上げる手法です。
+          </p>
+          <div style="background: #f8fafc; padding: 0.6rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.85rem;">
+            $$\Delta S = \Delta C_{in} \implies \Delta \Pi_{op} = 0$$
+            原価が10円上がったので価格を10円だけ値上げした場合、売上増と原価増が完全に相殺され、人件費 $W$ が不変なら<strong>利益額は1円も増えず横ばい（トントン）</strong>にとどまります。
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <h4 style="color: var(--accent-dark);">② 定率転嫁（マージン率維持モデル）</h4>
+          <p>
+            従来の粗利益率（マークアップ率 $\mu$）を<strong>「一定比率」</strong>で維持するように価格を設定する手法です（実務で広く採用）。
+          </p>
+          <div style="background: #f8fafc; padding: 0.6rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.85rem;">
+            $$S = (1 + \mu) C_{in} \implies \Delta S = (1 + \mu) \Delta C_{in}$$
+            例えば原価80円・売価100円（粗利20円・利益率20%）の商品で原価が20%上がって96円になった際、利益率20%を維持して売価を120円に改定すると、<strong>名目利益額は20円から24円へと20%自動的に自然増</strong>します。
+          </div>
+        </div>
+      </div>
+
+      <div class="alert-box alert-note">
+        <strong>💡 会計学的なポイント：</strong><br>
+        インフレ下においては、実質的な利幅を拡大する「便乗値上げ」を行わなくても、従来の利益率を維持する「定率転嫁」を行うだけで、<strong>名目上の利益額（円建ての金額）はインフレ率に比例して自然に膨張</strong>します。「コストを転嫁しただけなら利益は絶対に横ばいになるはずだ」という直観は、定額転嫁のみを前提とした初歩的な会計的錯視です。
+      </div>
+
+      <p>
+        しかし、ここで真の経済的疑問が生じます。もし企業行動が単なる「定率転嫁」であったなら、インフレ率と同率で労働者の基本給（ベースアップ）が引き上げられれば、労働分配率は安定的に維持されるはずです。
+      </p>
+      <p>
+        なぜ現実の日本企業は、名目利益が自然増するにとどまらず、<strong>経常利益124.8兆円という歴史的最高記録を大幅に更新</strong>し、同時に<strong>労働分配率が63.0%という半世紀ぶりの低水準へ崖下り急落</strong>したのでしょうか？ そこには、単なるインフレ会計を超えた3つの決定的な構造要因が存在します。
+      </p>
+    </section>
+
+    <!-- Section 2: 要因① 営業利益と経常利益の乖離・統計バイアス -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🌏</span> 02. 要因①：マクロ会計の現実――「経常利益」の海外配当膨張と統計的バイアス</h2>
+      <p>
+        第1の要因は、財務省『法人企業統計』が示す「124.8兆円」という数字自体の会計的性質です。この数字は国内事業の「営業利益」ではなく、**「経常利益（全産業・金融保険除く）」**です。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{経常利益 } \Pi_{ord} = \text{営業利益 } \Pi_{op} + \text{営業外収益（受取配当金・為替差益等）} - \text{営業外費用}$$
+      </div>
+
+      <h3 style="font-size: 1.05rem; color: var(--primary); margin: 1.25rem 0 0.5rem 0;">① 円安による海外子会社からの「受取配当金」と為替差益の激増</h3>
+      <p>
+        2021年の1ドル＝110円前後から、2024〜2025年には1ドル＝155〜160円台へと歴史的な円安が進行しました。日本を代表するグローバル製造業や総合商社は、過去20年間にわたり生産拠点の海外移転を進めてきました。
+      </p>
+      <p>
+        その結果、海外子会社が現地で稼ぎ出したドル建ての利益や配当金が、円安によって円換算で自動的に天文学的な規模へと膨れ上がりました。経済産業省や日銀の国際収支統計を見ても、第一次所得収支（海外からの利子・配当）は年間**35兆〜40兆円規模**という過去最高水準に達しています。この海外からの巨額配当の還流こそが、法人企業統計の「経常利益124.8兆円」を押し上げた最大のエンジンです。
+      </p>
+
+      <h3 style="font-size: 1.05rem; color: var(--primary); margin: 1.25rem 0 0.5rem 0;">② 【決定的盲点】多国籍企業化による「労働分配率の統計的押し下げバイアス」</h3>
+      <p>
+        さらに重要なのが、法人企業統計における<strong>労働分配率の構造的歪み（統計的バイアス）</strong>です。
+      </p>
+
+      <div class="alert-box alert-important">
+        <strong>⚠️ 労働分配率の多国籍化バイアス（分母と分子の非対称性）：</strong><br>
+        財務省の定義において、付加価値額（分母）には海外子会社からの受取配当金を含む営業純益が算入されます。しかし、その海外現地法人で実際に働いている<strong>現地従業員の人件費は、日本の国内統計における人件費（分子）には一切計上されません</strong>。<br>
+        したがって、日本企業がグローバル展開を加速させ、円安によって海外からの配当が膨らむほど、<strong>「分子（国内人件費）は増えないのに分母（付加価値額）だけが肥大化する」</strong>ため、国内マクロの労働分配率は算術的・機械的に急低下してしまうのです。
+      </div>
+
+      <p>
+        つまり、労働分配率63.0%への低下の一部は、国内労働者への締め付けだけでなく、**「日本企業の収益構造が海外多国籍化し、円安で海外利益の円換算が跳ね上がったことによる統計構造上の結果」**という側面を冷静に見極める必要があります。
+      </p>
+    </section>
+
+    <!-- Section 3: 要因② 国内マークアップ率の拡大 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📈</span> 03. 要因②：国内価格転嫁における「実質マークアップ率の拡大（便乗値上げ）」</h2>
+      <p>
+        海外要因だけでなく、国内の商取引においても明確な変化が生じました。それが、単なる定率転嫁（マージン維持）を超えた**「実質マークアップ率の引き上げ（グリードフレーション）」**です。
+      </p>
+
+      <p>
+        30年間続いたデフレ経済下では、企業は「わずかでも値上げすれば客が離れる」という強烈な恐怖に縛られていました。しかし、2022年以降の世界的な原材料高と円安により、日本社会全体に「30年ぶりのインフレ容認ムード」が形成されました。
+      </p>
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">A</div>
+          <div class="step-content">
+            <div class="step-title">便乗値上げによる利ざや拡大</div>
+            <p>
+              価格改定への抵抗感が薄れた機を捉え、川下大手企業（食品、流通、外食、日用品、耐久消費財など）は、単に「原材料コストの上昇分10円」を転嫁するだけでなく、将来のインフレ予測や追加利益を織り込んだ**「15円〜20円の値上げ」**を実施しました。
+            </p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">B</div>
+          <div class="step-content">
+            <div class="step-title">公的データが実証する原価率の低下</div>
+            <p>
+              内閣府『年次経済財政報告』および日本銀行のワーキングペーパー（青木浩介・法眼吉彦ら）の実証分析によると、2022〜2024年の日本企業では**「売上高の増加率が仕入原価の増加率を一貫して上回り、売上高原価率が低下（マークアップ率が上昇）」**したことが確認されています。
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <p>
+        欧州中央銀行（ECB）やIMFが欧米市場で指摘した「ユニット・プロフィット（単位当たり企業利潤）の拡大によるインフレ押し上げ」現象が、日本国内の川下市場でも確実に現出したのです。
+      </p>
+    </section>
+
+    <!-- Section 4: 要因③ 下請け労務費買い叩き -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">⚖️</span> 04. 要因③：産業構造の非対称性――消費者には転嫁し、下請け労務費は叩く</h2>
+      <p>
+        最高益と生活困窮が併存する最も深刻な国内要因が、サプライチェーンにおける**「二重基準（非対称な価格転嫁）」**です。
+      </p>
+
+      <div class="grid-2">
+        <div class="feature-card" style="border-top: 4px solid var(--emerald);">
+          <h4 style="color: var(--emerald);">川下（対消費者・一般市場）</h4>
+          <p style="font-weight: 700; margin-bottom: 0.35rem;">積極的かつ強気の価格転嫁（転嫁率100%〜120%）</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            エネルギー高や円安を正当な理由として値上げを連発。ブランド力と市場支配力を持つ大企業は、マージンを上乗せして粗利益を大幅に拡大させました。
+          </p>
+        </div>
+
+        <div class="feature-card" style="border-top: 4px solid var(--rose);">
+          <h4 style="color: var(--rose);">川上（対下請け中小企業）</h4>
+          <p style="font-weight: 700; margin-bottom: 0.35rem;">労務費（賃上げ原資）の転嫁拒絶（転嫁率35%前後）</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            下請け企業から「電気代や鉄鋼代だけでなく、従業員の生活を守る賃上げ分も単価に乗せてほしい」と要請されても、優越的地位を背景に徹底して据え置きました。
+          </p>
+        </div>
+      </div>
+
+      <div class="alert-box alert-warning">
+        <strong>📊 公正取引委員会・中小企業庁の調査事実：</strong><br>
+        政府の「価格交渉促進月間フォローアップ調査」によれば、原材料費の転嫁率は60〜70%程度まで進展したものの、**「労務費（人件費上昇分）の転嫁率」はわずか3割台（約35%）**にとどまっています。下請け企業の約6割が、賃上げ原資を単価に反映できず自社の身を削って吸収することを強いられました。
+      </div>
+
+      <p>
+        発注元の大企業は「自社の売値はインフレで吊り上げ、下請けへの外注費（労務費）は買い叩いて抑え込む」ことで、その**スプレッド（利ざや）を自社の経常利益として独占**したのです。
+      </p>
+    </section>
+
+    <!-- Section 5: 要因④ 企業の二極化と春闘の虚実 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📉</span> 05. 要因④：企業の二極化と「春闘5%」の虚実</h2>
+      <p>
+        メディアでは「2024年5.10%、2025年5.25%、2026年実績5.01%」と、3年連続の5%超賃上げが熱狂的に報じられました。しかし、この数字とマクロ経済の困窮の間には**3つの重大なギャップ**が存在します。
+      </p>
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">春闘（大企業中心）とマクロ統計（中小企業含む）の決定的分断</div>
+            <p>
+              連合の春闘集計は、組織化された大手企業の労働組合が中心です。
+              過去最高益に沸く大手輸出企業や金融・商社が5〜6%台の賃上げを実施する一方で、<strong>日本で働く労働者の約7割を雇用する中小企業</strong>は、下請け労務費の転嫁拒絶によって利益が激減していました。
+              中小企業では労働分配率がすでに**70〜80%台と高止まり**しており、これ以上賃金を上げれば赤字転落・倒産する瀬戸際に追い込まれています。「利益が丸残りしているグローバル大企業」と「原資が尽きた内需型中小企業」という**強烈なK字型の二極化**が生じたのです。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">定期昇給（定昇）とベースアップ（ベア）の分離</div>
+            <p>
+              「5.10%」の賃上げのうち、約1.8%は年齢上昇に伴う自然増である「定期昇給」であり、全社員の賃金ベースを一律に引き上げる**純粋な「ベースアップ（ベア）」は3.3%前後**でした。インフレ率が3〜4%で推移する局面において、実質的な生活向上をもたらすには力不足でした。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">実質賃金26ヶ月連続マイナスの時間軸の正確な検証</div>
+            <p>
+              厚生労働省『毎月勤労統計調査』における「実質賃金26ヶ月連続マイナス（2022年4月〜2024年5月）」は、急激な輸入インフレの初動に対し、企業の賃金改定が遅れた「タイムラグ」の産物です。
+              2024年後半以降、春闘の妥結が給与に反映され始めて名目賃金は伸びたものの、中小企業への波及が鈍く、物価高の累積ダメージを相殺するには至っていません。
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 6: 数理的統合モデル -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📐</span> 06. 数理的検証：控除法・加算法と労働分配率の統合方程式</h2>
+      <p>
+        以上の要因を、マクロ経済学と財務省の企業統計定義に基づき数理モデルとして統合します。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{労働分配率 } LS = \frac{\text{国内人件費 } W}{\text{付加価値額 } VA}$$
+        <div style="margin: 0.85rem 0; font-size: 0.95rem; text-align: left; padding: 0.75rem 1rem; background: #ffffff; border-radius: 0.5rem; border: 1px dashed #cbd5e1;">
+          <strong>【控除法（生産・取引側）】</strong> $VA = \text{売上高}(S) - \text{中間投入コスト}(C_{in})$<br>
+          <strong>【加算法（配分・決算側：財務省定義）】</strong> $VA = \text{人件費}(W) + \text{営業純益}(\Pi_{net}) + \text{動産・不動産賃借料}(R) + \text{租税公課}(T) + \text{支払利息等}(I)$<br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">※財務省定義：$\text{営業純益 } \Pi_{net} = \text{営業利益} - \text{支払利息等}$。さらに経常利益には海外配当等の営業外収益 $\Pi_{foreign}$ が加わる。</span>
+        </div>
+        $$LS = \frac{W}{S - C_{in}} = \frac{W}{W + \Pi_{net} + R + T + I} = \frac{1}{1 + \frac{\Pi_{net} + R + T + I}{W}}$$
+      </div>
+
+      <div class="alert-box alert-note">
+        <strong>【数理的帰結の総括】：</strong>
+        <ol style="margin-left: 1.25rem; margin-top: 0.4rem;">
+          <li><strong>国内要因：</strong>実質マークアップ拡大（$\Delta S > \Delta C_{in}$）と下請け労務費抑制により国内付加価値が膨張。自社ベア抑制（$\Delta W$ 微増）により、利潤倍率 $\frac{\Pi_{net}}{W}$ が急騰。</li>
+          <li><strong>国際・統計要因：</strong>円安による海外配当 $\Pi_{foreign}$ の激増が分母の付加価値をさらに押し上げる一方、海外人件費は分子 $W$ に入らない（多国籍化バイアス）。</li>
+          <li>この内外両面からの分母拡大と分子抑制が同時に作用した結果、<strong>労働分配率 $LS$ は必然的・算術的に「63.0%」へと急落</strong>した。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Section 7: インタラクティブ・シミュレーター -->
+    <section class="card simulator-container">
+      <div class="simulator-header">
+        <h4><span>🧮</span> 価格転嫁と企業収益・労働分配率シミュレーター</h4>
+        <p>インフレ下の価格転嫁率、下請け労務費承認率、自社ベア、そして海外配当（円安効果）が「経常利益」と「労働分配率」に与える影響を多角的に検証できます。</p>
+      </div>
+
+      <!-- Preset Scenarios -->
+      <div class="preset-btn-group">
+        <span class="preset-label">📊 シナリオ切替:</span>
+        <button type="button" class="preset-btn" data-preset="2024">2024年春闘 (5.10% / ベア3.3%)</button>
+        <button type="button" class="preset-btn active" data-preset="2025">2025年現実 (最高益124.8兆円 / 分配率63.0%)</button>
+        <button type="button" class="preset-btn" data-preset="2026">2026年春闘 (3年連続5%でも分配率低迷固定)</button>
+        <button type="button" class="preset-btn" data-preset="ideal">三方よし (物価・賃金好循環)</button>
+      </div>
+
+      <div class="simulator-grid">
+        <!-- Controls Column -->
+        <div class="controls-panel">
+          <!-- Slider 1 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>① 原材料・エネルギーコスト上昇率</span>
+              <span class="control-val" id="valInputCost">+15.0%</span>
+            </div>
+            <input type="range" id="inputCost" min="0" max="30" step="1" value="15">
+            <div class="control-hint">輸入物価高や為替変動による中間投入コストの増加率</div>
+          </div>
+
+          <!-- Slider 2 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>② 製品価格への転嫁率（対消費者・市場）</span>
+              <span class="control-val" id="valPassThrough">120%</span>
+            </div>
+            <input type="range" id="passThrough" min="50" max="150" step="5" value="120">
+            <div class="control-hint">100%=定額転嫁、100%超=定率転嫁＋マークアップ拡大（便乗値上げ）</div>
+          </div>
+
+          <!-- Slider 3 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>③ 下請け労務費（賃上げ）の転嫁承認率</span>
+              <span class="control-val" id="valSubcontractorPass">35%</span>
+            </div>
+            <input type="range" id="subcontractorPass" min="0" max="100" step="5" value="35">
+            <div class="control-hint">下請け中小企業の賃上げ要請に応じる割合（※現実の日本は約35%）</div>
+          </div>
+
+          <!-- Slider 4 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>④ 自社従業員の基本給（ベア）引上げ率</span>
+              <span class="control-val" id="valBaseUp">+2.5%</span>
+            </div>
+            <input type="range" id="baseUp" min="0.0" max="6.0" step="0.5" value="2.5">
+            <div class="control-hint">定期昇給を除いた純粋な基本給の底上げ率（※2024年: 3.3%、2025年: 2.5〜3.2%、2026年方針: 3.0%前後）</div>
+          </div>
+
+          <!-- Slider 5: 円安海外配当ブースト -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>⑤ 円安による海外配当・為替益ブースト</span>
+              <span class="control-val" id="valFxBoost">+14.0兆円</span>
+            </div>
+            <input type="range" id="fxBoost" min="0" max="25" step="1" value="14">
+            <div class="control-hint">海外子会社からの受取配当等の円安換算益（付加価値を押し上げ分配率を低下）</div>
+          </div>
+        </div>
+
+        <!-- Output Panel Column -->
+        <div class="results-panel">
+          <div class="results-grid">
+            <div class="result-box profit-box">
+              <div class="result-label">企業の経常利益（試算）</div>
+              <div class="result-number profit-num" id="outProfit">124.8兆円</div>
+              <div class="result-sub" id="outProfitDelta">基準比: +41.8兆円 (+50.4%)</div>
+            </div>
+            <div class="result-box share-box">
+              <div class="result-label">全産業 労働分配率</div>
+              <div class="result-number share-num" id="outLaborShare">63.0%</div>
+              <div class="result-sub" id="outShareDelta">コロナ期(70.5%)から ▲7.5pt 急落</div>
+            </div>
+          </div>
+
+          <!-- Visual Bar Breakdown -->
+          <div class="bar-comparison">
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>大企業の経常利益水準</span>
+                <span id="txtBarProfit">124.8兆円 (過去最高益)</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill profit" id="barProfit" style="width: 85%;">124.8兆円</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>自社従業員の実質賃金動向</span>
+                <span id="txtBarRealWage">▲1.0% (生活苦)</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill wage" id="barRealWage" style="width: 40%; background: #e11d48;">▲1.0%</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>下請け中小企業の利益圧迫度</span>
+                <span id="txtBarSubcontractor">危機的赤字圏 (65% 負担転嫁)</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill subcontractor" id="barSubcontractor" style="width: 65%;">65% 負担転嫁</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Feedback Insight -->
+          <div class="dynamic-insight-card" id="insightBox">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: 構造比較表 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📊</span> 08. 本来あるべき好循環 vs 日本の二極化構造の現実</h2>
+      <p>
+        「物価と賃金の好循環」が機能している健全な経済と、日本で現出した「歪んだ価格転嫁と二極化」の構造的断絶を総括・比較します。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">比較項目</th>
+              <th style="width: 40%;">本来あるべき「物価と賃金の好循環」</th>
+              <th style="width: 40%; background: #fff1f2; color: #9f1239;">日本で起きた「二極化と歪んだ価格転嫁」の現実</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 700;">価格転嫁の性質</td>
+              <td>コスト相殺および適切な賃上げ原資の創出</td>
+              <td><strong>定率転嫁＋川下便乗値上げによるマークアップ拡大</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">下請け中小企業への対応</td>
+              <td>原材料費だけでなく「労務費」も単価に反映</td>
+              <td><strong>優越的地位による「労務費転嫁の拒絶（承認率3割台）」</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">春闘賃上げの実態<br><span style="font-size: 0.75rem; color: var(--text-muted);">（2024・2025・2026年）</span></td>
+              <td>物価高を上回るベースアップが中小企業・非正規を含む社会全体へ波及</td>
+              <td><strong>大手中心の「名目5%」。純粋ベアは3%前後でインフレ未満。中小企業は原資枯渇で波及せず二極化</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">最高益（124.8兆円）の源泉</td>
+              <td>国内の実体経済におけるイノベーションと生産性向上</td>
+              <td><strong>円安による海外受取配当の急増 ＋ 国内マージン拡大・労務費抑制</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">労働分配率の推移</td>
+              <td>付加価値の増加に比例して賃金も増え、健全水準（68〜72%）を維持</td>
+              <td><strong>多国籍化バイアスと国内賃金抑制により、63.0%へ崖下り急落・底値固定化</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">実質賃金・個人消費</td>
+              <td>実質賃金がプラス圏を維持し、内需主導の成長へ</td>
+              <td><strong>実質賃金が長期低迷（26ヶ月連続マイナス等）、個人消費は停滞</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 9: 出典・参考文献・公的資料 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📚</span> 09. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        ※リンク切れ防止のため、永続的・公式にアクセス可能な公的統計および主要報告書のみを掲載しています。
+      </p>
+
+      <ul class="reference-list">
+        <li>
+          <strong>財務省：</strong>『法人企業統計調査（年次別調査・四半期別調査）』全産業（金融・保険業除く）
+          <span class="badge-no-link">公的統計データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">売上高、経常利益（124.8兆円）、人件費、付加価値額、労働分配率（63.0%）の時系列推移。</span>
+        </li>
+        <li>
+          <strong>内閣府：</strong>『年次経済財政報告（経済財政白書）』各年版（令和4年〜令和7年）
+          <span class="badge-no-link">白書報告</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">企業収益の過去最高水準更新、価格転嫁の進展度合い、およびマークアップ率・交易条件の要因分解。</span>
+        </li>
+        <li>
+          <strong>公正取引委員会・中小企業庁：</strong>『労務費の適切な転嫁のための価格交渉に関する指針』（2023年11月策定）および価格交渉促進月間フォローアップ調査結果
+          <span class="badge-no-link">政府指針</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">下請け企業に対する労務費の転嫁率が3割台にとどまる実態と、独占禁止法・下請法上の注意喚起事例。</span>
+        </li>
+        <li>
+          <strong>日本銀行調査統計局：</strong>『企業の価格・賃金設定行動とマークアップの動向』（日銀ワーキングペーパーシリーズ、青木浩介・法眼吉彦ら）
+          <span class="badge-no-link">学術・政策研究</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">日本企業における価格マークアップ率の推移と、賃金マークダウン（賃金抑制）を通じた利益確保メカニズムの実証。</span>
+        </li>
+        <li>
+          <strong>厚生労働省：</strong>『毎月勤労統計調査（年報・月報）』
+          <span class="badge-no-link">公的統計</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">名目賃金・実質賃金指数の推移（2022年4月〜2024年5月の26ヶ月連続実質賃金マイナス実績）。</span>
+        </li>
+        <li>
+          <strong>日本労働組合総連合会（連合）：</strong>『春季生活闘争妥結結果』（2024年・2025年・2026年実績および方針）
+          <span class="badge-no-link">労使交渉データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">2024年（5.10% / ベア3.3%）、2025年（5.25% / ベア3.4%）、2026年（方針5%以上・妥結5.01%）の賃上げ率。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 mb_cho. 現代貧困の解体新書 補論アーカイブ. 無断転載・複製を禁じます。</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputCost = document.getElementById('inputCost');
+      const passThrough = document.getElementById('passThrough');
+      const subcontractorPass = document.getElementById('subcontractorPass');
+      const baseUp = document.getElementById('baseUp');
+      const fxBoost = document.getElementById('fxBoost');
+
+      const valInputCost = document.getElementById('valInputCost');
+      const valPassThrough = document.getElementById('valPassThrough');
+      const valSubcontractorPass = document.getElementById('valSubcontractorPass');
+      const valBaseUp = document.getElementById('valBaseUp');
+      const valFxBoost = document.getElementById('valFxBoost');
+
+      const outProfit = document.getElementById('outProfit');
+      const outProfitDelta = document.getElementById('outProfitDelta');
+      const outLaborShare = document.getElementById('outLaborShare');
+      const outShareDelta = document.getElementById('outShareDelta');
+
+      const barProfit = document.getElementById('barProfit');
+      const barRealWage = document.getElementById('barRealWage');
+      const barSubcontractor = document.getElementById('barSubcontractor');
+
+      const txtBarProfit = document.getElementById('txtBarProfit');
+      const txtBarRealWage = document.getElementById('txtBarRealWage');
+      const txtBarSubcontractor = document.getElementById('txtBarSubcontractor');
+      const insightBox = document.getElementById('insightBox');
+
+      const presetBtns = document.querySelectorAll('.preset-btn');
+
+      const PRESETS = {
+        '2024': { cost: 12, pt: 115, sub: 30, base: 3.3, fx: 12 },
+        '2025': { cost: 15, pt: 120, sub: 35, base: 2.5, fx: 14 },
+        '2026': { cost: 10, pt: 115, sub: 40, base: 3.0, fx: 13 },
+        'ideal': { cost: 15, pt: 100, sub: 80, base: 4.5, fx: 8 }
+      };
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const p = PRESETS[btn.dataset.preset];
+          if (p) {
+            inputCost.value = p.cost;
+            passThrough.value = p.pt;
+            subcontractorPass.value = p.sub;
+            baseUp.value = p.base;
+            fxBoost.value = p.fx;
+            calculate(btn.dataset.preset);
+          }
+        });
+      });
+
+      // Base values (in Trillion JPY, benchmark around 2020/2021)
+      const BASE_SALES = 1450.0;
+      const BASE_INTERMEDIATE_COST = 1050.0;
+      const BASE_SUBCONTRACTOR_LABOR = 200.0;
+      const BASE_OWN_WAGES = 210.0;
+      const BASE_PROFIT = 83.0; // Initial Ordinary Profit benchmark
+      const INFLATION_RATE = 3.5; // Benchmark inflation rate (%)
+
+      function calculate(presetKey = null) {
+        const costRise = parseFloat(inputCost.value) / 100.0;
+        const ptRate = parseFloat(passThrough.value) / 100.0;
+        const subPass = parseFloat(subcontractorPass.value) / 100.0;
+        const bUp = parseFloat(baseUp.value) / 100.0;
+        const fx = parseFloat(fxBoost.value);
+
+        // Update Labels
+        valInputCost.textContent = `+${inputCost.value}.0%`;
+        valPassThrough.textContent = `${passThrough.value}%`;
+        valSubcontractorPass.textContent = `${subcontractorPass.value}%`;
+        valBaseUp.textContent = `+${parseFloat(baseUp.value).toFixed(1)}%`;
+        valFxBoost.textContent = `+${fx.toFixed(1)}兆円`;
+
+        // 1. Raw material / energy cost increase
+        const deltaRawCost = (BASE_INTERMEDIATE_COST - BASE_SUBCONTRACTOR_LABOR) * costRise;
+
+        // 2. Subcontractor labor cost demand (+4% pressure)
+        const subLaborDemand = BASE_SUBCONTRACTOR_LABOR * 0.04;
+        const subLaborAllowed = subLaborDemand * subPass;
+
+        // Total intermediate cost increase borne by large firms
+        const totalIntermediateIncrease = deltaRawCost + subLaborAllowed;
+
+        // 3. Sales increase via price pass-through
+        const deltaSales = (deltaRawCost + subLaborDemand) * ptRate;
+
+        // 4. Own labor cost increase
+        const newOwnWages = BASE_OWN_WAGES * (1.0 + bUp);
+        const deltaOwnWages = newOwnWages - BASE_OWN_WAGES;
+
+        // 5. New Ordinary Profit (incorporating FX translation boost)
+        const newProfit = BASE_PROFIT + (deltaSales - totalIntermediateIncrease - deltaOwnWages) + fx;
+        const profitDeltaRatio = ((newProfit - BASE_PROFIT) / BASE_PROFIT) * 100.0;
+
+        // 6. Value Added and Labor Share
+        // Base VA: 300T. New VA includes deltaSales - totalIntermediateIncrease + fx
+        const baseVA = 300.0;
+        const newVA = baseVA + (deltaSales - totalIntermediateIncrease) + fx;
+        const laborShare = (newOwnWages / newVA) * 100.0;
+        const shareDrop = 70.5 - laborShare;
+
+        // 7. Real Wage Growth
+        const realWageGrowth = parseFloat(baseUp.value) - INFLATION_RATE;
+
+        // Render Outputs
+        outProfit.textContent = `${newProfit.toFixed(1)}兆円`;
+        outProfitDelta.textContent = `基準比: ${profitDeltaRatio >= 0 ? '+' : ''}${profitDeltaRatio.toFixed(1)}% (${newProfit >= BASE_PROFIT ? '+' : ''}${(newProfit - BASE_PROFIT).toFixed(1)}兆円)`;
+
+        outLaborShare.textContent = `${laborShare.toFixed(1)}%`;
+        outShareDelta.textContent = `コロナ期(70.5%)から ${shareDrop >= 0 ? '▲' : '+'}${Math.abs(shareDrop).toFixed(1)}pt ${shareDrop >= 0 ? '急落' : '上昇'}`;
+
+        // Bar Updates
+        const profitBarWidth = Math.min(100, Math.max(20, (newProfit / 140.0) * 100));
+        barProfit.style.width = `${profitBarWidth}%`;
+        barProfit.textContent = `${newProfit.toFixed(1)}兆円`;
+        txtBarProfit.textContent = `${newProfit.toFixed(1)}兆円 (${profitDeltaRatio >= 0 ? '+' : ''}${profitDeltaRatio.toFixed(1)}%)`;
+
+        if (realWageGrowth < 0) {
+          barRealWage.style.width = `${Math.min(100, Math.abs(realWageGrowth) * 20 + 20)}%`;
+          barRealWage.style.background = '#e11d48';
+          barRealWage.textContent = `${realWageGrowth.toFixed(1)}%`;
+          txtBarRealWage.textContent = `${realWageGrowth.toFixed(1)}% (生活苦・実質目減り)`;
+        } else {
+          barRealWage.style.width = `${Math.min(100, realWageGrowth * 25 + 20)}%`;
+          barRealWage.style.background = '#059669';
+          barRealWage.textContent = `+${realWageGrowth.toFixed(1)}%`;
+          txtBarRealWage.textContent = `+${realWageGrowth.toFixed(1)}% (購買力改善)`;
+        }
+
+        const subStress = Math.min(100, Math.max(10, (1.0 - subPass) * 100));
+        barSubcontractor.style.width = `${subStress}%`;
+        barSubcontractor.textContent = `${subStress.toFixed(0)}% 負担転嫁`;
+        txtBarSubcontractor.textContent = subPass < 0.4 ? '深刻な買い叩き・倒産危機' : subPass < 0.7 ? '一部価格転嫁・利益圧迫' : '適正価格転嫁・共存共栄';
+
+        // Diagnostic Insights
+        if (presetKey === '2024') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2024年春闘シナリオ（名目5.10%・実質賃金26ヶ月マイナス期）】</strong><br>
+          33年ぶりの高水準（5.10%）と喧伝されましたが、定昇（1.8%）を除いた純粋なベアは3.3%にとどまりました。原材料コスト上昇（+12%）に対して製品価格転嫁（115%）を進め、円安の海外配当（+12兆円）が加わったことで、経常利益は<strong>${newProfit.toFixed(1)}兆円</strong>へ伸長。しかしインフレ率にベアが追いつかず、実質賃金はマイナス（${realWageGrowth.toFixed(1)}%）となりました。`;
+          insightBox.style.background = '#fffbeb';
+          insightBox.style.borderColor = '#fef3c7';
+          insightBox.style.color = '#92400e';
+        } else if (presetKey === '2026') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2026年春闘シナリオ（3年連続5%でも分配率低迷固定の罠）】</strong><br>
+          連合方針「5%以上」が3年連続で妥結しても、大企業のマークアップ拡大姿勢と下請け労務費の買いたたき、そして円安による海外利益還流が続く限り、経常利益は<strong>${newProfit.toFixed(1)}兆円</strong>の高水準を維持します。しかし付加価値の膨張に賃上げが追いつかないため、労働分配率は<strong>${laborShare.toFixed(1)}%</strong>と歴史的底値圏に固定化します。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else if (subPass >= 0.70 && bUp >= 3.5) {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：三方よし・物価と賃金の真の好循環モデル】</strong><br>
+          下請け企業の労務費を適正に認め（承認率${subcontractorPass.value}%）、自社従業員の基本給もインフレ率を上回る水準（+${baseUp.value}%）へ引き上げています。大企業の過剰な利益独占は是正され、労働分配率は<strong>${laborShare.toFixed(1)}%</strong>を維持し、国民の実質賃金もプラス（+${realWageGrowth.toFixed(1)}%）となって個人消費が拡大します。`;
+          insightBox.style.background = '#f0fdf4';
+          insightBox.style.borderColor = '#bbf7d0';
+          insightBox.style.color = '#14532d';
+        } else if (ptRate >= 1.15 && subPass <= 0.45 && bUp <= 3.2) {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2025年現実・二極化と多国籍収益モデル】</strong><br>
+          製品価格へのマージン上乗せ転嫁（${passThrough.value}%）、下請け労務費の転嫁拒絶（承認率${subcontractorPass.value}%）、自社ベア抑制（${baseUp.value}%）、そして円安による海外配当ブースト（+${fx.toFixed(1)}兆円）が重なり、企業の経常利益は空前の<strong>${newProfit.toFixed(1)}兆円</strong>を記録しました。しかし多国籍化バイアスと賃金抑制により、労働分配率は<strong>${laborShare.toFixed(1)}%</strong>へと崖下り急落しています。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：部分的転嫁・中間調整モデル】</strong><br>
+          価格転嫁と賃上げが部分的に進行していますが、依然として下請けや労働者への負担転嫁が残存しています。経常利益は<strong>${newProfit.toFixed(1)}兆円</strong>、労働分配率は<strong>${laborShare.toFixed(1)}%</strong>です。持続的な好循環を実現するには、さらなる労務費の適正転嫁と継続的なベースアップが不可欠です。`;
+          insightBox.style.background = '#eff6ff';
+          insightBox.style.borderColor = '#bfdbfe';
+          insightBox.style.color = '#1e3a8a';
+        }
+      }
+
+      [inputCost, passThrough, subcontractorPass, baseUp, fxBoost].forEach(el => {
+        el.addEventListener('input', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          calculate();
+        });
+      });
+
+      calculate('2025');
+    });
+  </script>
+</body>
+</html>

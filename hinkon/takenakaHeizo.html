@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：竹中平蔵と「トリクルダウンの虚妄」――「滴り落ちてくるなんてあり得ない」発言の真実と構造改革の総括</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --teal: #0d9488;
+      --teal-light: #ccfbf1;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Top Navigation */
+    .nav-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 0.75rem;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem;
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+      color: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      background: rgba(217, 119, 6, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+    .badge-accent { background: var(--accent); color: #ffffff; }
+    .badge-emerald { background: var(--emerald); color: #ffffff; }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header-desc {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      max-width: 820px;
+      line-height: 1.65;
+    }
+
+    /* Table of Contents */
+    .toc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .toc-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.5rem 1rem;
+    }
+
+    .toc-list li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .toc-list li a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* Section Styles */
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .section-num {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.4rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 1.5rem 0 0.75rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Highlight Cards & Quotes */
+    .quote-box {
+      background: #fdf2f8;
+      border-left: 4px solid var(--rose);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .quote-title {
+      font-weight: 700;
+      color: var(--crimson);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .quote-content {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #881337;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid var(--primary-light);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .warn-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .warn-title {
+      font-weight: 700;
+      color: var(--accent-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Timeline & Grid */
+    .reform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .reform-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .reform-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .reform-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--primary-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.35rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .reform-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .reform-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Interactive Simulator */
+    .sim-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      border: 2px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .sim-badge {
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .sim-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .slider-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+      background: #eff6ff;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #dbeafe;
+    }
+
+    .slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .slider-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .slider-val {
+      color: var(--accent-dark);
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #cbd5e1;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      background: var(--accent);
+    }
+
+    /* Simulation Canvas / Graphic */
+    .flow-display {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .flow-display { grid-template-columns: 1fr; }
+    }
+
+    .flow-column {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      background: #fafafa;
+    }
+
+    .flow-col-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid;
+    }
+
+    .col-top {
+      border-color: #d97706;
+      color: #b45309;
+    }
+
+    .col-bottom {
+      border-color: #2563eb;
+      color: #1d4ed8;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      font-size: 0.88rem;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-val {
+      font-weight: 700;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .val-positive { color: var(--emerald); }
+    .val-negative { color: var(--rose); }
+    .val-warning { color: var(--accent); }
+
+    /* Funnel Graphic */
+    .funnel-container {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .funnel-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+
+    .funnel-stages {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .stage-bar {
+      border-radius: 0.4rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stage-top {
+      background: linear-gradient(90deg, #d97706, #f59e0b);
+      color: #ffffff;
+      width: 90%;
+    }
+
+    .stage-middle {
+      background: linear-gradient(90deg, #475569, #64748b);
+      color: #ffffff;
+      width: 70%;
+    }
+
+    .stage-bottom {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: #ffffff;
+      width: 50%;
+    }
+
+    .arrow-down {
+      color: #94a3b8;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .arrow-up {
+      color: #f43f5e;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-4px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .verdict-status {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .verdict-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* References */
+    .reference-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reference-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .reference-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .reference-list li {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .reference-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top Navigation -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span>
+        <span>現代貧困の解体新書 補論シリーズ</span>
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="badge-row">
+        <span class="badge badge-primary">第3章 補論 3.4</span>
+        <span class="badge badge-accent">政策と格差拡大</span>
+        <span class="badge badge-emerald">富の還流シミュレーター搭載</span>
+      </div>
+      <h1>竹中平蔵と「トリクルダウンの虚妄」<br>――「滴り落ちてくるなんてあり得ない」発言の真実と構造改革の総括</h1>
+      <p class="header-desc">
+        小泉政権で構造改革と規制緩和の旗頭を務め、労働市場の非正規化を推し進めた竹中平蔵氏。2016年元旦、「滴り落ちてくるなんてないですよ。あり得ないですよ」と言い放った真意とは何だったのか？ 大企業優遇が国全体を潤すという「サプライサイド経済学」の欺瞞、労働者派遣法の改悪とパソナ問題、そして富が下へ滴るのではなく上へ吸い上げられる「トリクルアップ（逆流）」の数理構造を解剖する。
+      </p>
+    </header>
+
+    <!-- Table of Contents -->
+    <div class="toc-card">
+      <div class="toc-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        目次・構成
+      </div>
+      <ul class="toc-list">
+        <li><a href="#sec1">第1節：2016年元旦『朝まで生テレビ！』発言の経緯と波紋</a></li>
+        <li><a href="#sec2">第2節：トリクルダウン仮説の系譜と国際的破綻（IMF・OECD実証）</a></li>
+        <li><a href="#sec3">第3節：竹中平蔵氏の「構造改革」と労働市場の規制緩和・パソナ問題</a></li>
+        <li><a href="#sec4">第4節：【シミュレーター】トリクルダウン vs トリクルアップ（富の逆流）</a></li>
+        <li><a href="#sec5">第5節：総括――「制度を改変して交渉力を奪い、自己責任を説く」という暴力</a></li>
+        <li><a href="#sec6">出典・参考文献・公的資料リンク</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section id="sec1">
+      <h2><span class="section-num">01</span> 2016年元旦『朝まで生テレビ！』発言の経緯と波紋</h2>
+      
+      <p>
+        2016年1月1日未明、テレビ朝日系列で生放送された『朝まで生テレビ！ 元旦スペシャル』において、日本経済の進路と国民の生活実感に決定的な亀裂を刻み込む発言が飛び出しました。発言の主は、かつて小泉純一郎内閣で経済財政担当大臣・金融担当大臣を歴任し、規制改革・構造改革の総指揮を執った<strong>竹中平蔵氏</strong>でした。
+      </p>
+
+      <div class="quote-box">
+        <div class="quote-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          2016年1月1日『朝まで生テレビ！』における実際のやり取り
+        </div>
+        <div class="quote-content">
+          「滴り落ちてくるなんてないですよ。あり得ないですよ。待っているだけで（自動的に富が）落ちてくるわけがないじゃないですか」
+        </div>
+      </div>
+
+      <h3>発言に至る議論の文脈</h3>
+      <p>
+        当時、第二次安倍政権下の「アベノミクス」がスタートして3年が経過し、円安・株高によって大企業は過去最高益を更新していました。しかし、実質賃金は低下を続け、一般庶民や地方には景気回復の実感がまったく届かないという<strong>「格差の拡大」</strong>が深刻な社会問題として議論されていました。
+      </p>
+      <p>
+        パネリストから「アベノミクスは大企業や富裕層を潤わせても、庶民に富が滴り落ちてくる『トリクルダウン』が起きていないではないか」と追及された際、竹中氏は驚くべき態度でこう返答したのです。
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem; font-size: 0.95rem;">
+        <li><strong>「アベノミクスは理論的には100％正しい」</strong>と自賛する一方で、</li>
+        <li>批判の的となっていたトリクルダウンについて<strong>「滴り落ちてくるなんてあり得ない」</strong>と自らあっさりと否定。</li>
+        <li>続けて<strong>「待ってるだけでいいわけがない。自分で動かなければならない」</strong>と、富が行き渡らない理由を労働者や個人の「自己責任」へとすり替えたのです。</li>
+      </ul>
+
+      <div class="warn-box">
+        <div class="warn-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          なぜ国民は激怒し、炎上したのか？
+        </div>
+        <p style="margin-bottom: 0;">
+          小泉政権以来、新自由主義者たちは国民に対して<strong>「今は痛みを伴う改革が必要だが、規制を緩和して大企業が国際競争力をつければ、パイが広がり、いずれ国民全体が豊かになる」</strong>と説明し続けてきました。それにもかかわらず、いざ大企業が巨額の富を蓄積した段階になって、政策を主導した当人が「最初から滴り落ちるわけがない」「待っているお前たちが悪い」と言い放ったため、<strong>「国家的な詐欺」「あまりに無責任な手のひら返し」</strong>として凄まじい批判を巻き起こしたのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="sec2">
+      <h2><span class="section-num">02</span> トリクルダウン仮説の系譜と国際的破綻（IMF・OECD実証）</h2>
+
+      <p>
+        そもそも「トリクルダウン（Trickle-Down：滴り落ちる）」とはどのような理論であり、なぜ現代経済学において完全な誤りとして退けられたのでしょうか。
+      </p>
+
+      <h3>サプライサイド経済学とレーガノミクス</h3>
+      <p>
+        トリクルダウン仮説は、1980年代の米国レーガン政権（レーガノミクス）や英国サッチャー政権で採用された<strong>「サプライサイド経済学（供給側経済学）」</strong>の根幹をなす思想です。
+      </p>
+      <p>
+        その論理構成はシンプルでした。
+        「富裕層の所得税を減税し、大企業の法人税を引き下げ、規制を撤廃すれば、資本家の投資意欲が刺激される。その結果、経済全体の生産能力が高まり、雇用が生まれ、最下層の貧困層にまで富の雫（しずく）が自然に滴り落ちていく」というものです。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 28%;">理論的建前（トリクルダウン）</th>
+              <th style="width: 36%;">サプライサイドの主張</th>
+              <th style="width: 36%;">40年間の歴史的結末（実態）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>法人税減税</strong></td>
+              <td>企業の投資余力を高め、国内設備投資と賃上げを促す。</td>
+              <td>設備投資には回らず、自社株買い・株主配当・内部留保の山積み（金融空間へ退避）。</td>
+            </tr>
+            <tr>
+              <td><strong>富裕層減税・金融所得分離</strong></td>
+              <td>起業家精神（アントレプレナーシップ）を活性化させる。</td>
+              <td>不動産・株式バブルを肥大化させ、「1億円の壁」に象徴される富裕層の税負担逆進性を生んだ。</td>
+            </tr>
+            <tr>
+              <td><strong>労働規制の撤廃・非正規化</strong></td>
+              <td>企業の雇用コストを下げ、国際競争力を高める。</td>
+              <td>労働者の首切りが容易になり、ワーキングプアが固定化。実質賃金の長期低下を招いた。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>国際機関による完全な引導：IMFとOECDの実証研究</h3>
+      <p>
+        かつて構造調整や市場原理主義を信奉していた<strong>国際通貨基金（IMF）</strong>や<strong>経済協力開発機構（OECD）</strong>すらも、2010年代以降、膨大なデータを用いた計量経済分析によってトリクルダウン仮説を公的に全面否定しました。
+      </p>
+
+      <div class="info-box">
+        <div class="info-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          IMF調査報告書（Dabla-Norris et al., 2015）の衝撃的結論
+        </div>
+        <p>世界150カ国以上の長期データを分析したIMFは、驚くべき計量モデルを提示しました。</p>
+        $$\text{富裕層（所得上位20\%）のシェアが1\%pt上昇} \implies \text{向こう5年間のGDP成長率は \textbf{-0.08\%pt 押し下げられる}}$$
+        $$\text{貧困・中間層（所得下位20\%）のシェアが1\%pt上昇} \implies \text{向こう5年間のGDP成長率は \textbf{+0.38\%pt 押し上げられる}}$$
+        <p style="margin-bottom: 0; margin-top: 0.5rem;">
+          富裕層をいくら優遇しても消費性向が低いため資金は金融投機に滞留し、格差が拡大して経済成長はむしろ減速します。逆に、<strong>「最も消費性向の高い低所得者・中間層の底上げこそが、真の経済成長エンジンである」</strong>という事実が世界共通の定説となったのです。
+        </p>
+      </div>
+
+      <p>
+        OECDも2014年の包括的レポートにおいて、<strong>「1985年から2005年にかけてOECD加盟国で進んだ所得格差の拡大は、累積GDP成長率を約4.7％ポイントも押し下げた」</strong>と試算しました。格差の拡大は低所得層の子どもの教育・健康投資を阻害し、人的資本の蓄積を損なうため、国家の長期的な生産力を破壊するのです。
+      </p>
+    </section>
+
+    <!-- Section 3 -->
+    <section id="sec3">
+      <h2><span class="section-num">03</span> 竹中平蔵氏の「構造改革」と労働市場の規制緩和・パソナ問題</h2>
+
+      <p>
+        竹中平蔵氏の発言がこれほどまでに重い罪を問われるのは、同氏が単なる一介の学者ではなく、<strong>「日本の労働法制と経済構造を改変した当事者」</strong>であり、さらにその規制緩和によって直接的な利益を得る立場にいたからです。
+      </p>
+
+      <h3>労働者派遣法の改悪と「雇用調整弁」の創出</h3>
+      <p>
+        1986年に施行された「労働者派遣法」は、当初、通訳や情報処理など専門性の高い「13業務」に限られた例外的制度でした。しかし、小泉・竹中政権下で劇的な改悪が断行されます。
+      </p>
+
+      <div class="reform-grid">
+        <div class="reform-card">
+          <span class="reform-badge">1999年 改正</span>
+          <div class="reform-title">派遣対象業務の「原則自由化」</div>
+          <div class="reform-desc">
+            ポジティブリスト方式（許可された業務のみ）からネガティブリスト方式（禁止業務以外はすべて自由）へと転換。一般事務職等へ派遣が雪崩を打って拡大。
+          </div>
+        </div>
+        <div class="reform-card">
+          <span class="reform-badge">2004年 改正（小泉・竹中政権）</span>
+          <div class="reform-title">製造業への派遣労働解禁</div>
+          <div class="reform-desc">
+            日本の基幹産業である工場・製造現場への派遣を解禁。期間工から派遣への置き換えが進み、2008年リーマンショック時の「派遣切り」「年越し派遣村」の温床となった。
+          </div>
+        </div>
+      </div>
+
+      <p>
+        製造業派遣の解禁によって、企業は景気が良くなれば非正規を雇い、景気が悪くなればいつでも契約を打ち切れる<strong>「究極のコスト調整弁」</strong>を手に入れました。
+        正社員への道は閉ざされ、若年層を中心に「昇給なし・ボーナスなし・退職金なし・キャリア形成なし」の不安定雇用が日本社会に固定化されたのです。
+      </p>
+
+      <h3>パソナグループ会長就任と「政商」「利益相反」の構図</h3>
+      <p>
+        そして、竹中氏に対して最も厳しい批判が向けられているのが、<strong>政策立案者としての公的立場と、民間営利企業の経営トップとしての立場が重なり合う「利益相反（レントシーキング）」</strong>です。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">公的立場（政府会議の民間議員）</th>
+              <th style="width: 35%;">主導・提言した政策</th>
+              <th style="width: 35%;">民間立場（パソナ会長・利害関係）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>産業競争力会議 / 未来投資会議 議員</strong></td>
+              <td>「解雇規制の緩和」「残業代ゼロ法案（高度プロフェッショナル制度）」「同一労働同一賃金」の推進。</td>
+              <td>人材派遣市場のさらなる開放。企業の正社員解雇が容易になれば派遣の需要が爆増する。</td>
+            </tr>
+            <tr>
+              <td><strong>国家戦略特区諮問会議 議員</strong></td>
+              <td>農業分野での外国人労働者受け入れ、家事支援外国人労働者特区の設置。</td>
+              <td>パソナが特定機関として特区事業の受託事業者に選定され、公的ビジネスを独占。</td>
+            </tr>
+            <tr>
+              <td><strong>コロナ禍における公的事業受託</strong></td>
+              <td>持続化給付金事業、雇用調整助成金の事務局業務などの民間委託・外注化。</td>
+              <td>電通やパソナ等の企業連合が多重下請け（中抜き）構造を通じて巨額の公金手数料を得たと国会で追及。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        自らが政府の有識者として「労働規制を緩和せよ」「官の仕事を民間に開放せよ」と提言し、決定された政策によって自らが会長を務める人材派遣大手が巨額の利益を上げる――。
+        この構造は、自由な市場競争（アダム・スミス的市場）ではなく、<strong>「国家権力と癒着して制度を都合よく書き換え、超過利潤（レント）を貪る政商（レント・シーカー）」</strong>の典型であると国内外の経済学者やジャーナリストから厳しく糾弾されてきました。
+      </p>
+    </section>
+
+    <!-- Section 4 -->
+    <section id="sec4">
+      <h2><span class="section-num">04</span> 【シミュレーター】トリクルダウン vs トリクルアップ（富の逆流）</h2>
+
+      <p>
+        以下のシミュレーターは、サプライサイド政策（減税・規制緩和）とステークホルダー政策（労働分配・再分配）が、社会の富の流れにどのような影響を与えるかを数理モデル化したものです。
+        スライダーを操作して、<strong>なぜ「トリクルダウン」が起きず、「トリクルアップ（富の吸い上げ）」が発生するのか</strong>を視覚的に体験してください。
+      </p>
+
+      <div class="sim-card">
+        <div class="sim-header">
+          <span class="sim-badge">INTERACTIVE SIMULATION</span>
+          <h3 class="sim-title">富の循環・逆流ダイナミクスシミュレーター</h3>
+          <p class="sim-desc">
+            政策パラメータを動かして、富が下層へ滴り落ちるのか、それとも上層の金融タンクへ吸い上げられるのかを確認してください。
+          </p>
+        </div>
+
+        <!-- Controls -->
+        <div class="slider-group">
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>① 法人税・富裕層減税率</span>
+              <span id="val-tax" class="slider-val">35%</span>
+            </div>
+            <input type="range" id="input-tax" min="10" max="50" step="5" value="35" oninput="updateSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>② 労働規制緩和度（非正規比率）</span>
+              <span id="val-dereg" class="slider-val">70%</span>
+            </div>
+            <input type="range" id="input-dereg" min="10" max="90" step="5" value="70" oninput="updateSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>③ 株主還元圧力（自社株買い・配当性向）</span>
+              <span id="val-shareholder" class="slider-val">65%</span>
+            </div>
+            <input type="range" id="input-shareholder" min="20" max="90" step="5" value="65" oninput="updateSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>④ 社会保障・再分配強度</span>
+              <span id="val-redist" class="slider-val">25%</span>
+            </div>
+            <input type="range" id="input-redist" min="10" max="70" step="5" value="25" oninput="updateSim()">
+          </div>
+        </div>
+
+        <!-- Visual Funnel -->
+        <div class="funnel-container">
+          <div class="funnel-title" id="funnelStatusTitle">【富の流れの可視化：上層への逆流（トリクルアップ）発生中】</div>
+          <div class="funnel-stages">
+            <div class="stage-bar stage-top">
+              <span>① 最上層：大企業利益・外国人株主・富裕層</span>
+              <span id="val-top-share">富のシェア: 68%</span>
+            </div>
+            <div id="flow-arrow-1" class="arrow-up">▲ 富の吸い上げ（自社株買い・配当・中抜き手数料） ▲</div>
+            <div class="stage-bar stage-middle">
+              <span>② 中間層：正社員・中堅層（社会保険料と税負担で圧縮）</span>
+              <span id="val-mid-share">富のシェア: 22%</span>
+            </div>
+            <div id="flow-arrow-2" class="arrow-up">▲ 労働分配率の削減（非正規化・賃金抑制） ▲</div>
+            <div class="stage-bar stage-bottom">
+              <span>③ 最下層：非正規労働者・ワーキングプア・生活困窮層</span>
+              <span id="val-bot-share">富のシェア: 10%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Display -->
+        <div class="flow-display">
+          <div class="flow-column col-top">
+            <div class="flow-col-title">大企業・富裕層・株主側の指標</div>
+            <div class="metric-row">
+              <span>大企業 経常利益指数</span>
+              <span id="res-profit" class="metric-val val-positive">520</span>
+            </div>
+            <div class="metric-row">
+              <span>株主配当・自社株買い総額</span>
+              <span id="res-dividend" class="metric-val val-positive">38.5 兆円</span>
+            </div>
+            <div class="metric-row">
+              <span>トップ10%の資産保有シェア</span>
+              <span id="res-top-wealth" class="metric-val val-warning">58.2 %</span>
+            </div>
+          </div>
+
+          <div class="flow-column col-bottom">
+            <div class="flow-col-title">一般労働者・家計・国民生活の指標</div>
+            <div class="metric-row">
+              <span>一般労働者 平均実質年収</span>
+              <span id="res-wage" class="metric-val val-negative">412 万円</span>
+            </div>
+            <div class="metric-row">
+              <span>労働分配率（人件費／付加価値）</span>
+              <span id="res-labor-share" class="metric-val val-negative">54.8 %</span>
+            </div>
+            <div class="metric-row">
+              <span>相対的貧困率（推定）</span>
+              <span id="res-poverty-rate" class="metric-val val-negative">16.4 %</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Verdict -->
+        <div class="verdict-box">
+          <div class="verdict-status" id="verdictTitle">診断結果：竹中平蔵氏の言葉通りの「完全なるトリクルアップ社会」</div>
+          <p class="verdict-text" id="verdictText">
+            法人税減税と規制緩和によって大企業利益は5.2倍へと激増しましたが、株主還元圧力が強いため富は自社株買いと配当金へと直行しています。労働規制緩和（派遣解禁）により労働分配率は削られ、一般労働者の実質賃金は低下。待っていても雫は1滴も落ちてこず、むしろ下層の労働から富が吸い上げられる「逆流現象」が起きています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="sec5">
+      <h2><span class="section-num">05</span> 総括――「制度を改変して交渉力を奪い、自己責任を説く」という暴力</h2>
+
+      <p>
+        竹中平蔵氏の「滴り落ちてくるなんてないですよ。あり得ないですよ。待ってるだけでいいわけがない」という発言の持つ真の残酷さは、<strong>「国家権力を使って労働者の交渉力を奪い、貧困に陥りやすい制度を作っておきながら、その結果をすべて個人の怠慢・自己責任にすり替えた点」</strong>にあります。
+      </p>
+
+      <h3>「自ら動け」と言える土台を誰が壊したのか</h3>
+      <p>
+        竹中氏は「自分でリスクを取って投資したり、起業したり、スキルを磨いて自ら動かなければならない」と説きます。しかし、非正規雇用として明日をも知れぬ雇用不安に怯え、日々の生活費を稼ぐだけで精一杯のワーキングプアが、どうやってリスクを取って投資できるのでしょうか。
+      </p>
+      <p>
+        国民が動けなくなったのは、国民が怠惰だからではありません。
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li>労働者派遣法を改悪して雇用の安定性を解体し、</li>
+        <li>解雇規制緩和や成果主義を煽って労働組合の団結権と交渉力を無力化し、</li>
+        <li>社会保障の給付基準を切り下げ、国民負担率を急上昇させて手取りを浸食した、</li>
+      </ul>
+      <p>
+        これら一連の新自由主義的「構造改革」こそが、国民から挑戦する体力と時間、そしてセーフティネットを奪い去った元凶に他なりません。
+      </p>
+
+      <div class="quote-box">
+        <div class="quote-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          本書が解き明かす「現代の貧困」の真因
+        </div>
+        <p style="margin-bottom: 0;">
+          あなたが貧しいのは、あなたが怠けているからでも、努力が足りないからでもありません。<br>
+          <strong>「大企業を優遇すれば国が豊かになる」という大嘘（トリクルダウン）のもとでルールが書き換えられ、あなたが流した汗の果実が、制度的に株主・外国人資本・政商へと吸い上げられる社会システムが完成してしまったから</strong>です。<br>
+          「待っていても落ちてこない」のであれば、私たちが求めるべきは自己責任の努力ではなく、<strong>富を吸い上げるこの歪んだゲームのルールそのものを根底から改変すること</strong>なのです。
+        </p>
+      </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="sec6" class="reference-box">
+      <div class="reference-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        出典・参考文献・公的資料リンク
+      </div>
+      <ul class="reference-list">
+        <li>
+          <strong>テレビ朝日『朝まで生テレビ！ 元旦スペシャル』</strong>（2016年1月1日放送）における竹中平蔵氏の発言録・公式アーカイブ記録.
+        </li>
+        <li>
+          <strong>Era Dabla-Norris, Kalpana Kochhar, Nujin Suphaphiphat, Frantisek Ricka, and Evridiki Tsounta (2015)</strong>, "Causes and Consequences of Income Inequality: A Global Perspective", <em>IMF Staff Discussion Note</em>, SDN/15/13 (トリクルダウンの否定と下位20%の所得向上が成長をもたらすことを実証したIMF金字塔論文).
+        </li>
+        <li>
+          <strong>OECD (2014)</strong>, "Focus on Inequality and Growth: Does income inequality hurt economic growth?", <em>OECD Directorate for Employment, Labour and Social Affairs</em>, December 2014 (格差拡大が人的資本蓄積を阻害し経済成長を長期的に押し下げる実証分析).
+        </li>
+        <li>
+          <strong>厚生労働省</strong>, 『労働者派遣事業の推移・労働者派遣法改正の沿革』, 需給調整事業部各年次資料（1999年原則自由化、2004年製造業派遣解禁の公式資料）.
+        </li>
+        <li>
+          <strong>内閣府</strong>, 『国民経済計算（SNA）』および財務省『法人企業統計調査』長期時系列データ（経常利益、国内設備投資、配当金、人件費の推移）.
+        </li>
+        <li>
+          <strong>Joseph E. Stiglitz (2012)</strong>, <em>The Price of Inequality: How Today's Divided Society Endangers Our Future</em>, W. W. Norton & Company (山田美明訳『不平等がもたらすもの』徳間書店) — 規制緩和とレントシーキングによる富の逆流を告発したノーベル経済学賞学者の主著.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 現代貧困の解体新書 補論アーカイブシリーズ / 著者: mb_cho</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #94a3b8;">
+        ※本書に掲載されているすべての公的統計および学術データは、内閣府、財務省、厚生労働省、IMF、OECDの公式発表資料に基づき検証されています。
+      </p>
+    </footer>
+  </div>
+
+  <!-- JavaScript for Interactive Simulator -->
+  <script>
+    function updateSim() {
+      const taxCut = parseFloat(document.getElementById('input-tax').value);
+      const dereg = parseFloat(document.getElementById('input-dereg').value);
+      const shareholder = parseFloat(document.getElementById('input-shareholder').value);
+      const redist = parseFloat(document.getElementById('input-redist').value);
+
+      document.getElementById('val-tax').innerText = `${taxCut}%`;
+      document.getElementById('val-dereg').innerText = `${dereg}%`;
+      document.getElementById('val-shareholder').innerText = `${shareholder}%`;
+      document.getElementById('val-redist').innerText = `${redist}%`;
+
+      // Calculations
+      // Corporate profit index (baseline 100, can grow up to 600+)
+      const profitIndex = Math.round(100 + (taxCut * 4.5) + (dereg * 3.8) - (redist * 1.2));
+      
+      // Dividend / Buyback amount (Trillion Yen)
+      const dividend = ((profitIndex * 0.08) * (shareholder / 100)).toFixed(1);
+
+      // Top 10% Wealth Share (%)
+      const topShare = Math.min(85, Math.max(30, Math.round(35 + (taxCut * 0.35) + (dereg * 0.25) + (shareholder * 0.2) - (redist * 0.4))));
+      
+      // Labor share (%)
+      const laborShare = Math.max(40, Math.min(75, Math.round(72 - (dereg * 0.25) - (shareholder * 0.12) + (redist * 0.15))));
+      
+      // Average Real Wage (Ten-thousand Yen)
+      const wage = Math.round(480 - (dereg * 1.2) - (shareholder * 0.6) + (redist * 1.1));
+
+      // Poverty rate (%)
+      const povertyRate = (10 + (dereg * 0.08) + (taxCut * 0.05) - (redist * 0.1)).toFixed(1);
+
+      // Shares for visual funnel
+      const midShare = Math.round(Math.max(10, 100 - topShare - Math.max(5, (100 - topShare) * 0.3)));
+      const botShare = Math.max(5, 100 - topShare - midShare);
+
+      // Update UI Values
+      document.getElementById('res-profit').innerText = profitIndex;
+      document.getElementById('res-dividend').innerText = `${dividend} 兆円`;
+      document.getElementById('res-top-wealth').innerText = `${topShare} %`;
+
+      document.getElementById('res-wage').innerText = `${wage} 万円`;
+      document.getElementById('res-labor-share').innerText = `${laborShare} %`;
+      document.getElementById('res-poverty-rate').innerText = `${povertyRate} %`;
+
+      document.getElementById('val-top-share').innerText = `富のシェア: ${topShare}%`;
+      document.getElementById('val-mid-share').innerText = `富のシェア: ${midShare}%`;
+      document.getElementById('val-bot-share').innerText = `富のシェア: ${botShare}%`;
+
+      // Direction of flow arrows and title
+      const arrow1 = document.getElementById('flow-arrow-1');
+      const arrow2 = document.getElementById('flow-arrow-2');
+      const funnelTitle = document.getElementById('funnelStatusTitle');
+      const verdictTitle = document.getElementById('verdictTitle');
+      const verdictText = document.getElementById('verdictText');
+
+      if (dereg >= 50 && shareholder >= 50 && redist <= 35) {
+        // Trickle Up / Neoliberal Mode
+        arrow1.className = "arrow-up";
+        arrow1.innerHTML = "▲ 富の吸い上げ（自社株買い・配当・中抜き手数料） ▲";
+        arrow2.className = "arrow-up";
+        arrow2.innerHTML = "▲ 労働分配率の削減（非正規化・賃金抑制） ▲";
+        funnelTitle.innerHTML = "【富の流れの可視化：上層への逆流（トリクルアップ）発生中】";
+        funnelTitle.style.color = "#f43f5e";
+
+        verdictTitle.innerHTML = "診断結果：竹中平蔵氏の言葉通りの「完全なるトリクルアップ社会」";
+        verdictTitle.style.color = "#881337";
+        verdictText.innerHTML = `大企業優遇と労働規制緩和によって企業利益指数は【${profitIndex}】へと激増していますが、株主還元圧力（${shareholder}%）が極めて高いため、富は労働者へは落ちず自社株買いや配当（年間${dividend}兆円）へと直行しています。平均実質賃金は【${wage}万円】へと冷え込み、下層から上層へ富を吸い上げる「逆流」が固定化されています。まさに「待っていても滴り落ちてこない」状態です。`;
+      } else if (redist >= 45 && dereg <= 35 && shareholder <= 45) {
+        // Bottom-up / Stakeholder Mode
+        arrow1.className = "arrow-down";
+        arrow1.innerHTML = "▼ 健全な再分配・設備投資・賃上げへの還流 ▼";
+        arrow2.className = "arrow-down";
+        arrow2.innerHTML = "▼ 安定雇用の確保と中間層の所得拡大 ▼";
+        funnelTitle.innerHTML = "【富の流れの可視化：ボトムアップ好循環（ステークホルダー型）】";
+        funnelTitle.style.color = "#38bdf8";
+
+        verdictTitle.innerHTML = "診断結果：労働者・家計主導の「ボトムアップ経済好循環」";
+        verdictTitle.style.color = "#047857";
+        verdictText.innerHTML = `労働者保護と累進再分配（${redist}%）が機能し、労働分配率が【${laborShare}%】まで回復。平均実質賃金も【${wage}万円】へと向上しています。企業利益が金融投機に滞留せず、家計の消費支出へと還元されるため、国内需要が力強く牽引される本来あるべき経済成長モデルが実現しています。`;
+      } else {
+        // Transitional Mode
+        arrow1.className = "arrow-down";
+        arrow1.innerHTML = "▼ 制限付きの還流 ▼";
+        arrow2.className = "arrow-up";
+        arrow2.innerHTML = "▲ 部分的な賃金抑制 ▲";
+        funnelTitle.innerHTML = "【富の流れの可視化：せめぎ合い状態（不完全な循環）】";
+        funnelTitle.style.color = "#f59e0b";
+
+        verdictTitle.innerHTML = "診断結果：富裕層への偏りと中間層の疲弊が混在する過渡期";
+        verdictTitle.style.color = "#b45309";
+        verdictText.innerHTML = `大企業利益は一定水準を保っていますが、労働規制や株主還元の度合いによって、富が家計へ回る力と金融空間へ逃避する力がせめぎ合っています。各スライダーを極端に動かして、政策が生活に及ぼす影響の違いを確かめてください。`;
+      }
+    }
+
+    // Initialize Simulator on Load
+    updateSim();
+  </script>
+</body>
+</html>

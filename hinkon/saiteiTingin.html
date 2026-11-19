@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：最低賃金と生活保護基準の逆転現象――ワーキングプアを生む構造とセーフティネットの連立方程式</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeX();"></script>
+  <script>
+    function initKaTeX() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+  </script>
+
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-light: #0d9488;
+      --primary-dark: #134e4a;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --crimson: #881337;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Top Navigation (Condition 1: Portal TOP only) */
+    .nav-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .portal-link {
+      background: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .portal-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    .header-card {
+      background: linear-gradient(135deg, #0f766e 0%, #115e59 50%, #134e4a 100%);
+      color: #ffffff;
+      padding: 2.75rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge-accent {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .badge-emerald {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .main-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .sub-title {
+      font-size: 1rem;
+      color: #ccfbf1;
+      line-height: 1.6;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title span.icon {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+    }
+
+    /* Summary Box */
+    .summary-box {
+      background: #f0fdfa;
+      border-left: 4px solid var(--primary);
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Alert Boxes */
+    .alert-box {
+      padding: 1.1rem 1.35rem;
+      border-radius: 10px;
+      margin: 1.35rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .alert-note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .alert-important {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .alert-warning {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    /* Math Formulas */
+    .math-formula-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.35rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+      overflow-x: auto;
+    }
+
+    .formula-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* Step Lists & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+
+    /* Stepper List */
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Preset Button Group */
+    .preset-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .preset-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-right: 0.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(15, 118, 110, 0.2);
+    }
+
+    /* Simulator Styles */
+    .simulator-container {
+      background: #ffffff;
+      border: 2px solid #ccfbf1;
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .simulator-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .simulator-header h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .simulator-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 820px) {
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .control-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: #1e293b;
+    }
+
+    .control-val {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .control-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .results-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .result-box.wage-box {
+      border-top: 4px solid var(--primary);
+    }
+
+    .result-box.welfare-box {
+      border-top: 4px solid var(--accent);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .result-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0.35rem 0;
+    }
+
+    .result-number.wage-num {
+      color: var(--primary);
+    }
+
+    .result-number.welfare-num {
+      color: var(--accent-dark);
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Bar Visualizer */
+    .bar-comparison {
+      margin-top: 0.5rem;
+    }
+
+    .bar-row {
+      margin-bottom: 0.85rem;
+    }
+
+    .bar-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .bar-track {
+      background: #e2e8f0;
+      border-radius: 9999px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+      font-size: 0.68rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.4rem;
+    }
+
+    .bar-fill.wage { background: var(--primary); }
+    .bar-fill.welfare { background: var(--accent); }
+    .bar-fill.gap { background: var(--rose); }
+
+    .dynamic-insight-card {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: #f0fdfa;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Reference List */
+    .reference-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .reference-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.9rem;
+    }
+
+    .badge-no-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Portal TOP only) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span> 現代貧困の解体新書 補論アーカイブ
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <span>←</span> 補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="header-card">
+      <div class="badge-container">
+        <span class="badge badge-primary">第1巻 補論</span>
+        <span class="badge badge-accent">最低賃金法第9条第3項 × 生活保護基準</span>
+        <span class="badge badge-emerald">逆転乖離シミュレーター搭載</span>
+      </div>
+      <h1 class="main-title">最低賃金と生活保護基準の逆転現象</h1>
+      <p class="sub-title">「週40時間フルタイムで働いても生活保護以下の手取り」に転落したワーキングプアの構造病理――2007年法改正、全国12都道府県の逆転、そして2013年生活保護引き下げによる「挟み撃ち解消」の真相を解剖する</p>
+    </header>
+
+    <!-- Section 0: Executive Summary -->
+    <section class="card">
+      <div class="summary-box">
+        <h4><span>💡</span> 本稿の要約（エグゼクティブ・サマリー）</h4>
+        <p>
+          「最低賃金と生活保護基準の逆転現象」とは、最低賃金でフルタイム（月173.8時間等）働いて得られる**可処分所得（税・社会保険料控除後の手取り額）**が、無就労で受給する**生活保護の給付水準（生活扶助＋住宅扶助）**を下回ってしまう現象です。
+        </p>
+        <p>
+          2000年代後半、労働市場の規制緩和と非正規雇用の急増に伴い「ワーキングプア（働く貧困層）」が深刻化する中で白日の下に晒され、最大で全国12都道府県において時給換算で最大30円〜40円超もの逆転が生じました。
+        </p>
+        <p style="margin-bottom: 0;">
+          この事態は2007年の最低賃金法改正（第9条第3項の生活保護整合性規定の新設）を経て、2014年度までに表面上は「解消」されました。しかしその解消プロセスは、単なる最低賃金の引き上げだけでなく、2013年以降に強行された<strong>「生活保護基準そのものの大幅引き下げ（最大10%削減）」というセーフティネットの切り下げと両面挟み撃ち</strong>で行われたという重大な歴史的暗部を抱えています。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: 疑問の出発点と構造的要因 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🔍</span> 01. 疑問の出発点：なぜ「働いても生活保護以下」に転落したのか？</h2>
+      <p>
+        日本国憲法第27条は「勤労の権利と義務」を定め、憲法第25条は「健康で文化的な最低限度の生活を営む権利（生存権）」を保障しています。
+        近代国家の雇用・社会保障秩序において、<strong>「汗水流して週40時間フルタイムで真面目に働いた対価（賃金手取り）が、働かずに受給する最低限の生活扶助・住宅扶助を下回る」</strong>ことは、労働意欲を根本から破壊する致命的な制度的破綻でした。
+      </p>
+
+      <p>
+        2000年代後半にこの逆転現象が日本列島を直撃した背景には、以下の<strong>3つの構造的要因</strong>が重層的に絡み合っていました。
+      </p>
+
+      <div class="grid-2">
+        <div class="feature-card">
+          <h4><span>📉</span> ① 労働規制緩和と最低賃金の低迷固定</h4>
+          <p>
+            1990年代後半からの労働者派遣法の度重なる改悪やパート労働の拡大により、最低賃金近傍で働く非正規労働者が激増。一方で、デフレ下の企業収益防衛を優先する政府・財界の圧力により、最低賃金の改定額は長年「年1円〜3円」程度の微増に抑え込まれました。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h4><span>💸</span> ② 社会保険料・公租公課の負担急増（手取り減少）</h4>
+          <p>
+            最低賃金労働者の給与からは厚生年金・健康保険・雇用保険・所得税・住民税が差し引かれます。2004年の年金制度改革等に伴い社会保険料率が毎年引き上げられたため、額面がわずかに上がっても可処分所得（手取り率約85%）が目減りし、非課税・保険料免除の生活保護水準を下回る直接の引き金となりました。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h4><span>🏢</span> ③ 大都市圏の住宅扶助上限と寒冷地加算</h4>
+          <p>
+            生活保護基準には、生活費に相当する「生活扶助」に加え、家賃実費を支給する「住宅扶助」が含まれます。東京・神奈川・大阪など家賃相場の高い都市部では住宅扶助基準が高く設定され、また北海道など寒冷地では冬季の暖房費加算があるため、最低賃金との逆転が局地的に激甚化しました。
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h4><span>⚖️</span> ④ 「働くより生活保護が得」という逆インセンティブ</h4>
+          <p>
+            「真面目に働いても生活保護より手取りが数万円も低い」という現実が報じられると、就労意欲の低下や不公平感が噴出。本来は低すぎる最低賃金こそが是正されるべき問題であるにもかかわらず、生活保護受給者に対する苛烈なバッシングの口実として政治利用される結果を招きました。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 数理的比較モデル -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📐</span> 02. 厚生労働省の「逆転検証方式」と手取り算定数理</h2>
+      <p>
+        逆転現象を検証するため、厚生労働省および中央最低賃金審議会は、生活保護制度と最低賃金の厳密な比較算式（モデル単身世帯方式）を策定しました。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{最低賃金手取り月額 } W_{net} = \text{最低賃金時間額 } w \times H \times (1 - \tau)$$
+        <div class="formula-desc">
+          <strong>$w$</strong>：都道府県ごとの地域別最低賃金（時給）<br>
+          <strong>$H$</strong>：年間総実労働時間を12ヶ月で除した月換算労働時間（通常 <strong>173.8時間</strong>）<br>
+          <strong>$\tau$</strong>：社会保険料（厚生年金・健保・雇用保険）および所得税・住民税の平均控除率（厚労省検証では <strong>約15.3%</strong>、手取り率 $1-\tau = 0.847$）
+        </div>
+      </div>
+
+      <p>
+        一方、比較対象となる生活保護水準（単身世帯モデル）は以下のように算定されます。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{生活保護基準月額 } B = \text{生活扶助基準額（第1類＋第2類）} + \text{住宅扶助特別基準額} + \text{冬季加算額（寒冷地）}$$
+      </div>
+
+      <p>
+        これらを時給換算ベースで比較したときの**「逆転乖離額（スプレッド） $\Delta$」**は以下の数式で定義されます。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{乖離額 } \Delta = w - \frac{B}{H \times (1 - \tau)} = w - \frac{B}{173.8 \times 0.847}$$
+        <div class="formula-desc">
+          <strong>【逆転判定の条件】：</strong><br>
+          ・$\Delta < 0$ の場合：<strong>「逆転現象（生活保護 ＞ 最低賃金手取り）」が発生</strong>。労働者がフルタイムで働いても生活保護基準に満たない状態。<br>
+          ・$\Delta \ge 0$ の場合：最低賃金の手取りが生活保護基準を上回り、整合性が確保されている状態。
+        </div>
+      </div>
+
+      <div class="alert-box alert-note">
+        <strong>💡 比較のモデル世帯：</strong><br>
+        厚生労働省の公式検証では、主に「18〜19歳単身者（または20歳前後単身）」の生活扶助基準と住宅扶助（1類地・2類地などの各市町村基準）が用いられました。世帯主の年齢や扶養家族の有無によって生活保護費は大きく増加するため、子育て世帯や中年単身世帯においては、実際にはさらに大きな逆転（生活保護の方が遥かに高い）が生じていました。
+      </div>
+    </section>
+
+    <!-- Section 3: 歴史的経緯と12都道府県の逆転 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🕰️</span> 03. 歴史的経緯：2007年法改正から最大12都道府県の逆転へ</h2>
+      <p>
+        逆転現象が社会問題化したことで、日本の最低賃金法制は戦後最大の抜本改正へと舵を切ることになります。
+      </p>
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">07</div>
+          <div class="step-content">
+            <div class="step-title">2007年 最低賃金法改正（第9条第3項の新設）</div>
+            <p>
+              従来の「労働者の生計費」「類似の労働者の賃金」「通常の事業の賃金支払能力」という3要素に加え、第9条第3項において**「労働者が健康で文化的な最低限度の生活を営むことができるよう、生活保護に係る施策との整合性に配慮するものとする」**との規定が新設されました（2008年7月施行）。これにより、最低賃金が生活保護を下回る事態を解消することが国の法的義務となったのです。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">10</div>
+          <div class="step-content">
+            <div class="step-title">最大12都道府県での逆転発生（リーマンショックと格差拡大）</div>
+            <p>
+              法改正が行われたものの、2008年秋のリーマンショックによる大不況と社会保険料率の引き上げが重なり、逆転現象は即座には解消しませんでした。2010年時点では、<strong>北海道、青森、宮城、埼玉、東京、千葉、神奈川、京都、大阪、兵庫、広島、福岡</strong>の最大12都道府県で逆転が発生。特に北海道では時給換算で**30円以上（最大42円）**、東京都でも**40円超**の逆転乖離が生じ、生活保護の方が時給換算で明らかに高いという異常事態が定着しました。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">14</div>
+          <div class="step-content">
+            <div class="step-title">2014年 全国的な「見かけの解消」の達成</div>
+            <p>
+              中央最低賃金審議会での激しい労使対立を経て、逆転が生じていた大都市圏を中心に年十数円〜二十数円規模の重点的な引き上げが継続。2014年度改定において、最後まで逆転が残っていた北海道・兵庫・京都等でも解消され、統計上は全都道府県での逆転解消が宣言されました。
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 4: 解消の暗黒面：生活保護引き下げとの挟み撃ち -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">⚖️</span> 04. 解消の「暗黒面」：2013年生活保護引き下げとの挟み撃ち</h2>
+      <p>
+        2014年に逆転現象が解消されたことは、一見すると「最低賃金が生活保護水準まで十分に引き上げられた健全な是正」のように受け取られています。
+        しかし、その裏側に隠された**極めて過酷な政治的・政策的真実**を見落としてはなりません。
+      </p>
+
+      <div class="alert-box alert-warning">
+        <strong>⚠️ 逆転解消の真相：最低賃金引き上げと「生活保護引き下げ」の両面挟み撃ち</strong><br>
+        2012年末に発足した第2次安倍政権は、芸能人の親族受給騒動などに端を発した生活保護バッシングを背景に、2013年8月から3年間をかけて<strong>「生活扶助基準の最大10%（平均6.7%、国費・地方費合わせ総額670億円）削減」</strong>を強行しました（いわゆるデフレ調整・ゆがみ調整）。<br>
+        すなわち、逆転現象が解消された最大の要因の一つは、「最低賃金を底上げして生活保護に追いつかせた」ことだけではなく、<strong>「生活保護基準の側を人為的に切り下げて最低賃金に近づけた（分母を下げた）」</strong>ことによる「挟み撃ち（見かけの解消）」だったのです。
+      </div>
+
+      <p>
+        生活保護基準が切り下げられた結果、生活保護を受給する困窮世帯の生存権が深刻に侵害されただけでなく、生活保護基準に連動していた「就学援助制度の受給資格」や「住民税非課税限度額」「介護保険料・国保料の減免基準」など、**47に及ぶ社会保障施策の足切りラインが一斉に切り下げられる「ドミノ倒し」**を引き起こしました。
+      </p>
+      <p>
+        ナショナル・ミニマム（国民最低生活保障）の底辺を押し上げるべき政策が、結果として「セーフティネット全体の地盤沈下」へと歪められた歴史的教訓がここにあります。
+      </p>
+    </section>
+
+    <!-- Section 5: インタラクティブ・シミュレーター -->
+    <section class="card simulator-container">
+      <div class="simulator-header">
+        <h4><span>🧮</span> 最低賃金 vs 生活保護 逆転乖離検証シミュレーター</h4>
+        <p>都道府県別の最低賃金、月間労働時間、控除率、生活扶助・住宅扶助基準を操作し、「手取り賃金」と「生活保護水準」の逆転度合い（乖離額）をリアルタイムに試算できます。</p>
+      </div>
+
+      <!-- Preset Scenarios -->
+      <div class="preset-btn-group">
+        <span class="preset-label">📊 歴史的検証プリセット:</span>
+        <button type="button" class="preset-btn active" data-preset="tokyo2010">2010年 東京都 (逆転期：時給821円 vs 生保862円)</button>
+        <button type="button" class="preset-btn" data-preset="hokkaido2010">2010年 北海道 (最大逆転期：時給686円 vs 生保718円)</button>
+        <button type="button" class="preset-btn" data-preset="osaka2010">2010年 大阪府 (逆転期：時給779円 vs 生保799円)</button>
+        <button type="button" class="preset-btn" data-preset="japan2014">2014年 全国解消期 (挟み撃ち解消)</button>
+        <button type="button" class="preset-btn" data-preset="current">2025/2026年 現在 (最賃全国平均1,055円超)</button>
+      </div>
+
+      <div class="simulator-grid">
+        <!-- Controls Column -->
+        <div class="controls-panel">
+          <!-- Slider 1: 最低賃金（時給） -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>① 地域別最低賃金（時間額）</span>
+              <span class="control-val" id="valHourlyWage">821円</span>
+            </div>
+            <input type="range" id="hourlyWage" min="650" max="1200" step="1" value="821">
+            <div class="control-hint">各都道府県の最低賃金時給（2010年当時〜現在）</div>
+          </div>
+
+          <!-- Slider 2: 月間労働時間 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>② 月間所定実労働時間</span>
+              <span class="control-val" id="valWorkHours">173.8時間</span>
+            </div>
+            <input type="range" id="workHours" min="150.0" max="180.0" step="0.1" value="173.8">
+            <div class="control-hint">厚労省の逆転検証公式基準値（週40時間フルタイム換算：173.8h）</div>
+          </div>
+
+          <!-- Slider 3: 社会保険料・税金控除率 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>③ 公租公課（社保・税）控除率</span>
+              <span class="control-val" id="valDeductionRate">15.3%</span>
+            </div>
+            <input type="range" id="deductionRate" min="10.0" max="22.0" step="0.1" value="15.3">
+            <div class="control-hint">手取り率換算（厚労省検証基準：控除率15.3% ➔ 手取り率84.7%）</div>
+          </div>
+
+          <!-- Slider 4: 生活扶助基準額 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>④ 生活扶助月額（単身者食費・光熱費等）</span>
+              <span class="control-val" id="valLivelihoodAid">76,000円</span>
+            </div>
+            <input type="range" id="livelihoodAid" min="55000" max="95000" step="1000" value="76000">
+            <div class="control-hint">第1類＋第2類（級地・年齢区分により設定）</div>
+          </div>
+
+          <!-- Slider 5: 住宅扶助・家賃月額 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>⑤ 住宅扶助月額（家賃実費上限）</span>
+              <span class="control-val" id="valHousingAid">51,000円</span>
+            </div>
+            <input type="range" id="housingAid" min="25000" max="60000" step="1000" value="51000">
+            <div class="control-hint">都市部特別基準（東京53,700円、大阪40,000〜52,000円など）</div>
+          </div>
+        </div>
+
+        <!-- Output Panel Column -->
+        <div class="results-panel">
+          <div class="results-grid">
+            <div class="result-box wage-box">
+              <div class="result-label">最賃・手取り月収</div>
+              <div class="result-number wage-num" id="outNetWage">120,858円</div>
+              <div class="result-sub" id="outGrossWage">額面月給: 142,690円</div>
+            </div>
+            <div class="result-box welfare-box">
+              <div class="result-label">生活保護・受給月額</div>
+              <div class="result-number welfare-num" id="outWelfareTotal">127,000円</div>
+              <div class="result-sub" id="outHourlyWelfare">時給換算: 863円</div>
+            </div>
+          </div>
+
+          <!-- Visual Bar Breakdown -->
+          <div class="bar-comparison">
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>最低賃金手取り月収</span>
+                <span id="txtBarWage">120,858円</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill wage" id="barWage" style="width: 48%;">12.0万円</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>生活保護基準総額</span>
+                <span id="txtBarWelfare">127,000円</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill welfare" id="barWelfare" style="width: 52%;">12.7万円</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span style="font-weight: 700;">時給換算の逆転乖離額（スプレッド）</span>
+                <span id="txtBarGap" style="color: var(--rose); font-weight: 800;">▲42円 (逆転発生)</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill gap" id="barGap" style="width: 70%; background: var(--rose);">▲42円 逆転</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Feedback Insight -->
+          <div class="dynamic-insight-card" id="insightBox">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: 制度比較表 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📊</span> 05. 構造比較表：最低賃金制度 vs 生活保護制度</h2>
+      <p>
+        憲法上の根拠、目的、対象者、給付形態、および税・社会保険料負担における最低賃金と生活保護の決定的な構造格差を総括・比較します。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">比較項目</th>
+              <th style="width: 40%; color: var(--primary);">最低賃金制度（労働法制）</th>
+              <th style="width: 40%; background: #fffbeb; color: #92400e;">生活保護制度（公的扶助）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 700;">憲法上の根拠</td>
+              <td>第27条（勤労の権利と義務・労働条件基準）</td>
+              <td><strong>第25条（生存権・最低限度の生活保障）</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">制度の目的</td>
+              <td>労働条件の改善と労働者の生活安定、公正な競争確保</td>
+              <td><strong>生活困窮者に対する健康で文化的な最低限度の生活保障</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">対価と性質</td>
+              <td>労働の対価（市場経済における労務提供報酬）</td>
+              <td><strong>無償の公的扶助（無就労・困窮時のセーフティネット）</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">税・社保の扱い</td>
+              <td>厚生年金・健保・雇用保険・所得税・住民税が<strong>天引き</strong></td>
+              <td><strong>全額非課税・国民健康保険料等の全額免除</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">家賃・住居保障</td>
+              <td>自己負担（手取り賃金の中から市場家賃を全額支払う）</td>
+              <td><strong>住宅扶助により地域の家賃基準額まで実費支給</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">医療費の扱い</td>
+              <td>3割自己負担（保険料を納付した上で窓口負担発生）</td>
+              <td><strong>医療扶助により原則無料（現物給付）</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">地域別決定基準</td>
+              <td>都道府県ごとの審議会（A〜Cランク制の目安審議）</td>
+              <td><strong>市町村の生活水準・物価に応じた級地制（1級地〜3級地）</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">逆転時の問題点</td>
+              <td colspan="2" style="background: #fef2f2; color: #881337; font-weight: 600;">
+                フルタイム労働者が生活保護以下の手取りに沈み「ワーキングプア」に固定化される。就労インセンティブが喪失し、生活保護受給者への不当なバッシングを誘発する温床となった。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 7: 出典・参考文献・公的資料（Condition 2: No broken links） -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📚</span> 06. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        ※リンク切れ防止のため、永続的・公式にアクセス可能な公的統計および主要公的報告書のみを掲載しています。
+      </p>
+
+      <ul class="reference-list">
+        <li>
+          <strong>厚生労働省：</strong>『最低賃金決定要覧』および中央最低賃金審議会 議事録・答申資料
+          <span class="badge-no-link">公的データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">最低賃金法第9条第3項に基づく生活保護基準との整合性検証結果、手取り換算式（173.8時間、0.847）の時系列推移。</span>
+        </li>
+        <li>
+          <strong>法政大学大原社会問題研究所：</strong>『大原社会問題研究所雑誌』No.663「最低賃金と生活保護基準の逆転現象をめぐる課題」
+          <span class="badge-no-link">学術論文</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">2000年代後半におけるワーキングプア問題の顕在化、逆転現象の構造分析と法改正への影響。</span>
+        </li>
+        <li>
+          <strong>日本弁護士連合会（日弁連）：</strong>『最低賃金と生活保護基準の乖離に関する会長声明・意見書』（2012年7月公表）
+          <span class="badge-no-link">公的声明</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">全国11都道府県における逆転現象の持続、最低生計費試算に基づく最低賃金の引き上げ要求。</span>
+        </li>
+        <li>
+          <strong>独立行政法人 労働政策研究・研修機構（JILPT）：</strong>『最低賃金と生活保護の比較検証に関する研究報告』
+          <span class="badge-no-link">政策研究資料</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">単身若年世帯モデルにおける可処分所得と公的扶助基準の逆転乖離スプレッドの計量分析。</span>
+        </li>
+        <li>
+          <strong>厚生労働省 社会保障審議会：</strong>『生活保護基準部会 報告書』（平成24年・平成29年検証報告）
+          <span class="badge-no-link">審議会報告</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">生活扶助基準の検証方法、デフレ調整・ゆがみ調整の経緯とセーフティネット全体への影響。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 mb_cho. 現代貧困の解体新書 補論アーカイブ. 無断転載・複製を禁じます。</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hourlyWage = document.getElementById('hourlyWage');
+      const workHours = document.getElementById('workHours');
+      const deductionRate = document.getElementById('deductionRate');
+      const livelihoodAid = document.getElementById('livelihoodAid');
+      const housingAid = document.getElementById('housingAid');
+
+      const valHourlyWage = document.getElementById('valHourlyWage');
+      const valWorkHours = document.getElementById('valWorkHours');
+      const valDeductionRate = document.getElementById('valDeductionRate');
+      const valLivelihoodAid = document.getElementById('valLivelihoodAid');
+      const valHousingAid = document.getElementById('valHousingAid');
+
+      const outNetWage = document.getElementById('outNetWage');
+      const outGrossWage = document.getElementById('outGrossWage');
+      const outWelfareTotal = document.getElementById('outWelfareTotal');
+      const outHourlyWelfare = document.getElementById('outHourlyWelfare');
+
+      const barWage = document.getElementById('barWage');
+      const barWelfare = document.getElementById('barWelfare');
+      const barGap = document.getElementById('barGap');
+
+      const txtBarWage = document.getElementById('txtBarWage');
+      const txtBarWelfare = document.getElementById('txtBarWelfare');
+      const txtBarGap = document.getElementById('txtBarGap');
+      const insightBox = document.getElementById('insightBox');
+
+      const presetBtns = document.querySelectorAll('.preset-btn');
+
+      // Historical Presets
+      const PRESETS = {
+        'tokyo2010': { wage: 821, hours: 173.8, deduction: 15.3, live: 76000, house: 51000 },
+        'hokkaido2010': { wage: 686, hours: 173.8, deduction: 15.3, live: 71000, house: 35000 },
+        'osaka2010': { wage: 779, hours: 173.8, deduction: 15.3, live: 75000, house: 43000 },
+        'japan2014': { wage: 780, hours: 173.8, deduction: 15.3, live: 70000, house: 42000 },
+        'current': { wage: 1055, hours: 173.8, deduction: 16.0, live: 76000, house: 53700 }
+      };
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const p = PRESETS[btn.dataset.preset];
+          if (p) {
+            hourlyWage.value = p.wage;
+            workHours.value = p.hours;
+            deductionRate.value = p.deduction;
+            livelihoodAid.value = p.live;
+            housingAid.value = p.house;
+            calculate(btn.dataset.preset);
+          }
+        });
+      });
+
+      function calculate(presetKey = null) {
+        const w = parseFloat(hourlyWage.value);
+        const h = parseFloat(workHours.value);
+        const dRate = parseFloat(deductionRate.value) / 100.0;
+        const live = parseFloat(livelihoodAid.value);
+        const house = parseFloat(housingAid.value);
+
+        // Update Labels
+        valHourlyWage.textContent = `${w.toLocaleString()}円`;
+        valWorkHours.textContent = `${h.toFixed(1)}時間`;
+        valDeductionRate.textContent = `${(dRate * 100).toFixed(1)}%`;
+        valLivelihoodAid.textContent = `${live.toLocaleString()}円`;
+        valHousingAid.textContent = `${house.toLocaleString()}円`;
+
+        // 1. Gross and Net Wage calculation
+        const grossWage = w * h;
+        const netWage = grossWage * (1.0 - dRate);
+
+        // 2. Welfare total and hourly equivalent
+        const welfareTotal = live + house;
+        const hourlyEquivalent = welfareTotal / (h * (1.0 - dRate));
+
+        // 3. Gap (Spread) in Hourly rate
+        const hourlyGap = w - hourlyEquivalent;
+        const monthlyGap = netWage - welfareTotal;
+
+        // Render Outputs
+        outNetWage.textContent = `${Math.round(netWage).toLocaleString()}円`;
+        outGrossWage.textContent = `額面月給: ${Math.round(grossWage).toLocaleString()}円`;
+        outWelfareTotal.textContent = `${Math.round(welfareTotal).toLocaleString()}円`;
+        outHourlyWelfare.textContent = `時給換算: ${Math.round(hourlyEquivalent).toLocaleString()}円`;
+
+        // Update Comparison Bars
+        const maxVal = Math.max(netWage, welfareTotal, 160000);
+        const wagePct = Math.min(100, Math.max(15, (netWage / maxVal) * 100));
+        const welfarePct = Math.min(100, Math.max(15, (welfareTotal / maxVal) * 100));
+
+        barWage.style.width = `${wagePct}%`;
+        barWage.textContent = `${(netWage / 10000).toFixed(1)}万円`;
+        txtBarWage.textContent = `${Math.round(netWage).toLocaleString()}円`;
+
+        barWelfare.style.width = `${welfarePct}%`;
+        barWelfare.textContent = `${(welfareTotal / 10000).toFixed(1)}万円`;
+        txtBarWelfare.textContent = `${Math.round(welfareTotal).toLocaleString()}円`;
+
+        if (hourlyGap < 0) {
+          // Inversion (Reverse phenomenon)
+          barGap.style.background = '#e11d48';
+          barGap.style.width = `${Math.min(100, Math.abs(hourlyGap) * 2 + 30)}%`;
+          barGap.textContent = `▲${Math.abs(Math.round(hourlyGap))}円 逆転`;
+          txtBarGap.style.color = '#e11d48';
+          txtBarGap.textContent = `▲${Math.abs(Math.round(hourlyGap))}円 (生活保護が上回る「逆転現象」発生中)`;
+        } else {
+          // Healthy spread
+          barGap.style.background = '#059669';
+          barGap.style.width = `${Math.min(100, hourlyGap * 1.5 + 20)}%`;
+          barGap.textContent = `+${Math.round(hourlyGap)}円 是正`;
+          txtBarGap.style.color = '#059669';
+          txtBarGap.textContent = `+${Math.round(hourlyGap)}円 (最低賃金手取りが生活保護を上回る)`;
+        }
+
+        // Diagnostic Insights
+        if (presetKey === 'tokyo2010') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2010年 東京都の逆転危機】</strong><br>
+          当時時給821円だった最低賃金の手取り月収は約12.1万円。これに対し、生活扶助（7.6万円）と家賃上限（5.1万円）の合計生活保護基準は月12.7万円（時給換算863円相当）に達し、<strong>時給換算で▲42円もの大幅な逆転</strong>が発生していました。「週40時間働いても生活保護より手取りが6,000円以上低い」という過酷なワーキングプアの実態が社会問題化しました。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else if (presetKey === 'hokkaido2010') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2010年 北海道の寒冷地逆転】</strong><br>
+          当時の北海道の最低賃金はわずか686円（手取り約10.1万円）。家賃水準は東京より低いものの、冬季の暖房費加算や寒冷地加算により生活保護基準は月10.6万円（時給換算718円相当）にのぼり、<strong>時給換算で▲32円の逆転</strong>が生じていました。低賃金と過酷な気候が労働者の生活を圧迫した典型例です。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else if (presetKey === 'japan2014') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：2014年 全国的逆転解消の裏側（挟み撃ち）】</strong><br>
+          大都市圏での最低賃金引き上げが進んだことに加え、2013年から始まった<strong>生活保護基準（生活扶助）の段階的削減（最大10%カット）</strong>によって生活保護費の側が切り下げられたため、時給換算の乖離が埋まり、全国で逆転が解消されました。セーフティネットの引き下げを伴った「見かけの解消」という二面性を持っています。`;
+          insightBox.style.background = '#fffbeb';
+          insightBox.style.borderColor = '#fef3c7';
+          insightBox.style.color = '#92400e';
+        } else if (hourlyGap < 0) {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：逆転現象発生（働くほど困窮する罠）】</strong><br>
+          最低賃金の手取り額が生活保護基準を月額<strong>${Math.abs(Math.round(monthlyGap)).toLocaleString()}円</strong>下回っています（時給換算<strong>▲${Math.abs(Math.round(hourlyGap))}円</strong>）。労働者の就労インセンティブを阻害し、ワーキングプアを構造化させる危険水準です。最低賃金の速やかな引き上げが不可欠です。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：逆転解消・整合性維持水準】</strong><br>
+          最低賃金の手取り月収が生活保護基準を月額<strong>+${Math.round(monthlyGap).toLocaleString()}円</strong>（時給換算<strong>+${Math.round(hourlyGap)}円</strong>）上回っています。最低賃金法第9条第3項の整合性は保たれていますが、実質賃金の維持や地域の自立した生活には、さらなる生活実態に即した賃金の底上げが求められます。`;
+          insightBox.style.background = '#f0fdf4';
+          insightBox.style.borderColor = '#bbf7d0';
+          insightBox.style.color = '#14532d';
+        }
+      }
+
+      [hourlyWage, workHours, deductionRate, livelihoodAid, housingAid].forEach(el => {
+        el.addEventListener('input', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          calculate();
+        });
+      });
+
+      calculate('tokyo2010');
+    });
+  </script>
+</body>
+</html>
