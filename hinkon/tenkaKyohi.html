@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：労務費の価格転嫁拒絶と優越的地位の濫用――下請け買い叩きが生む「搾取の外部化」と人手不足倒産のメカニズム</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeX();"></script>
+  <script>
+    function initKaTeX() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+  </script>
+
+  <style>
+    :root {
+      --primary: #991b1b;
+      --primary-light: #ef4444;
+      --primary-dark: #7f1d1d;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --slate: #475569;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Top Navigation (Condition 1: Portal TOP only) */
+    .nav-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .portal-link {
+      background: #f1f5f9;
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .portal-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Header */
+    .header-card {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+      color: #ffffff;
+      padding: 2.75rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge-accent {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .badge-emerald {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    .main-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .sub-title {
+      font-size: 1rem;
+      color: #fee2e2;
+      line-height: 1.6;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title span.icon {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      color: #334155;
+    }
+
+    /* Summary Box */
+    .summary-box {
+      background: #fef2f2;
+      border-left: 4px solid var(--primary);
+      padding: 1.35rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-box h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Alert Boxes */
+    .alert-box {
+      padding: 1.1rem 1.35rem;
+      border-radius: 10px;
+      margin: 1.35rem 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .alert-note {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .alert-important {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .alert-warning {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    /* Math Formulas */
+    .math-formula-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.35rem 0;
+      text-align: center;
+      font-size: 1.05rem;
+      overflow-x: auto;
+    }
+
+    .formula-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      margin-bottom: 0;
+    }
+
+    /* Stepper List */
+    .step-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--primary);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .step-content {
+      flex-grow: 1;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Preset Button Group */
+    .preset-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .preset-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-right: 0.25rem;
+    }
+
+    .preset-btn {
+      padding: 0.45rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      background: #f1f5f9;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .preset-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(153, 27, 27, 0.2);
+    }
+
+    /* Simulator Styles */
+    .simulator-container {
+      background: #ffffff;
+      border: 2px solid #fecaca;
+      border-radius: 14px;
+      padding: 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .simulator-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .simulator-header h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .simulator-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .simulator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 820px) {
+      .simulator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .control-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: #1e293b;
+    }
+
+    .control-val {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .control-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .results-panel {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .result-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .result-box.sub-box {
+      border-top: 4px solid var(--rose);
+    }
+
+    .result-box.large-box {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .result-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .result-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0.35rem 0;
+    }
+
+    .result-number.profit-loss {
+      color: var(--primary);
+    }
+
+    .result-number.siphon-gain {
+      color: var(--emerald);
+    }
+
+    .result-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Bar Visualizer */
+    .bar-comparison {
+      margin-top: 0.5rem;
+    }
+
+    .bar-row {
+      margin-bottom: 0.85rem;
+    }
+
+    .bar-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .bar-track {
+      background: #e2e8f0;
+      border-radius: 9999px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+      font-size: 0.68rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.4rem;
+    }
+
+    .bar-fill.loss { background: var(--rose); }
+    .bar-fill.siphon { background: var(--emerald); }
+    .bar-fill.burden { background: var(--accent); }
+
+    .dynamic-insight-card {
+      margin-top: 1rem;
+      padding: 0.9rem 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.84rem;
+      line-height: 1.6;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: #fef2f2;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    /* Reference List */
+    .reference-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .reference-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 0.9rem;
+    }
+
+    .badge-no-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Portal TOP only) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span> 現代貧困の解体新書 補論アーカイブ
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <span>←</span> 補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="header-card">
+      <div class="badge-container">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-accent">下請法第4条 × 優越的地位の濫用</span>
+        <span class="badge badge-emerald">労務費転嫁シミュレーター搭載</span>
+      </div>
+      <h1 class="main-title">労務費の価格転嫁拒絶と優越的地位の濫用</h1>
+      <p class="sub-title">親会社は過去最高益（124.8兆円）、下請けは人手不足倒産――なぜ「原材料高」は7割転嫁できても「従業員の賃上げ（労務費）」は3割台しか認められないのか？ サプライチェーンにおける構造的収奪を解剖する</p>
+    </header>
+
+    <!-- Section 0: Executive Summary -->
+    <section class="card">
+      <div class="summary-box">
+        <h4><span>💡</span> 本稿の要約（エグゼクティブ・サマリー）</h4>
+        <p>
+          2022年以降の世界的インフレと円安のもとで、大企業の多くは「エネルギーや原材料の高騰」を理由に、対消費者・対市場向けの最終製品価格を強気に引き上げ、過去最高益（経常利益124.8兆円）を更新し続けています。
+        </p>
+        <p>
+          ところが、その足元であるサプライチェーンの取引現場を覗くと、戦慄すべき非対称性が広がっています。中小企業庁や公正取引委員会の調査によれば、原材料費の価格転嫁率は60〜70%程度まで進展したものの、<strong>「下請け企業の従業員賃上げ原資（労務費）の転嫁率」はわずか3割台（約35%）</strong>という壊滅的な低水準に据え置かれています。
+        </p>
+        <p style="margin-bottom: 0;">
+          親会社・元請け大企業は、優越的地位を濫用して下請けからの労務費引き上げ要請を冷酷に拒絶・封殺。下請け中小企業は賃上げ原資を単価に上乗せできず、自社の身銭（薄利）を削って吸収することを強いられています。その結果、賃上げできずに従業員が流出し、事業継続を断念する<strong>「人手不足倒産」が過去最多ペースで激増</strong>しています。大企業の過去最高益の正体とは、下請け中小企業にインフレの痛みを一方的に押し付けた「搾取の外部化」の産物に他なりません。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: 疑問の出発点 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">🔍</span> 01. 疑問の出発点：なぜ「原材料」は通り「人件費」は叩かれるのか？</h2>
+      <p>
+        下請け中小企業が親会社・元請け企業に価格交渉を申し出る際、そこには明確な「二重の壁」が存在します。
+      </p>
+
+      <div class="grid-2">
+        <div class="feature-card" style="border-top: 4px solid var(--blue);">
+          <h4 style="color: var(--blue);">① 原材料費・エネルギー費の転嫁</h4>
+          <p style="font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">転嫁率：約60%〜75%（比較的承認されやすい）</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            原油相場、鉄鋼市況、電気・ガス料金など、客観的な市場指標（相場データ）が存在するため、親会社側も「市況連動」として拒絶しにくく、一定の価格転嫁が認められます。
+          </p>
+        </div>
+
+        <div class="feature-card" style="border-top: 4px solid var(--primary);">
+          <h4 style="color: var(--primary);">② 労務費（賃上げ分・法定福利費）の転嫁</h4>
+          <p style="font-weight: 700; color: #1e293b; margin-bottom: 0.35rem;">転嫁率：約30%〜35%（露骨に拒絶・据え置き）</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            「賃上げは貴社の経営努力・コスト削減で吸収すべき社内問題」「他社は単価据え置きで請け負っている」と一蹴され、優越的地位を背景に協議すら拒否されます。
+          </p>
+        </div>
+      </div>
+
+      <p>
+        なぜ、同じコスト上昇でありながら、「鉄や電気の上昇」は認められ、「現場で汗を流す人間の生活費（賃上げ）」は徹底して拒絶されるのでしょうか？
+      </p>
+      <p>
+        その理由は、親会社・元請け企業にとって**「労務費こそが最も叩きやすく、自社の利益マージンを死守するための最後の安全弁（調整弁）」**とみなされているからです。下請け企業の多くは売上の大部分を特定の親会社に依存しているため、「単価交渉を強く迫れば発注を他社に切り替えられる（相見積もりで干される）」という強烈な恐怖に縛られ、正当な労務費転嫁を言い出すことすら封殺されているのです。
+      </p>
+    </section>
+
+    <!-- Section 2: 収奪の数理的メカニズム -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📐</span> 02. 数理的解剖：労務費転嫁拒絶がもたらす「利益消失と収奪の方程式」</h2>
+      <p>
+        下請け中小企業の典型的な損益構造において、製造原価・サービス原価は「原材料費 $C_{raw}$」と「労務費（外注・直接人件費）$W_{sub}$」に大別されます。
+        いま、インフレと賃金上昇圧力により、原材料費が $\Delta C_{raw} > 0$、労務費が $\Delta W_{sub} > 0$ だけ増加したとします。
+      </p>
+
+      <div class="math-formula-box">
+        $$\text{総コスト上昇額 } \Delta C_{total} = \Delta C_{raw} + \Delta W_{sub}$$
+      </div>
+
+      <p>
+        親会社が原材料費の転嫁率を $\alpha_{raw}$、労務費の転嫁率を $\alpha_{wage}$ と承認したとき、中小企業の納品価格（売上高）の引き上げ額 $\Delta S_{sub}$ は以下の式になります。
+      </p>
+
+      <div class="math-formula-box">
+        $$\Delta S_{sub} = \alpha_{raw} \Delta C_{raw} + \alpha_{wage} \Delta W_{sub}$$
+      </div>
+
+      <p>
+        したがって、中小企業の営業利益の変動 $\Delta \Pi_{sub}$ は以下の引き算で決定されます。
+      </p>
+
+      <div class="math-formula-box">
+        $$\Delta \Pi_{sub} = \Delta S_{sub} - \Delta C_{total} = -(1 - \alpha_{raw}) \Delta C_{raw} - (1 - \alpha_{wage}) \Delta W_{sub}$$
+        <div class="formula-desc">
+          <strong>【未転嫁コストの自己負担】：</strong><br>
+          親会社が転嫁を拒絶した割合 $(1 - \alpha)$ は、すべて<strong>中小企業の営業利益から直接削り取られる</strong>。
+        </div>
+      </div>
+
+      <div class="alert-box alert-warning">
+        <strong>⚠️ 中小企業の営業利益が吹き飛ぶメカニズム：</strong><br>
+        現実の日本における平均値（原材料転嫁率 $\alpha_{raw} \approx 0.70$、労務費転嫁率 $\alpha_{wage} \approx 0.35$）を代入すると、中小企業は<strong>「原材料高の30%」と「賃上げ分の実に65%」を身銭を切って自己負担</strong>させられています。<br>
+        中小企業の営業利益率は通常わずか3%〜5%程度しかありません。従業員の生活を守るために3%〜5%の賃上げを実施した場合、その65%を単価に乗せられずに自己負担すれば、<strong>中小企業の営業利益は一撃でゼロまたは大赤字へと転落</strong>します。
+      </div>
+
+      <p>
+        一方で、親会社・大企業側はどうでしょうか。
+        大企業は自社の製品価格を対消費者・対海外市場に向けて100%〜120%転嫁して売上を膨らませる一方、下請けに支払う外注費（労務費）は35%しか負担しません。下請けが泣き寝入りして負担した「未払い労務費の65%」は、そのまま**大企業の営業利益・経常利益（124.8兆円）として手元に丸残り**します。
+      </p>
+    </section>
+
+    <!-- Section 3: 業種別実態と人手不足倒産 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📊</span> 03. 業種別の残酷な格差と「人手不足倒産」の連鎖</h2>
+      <p>
+        中小企業庁の「価格交渉促進月間フォローアップ調査」が暴き出した業種別転嫁率は、日本の産業ピラミッドの歪みを冷酷に浮き彫りにしています。
+      </p>
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">🚚</div>
+          <div class="step-content">
+            <div class="step-title">トラック運送業（転嫁率：約20%〜28%／ワーストクラス）</div>
+            <p>
+              「2024年問題（時間外労働規制）」でドライバー不足が極限に達しているにもかかわらず、荷主（大企業）からの労務費転嫁率は壊滅的です。燃料サーチャージすら十分に認められず、ドライバーの賃上げ原資を確保できない運送業者の倒産・廃業が急増しています。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">🧹</div>
+          <div class="step-content">
+            <div class="step-title">ビルメンテナンス・警備・清掃業（転嫁率：約25%〜33%）</div>
+            <p>
+              原価の80%以上を「人件費（労務費）」が占める業種であるため、労務費の転嫁拒絶はダイレクトに企業の死を意味します。発注元ビルオーナーや大企業は「相見積もりで安い業者に替える」と圧力をかけ、最低賃金の引き上げ分すら単価に反映させない事例が横行しています。
+            </p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-num">💻</div>
+          <div class="step-content">
+            <div class="step-title">情報通信・IT多重下請け（転嫁率：約30%〜35%）</div>
+            <p>
+              1次請け大手SIerが巨額利益を計上する一方、3次請け・4次請けの中小ITベンダーやSES（客先常駐）エンジニアへの人月単価は据え置かれます。エンジニア不足が叫ばれながら、現場プログラマーの手取りが増えない構造がここにあります。
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="alert-box alert-important">
+        <strong>📉 「人手不足倒産」という制度的殺人：</strong><br>
+        東京商工リサーチの調査によれば、2023年〜2024年にかけて「人手不足関連倒産」は過去最多を記録しました。その大半は「仕事はあるが、募集賃金を上げられないため人が集まらない、従業員が流出してしまう」という中小零細企業です。大企業が労務費の転嫁を拒絶し、利益のパイを吸い上げ尽くした結果が、現場の中小企業を「賃上げ不能 ➔ 人手不足 ➔ 倒産」という死のサイクルへと追い込んでいるのです。
+      </div>
+    </section>
+
+    <!-- Section 4: 法的枠組みと公取委の実名公表 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">⚖️</span> 04. 独占禁止法と下請法：政府指針と大企業「実名公表」の衝撃</h2>
+      <p>
+        この事態を「日本経済のデフレ完全脱却を阻む最大の癌」と認識した政府・公正取引委員会は、従来の生ぬるい行政指導から、独占禁止法・下請法を総動員した**「摘発と実名公表」**へと歴史的な方針転換を行いました。
+      </p>
+
+      <div class="feature-card" style="margin-bottom: 1.25rem;">
+        <h4 style="color: var(--primary);">『労務費の適切な転嫁のための価格交渉に関する指針』（2023年11月策定）</h4>
+        <p style="font-size: 0.92rem;">
+          内閣官房と公正取引委員会が共同策定した12の行動指針。発注者側に対して「下請けから要請がなくても、定期的に労務費転嫁の協議の場を設けること」「公的統計（最低賃金上昇率や春闘妥結率）を根拠とした価格交渉に応じること」を義務付け、これらを怠った場合は<strong>独占禁止法上の「優越的地位の濫用」または下請法違反（買いたたき）</strong>として厳正に対処すると明記されました。
+        </p>
+      </div>
+
+      <p>
+        公正取引委員会は、労務費や原材料費の転嫁協議を行わなかった疑いがあるとして、<strong>日本を代表する超大手企業（トヨタ自動車、デンソー、佐川急便、日本通運、三菱食品など）の実名を公表・注意指導</strong>しました。
+        過去最高益を誇るグローバル大企業が、足元の中小サプライヤーに対して価格交渉のテーブルにすらつかず、下請けを買い叩いていた冷酷な実態が公的機関によって公式に断罪されたのです。
+      </p>
+    </section>
+
+    <!-- Section 5: インタラクティブ・シミュレーター -->
+    <section class="card simulator-container">
+      <div class="simulator-header">
+        <h4><span>🧮</span> 労務費価格転嫁・下請け収益影響シミュレーター</h4>
+        <p>下請け中小企業の売上規模、原材料・労務費の上昇率、親会社の転嫁承認率を設定し、下請けの営業利益がどう激変するか、大企業へいくら利益が吸い上げられるかをリアルタイム試算できます。</p>
+      </div>
+
+      <!-- Preset Scenarios -->
+      <div class="preset-btn-group">
+        <span class="preset-label">📊 業種別典型シナリオ:</span>
+        <button type="button" class="preset-btn active" data-preset="transport">トラック運送業 (労務転嫁25%・赤字転落危機)</button>
+        <button type="button" class="preset-btn" data-preset="subcontractor">下請け金型製造 (労務転嫁35%・親会社最高益)</button>
+        <button type="button" class="preset-btn" data-preset="cleaning">ビルメンテナンス (人件費比率80%・限界)</button>
+        <button type="button" class="preset-btn" data-preset="it">IT多重下請け (人月単価据え置き・中抜き)</button>
+        <button type="button" class="preset-btn" data-preset="ideal">政府指針完全準拠 (労務転嫁100%・共存共栄)</button>
+      </div>
+
+      <div class="simulator-grid">
+        <!-- Controls Column -->
+        <div class="controls-panel">
+          <!-- Slider 1: 中小企業の月間売上高 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>① 下請け中小企業の月間売上規模</span>
+              <span class="control-val" id="valSales">3,000万円</span>
+            </div>
+            <input type="range" id="subSales" min="1000" max="10000" step="500" value="3000">
+            <div class="control-hint">下請け・中小サプライヤーの平均的月商規模</div>
+          </div>
+
+          <!-- Slider 2: 従業員の賃上げ要請率（労務費上昇率） -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>② 従業員の賃上げ率（労務費増加率）</span>
+              <span class="control-val" id="valWageDemand">+5.0%</span>
+            </div>
+            <input type="range" id="wageDemand" min="1.0" max="8.0" step="0.5" value="5.0">
+            <div class="control-hint">春闘やインフレに伴う人件費・社会保険料の上昇率</div>
+          </div>
+
+          <!-- Slider 3: 原材料・燃料コスト上昇率 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>③ 原材料・エネルギーコスト上昇率</span>
+              <span class="control-val" id="valRawCost">+15.0%</span>
+            </div>
+            <input type="range" id="rawCost" min="0" max="30" step="1" value="15">
+            <div class="control-hint">燃料費・電気代・素材価格の急騰率</div>
+          </div>
+
+          <!-- Slider 4: 親会社の労務費転嫁承認率 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>④ 親会社の「労務費」転嫁承認率</span>
+              <span class="control-val" id="valWagePass">25%</span>
+            </div>
+            <input type="range" id="wagePass" min="0" max="100" step="5" value="25">
+            <div class="control-hint">親会社が単価引き上げを認めた割合（※日本平均は約35%）</div>
+          </div>
+
+          <!-- Slider 5: 親会社の原材料転嫁承認率 -->
+          <div class="control-group">
+            <div class="control-label-wrap">
+              <span>⑤ 親会社の「原材料・燃料」転嫁承認率</span>
+              <span class="control-val" id="valRawPass">70%</span>
+            </div>
+            <input type="range" id="rawPass" min="20" max="100" step="5" value="70">
+            <div class="control-hint">原材料費の単価反映率（※日本平均は約65〜75%）</div>
+          </div>
+        </div>
+
+        <!-- Output Panel Column -->
+        <div class="results-panel">
+          <div class="results-grid">
+            <div class="result-box sub-box">
+              <div class="result-label">下請け中小企業の月間利益</div>
+              <div class="result-number profit-loss" id="outSubProfit">▲45万円</div>
+              <div class="result-sub" id="outSubMargin">利益率: ▲1.5% (赤字転落)</div>
+            </div>
+            <div class="result-box large-box">
+              <div class="result-label">大企業の吸い上げ・丸残り益</div>
+              <div class="result-number siphon-gain" id="outLargeSiphon">+135万円/月</div>
+              <div class="result-sub">下請け負担分の利益付け替え</div>
+            </div>
+          </div>
+
+          <!-- Visual Bar Breakdown -->
+          <div class="bar-comparison">
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>下請け中小企業の損益状況</span>
+                <span id="txtBarSub">赤字転落・倒産警戒水準</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill loss" id="barSub" style="width: 80%;">▲45万円 (赤字)</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span>大企業への未転嫁コスト吸い上げ度</span>
+                <span id="txtBarSiphon">高額収奪 (+135万円)</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill siphon" id="barSiphon" style="width: 75%;">135万円 吸い上げ</div>
+              </div>
+            </div>
+
+            <div class="bar-row">
+              <div class="bar-title-wrap">
+                <span style="font-weight: 700;">中小企業の賃上げ維持可能性</span>
+                <span id="txtBarSurvival" style="color: var(--primary); font-weight: 800;">継続不能・人材流出</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill burden" id="barSurvival" style="width: 85%;">85% 負担過大</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Feedback Insight -->
+          <div class="dynamic-insight-card" id="insightBox">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: 構造比較表 -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">⚖️</span> 05. 構造比較表：原材料費転嫁 vs 労務費転嫁</h2>
+      <p>
+        なぜ原材料費は認められ、労務費は冷酷に拒絶されるのか。発注元大企業の論理、法的リスク、およびマクロ経済への影響を徹底比較します。
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 20%;">比較項目</th>
+              <th style="width: 40%; color: var(--blue);">原材料・エネルギー費の転嫁</th>
+              <th style="width: 40%; background: #fef2f2; color: #991b1b;">労務費（賃上げ分）の転嫁</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 700;">全国平均転嫁率</td>
+              <td>約60%〜75%（過半が転嫁可能）</td>
+              <td><strong>約30%〜35%（3社に2社が拒絶・据え置き）</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">客観的指標の有無</td>
+              <td>原油・鉄鋼・電力など公的市場相場が存在</td>
+              <td><strong>社内給与や最低賃金など「個別事情」と退けられやすい</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">大企業の常套句</td>
+              <td>「市況高騰だから一定程度は仕方がない」</td>
+              <td><strong>「賃上げは貴社の経営努力・コスト削減で吸収せよ」</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">下請けの心理的障壁</td>
+              <td>業界共通の相場として切り出しやすい</td>
+              <td><strong>「強く言えば他社に発注を切り替えられる」と恐怖</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">法規制の適用</td>
+              <td>下請法第4条第1項第5号（買いたたき）</td>
+              <td><strong>2023年公取委指針により「優越的地位の濫用」認定へ</strong></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 700;">マクロ経済の帰結</td>
+              <td>大企業の利益圧迫要因となる</td>
+              <td><strong>中小企業の利益を削り、大企業の最高益へ付け替え</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 7: 出典・公的資料（Condition 2: No broken links） -->
+    <section class="card">
+      <h2 class="section-title"><span class="icon">📚</span> 06. 出典・参考文献・公的資料リンク</h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        ※リンク切れ防止のため、永続的・公式にアクセス可能な公的統計および主要公的報告書のみを掲載しています。
+      </p>
+
+      <ul class="reference-list">
+        <li>
+          <strong>公正取引委員会・内閣官房：</strong>『労務費の適切な転嫁のための価格交渉に関する指針』（2023年11月29日策定）
+          <span class="badge-no-link">政府公式指針</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">12の行動指針、優越的地位の濫用および下請法第4条「買いたたき」該当性の判断基準。</span>
+        </li>
+        <li>
+          <strong>中小企業庁：</strong>『価格交渉促進月間フォローアップ調査結果』（毎年3月・9月実施分報告書）
+          <span class="badge-no-link">公的データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">業種別価格転嫁率（トラック運送2割台、警備・清掃3割台等）および価格協議の実施状況統計。</span>
+        </li>
+        <li>
+          <strong>公正取引委員会：</strong>『下請代金支払遅延等防止法に関する運用状況および勧告・注意事例』
+          <span class="badge-no-link">行政指導実績</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">価格協議を適切に行わなかった大手発注者企業の実名公表、下請法違反被疑事件の処理件数推移。</span>
+        </li>
+        <li>
+          <strong>東京商工リサーチ：</strong>『全国企業倒産状況・「人手不足」関連倒産動向調査』
+          <span class="badge-no-link">民間調査データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">求人難・人件費高騰・従業員退職に起因する中小企業倒産件数の歴史的急増データ。</span>
+        </li>
+        <li>
+          <strong>財務省：</strong>『法人企業統計調査（年次別調査・四半期別調査）』資本金規模別データ
+          <span class="badge-no-link">公的統計データ</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">大企業（過去最高益124.8兆円・分配率46〜50%）と中小企業（利益圧迫・分配率70〜80%）の構造格差。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 mb_cho. 現代貧困の解体新書 補論アーカイブ. 無断転載・複製を禁じます。</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const subSales = document.getElementById('subSales');
+      const wageDemand = document.getElementById('wageDemand');
+      const rawCost = document.getElementById('rawCost');
+      const wagePass = document.getElementById('wagePass');
+      const rawPass = document.getElementById('rawPass');
+
+      const valSales = document.getElementById('valSales');
+      const valWageDemand = document.getElementById('valWageDemand');
+      const valRawCost = document.getElementById('valRawCost');
+      const valWagePass = document.getElementById('valWagePass');
+      const valRawPass = document.getElementById('valRawPass');
+
+      const outSubProfit = document.getElementById('outSubProfit');
+      const outSubMargin = document.getElementById('outSubMargin');
+      const outLargeSiphon = document.getElementById('outLargeSiphon');
+
+      const barSub = document.getElementById('barSub');
+      const barSiphon = document.getElementById('barSiphon');
+      const barSurvival = document.getElementById('barSurvival');
+
+      const txtBarSub = document.getElementById('txtBarSub');
+      const txtBarSiphon = document.getElementById('txtBarSiphon');
+      const txtBarSurvival = document.getElementById('txtBarSurvival');
+      const insightBox = document.getElementById('insightBox');
+
+      const presetBtns = document.querySelectorAll('.preset-btn');
+
+      // Presets based on real SME data
+      const PRESETS = {
+        'transport': { sales: 3000, wage: 5.0, raw: 20, wageP: 25, rawP: 60, laborRatio: 0.50, rawRatio: 0.35 },
+        'subcontractor': { sales: 4000, wage: 4.5, raw: 15, wageP: 35, rawP: 70, laborRatio: 0.40, rawRatio: 0.45 },
+        'cleaning': { sales: 2500, wage: 5.5, raw: 10, wageP: 30, rawP: 50, laborRatio: 0.75, rawRatio: 0.15 },
+        'it': { sales: 3500, wage: 5.0, raw: 5, wageP: 35, rawP: 60, laborRatio: 0.80, rawRatio: 0.10 },
+        'ideal': { sales: 3000, wage: 5.0, raw: 15, wageP: 100, rawP: 100, laborRatio: 0.50, rawRatio: 0.35 }
+      };
+
+      let currentLaborRatio = 0.50;
+      let currentRawRatio = 0.35;
+
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const p = PRESETS[btn.dataset.preset];
+          if (p) {
+            subSales.value = p.sales;
+            wageDemand.value = p.wage;
+            rawCost.value = p.raw;
+            wagePass.value = p.wageP;
+            rawPass.value = p.rawP;
+            currentLaborRatio = p.laborRatio;
+            currentRawRatio = p.rawRatio;
+            calculate(btn.dataset.preset);
+          }
+        });
+      });
+
+      function calculate(presetKey = null) {
+        const sales = parseFloat(subSales.value); // in 10,000 JPY
+        const wDemand = parseFloat(wageDemand.value) / 100.0;
+        const rCost = parseFloat(rawCost.value) / 100.0;
+        const wPass = parseFloat(wagePass.value) / 100.0;
+        const rPass = parseFloat(rawPass.value) / 100.0;
+
+        // Label updates
+        valSales.textContent = `${(sales / 100).toLocaleString()}万円`;
+        valWageDemand.textContent = `+${parseFloat(wageDemand.value).toFixed(1)}%`;
+        valRawCost.textContent = `+${rawCost.value}.0%`;
+        valWagePass.textContent = `${wagePass.value}%`;
+        valRawPass.textContent = `${rawPass.value}%`;
+
+        // Baseline cost structure (Baseline profit margin ~ 4.0%)
+        const baseProfit = sales * 0.04; // 4% operating profit
+        const baseLaborCost = sales * currentLaborRatio;
+        const baseRawCost = sales * currentRawRatio;
+
+        // 1. Cost Increases
+        const deltaLabor = baseLaborCost * wDemand;
+        const deltaRaw = baseRawCost * rCost;
+        const totalDeltaCost = deltaLabor + deltaRaw;
+
+        // 2. Price increase approved by Parent company
+        const revenueIncrease = (deltaLabor * wPass) + (deltaRaw * rPass);
+
+        // 3. SME New Profit
+        const newProfit = baseProfit + revenueIncrease - totalDeltaCost;
+        const newMargin = (newProfit / (sales + revenueIncrease)) * 100.0;
+
+        // 4. Large company siphon gain (unpassed costs absorbed by SME)
+        const unpassedLabor = deltaLabor * (1.0 - wPass);
+        const unpassedRaw = deltaRaw * (1.0 - rPass);
+        const totalSiphoned = unpassedLabor + unpassedRaw;
+
+        // Render Outputs
+        if (newProfit < 0) {
+          outSubProfit.textContent = `▲${Math.abs(Math.round(newProfit)).toLocaleString()}万円`;
+          outSubProfit.style.color = '#e11d48';
+          outSubMargin.textContent = `利益率: ${newMargin.toFixed(1)}% (赤字転落)`;
+        } else {
+          outSubProfit.textContent = `+${Math.round(newProfit).toLocaleString()}万円`;
+          outSubProfit.style.color = '#059669';
+          outSubMargin.textContent = `利益率: +${newMargin.toFixed(1)}% (黒字維持)`;
+        }
+
+        outLargeSiphon.textContent = `+${Math.round(totalSiphoned).toLocaleString()}万円/月`;
+
+        // Update Visual Bars
+        if (newProfit < 0) {
+          barSub.style.background = '#e11d48';
+          barSub.style.width = `${Math.min(100, Math.abs(newProfit) * 2 + 30)}%`;
+          barSub.textContent = `▲${Math.abs(Math.round(newProfit))}万円 赤字`;
+          txtBarSub.textContent = `赤字転落 (${newProfit.toFixed(0)}万円)・倒産危機`;
+        } else {
+          barSub.style.background = '#059669';
+          barSub.style.width = `${Math.min(100, (newProfit / baseProfit) * 50 + 20)}%`;
+          barSub.textContent = `+${Math.round(newProfit)}万円`;
+          txtBarSub.textContent = `黒字維持 (${newProfit.toFixed(0)}万円)・安定`;
+        }
+
+        const siphonWidth = Math.min(100, Math.max(20, (totalSiphoned / (sales * 0.1)) * 60));
+        barSiphon.style.width = `${siphonWidth}%`;
+        barSiphon.textContent = `${Math.round(totalSiphoned)}万円`;
+        txtBarSiphon.textContent = `高額収奪 (+${Math.round(totalSiphoned)}万円/月)`;
+
+        const wageBurdenRate = (1.0 - wPass) * 100;
+        barSurvival.style.width = `${Math.min(100, wageBurdenRate)}%`;
+        barSurvival.textContent = `${wageBurdenRate.toFixed(0)}% 負担`;
+
+        if (wPass < 0.40) {
+          txtBarSurvival.textContent = '賃上げ継続不能・人材流出';
+          txtBarSurvival.style.color = '#e11d48';
+        } else if (wPass < 0.70) {
+          txtBarSurvival.textContent = '一部自腹・利益圧迫';
+          txtBarSurvival.style.color = '#d97706';
+        } else {
+          txtBarSurvival.textContent = '適正転嫁・持続的賃上げ可能';
+          txtBarSurvival.style.color = '#059669';
+        }
+
+        // Diagnostic Insights
+        if (presetKey === 'transport') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：トラック運送業の崩壊危機】</strong><br>
+          燃料高（+20%）に対して7割程度の転嫁しか認められず、さらにドライバー不足に伴う人件費増（+5%）に対して<strong>親会社荷主が25%しか労務費を認めない</strong>ため、月間<strong>▲${Math.abs(Math.round(newProfit))}万円の赤字</strong>に転落します。荷主大企業は月間${Math.round(totalSiphoned)}万円の利益を懐に残しますが、運送会社は賃上げができずドライバーが離職し、人手不足倒産の瀬戸際に追い込まれます。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else if (presetKey === 'cleaning') {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：ビルメンテナンス・清掃・警備の悲鳴】</strong><br>
+          コストの75%を人件費が占めるため、労務費転嫁率30%では、最低賃金引き上げ分の70%を自社の薄利から持ち出すことになります。営業利益率は一瞬で<strong>${newMargin.toFixed(1)}%の赤字</strong>となり、相見積もりによる買い叩き圧力が現場エッセンシャルワーカーの貧困を固定化させています。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else if (wPass >= 0.90 && rPass >= 0.90) {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：政府指針完全準拠・三方よしの共存共栄】</strong><br>
+          公取委指針に則り、原材料費だけでなく労務費も100%単価へ反映。中小企業は営業利益<strong>+${Math.round(newProfit)}万円（利益率${newMargin.toFixed(1)}%）</strong>を確保し、現場労働者への継続的な5%賃上げを実現できます。大企業が目先の独占利益を手放し、適正な単価を支払うことこそが、サプライチェーン崩壊を防ぐ唯一の道です。`;
+          insightBox.style.background = '#f0fdf4';
+          insightBox.style.borderColor = '#bbf7d0';
+          insightBox.style.color = '#14532d';
+        } else if (newProfit < 0) {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：労務費買い叩きによる赤字転落モデル】</strong><br>
+          親会社が労務費の転嫁を${wagePass.value}%しか認めないため、未転嫁分（${(100 - wagePass.value)}%）の負担が重くのしかかり、月間<strong>▲${Math.abs(Math.round(newProfit))}万円の赤字</strong>に転落しています。親会社側には月間<strong>+${Math.round(totalSiphoned)}万円</strong>のコスト浮き（吸い上げ益）が発生しており、まさに下請けを犠牲にした最高益維持構造です。`;
+          insightBox.style.background = '#fef2f2';
+          insightBox.style.borderColor = '#fecaca';
+          insightBox.style.color = '#881337';
+        } else {
+          insightBox.innerHTML = `<strong>【シミュレーション診断：薄氷の黒字・賃上げ余力限界モデル】</strong><br>
+          かろうじて黒字（+${Math.round(newProfit)}万円、利益率${newMargin.toFixed(1)}%）を維持していますが、労務費の未転嫁分（月間${Math.round(unpassedLabor)}万円）が利益を激しく削り取っています。これ以上の賃上げ余力はなく、次期改定での適正転嫁が急務です。`;
+          insightBox.style.background = '#fffbeb';
+          insightBox.style.borderColor = '#fef3c7';
+          insightBox.style.color = '#92400e';
+        }
+      }
+
+      [subSales, wageDemand, rawCost, wagePass, rawPass].forEach(el => {
+        el.addEventListener('input', () => {
+          presetBtns.forEach(b => b.classList.remove('active'));
+          calculate();
+        });
+      });
+
+      calculate('transport');
+    });
+  </script>
+</body>
+</html>
