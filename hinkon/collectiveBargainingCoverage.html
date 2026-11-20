@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補論：労働協約適用率と一般的拡張制度――「組織率9%」のフランスが「分配率」を死守し、「企業別組合」の日本が崩壊した数理と制度の全貌</title>
+
+  <!-- KaTeX for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="initKaTeX();"></script>
+  <script>
+    function initKaTeX() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+  </script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --accent-dark: #b45309;
+      --emerald: #059669;
+      --emerald-light: #d1fae5;
+      --emerald-dark: #065f46;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --slate: #475569;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Top Navigation (Condition 1: Portal TOP only) */
+    .nav-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .portal-link {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+    }
+    .portal-link:hover {
+      background: #dbeafe;
+      transform: translateY(-1px);
+    }
+
+    /* Header */
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #1d4ed8 100%);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 2.75rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: "⚖️";
+      position: absolute;
+      right: 1.5rem;
+      bottom: -1rem;
+      font-size: 7.5rem;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .badge-container {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-primary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .badge-accent {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-emerald {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    h1.title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    p.subtitle {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.95;
+      color: #e0e7ff;
+      max-width: 800px;
+    }
+
+    /* Section & Card Components */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #eff6ff;
+      padding-bottom: 0.85rem;
+    }
+
+    .section-num {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 800;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h2.section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -0.01em;
+    }
+
+    h3.sub-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin: 1.75rem 0 0.85rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #334155;
+      font-size: 1rem;
+    }
+
+    /* Callout & Alert Boxes */
+    .callout {
+      border-left: 4px solid var(--primary-light);
+      background: #f0fdf4;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: var(--emerald-dark);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .callout-crimson {
+      border-left-color: var(--rose);
+      background: #fff1f2;
+    }
+
+    .callout-crimson .callout-title {
+      color: #9f1239;
+    }
+
+    .callout-indigo {
+      border-left-color: var(--primary-light);
+      background: #eff6ff;
+    }
+
+    .callout-indigo .callout-title {
+      color: var(--primary);
+    }
+
+    .callout-amber {
+      border-left-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .callout-amber .callout-title {
+      color: var(--accent-dark);
+    }
+
+    /* Math Box */
+    .math-block {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .math-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    /* Data Tables */
+    .data-table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #1e293b;
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .tag-high {
+      background: #d1fae5;
+      color: #065f46;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .tag-low {
+      background: #ffe4e6;
+      color: #9f1239;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .tag-mid {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    /* Interactive Simulator */
+    .sim-card {
+      background: #ffffff;
+      border: 2px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .sim-header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #dbeafe;
+      padding-bottom: 1rem;
+    }
+
+    .sim-header h3 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .preset-container {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .preset-btn {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      color: var(--primary);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      background: #3b82f6;
+      color: #ffffff;
+    }
+
+    .preset-btn.active {
+      background: #1e3a8a;
+      color: #ffffff;
+      border-color: #1e3a8a;
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .control-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #1e293b;
+    }
+
+    .control-val {
+      font-family: ui-monospace, monospace;
+      color: var(--primary-light);
+      font-size: 0.95rem;
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 7px;
+      background: #e2e8f0;
+      border-radius: 5px;
+      outline: none;
+      accent-color: var(--primary-light);
+    }
+
+    .results-panel {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .res-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .res-metric:last-child {
+      border-bottom: none;
+    }
+
+    .res-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .res-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-family: ui-monospace, monospace;
+    }
+
+    .res-val.text-green { color: var(--emerald); }
+    .res-val.text-red { color: var(--rose); }
+    .res-val.text-amber { color: var(--accent); }
+    .res-val.text-blue { color: var(--primary-light); }
+
+    .status-alert {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .status-alert.alert-safe {
+      background: #d1fae5;
+      color: #065f46;
+      border-left: 4px solid var(--emerald);
+    }
+
+    .status-alert.alert-warn {
+      background: #fef3c7;
+      color: #92400e;
+      border-left: 4px solid var(--accent);
+    }
+
+    .status-alert.alert-danger {
+      background: #ffe4e6;
+      color: #9f1239;
+      border-left: 4px solid var(--rose);
+    }
+
+    /* Key Concept Cards */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .concept-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .concept-card h4 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .concept-card p {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* Lists */
+    ul.doc-list {
+      padding-left: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    ul.doc-list li {
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .badge-no-link {
+      display: inline-block;
+      font-size: 0.72rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.4rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Top Navigation (Condition 1: Portal TOP only) -->
+    <nav class="nav-box">
+      <div class="nav-title">
+        <span>📚</span> 現代貧困の解体新書 補論アーカイブ
+      </div>
+      <div class="nav-links">
+        <a href="indexHinkon.html" class="nav-link portal-link">
+          <span>←</span> 補論ポータルTOP
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <header class="header-card">
+      <div class="badge-container">
+        <span class="badge badge-primary">第1巻 第4章 補論</span>
+        <span class="badge badge-accent">労働法制・比較労使関係論</span>
+        <span class="badge badge-emerald">OECD統計実証分析</span>
+      </div>
+      <h1 class="title">労働協約適用率と一般的拡張制度</h1>
+      <p class="subtitle">なぜ「組織率9%」のフランスが労働分配率を防衛し、「企業別組合」の日本が63.0%へ急落したのか――底辺への競争（Race to the Bottom）を阻止する制度的岩盤の数理と全貌</p>
+    </header>
+
+    <!-- Section 01: 疑問の出発点 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">疑問の出発点：「労働組合組織率」と「労働協約適用率」の決定的な乖離</h2>
+      </div>
+
+      <p>現代の国際労働比較において、多くの人々や初学者を混乱させる奇妙な統計的事実が存在します。</p>
+
+      <div class="callout callout-indigo">
+        <div class="callout-title">💡 統計のパラドックス：フランス vs 日本</div>
+        <p style="margin-bottom: 0.5rem;">
+          <strong>労働組合組織率（組合員である労働者の割合）：</strong><br>
+          ・フランス：<strong>約 9.0 %</strong>（10人に1人未満、主要国で最低水準）<br>
+          ・日本：<strong>約 16.3 %</strong>（フランスの約1.8倍高い）
+        </p>
+        <p style="margin-bottom: 0;">
+          しかし、生み出された付加価値に占める<strong>労働分配率（1995〜2016年OECD産業構成調整後）</strong>を見ると：<br>
+          ・フランス：<strong>＋ 2.8 ポイント（上昇・防衛成功）</strong><br>
+          ・日本：<strong>▲ 6.2 ポイント（主要国最大の激落）</strong>
+        </p>
+      </div>
+
+      <p>「労働組合に入っている人の割合（組織率）」で見れば、日本の方が遥かに高いにもかかわらず、なぜ日本は労働分配率の急落と実質賃金の長期低迷に沈み、フランスはグローバルな賃下げ圧力に抵抗して労働者の取り分を防衛できたのでしょうか？</p>
+
+      <p>その答えを解き明かす鍵こそが、本稿の主題である<strong>「労働協約適用率（Collective Bargaining Coverage）」</strong>と<strong>「労働協約の一般的拡張制度（Extension légale）」</strong>です。</p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <h4>👥 労働組合組織率 (Union Density)</h4>
+          <p>労働者全体の中で、実際に「労働組合の組合員になっている人（組合費を納めている人）」の割合。個人の加入率を表す指標。</p>
+        </div>
+        <div class="concept-card">
+          <h4>📜 労働協約適用率 (Bargaining Coverage)</h4>
+          <p>本人が組合員であるかどうかを問わず、「労使交渉で妥結された賃金・労働協約の効力が法的に及んでいる人」の割合。賃金フロアの包括性を表す指標。</p>
+        </div>
+      </div>
+
+      <p>OECDの最新データによれば、フランスの<strong>労働協約適用率は「98.0%」</strong>に達します。つまり、組合員は9%しかいなくても、<strong>98%の労働者が産業別労使交渉で決まった賃金基準や昇給ルールの保護下にある</strong>のです。一方、日本の適用率はわずか**「約15%」**にとどまります。この「83ポイントの制度的断絶」こそが、両国の労働者の運命を決定づけました。</p>
+    </section>
+
+    <!-- Section 02: 比較制度分析 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">比較制度分析：欧州「一般的拡張制度」vs 日本「企業別組合のタコツボ」</h2>
+      </div>
+
+      <p>なぜ同じ資本主義先進国でありながら、これほど極端な労働協約適用率の格差が生じるのでしょうか。各国が選択した法制度の骨格を解剖します。</p>
+
+      <h3 class="sub-title">1. フランス：労働協約の一般的拡張制度（Extension légale）</h3>
+      <p>フランス労働法典（Code du travail）には、世界で最も強固な**「一般的拡張制度（Extension）」**が組み込まれています。</p>
+      <ul class="doc-list">
+        <li><strong>産業別交渉の原則：</strong> 賃金交渉は個別企業ではなく、各産業（金属、化学、小売、飲食、清掃など）の業界団体と主要労働組合の間で行われる。</li>
+        <li><strong>大臣による拡張宣言（Extension）：</strong> 産業別協約が締結されると、労働大臣が「拡張宣言」を発令する。これにより、<strong>組合に入っていない労働者も、協約に署名していない中小企業や零細企業も、その産業で働くすべての労働者に協約賃金（職種別ミニマム）が強制適用</strong>される。</li>
+        <li><strong>二重の防壁：</strong> 物価連動の法定最低賃金（SMIC）が最底辺を支え、その上に産業別協約の職種別基準が何重にも覆いかぶさるため、企業は「給料を切り下げて商品を安売りする」というダンピングが法的に不可能である。</li>
+      </ul>
+
+      <h3 class="sub-title">2. 北欧諸国：法定最低賃金ゼロの理由と「脱商品化」</h3>
+      <p>スウェーデンやデンマークには、実は国家が定めた「法定最低賃金」が存在しません。しかし、貧困率は世界最低水準であり、労働分配率は安定しています。</p>
+      <div class="callout callout-emerald">
+        <div class="callout-title">🌿 北欧モデルの秘密：産業別協約（80〜88%）と「脱商品化」</div>
+        <p style="margin-bottom: 0;">北欧では、産業別労働組合と使用者団体が結ぶ包括的労働協約が、全職種の事実上の最低賃金を厳格に定めています（適用率81.6〜88.0%）。<br>
+        さらに重要なのが、手厚い失業保険やユニバーサルな住宅・医療・教育保障です。これにより労働者は<strong>「不当な低賃金や劣悪な仕事を断っても生存できる自由（脱商品化：De-commodification）」</strong>を獲得しました。労働者の「留保賃金」が極めて高く維持されているため、企業は高い人件費を前提に高付加価値化を進めるしかありません。</p>
+      </div>
+
+      <h3 class="sub-title">3. ドイツ：ハルツ改革が穿った「社会的市場経済の抜け穴」</h3>
+      <p>ドイツはかつて包括的な地域別・産業別協約（Flächentarifvertrag）を誇っていましたが、2000年代初頭の**「ハルツ改革（Hartz IV）」**によって劇的な変質を遂げました。</p>
+      <ul class="doc-list">
+        <li><strong>ミニジョブ（Minijob）の爆発：</strong> 月額一定額以下の低賃金労働に対し税・社会保険料を免除する枠を拡大したことで、巨大な低賃金セクターが国家主導で創出された。</li>
+        <li><strong>オープニング条項（Opening Clauses）：</strong> 業績悪化を理由に「産業別協約を下回る賃金合意」を企業単位で結ぶ抜け穴が合法化され、協約適用率はかつての80%超から**49.0%へと急落**した。</li>
+      </ul>
+
+      <h3 class="sub-title">4. 日本：企業別組合のタコツボ化と「一般的拘束力」の死文化</h3>
+      <p>日本の労働協約適用率がわずか「約15%」に沈んでいる最大の要因は、**「企業別労働組合」**というガラパゴス的組織形態にあります。</p>
+      <div class="callout callout-crimson">
+        <div class="callout-title">⚠️ 日本の制度的陥穽：労働組合法第17条・第18条の形骸化</div>
+        <p style="margin-bottom: 0.5rem;">日本の労働法にも「一般的拘束力（事業場単位：第17条、地域単位：第18条）」という拡張制度が存在します。しかし、第18条は「一の地域においてその地域の同種の労働者の過半数が適用を受けること」という<strong>実務上不可能な超高ハードル</strong>が課されており、全国で数件しか適用例がありません。</p>
+        <p style="margin-bottom: 0;">その結果、大企業労組が結んだ労働協約はその会社の正社員にしか適用されず、**同じ職場で働く非正規雇用者（2,128万人）や、サプライチェーンの7割を占める下請け中小企業の労働者は完全に適用除外（無防備状態）**に放置されています。</p>
+      </div>
+    </section>
+
+    <!-- Section 03: 数理的モデル -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">数理的解剖：底辺への競争（Race to the Bottom）を阻止するフロア方程式</h2>
+      </div>
+
+      <p>労働協約適用率 $C \in [0, 1]$ が、なぜ国全体のマクロ労働分配率 $\alpha_{macro}$ を決定づけるのかを数理的に解剖します。</p>
+
+      <h3 class="sub-title">1. 二重経済モデルにおけるマクロ労働分配率</h3>
+      <p>一国の経済が、「包括的労働協約が適用されるセクター（Covered Sector）」と、「市場の買い叩きに晒される非適用セクター（Uncovered Sector）」の2つで構成されていると仮定します。</p>
+
+      <div class="math-block">
+        $$\alpha_{macro} = C \cdot \bar{\alpha}_{cov} + (1 - C) \cdot \alpha_{unc}(M)$$
+        <div class="math-caption">
+          $C$：労働協約適用率（$0 \le C \le 1$）<br>
+          $\bar{\alpha}_{cov}$：協約適用セクターの労働分配率（産業別協約により高位安定：約 65%〜72%）<br>
+          $\alpha_{unc}$：非適用セクターの労働分配率（企業の買い叩き圧力 $M$ に依存して低下：40%〜55%）
+        </div>
+      </div>
+
+      <h3 class="sub-title">2. 企業の価格競争モデルと「底辺への競争」</h3>
+      <p>企業 $i$ の製品価格を $P_i$、生産性を $A$、賃金を $w_i$ とすると、単位あたり労働コスト（ULC）は $\frac{w_i}{A}$ となります。企業がグローバル競争や下請け受注競争に勝つための手段は2つしかありません。</p>
+
+      <div class="math-block">
+        $$\text{価格競争力 } \frac{1}{P_i} \propto \frac{A}{w_i}$$
+      </div>
+
+      <ul class="doc-list">
+        <li><strong>【協約適用率が高い国（$C \to 1.0$、フランス・北欧）】</strong>：<br>
+          産業別協約により $w_i \ge \bar{w}_{sector}$（下限）が法律で固定されている。そのため、**賃金を削る競争（$\Delta w < 0$）が禁止**される。企業が競争に勝つには、技術革新や設備投資によって生産性 $A$ を引き上げるしかなく、結果として**マクロ労働分配率は高位で死守**される。</li>
+        <li><strong>【協約適用率が低い国（$C \to 0$、日本・アメリカ）】</strong>：<br>
+          労働者の85%が無防備であるため、企業は生産性 $A$ を上げる苦労をせず、**「非正規への置き換え」「下請け単価買い叩き（労務費転嫁拒絶）」という最も安易な賃下げ競争（$\Delta w \ll 0$）へ狂奔**する。これにより、非適用セクターの労働分配率 $\alpha_{unc}$ が激落し、マクロ分配率 $\alpha_{macro}$ 全体が引きずり降ろされる。</li>
+      </ul>
+    </section>
+
+    <!-- Section 04: 国際比較データマトリクス -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">国際比較データマトリクス：OECD加盟国の制度と成果の対比</h2>
+      </div>
+
+      <p>OECDが公表している客観的統計データに基づき、主要国の労働市場制度と労働分配率の長期推移を比較します。</p>
+
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>国名</th>
+              <th>労働組合組織率<br>(2023-2024)</th>
+              <th>労働協約適用率<br>(2023-2024)</th>
+              <th>労働分配率変化<br>(1995-2016年調整後)</th>
+              <th>最低賃金制度</th>
+              <th>一般的拡張制度<br>(Extension)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🇫🇷 フランス</strong></td>
+              <td>9.0 %</td>
+              <td><span class="tag-high">98.0 %</span></td>
+              <td><span class="tag-high">＋ 2.8 pt</span></td>
+              <td>強力な法定最低賃金（SMIC）</td>
+              <td>強大（労働省が強制拡張）</td>
+            </tr>
+            <tr>
+              <td><strong>🇧🇪 ベルギー</strong></td>
+              <td>49.1 %</td>
+              <td><span class="tag-high">100.0 %</span></td>
+              <td><span class="tag-high">ほぼ横ばい</span></td>
+              <td>全国協約による最低保障</td>
+              <td>極めて強大（全雇用者適用）</td>
+            </tr>
+            <tr>
+              <td><strong>🇸🇪 スウェーデン</strong></td>
+              <td>65.2 %</td>
+              <td><span class="tag-high">88.0 %</span></td>
+              <td><span class="tag-high">ほぼ横ばい</span></td>
+              <td>法定なし（産業別自主協約）</td>
+              <td>実質的包括適用（脱商品化）</td>
+            </tr>
+            <tr>
+              <td><strong>🇩🇰 デンマーク</strong></td>
+              <td>67.0 %</td>
+              <td><span class="tag-high">81.6 %</span></td>
+              <td><span class="tag-high">ほぼ横ばい</span></td>
+              <td>法定なし（産業別自主協約）</td>
+              <td>実質的包括適用（高留保賃金）</td>
+            </tr>
+            <tr>
+              <td><strong>🇩🇪 ドイツ</strong></td>
+              <td>16.3 %</td>
+              <td><span class="tag-mid">49.0 %</span></td>
+              <td><span class="tag-low">▲ 3.5 pt</span></td>
+              <td>2015年法定導入（12€超へ）</td>
+              <td>ハルツ改革で空洞化（低下傾向）</td>
+            </tr>
+            <tr>
+              <td><strong>🇯🇵 日本</strong></td>
+              <td>16.3 %</td>
+              <td><span class="tag-low">約 15.0 %</span></td>
+              <td><span class="tag-low">▲ 6.2 pt</span></td>
+              <td>地域別最低賃金（目安制度）</td>
+              <td>労組法18条が事実上死文化</td>
+            </tr>
+            <tr>
+              <td><strong>🇺🇸 アメリカ</strong></td>
+              <td>10.0 %</td>
+              <td><span class="tag-low">11.1 %</span></td>
+              <td><span class="tag-low">▲ 5.0 pt</span></td>
+              <td>連邦法7.25$（長期据え置き）</td>
+              <td>制度なし（事業所単位交渉）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted);">
+        （出所：OECD (2019) "Labour share developments over the past two decades", OECD Data Explorer "Collective bargaining coverage" (2024), ILOSTATをもとに作成）
+      </p>
+    </section>
+
+    <!-- Section 05: インタラクティブ・シミュレーター -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">インタラクティブ・シミュレーター：協約適用率とマクロ分配率シミュレーター</h2>
+      </div>
+
+      <p>労働協約適用率や買い叩き圧力を変化させたとき、国の労働分配率や無防備な労働者の規模がどのように激変するかをリアルタイムに試算できます。</p>
+
+      <div class="sim-card">
+        <div class="sim-header">
+          <h3>🎮 制度パラメータ調整シミュレーター</h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0;">各国のボタンを押すと代表的な制度パラメータが瞬時にロードされます。</p>
+        </div>
+
+        <!-- Presets -->
+        <div class="preset-container">
+          <button type="button" class="preset-btn active" onclick="loadPreset('france')">🇫🇷 フランス型（拡張率98%）</button>
+          <button type="button" class="preset-btn" onclick="loadPreset('nordic')">🇸🇪 北欧型（脱商品化・協約88%）</button>
+          <button type="button" class="preset-btn" onclick="loadPreset('germany')">🇩🇪 ドイツ型（ハルツ改革後・協約49%）</button>
+          <button type="button" class="preset-btn" onclick="loadPreset('japan')">🇯🇵 日本型（企業別・非正規拡大・15%）</button>
+          <button type="button" class="preset-btn" onclick="loadPreset('usa')">🇺🇸 米国型（労組解体・11%）</button>
+        </div>
+
+        <div class="sim-grid">
+          <!-- Left: Controls -->
+          <div class="controls-panel">
+            <div class="control-group">
+              <div class="control-label">
+                <span>① 労働協約適用率 $C$ (%)</span>
+                <span class="control-val" id="covVal">98.0%</span>
+              </div>
+              <input type="range" id="covInput" min="5" max="100" step="1" value="98">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>② 協約セクター分配率 $\bar{\alpha}_{cov}$ (%)</span>
+                <span class="control-val" id="covShareVal">68.0%</span>
+              </div>
+              <input type="range" id="covShareInput" min="55" max="80" step="0.5" value="68.0">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>③ 非協約セクター基準分配率 $\alpha_{unc}$ (%)</span>
+                <span class="control-val" id="uncShareVal">58.0%</span>
+              </div>
+              <input type="range" id="uncShareInput" min="35" max="65" step="0.5" value="58.0">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label">
+                <span>④ 企業の買い叩き・マークアップ圧力 $M$</span>
+                <span class="control-val" id="markupVal">1.00倍</span>
+              </div>
+              <input type="range" id="markupInput" min="1.00" max="1.30" step="0.01" value="1.00">
+            </div>
+          </div>
+
+          <!-- Right: Real-time Output -->
+          <div class="results-panel">
+            <div class="res-metric">
+              <span class="res-name">マクロ実効労働分配率</span>
+              <span class="res-val text-green" id="resMacroShare">67.8%</span>
+            </div>
+
+            <div class="res-metric">
+              <span class="res-name">協約保護から漏れる労働者</span>
+              <span class="res-val text-blue" id="resUnprotected">120万人</span>
+            </div>
+
+            <div class="res-metric">
+              <span class="res-name">底辺への競争（賃下げ）リスク</span>
+              <span class="res-val text-green" id="resRiskLevel">極めて安全</span>
+            </div>
+
+            <div class="status-alert alert-safe" id="statusBox">
+              <strong>【制度防壁が完全機能】</strong> 98%の労働者が産業別協約で保護されており、企業の賃下げダンピングが法的に封殺されています。マクロ労働分配率は極めて強固に維持されます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 06: 政策的提言 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">政策的インプリケーション：日本における「一般的拡張制度」再生への道</h2>
+      </div>
+
+      <p>春闘で一部の大手企業が「5%賃上げ」を達成しても、日本の雇用の7割を占める中小企業や非正規雇用者には恩恵が波及せず、労働分配率は63.0%へ急落しました。この構造的隘路を打破するための制度改革は自明です。</p>
+
+      <div class="concept-grid">
+        <div class="concept-card">
+          <h4>⚖️ 1. 労働組合法第18条の抜本的規制緩和</h4>
+          <p>死文化している「地域的拡張（過半数要件）」を改め、フランスのように「主要な産業別労使協約を、その産業・地域の全労働者（非正規含む）に強制適用する仕組み」へと要件を緩和する。</p>
+        </div>
+        <div class="concept-card">
+          <h4>🏛️ 2. 公契約条例・公契約法の全国義務化</h4>
+          <p>国や自治体の公共事業、業務委託（清掃、警備、給食、IT受託等）において、産業別協約賃金以下の入札・発注を法律で禁止し、公的調達から賃下げダンピングを根絶する。</p>
+        </div>
+        <div class="concept-card">
+          <h4>⛓️ 3. サプライチェーン包括協約の法制化</h4>
+          <p>親会社・元請け大企業に対し、下請け企業の労務費（賃上げ分）を含む単価改定を協約で担保させ、下請法違反（買いたたき）に対する懲罰的損害賠償を義務付ける。</p>
+        </div>
+      </div>
+
+      <p>「労働組合に入っているか否か」で人間の生存条件が分断される社会から、<strong>「働くすべての人が産業全体の公正なルールで守られる社会」</strong>へ――一般的拡張制度の再構築こそが、日本の賃金デフレと格差拡大を止める唯一の構造的処方箋です。</p>
+    </section>
+
+    <!-- Section 07: 出典・公的資料 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">出典・公的資料・参考文献</h2>
+      </div>
+
+      <p>本稿で用いた国際比較統計および制度データは、以下の公的機関・国際機関の公式報告書に基づいています。</p>
+
+      <ul class="doc-list">
+        <li>
+          <strong>OECD (2019)：</strong>『Labour share developments over the past two decades: The role of technological progress, globalisation and "winner-take-most" dynamics』OECD Economics Department Working Papers.
+          <span class="badge-no-link">OECD公式実証論文</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">1995〜2016年の主要先進国における産業構成調整後労働分配率の詳細な推計データ。</span>
+        </li>
+        <li>
+          <strong>OECD (2018)：</strong>『The role of collective bargaining systems for labour market performance』OECD Employment Outlook 2018, Chapter 6.
+          <span class="badge-no-link">OECD雇用アウトルック</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">包括的集団的交渉制度、一般的拡張制度が賃金格差縮小とマクロ経済安定に果たす役割の実証分析。</span>
+        </li>
+        <li>
+          <strong>OECD Data Explorer (2024)：</strong>『Collective Bargaining Coverage & Trade Union Density』
+          <span class="badge-no-link">公的国際統計データベース</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">フランス（98%）、ベルギー（100%）、北欧諸国（80%台）、日本（約15%）、米国（11.1%）の最新適用率データ。</span>
+        </li>
+        <li>
+          <strong>ILO・OECD (2025)：</strong>『Policy measures to address inequalities and increase the labour income share』
+          <span class="badge-no-link">ILO・OECD共同政策白書</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">世界の労働所得分配率低下に対する集団的賃金決定および制度的防壁の有効性検証。</span>
+        </li>
+        <li>
+          <strong>労働政策研究・研修機構（JILPT）：</strong>『諸外国における労働協約の一般的拡張制度の現状と課題』（労働政策研究報告書）
+          <span class="badge-no-link">国内研究報告書</span><br>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">欧州諸国（仏・独・北欧）の法制度構造と、日本の労働組合法第17条・18条の比較検証。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 mb_cho. 現代貧困の解体新書 補論アーカイブ. 無断転載・複製を禁じます。</p>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    const presets = {
+      france: { cov: 98, covShare: 68.0, uncShare: 58.0, markup: 1.00 },
+      nordic: { cov: 88, covShare: 70.0, uncShare: 58.0, markup: 1.00 },
+      germany: { cov: 49, covShare: 66.0, uncShare: 52.0, markup: 1.08 },
+      japan: { cov: 15, covShare: 52.0, uncShare: 44.0, markup: 1.15 },
+      usa: { cov: 11, covShare: 60.0, uncShare: 48.0, markup: 1.20 }
+    };
+
+    const covInput = document.getElementById('covInput');
+    const covShareInput = document.getElementById('covShareInput');
+    const uncShareInput = document.getElementById('uncShareInput');
+    const markupInput = document.getElementById('markupInput');
+
+    const covVal = document.getElementById('covVal');
+    const covShareVal = document.getElementById('covShareVal');
+    const uncShareVal = document.getElementById('uncShareVal');
+    const markupVal = document.getElementById('markupVal');
+
+    const resMacroShare = document.getElementById('resMacroShare');
+    const resUnprotected = document.getElementById('resUnprotected');
+    const resRiskLevel = document.getElementById('resRiskLevel');
+    const statusBox = document.getElementById('statusBox');
+
+    function calculate() {
+      const c = parseFloat(covInput.value) / 100;
+      const alphaCov = parseFloat(covShareInput.value);
+      const alphaUnc = parseFloat(uncShareInput.value);
+      const m = parseFloat(markupInput.value);
+
+      // Label updates
+      covVal.textContent = (c * 100).toFixed(1) + '%';
+      covShareVal.textContent = alphaCov.toFixed(1) + '%';
+      uncShareVal.textContent = alphaUnc.toFixed(1) + '%';
+      markupVal.textContent = m.toFixed(2) + '倍';
+
+      // Effective Macro Labor Share
+      // alpha_macro = [ c * alphaCov + (1 - c) * (alphaUnc / m) ]
+      const effUnc = alphaUnc / m;
+      const macroShare = (c * alphaCov) + ((1 - c) * effUnc);
+
+      resMacroShare.textContent = macroShare.toFixed(1) + '%';
+
+      // Unprotected workers (based on Japan's 6,000万 employees)
+      const unprotEmployees = (1 - c) * 6000;
+      resUnprotected.textContent = Math.round(unprotEmployees).toLocaleString() + '万人';
+
+      // Risk diagnosis
+      resMacroShare.className = 'res-val';
+      resRiskLevel.className = 'res-val';
+
+      if (c >= 0.80 && macroShare >= 65.0) {
+        resMacroShare.classList.add('text-green');
+        resRiskLevel.classList.add('text-green');
+        resRiskLevel.textContent = '極めて安全（防壁堅牢）';
+        statusBox.className = 'status-alert alert-safe';
+        statusBox.innerHTML = '<strong>【制度防壁が完全機能】</strong> 80%以上の労働者が産業別協約で保護されており、企業の賃下げダンピングが法的に封殺されています。マクロ労働分配率は極めて強固に維持されます。';
+      } else if (c >= 0.45 && macroShare >= 55.0) {
+        resMacroShare.classList.add('text-amber');
+        resRiskLevel.classList.add('text-amber');
+        resRiskLevel.textContent = '警戒（二極化・抜け穴進行）';
+        statusBox.className = 'status-alert alert-warn';
+        statusBox.innerHTML = '<strong>【協約の空洞化・二極化】</strong> 約半数の労働者が保護から漏れており、低賃金セクターの拡大や買い叩き圧力に晒されています。労働分配率の下落トレンドが発生しています。';
+      } else {
+        resMacroShare.classList.add('text-red');
+        resRiskLevel.classList.add('text-red');
+        resRiskLevel.textContent = '壊滅的（底辺への競争）';
+        statusBox.className = 'status-alert alert-danger';
+        statusBox.innerHTML = '<strong>【防壁崩壊・総買い叩き】</strong> 労働者の大部分が無防備なまま市場に放置され、企業は非正規化と下請け労務費買い叩きで容易に人件費を圧縮できます。マクロ労働分配率は歴史的な崖下り急落に沈みます。';
+      }
+    }
+
+    function loadPreset(key) {
+      document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const p = presets[key];
+      covInput.value = p.cov;
+      covShareInput.value = p.covShare;
+      uncShareInput.value = p.uncShare;
+      markupInput.value = p.markup;
+
+      calculate();
+    }
+
+    [covInput, covShareInput, uncShareInput, markupInput].forEach(el => {
+      el.addEventListener('input', calculate);
+    });
+
+    document.addEventListener('DOMContentLoaded', calculate);
+  </script>
+</body>
+</html>
